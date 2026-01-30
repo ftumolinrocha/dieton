@@ -28,20 +28,18 @@ try {
 } catch {
   // fallback mantém 0.0.0
 }
-// DATA_ROOT: raiz de dados graváveis.
-// - Local: usa a própria pasta do projeto (__dirname)
-// - Render/online (Free): por padrão usa /tmp (filesystem gravável, mas NÃO persistente)
-// - Persistência real: defina DATA_ROOT para um disco persistente (ex.: /var/data)
-const IS_RENDER = !!(
-  process.env.RENDER ||
-  process.env.RENDER_SERVICE_ID ||
-  process.env.RENDER_INTERNAL_HOSTNAME ||
-  process.env.RENDER_EXTERNAL_URL
-);
-const DEFAULT_DATA_ROOT = IS_RENDER ? "/tmp/dieton-data" : __dirname;
-const DATA_ROOT = process.env.DATA_ROOT ? path.resolve(process.env.DATA_ROOT) : DEFAULT_DATA_ROOT;
-const CORE_PATH = process.env.CORE_PATH ? path.resolve(process.env.CORE_PATH) : path.join(DATA_ROOT, "data", "marmitaria.json");
-const BD_DIR = process.env.BD_DIR ? path.resolve(process.env.BD_DIR) : path.join(DATA_ROOT, "bd");
+// -------------------- Persistência (online) --------------------
+// Em hospedagens como Render, o filesystem do código pode ser efêmero e/ou restrito.
+// Para evitar crash ao gravar JSONs, permita apontar a pasta de dados via DATA_ROOT.
+// - Local: usa a pasta do projeto (default)
+// - Render: usa /tmp/dieton-data (gravável) caso DATA_ROOT não seja definido
+const IS_RENDER = !!process.env.RENDER || !!process.env.RENDER_SERVICE_ID || !!process.env.RENDER_EXTERNAL_URL;
+const DATA_ROOT = process.env.DATA_ROOT
+  ? path.resolve(process.env.DATA_ROOT)
+  : (IS_RENDER ? "/tmp/dieton-data" : __dirname);
+
+const CORE_PATH = path.join(DATA_ROOT, "data", "marmitaria.json");
+const BD_DIR = path.join(DATA_ROOT, "bd");
 // MRP agora fica dentro de /bd para facilitar backup/restauração do "BD"
 const BD_MRP_PATH = path.join(BD_DIR, "mrp.json");
 const BD_RAW_PATH = path.join(BD_DIR, "estoque_mp.json");
@@ -220,25 +218,15 @@ app.get("/api/build", (req, res) => {
   res.json({ ok: true, build: BUILD, at: new Date().toISOString() });
 });
 
-// Render/HTTPS proxy: necessário para req.secure funcionar atrás do proxy e para cookies "secure" funcionarem.
-const IS_PROD = String(process.env.NODE_ENV || "").toLowerCase() === "production";
-if (IS_PROD) app.set("trust proxy", 1);
-
 app.use(
   session({
-    name: "dieton.sid",
     secret: process.env.SESSION_SECRET || "marmitaria-local-dev-secret",
     resave: false,
     saveUninitialized: false,
-    proxy: IS_PROD,
-    cookie: {
-      httpOnly: true,
-      sameSite: "lax",
-      secure: IS_PROD,
-      maxAge: 1000 * 60 * 60 * 24 * 7, // 7 dias
-    },
+    cookie: { httpOnly: true, sameSite: "lax" },
   })
 );
+
 app.use(express.static(path.join(__dirname, "public")));
 
 // Fotos do PF (marmitas): servidas a partir de /bd/photos
@@ -4531,13 +4519,12 @@ app.get("/api/costing/recipe/:id", requireAuth, requirePerm("costs"), async (req
 });
 
 
-app.listen(PORT, "0.0.0.0", async () => {
+app.listen(PORT, async () => {
   await ensureDB();
-  const publicUrl = process.env.RENDER_EXTERNAL_URL || process.env.PUBLIC_URL || "";
-  console.log(`✅ dietON MRP rodando na porta ${PORT} (BUILD ${BUILD})`);
-  if (publicUrl) console.log(`🌐 URL pública: ${publicUrl}`);
+  console.log(`✅ dietON MRP rodando em http://localhost:${PORT} (BUILD ${BUILD})`);
   console.log(`🔐 Login padrão: Felipe  |  Senha padrão: Mestre`);
 });
+
 // Fallback: serve SPA
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
