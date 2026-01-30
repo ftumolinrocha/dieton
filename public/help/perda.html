@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DietON • Informativo de Perdas de MP</title>
+  <style>
+    :root{
+      --green:#105028;   /* do logo */
+      --orange:#F09828;  /* do logo */
+      --bg:#f6f8f6;
+      --card:#ffffff;
+      --text:#0f1a12;
+      --muted:#5a6b5f;
+      --line:rgba(16,80,40,.14);
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(240,152,40,.14), transparent 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(16,80,40,.14), transparent 55%),
+        var(--bg);
+    }
+    a{color:inherit}
+    .wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 60px;
+    }
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom: 18px;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width: 240px;
+    }
+    .logo img{
+      height: 66px;
+      width:auto;
+      display:block;
+      object-fit:contain;
+      border-radius: 10px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(16,80,40,.08);
+      border: 1px solid rgba(16,80,40,.16);
+      color: var(--green);
+      font-weight: 650;
+      letter-spacing: .2px;
+      white-space: nowrap;
+    }
+    .badge .dot{
+      width:10px;height:10px;border-radius:99px;background: var(--orange);
+      box-shadow: 0 0 0 4px rgba(240,152,40,.20);
+    }
+
+    .hero{
+      background: linear-gradient(135deg, rgba(16,80,40,.10), rgba(240,152,40,.10));
+      border: 1px solid rgba(16,80,40,.15);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px 20px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+    .hero h1{
+      margin:0 0 6px;
+      font-size: clamp(20px, 2.2vw, 28px);
+      letter-spacing: .2px;
+    }
+    .hero p{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+      align-content:start;
+    }
+    .kpi{
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(16,80,40,.14);
+      border-radius: var(--radius-sm);
+      padding: 12px 12px;
+    }
+    .kpi .label{
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .pill{
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(240,152,40,.14);
+      border: 1px solid rgba(240,152,40,.22);
+      color: #7a4700;
+      font-weight: 650;
+    }
+    .kpi .value{
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--green);
+      letter-spacing: .2px;
+    }
+    .kpi .sub{
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .card{
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid rgba(16,80,40,.14);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card .hd{
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      background:
+        linear-gradient(90deg, rgba(16,80,40,.06), rgba(240,152,40,.06));
+    }
+    .card .hd h2{
+      margin:0;
+      font-size: 16px;
+      letter-spacing: .2px;
+    }
+    .card .hd small{
+      color: var(--muted);
+      display:block;
+      margin-top: 3px;
+      line-height: 1.35;
+    }
+    .card .bd{padding: 14px 16px}
+    .callout{
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(240,152,40,.28);
+      background: rgba(240,152,40,.10);
+      padding: 12px 12px;
+      color: #553200;
+      line-height: 1.45;
+    }
+    .callout strong{color:#3b2400}
+    .two{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .tableWrap{
+      width:100%;
+      overflow:auto;
+      border-radius: 14px;
+      border: 1px solid rgba(16,80,40,.14);
+    }
+    table{
+      width:100%;
+      border-collapse: collapse;
+      min-width: 860px;
+      background: white;
+    }
+    thead th{
+      text-align:left;
+      font-size: 12px;
+      letter-spacing: .35px;
+      text-transform: uppercase;
+      color: var(--green);
+      background: rgba(16,80,40,.06);
+      border-bottom: 1px solid rgba(16,80,40,.14);
+      padding: 12px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    tbody td{
+      padding: 12px 12px;
+      border-bottom: 1px solid rgba(16,80,40,.10);
+      vertical-align: top;
+      color: #1b2b20;
+      line-height: 1.35;
+      font-size: 14px;
+    }
+    tbody tr:hover td{background: rgba(16,80,40,.03)}
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-weight: 700;
+    }
+    .tag::before{
+      content:"";
+      width:8px;height:8px;border-radius:99px;background: var(--orange);
+      box-shadow: 0 0 0 3px rgba(240,152,40,.18);
+    }
+    code, pre{
+      font-family: var(--mono);
+    }
+    .formula{
+      background: #0c1d12;
+      color:#e8f5ee;
+      border-radius: 14px;
+      padding: 12px 12px;
+      overflow:auto;
+      border: 1px solid rgba(240,152,40,.22);
+    }
+    .formula b{color: #ffd8a5}
+    .footer{
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+      text-align:center;
+    }
+
+    @media (max-width: 860px){
+      .hero{grid-template-columns: 1fr}
+      .kpis{grid-template-columns: 1fr 1fr}
+      .top{flex-direction:column; align-items:flex-start}
+      .logo{min-width:unset}
+      .two{grid-template-columns:1fr}
+      table{min-width: 760px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- HEADER -->
+    <div class="top">
+      <div class="logo">
+        <!-- Troque o src pelo caminho correto no seu app/WebView -->
+        <img src="DietON Logo.png" alt="DietON — Dieta fácil do jeito certo" />
+      </div>
+      <div class="badge" aria-label="Informativo de perdas de matéria-prima">
+        <span class="dot" aria-hidden="true"></span>
+        Informativo • Perdas de MP & Rendimentos
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" role="region" aria-label="Resumo">
+      <div>
+        <h1>Perdas de matéria-prima (MP) e rendimento de preparo</h1>
+        <p>
+          Use este guia para <b>padronizar perdas</b> (limpeza/seleção/descascamento) e,
+          quando necessário, <b>rendimento de cocção</b> (arroz, macarrão etc.).
+          Para sua operação: <b>frango sem osso</b> + <b>carne já limpa</b> + <b>hortifruti mediano</b>.
+        </p>
+      </div>
+
+      <div class="kpis" aria-label="Indicadores recomendados">
+        <div class="kpi">
+          <div class="label">Perda geral sugerida <span class="pill">início</span></div>
+          <div class="value">6%–8%</div>
+          <div class="sub">Número único prático para precificar. Se quiser: use <b>7%</b>.</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Carnes já limpas</div>
+          <div class="value">1%–3%</div>
+          <div class="sub">Aparas/manuseio/porcionamento.</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Hortifruti mediano</div>
+          <div class="value">10%–18%</div>
+          <div class="sub">Varia por item (folhas e cabotiá tendem a subir).</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Secos/industrializados</div>
+          <div class="value">0%–2%</div>
+          <div class="sub">Quebra e manuseio (pães e conservas inclusos).</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid">
+
+      <!-- COMO CALCULAR -->
+      <section class="card" role="region" aria-label="Como calcular">
+        <div class="hd">
+          <div>
+            <h2>Como calcular (rápido e confiável)</h2>
+            <small>Se puder, meça seus 10 itens mais usados e troque as estimativas pelo seu número real.</small>
+          </div>
+        </div>
+        <div class="bd">
+          <div class="two">
+            <div class="callout">
+              <span class="tag">Perda de limpeza (MP)</span><br/>
+              <strong>Perda %</strong> = (Peso bruto − Peso líquido) / Peso bruto<br/>
+              Ex.: 10 kg batata → 7,8 kg após descascar → perda <strong>22%</strong>.
+            </div>
+            <div class="callout">
+              <span class="tag">Fator de correção (para custo)</span><br/>
+              Ajuda a “puxar” o custo do item que perde mais, sem inflar o cardápio todo.
+            </div>
+          </div>
+
+          <pre class="formula"><code><b>Fator de correção</b> = 1 / (1 - perda)
+
+Exemplos:
+• perda 25%  → fator 1 / 0,75  = 1,33
+• perda 40%  → fator 1 / 0,60  = 1,67
+• perda 10%  → fator 1 / 0,90  = 1,11</code></pre>
+        </div>
+      </section>
+
+      <!-- TABELA 1: SECO / COZIDOS / RAÍZES -->
+      <section class="card" role="region" aria-label="Tabela de perdas e rendimentos - básicos">
+        <div class="hd">
+          <div>
+            <h2>Itens básicos: industrializados, cozidos e raízes</h2>
+            <small>Para arroz/macarrão/cuscuz, o mais importante é o <b>rendimento de cocção</b>.</small>
+          </div>
+        </div>
+        <div class="bd">
+          <div class="tableWrap" role="region" aria-label="Tabela 1">
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Perda típica (MP)</th>
+                  <th>Rendimento de cocção (quando aplicável)</th>
+                  <th>Observações rápidas</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pão de forma (tipo Pullman)</td>
+                  <td>0%–2%</td>
+                  <td>—</td>
+                  <td>Quebra/ressecamento (perda operacional).</td>
+                </tr>
+                <tr>
+                  <td>Milho para pipoca (grão)</td>
+                  <td>0%–1%</td>
+                  <td>—</td>
+                  <td>Quase sem perda (armazenagem e manuseio).</td>
+                </tr>
+                <tr>
+                  <td>Tapioca de goma</td>
+                  <td>0%–1%</td>
+                  <td>—</td>
+                  <td>Perda mínima.</td>
+                </tr>
+                <tr>
+                  <td>Aveia em flocos</td>
+                  <td>0%–1%</td>
+                  <td>—</td>
+                  <td>Perda mínima.</td>
+                </tr>
+                <tr>
+                  <td>Pão francês</td>
+                  <td>0%–2%</td>
+                  <td>—</td>
+                  <td>Se houver descarte de sobra do dia, vira “perda comercial” (pode ser maior).</td>
+                </tr>
+                <tr>
+                  <td>Rap10 Tradicional</td>
+                  <td>0%–2%</td>
+                  <td>—</td>
+                  <td>Quebra/manuseio.</td>
+                </tr>
+                <tr>
+                  <td>Macarrão (cozido)</td>
+                  <td>0%</td>
+                  <td>2,2×–2,8×</td>
+                  <td>100 g cru → ~220–280 g cozido.</td>
+                </tr>
+                <tr>
+                  <td>Macarrão de arroz (cozido)</td>
+                  <td>0%</td>
+                  <td>2,0×–2,6×</td>
+                  <td>Varia por marca e ponto de cocção.</td>
+                </tr>
+                <tr>
+                  <td>Arroz branco (cozido)</td>
+                  <td>0%</td>
+                  <td>2,7×–3,2×</td>
+                  <td>Controle por “peso cozido” para porcionar.</td>
+                </tr>
+                <tr>
+                  <td>Arroz integral (cozido)</td>
+                  <td>0%</td>
+                  <td>2,4×–3,0×</td>
+                  <td>Geralmente rende um pouco menos que o branco.</td>
+                </tr>
+                <tr>
+                  <td>Cuscuz (flocão, cozido)</td>
+                  <td>0%</td>
+                  <td>2,0×–2,5×</td>
+                  <td>Rendimento depende do nível de hidratação.</td>
+                </tr>
+                <tr>
+                  <td>Milho verde (grão – lata/sachê/congelado)</td>
+                  <td>0%–2%</td>
+                  <td>~1,0×</td>
+                  <td>Perda por escorrer e manuseio.</td>
+                </tr>
+                <tr>
+                  <td>Milho verde (espiga)</td>
+                  <td>35%–55%</td>
+                  <td>—</td>
+                  <td>Palha + sabugo + seleção.</td>
+                </tr>
+                <tr>
+                  <td>Mandioca (in natura)</td>
+                  <td>20%–35%</td>
+                  <td>—</td>
+                  <td>Casca/fibra/pontas (se já descascada, a perda cai bastante).</td>
+                </tr>
+                <tr>
+                  <td>Mandioquinha / Batata baroa (in natura)</td>
+                  <td>20%–35%</td>
+                  <td>—</td>
+                  <td>Descascamento e aparas.</td>
+                </tr>
+                <tr>
+                  <td>Batata-doce (in natura)</td>
+                  <td>10%–18%</td>
+                  <td>—</td>
+                  <td>Descascamento leve (se usar com casca, reduz perda).</td>
+                </tr>
+                <tr>
+                  <td>Batata inglesa (in natura)</td>
+                  <td>15%–25%</td>
+                  <td>—</td>
+                  <td>Casca + partes verdes/olhos.</td>
+                </tr>
+                <tr>
+                  <td>Abóbora cabotiá (in natura)</td>
+                  <td>35%–50%</td>
+                  <td>—</td>
+                  <td>Casca grossa + sementes + miolo.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TABELA 2: HORTIFRUTI -->
+      <section class="card" role="region" aria-label="Tabela de perdas e rendimentos - hortifruti">
+        <div class="hd">
+          <div>
+            <h2>Hortifruti: folhas, verduras e legumes</h2>
+            <small>Perda = seleção + limpeza + talos/miolo/casca + descarte de partes danificadas.</small>
+          </div>
+        </div>
+
+        <div class="bd">
+          <div class="callout" style="margin-bottom:12px">
+            <strong>Padrão simples (quando não quiser item a item):</strong><br/>
+            Folhas <b>25%</b> • Brócolis/Couve-flor <b>40%</b> • Legumes “limpos” <b>10%</b> • Cebola <b>15%</b> • Pimentão <b>20%</b>
+          </div>
+
+          <div class="tableWrap" role="region" aria-label="Tabela 2">
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Perda típica (MP)</th>
+                  <th>Grupo</th>
+                  <th>Observações rápidas</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Alface (lisa)</td><td>15%–30%</td><td>Folhas</td><td>Folhas externas e seleção.</td></tr>
+                <tr><td>Alface americana</td><td>20%–40%</td><td>Folhas</td><td>Miolo e folhas externas pesam mais.</td></tr>
+                <tr><td>Rúcula</td><td>15%–30%</td><td>Folhas</td><td>Seleção e talinhos.</td></tr>
+                <tr><td>Agrião</td><td>25%–45%</td><td>Folhas</td><td>Muito talo/seleção, varia bastante.</td></tr>
+                <tr><td>Escarola</td><td>20%–35%</td><td>Folhas</td><td>Folhas externas e base.</td></tr>
+                <tr><td>Chicória</td><td>20%–35%</td><td>Folhas</td><td>Base e folhas externas.</td></tr>
+                <tr><td>Espinafre</td><td>15%–35%</td><td>Folhas</td><td>Dependente de talo e qualidade.</td></tr>
+                <tr><td>Couve-manteiga</td><td>10%–25%</td><td>Folhas</td><td>Talo central e folhas ruins.</td></tr>
+                <tr><td>Taioba</td><td>15%–30%</td><td>Folhas</td><td>Seleção e talos.</td></tr>
+                <tr><td>Repolho</td><td>10%–20%</td><td>Verduras</td><td>Folhas externas + miolo duro.</td></tr>
+                <tr><td>Brócolis</td><td>25%–45%</td><td>Verduras</td><td>Talos grossos e folhas.</td></tr>
+                <tr><td>Couve-flor</td><td>30%–50%</td><td>Verduras</td><td>Folhas + talo central.</td></tr>
+
+                <tr><td>Abobrinha</td><td>5%–12%</td><td>Legumes</td><td>Corte de pontas e seleção.</td></tr>
+                <tr><td>Quiabo</td><td>5%–12%</td><td>Legumes</td><td>Pontas + seleção.</td></tr>
+                <tr><td>Jiló</td><td>5%–12%</td><td>Legumes</td><td>Seleção e corte de pontas.</td></tr>
+                <tr><td>Pimentão</td><td>12%–25%</td><td>Legumes</td><td>Sementes + miolo + pontas.</td></tr>
+                <tr><td>Pepino</td><td>5%–12%</td><td>Legumes</td><td>Se descascar, tende a subir um pouco.</td></tr>
+                <tr><td>Cebola</td><td>10%–20%</td><td>Legumes</td><td>Casca + “coroa” + pontas.</td></tr>
+
+                <tr><td>Palmito (vidro/lata)</td><td>0%–5%</td><td>Conserva</td><td>Perda por corte e ajuste de porção.</td></tr>
+                <tr><td>Alcaparras (conserva)</td><td>0%–2%</td><td>Conserva</td><td>Escorrer e manuseio.</td></tr>
+
+                <tr><td>Aspargo</td><td>10%–25%</td><td>Legumes</td><td>Parte dura da base (pode ser maior se muito fibroso).</td></tr>
+
+                <tr><td>Alcachofra (inteira in natura)</td><td>50%–70%</td><td>Especial</td><td>Muita folha e descarte; “coração” rende pouco.</td></tr>
+                <tr><td>Alcachofra (coração – conserva/congelado)</td><td>0%–5%</td><td>Especial</td><td>Quase sem perda.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- COGUMELOS -->
+      <section class="card" role="region" aria-label="Cogumelos">
+        <div class="hd">
+          <div>
+            <h2>Cogumelos: perdas típicas (frescos)</h2>
+            <small>Perda = corte de base/pé, limpeza e seleção de partes machucadas.</small>
+          </div>
+        </div>
+        <div class="bd">
+          <div class="tableWrap" role="region" aria-label="Tabela 3">
+            <table style="min-width:720px">
+              <thead>
+                <tr>
+                  <th>Tipo</th>
+                  <th>Perda típica (MP)</th>
+                  <th>Recomendação “número único”</th>
+                  <th>Observações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Champignon (comum / Paris)</td>
+                  <td>2%–8%</td>
+                  <td><b>5%</b></td>
+                  <td>Corte do “pé” ressecado e limpeza leve.</td>
+                </tr>
+                <tr>
+                  <td>Shiitake</td>
+                  <td>5%–15%</td>
+                  <td><b>10%</b></td>
+                  <td>Talo costuma ser mais duro (muitos retiram).</td>
+                </tr>
+                <tr>
+                  <td>Shimeji (branco ou preto)</td>
+                  <td>8%–18%</td>
+                  <td><b>12%</b></td>
+                  <td>Remoção do “toco” da base e separação dos buquês.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout" style="margin-top:12px">
+            <strong>Se comprar já fatiado / bem limpo:</strong> costuma reduzir 2–4 pontos (ex.: champignon ~3%, shiitake ~7%, shimeji ~10%).
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="footer">
+      Dica operacional: registre “peso bruto” e “peso líquido” de 1 a 3 lotes por semana dos itens que mais usa.
+      Em 30 dias você fecha seus percentuais reais e melhora margem sem aumentar preço “no chute”.
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>dietON - Dieta Fácil do Jeito Certo • Produção / Estoque / MRP</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="topbar" id="topbar">
+    <div class="topbar-left"></div>
+    <div class="brand">
+      <img class="logo" src="/logo.png" alt="Logotipo" onerror="this.style.display='none';" />
+      <div>
+        <div class="brand-title">dietON - Dieta Fácil do Jeito Certo</div>
+        <div class="brand-subtitle">Controle de Estoque & MRP (local)</div>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <div id="buildBadge" class="build-badge"></div>
+      <div id="userBadge" class="user-badge hidden"></div>
+      <button id="btnLogout" class="btn secondary hidden">Sair</button>
+    </div>
+  </div>
+
+  <main class="container">
+    <!-- LOGIN -->
+    <section id="loginView" class="card">
+      <div class="login-hero">
+        <img class="login-logo" src="/logo.png" alt="DietON" />
+        <div class="login-title">LOGIN</div>
+        
+      </div>
+      <h1>Entrar</h1>
+      <p class="muted">Acesso local (MVP). Entre com seu usuário e senha</p>
+
+      <form id="loginForm" class="form">
+        <label>
+          Usuário
+          <input name="userId" autocomplete="username" required placeholder="admin" />
+        </label>
+        <label>
+          Senha
+          <input name="password" type="password" autocomplete="current-password" required placeholder="admin123" />
+        </label>
+        <button class="btn primary" type="submit">Entrar</button>
+        <div id="loginError" class="error hidden"></div>
+      </form>
+    </section>
+
+    <!-- APP -->
+    <section id="appView" class="hidden">
+      <div class="tabs">
+        <button class="tab active" data-tab="estoque">Estoque</button>
+        <button class="tab" data-tab="mrp">MRP • Receitas</button>
+        <button class="tab" data-tab="custos">Custos</button>
+        <button class="tab" data-tab="compras">Ordens de Compra</button>
+        <button class="tab" data-tab="ops">Ordens de Produção</button>
+        <button class="tab" data-tab="vendas">Pedidos de Venda</button>
+        <button class="tab" data-tab="usuarios">Usuários</button>
+      </div>
+
+      <section id="tab-estoque" class="tabpanel card">
+  <div class="estoque-head">
+    <h2>Controle de estoque de Matéria Prima e Produto Final</h2>
+    <div class="stock-mode center">
+      <button id="stockModeRaw" class="pill-toggle active" type="button">Cadastro de Matéria Prima & Insumos</button>
+      <button id="stockModeFg" class="pill-toggle" type="button">Cadastro de Produto Final</button>
+      <button id="stockModeAll" class="pill-toggle pill-action" type="button">Cadastro Geral</button>
+      <button id="stockAdjustRaw" class="pill-toggle pill-action" type="button">Ajuste Inventário MP</button>
+      <button id="stockAdjustFg" class="pill-toggle pill-action" type="button">Ajuste Inventário PF</button>
+      <button id="stockInvHistory" class="pill-toggle pill-action" type="button">Histórico de Inventário</button>
+    </div>
+  
+
+  <!-- Estoque mínimo: alertas + ações (OC/OP) -->
+  <div class="card" id="minStockBox" style="margin:12px 0; border:1px solid rgba(245,158,11,.35); background: rgba(245,158,11,.08);">
+    <div class="row between wrap" style="align-items:center; gap:12px">
+      <div>
+        <div style="font-weight:700">⚠️ Estoque mínimo</div>
+        <div class="muted small" id="minStockMsg">Carregando status de estoque mínimo...</div>
+      </div>
+      <div class="row wrap" style="gap:10px">
+        <button id="btnGenOcMin" class="btn secondary" type="button" disabled>Gerar OC de estoque mínimo</button>
+        <button id="btnGenOpMin" class="btn secondary" type="button" disabled>Gerar OP de estoque mínimo</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card" style="margin:12px 0; border:1px solid #f3c7c7;">
+    <div class="row between" style="align-items:center; gap:12px">
+      <div>
+        <div style="font-weight:700">⚠️ Reset TOTAL</div>
+        <div class="muted small">Apaga <b>OP/OC + Lotes + PV/PVR + Pontos + movimentos relacionados</b> (devolve o estoque removendo esses movimentos). <b>NÃO</b> mexe em MP/PF/BOM. Exige reauth.</div>
+      </div>
+      <button id="btnResetTotal" class="btn danger" type="button">Reset TOTAL</button>
+    </div>
+  </div>
+</div>
+
+  <div id="estoqueCadastro" class="estoque-cadastro hidden">
+    <div class="cadastro-card">
+      <div class="cadastro-top">
+        <div>
+          <div class="cadastro-title" id="cadastroTitle">Cadastro • Matéria Prima & Insumos</div>
+          <div class="cadastro-sub" id="cadastroSub">Código automático: <b id="cadastroCodeHint">MP001</b></div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <input id="cadastroSearch" class="input" placeholder="Pesquisar..." />
+        </div>
+        <div class="toolbar-right">
+          <button id="btnImport" class="btn secondary small">Importar</button>
+          <button id="btnExport" class="btn secondary small">Exportar</button>
+          <span class="sep"></span>
+          <button id="btnCadNew" class="btn primary small">+ Novo</button>
+          <button id="btnCadEdit" class="btn secondary small">Editar</button>
+          <button id="btnCadDup" class="btn secondary small">Duplicar</button>
+          <button id="btnCadDel" class="btn danger small">Excluir</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table cadastro-table" id="cadastroTable">
+          <thead>
+            <tr id="cadastroTheadRow">
+              <th style="width:110px">CÓDIGO</th>
+              <th>DESCRIÇÃO</th>
+              <th style="width:70px">UN</th>
+              <th style="width:110px" id="cadastroPriceTh">CUSTO (R$)</th>
+              <th style="width:90px" id="cadastroMidTh">% PERDA</th>
+              <th style="width:80px" id="cadastroFcTh">FC</th>
+              <th style="width:140px">ESTOQUE MÍNIMO</th>
+            </tr>
+          </thead>
+          <tbody id="cadastroTbody">
+            <tr><td colspan="7" class="muted">Nenhum item cadastrado.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="muted small" style="margin-top:10px">
+        Dica: clique em uma linha para selecionar. Editar/Duplicar/Excluir usam o item selecionado.
+      </div>
+    </div>
+  </div>
+
+  <!-- CADASTRO GERAL (MP + PF) - mesma área (sem modal) -->
+  <div id="estoqueCadastroGeneral" class="estoque-cadastro hidden">
+    <div class="cadastro-card">
+      <div class="cadastro-top">
+        <div>
+          <div class="cadastro-title" id="generalTitle">Cadastro Geral</div>
+          <div class="cadastro-sub" id="generalSub">MP + PF (somando as duas bases). Ordenação padrão: Código (MP → PF).</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <input id="generalSearchInline" class="input" placeholder="Pesquisar..." />
+        </div>
+        <div class="toolbar-right">
+          <button id="btnGeneralImport" class="btn secondary small">Importar</button>
+          <button id="btnGeneralExport" class="btn secondary small">Exportar</button>
+          <span class="sep"></span>
+          <button id="btnGeneralEdit" class="btn secondary small" disabled>Editar cadastro</button>
+          <button id="btnGeneralInv" class="btn secondary small" disabled>Alterar inventário</button>
+          <button id="btnGeneralRecipe" class="btn secondary small" disabled>Receita</button>
+        </div>
+      </div>
+
+      <div class="table-wrap general-wrap">
+        <table class="table cadastro-table" id="generalTableInline">
+          <thead>
+            <tr>
+                            <th class="sortable" data-key="code" style="width:58px">COD <span class="sort-ind" id="gSort_code"></span></th>
+              <th class="sortable" data-key="name" style="width:610px">DESCRIÇÃO <span class="sort-ind" id="gSort_name"></span></th>
+              <th class="sortable" data-key="unit" style="width:42px">UN <span class="sort-ind" id="gSort_unit"></span></th>
+              <th class="sortable" data-key="cost" style="width:80px">CUSTO<br>(R$) <span class="sort-ind" id="gSort_cost"></span></th>
+              <th class="sortable" data-key="salePrice" style="width:80px">V.VENDA<br>(R$) <span class="sort-ind" id="gSort_salePrice"></span></th>
+              <th class="sortable" data-key="lossPercent" style="width:56px">% PERDA <span class="sort-ind" id="gSort_lossPercent"></span></th>
+              <th class="sortable" data-key="cookFactor" style="width:44px">FC <span class="sort-ind" id="gSort_cookFactor"></span></th>
+              <th class="sortable" data-key="minStock" style="width:80px">EST. MÍN <span class="sort-ind" id="gSort_minStock"></span></th>
+              <th class="sortable" data-key="currentStock" style="width:80px">EST. ATUAL <span class="sort-ind" id="gSort_currentStock"></span></th>
+            </tr>
+          </thead>
+          <tbody id="generalTbodyInline">
+            <tr><td colspan="9" class="muted">Carregando...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="muted small" style="margin-top:10px">
+        Dica: clique em uma linha para selecionar. Use os botões acima para Editar / Inventário / Receita.
+      </div>
+    </div>
+  </div>
+
+  <!-- HISTÓRICO DE INVENTÁRIO (ajustes) -->
+  <div id="estoqueInventoryHistory" class="estoque-cadastro hidden">
+    <div class="cadastro-card">
+      <div class="cadastro-top">
+        <div>
+          <div class="cadastro-title">Histórico de Inventário</div>
+          <div class="cadastro-sub">Registros de ajustes manuais (quando, por quem e observações).</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <input id="invHistSearch" class="input" placeholder="Pesquisar (código, descrição, usuário...)" />
+        </div>
+        <div class="toolbar-right">
+          <button id="btnInvHistClear" class="btn danger small">Limpar inventário</button>
+          <button id="btnInvHistExport" class="btn secondary small">Exportar</button>
+        </div>
+      </div>
+
+      <div class="table-wrap invhist-wrap">
+        <table class="table cadastro-table" id="invHistTable">
+          <thead>
+            <tr>
+              <th class="sortable" data-key="at" style="width:150px">DATA/HORA <span class="sort-ind" id="hSort_at"></span></th>
+              <th class="sortable" data-key="stockType" style="width:42px">TIPO <span class="sort-ind" id="hSort_stockType"></span></th>
+              <th class="sortable" data-key="code" style="width:58px">COD <span class="sort-ind" id="hSort_code"></span></th>
+              <th class="sortable" data-key="name" style="width:520px">DESCRIÇÃO <span class="sort-ind" id="hSort_name"></span></th>
+              <th class="sortable" data-key="unit" style="width:42px">UN <span class="sort-ind" id="hSort_unit"></span></th>
+              <th class="sortable" data-key="beforeQty" style="width:80px">ANTES <span class="sort-ind" id="hSort_beforeQty"></span></th>
+              <th class="sortable" data-key="afterQty" style="width:80px">DEPOIS <span class="sort-ind" id="hSort_afterQty"></span></th>
+              <th class="sortable" data-key="delta" style="width:70px">DIF <span class="sort-ind" id="hSort_delta"></span></th>
+              <th class="sortable" data-key="byName" style="width:110px">POR <span class="sort-ind" id="hSort_byName"></span></th>
+              <th class="sortable" data-key="reason" style="width:90px">OBS <span class="sort-ind" id="hSort_reason"></span></th>
+            </tr>
+          </thead>
+          <tbody id="invHistTbody">
+            <tr><td colspan="9" class="muted">Carregando...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="muted small" style="margin-top:10px">
+        Dica: ajustes de inventário são do tipo “Ajuste” (estoque absoluto). Entradas/saídas continuam sendo movimentos.
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section id="tab-mrp" class="tabpanel card hidden">
+        <!-- Cabeçalho da lista de BOM (tela principal) -->
+        <div id="mrpHeaderList" class="row between wrap">
+          <div>
+            <h2>MRP • BOM (Produto Final)</h2>
+            <p class="muted">Selecione um Produto Final (PF) e cadastre o BOM (lista de matérias-primas/insumos) dele.</p>
+          </div>
+          <div class="row wrap">
+            <button id="btnSimulateFocus" class="btn secondary">Simular produção</button>
+          </div>
+        </div>
+
+        <!-- Cabeçalho da simulação (tela separada) -->
+        <div id="mrpHeaderSim" class="row between wrap hidden">
+          <div>
+            <h2>MRP • Simulação de produção</h2>
+            <p class="muted">Selecione os Produtos Finais (PF) com BOM, informe a quantidade de cada um e gere OP/OC.</p>
+          </div>
+          <div class="row wrap">
+            <button id="btnMrpBackToListTop" class="btn secondary">← Voltar</button>
+          </div>
+        </div>
+
+        <!-- View 1: Lista de PF + preview (sem simulação aqui) -->
+        <div id="mrpListView">
+          <div class="mrp-flex">
+            <div class="mrp-panel mrp-left">
+              <h3>Produtos Finais</h3>
+
+              <div class="mrp-split">
+                <div class="mrp-split-left">
+                  <div class="table-wrap mrp-table-scroll">
+                    <table class="table" id="pfBomTable">
+                      <thead>
+                        <tr>
+                          <th style="width:60px">COD</th>
+                          <th>Descrição</th>
+                          <th style="width:70px; text-align:center">UN</th>
+                          <th style="width:110px; text-align:center">BOM</th>
+                          <th style="width:120px; text-align:center"></th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                  </div>
+
+                  <div class="muted small" style="margin-top:8px;">
+                    Dica: selecione um PF para ver a foto/preview. Para calcular necessidades e gerar OP/OC, use “Simular produção”.
+                  </div>
+                </div>
+
+                <div class="mrp-split-right">
+                  <div id="pfPreviewBox" class="simulate-box muted">Selecione um Produto Final (PF) para ver o preview.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View 2: Tela de simulação (calcular necessidades + OP/OC) -->
+        <div id="mrpSimView" class="hidden">
+          <div id="mrpSimulateBox" class="simulate-box muted" style="margin-top:12px;">Selecione um Produto Final (PF) e clique em “Simular produção”.</div>
+        </div>
+      </section>
+
+
+
+      
+      <section id="tab-custos" class="tabpanel card hidden">
+        <div class="row between wrap">
+          <div>
+            <h2>Custos • Produto Final</h2>
+            <p class="muted">Calcule o custo por marmita (PF) com base no BOM (MP) + perdas. Usa o custo (R$) cadastrado em cada Matéria-Prima.</p>
+          </div>
+          <div class="row wrap">
+            <button id="btnCostPrint" class="btn secondary">Imprimir</button>
+          </div>
+        </div>
+
+        <div class="row wrap" style="margin-top:10px">
+          <div style="min-width:320px;flex:1">
+            <label class="label" for="costRecipeSelect">Produto Final (receita)</label>
+            <select id="costRecipeSelect" name="costRecipeSelect" class="input"></select>
+          </div>
+          <div style="min-width:160px">
+            <label class="label" for="costQty">Quantidade</label>
+            <input id="costQty" name="costQty" class="input" type="number" min="0.001" step="0.001" value="1" />
+          </div>
+          <div class="row wrap" style="align-items:flex-end">
+            <button id="btnCostCalc" class="btn primary">Calcular</button>
+          </div>
+        </div>
+
+        <div id="costSummary" class="card" style="margin-top:12px;padding:12px"></div>
+
+        <div class="table-wrap" style="margin-top:12px">
+          <table class="table" id="costTable">
+            <thead>
+              <tr>
+                <th>MP</th>
+                <th>Descrição</th>
+                <th class="right">Qtd</th>
+                <th>UN</th>
+                <th class="right">Custo UN</th>
+                <th class="right">Custo</th>
+                <th class="right">% </th>
+              </tr>
+            </thead>
+            <tbody id="costTbody"></tbody>
+          </table>
+        </div>
+        <div id="costWarn" class="muted" style="margin-top:8px"></div>
+      </section>
+
+<section id="tab-compras" class="tabpanel card hidden">
+        <div class="row between wrap">
+          <div>
+            <h2>Ordens de Compra</h2>
+            <p class="muted">Geradas automaticamente quando falta estoque para uma OP, ou criadas manualmente.</p>
+          </div>
+          <div class="row wrap">
+            <button id="btnNewPO" class="btn primary">+ Nova Ordem de Compra</button>
+            <button id="btnPOArchived" class="btn secondary">Arquivadas</button>
+            <button id="btnDeletePOSelected" class="btn secondary">Excluir selecionadas</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="table" id="poTable">
+            <thead>
+              <tr>
+                <th style="width:34px; text-align:center"><input id="poSelectAll" type="checkbox" /></th>
+                <th>Data</th>
+                <th style="width:90px">OC</th>
+                <th>Status</th>
+                <th>Observação</th>
+                <th>Itens</th>
+                <th style="width:240px; text-align:center">Ações</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+
+      <section id="tab-ops" class="tabpanel card hidden">
+        <div class="row between wrap">
+          <div>
+            <h2>Ordens de Produção</h2>
+            <p class="muted">Quando você cria uma OP, ela fica <b>Emitida</b>. Ao mudar para <b>Em produção</b>, o sistema dá <b>baixa</b> no estoque (com aviso). Ao mudar para <b>Encerrada</b>, o sistema dá <b>entrada</b> do Produto Final no estoque.</p>
+          </div>
+          <div class="row wrap">
+            <button id="btnNewOP" class="btn primary">+ Nova Ordem de Produção</button>
+            <button id="btnOPArchived" class="btn secondary">Arquivadas</button>
+            <button id="btnDeleteOPSelected" class="btn secondary">Excluir selecionadas</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="table" id="opsTable">
+            <thead>
+              <tr>
+                <th style="width:34px; text-align:center"><input id="opSelectAll" type="checkbox" /></th>
+                <th>Data</th>
+                <th style="width:90px">OP</th>
+                <th>Receita</th>
+                <th>Quantidade</th>
+                <th>Status</th>
+                <th>Observação</th>
+                <th>Consumo</th>
+                <th style="width:240px; text-align:center">Ações</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+
+      <section id="tab-vendas" class="tabpanel card hidden">
+        <div class="row between wrap">
+          <div>
+            <h2>Pedidos de Venda</h2>
+            <p class="muted">Reposição de pontos (freezers) + venda rápida (Delivery / iFood). Pedido de ponto pode gerar OP (somente do faltante de PF) e depois despachar para o ponto.</p>
+          </div>
+          <div class="row wrap">
+            <button id="salesModePoints" class="btn secondary">Pontos (Freezers)</button>
+            <button id="salesModeOrders" class="btn secondary">Pedidos (Pontos)</button>
+            <button id="salesModeQuick" class="btn secondary">Venda rápida</button>
+          </div>
+        </div>
+
+        <!-- Pontos -->
+        <div id="salesPointsView">
+          <div class="row between wrap" style="margin-top:10px">
+            <div class="row wrap">
+              <button id="btnNewSalesPoint" class="btn primary">+ Novo Ponto</button>
+              <button id="btnPrintSalesPoint" class="btn secondary">Imprimir ponto</button>
+              <button id="btnPrintSalesPointsSelected" class="btn secondary">Imprimir selecionados</button>
+            </div>
+            <div class="row wrap">
+              <input id="salesPointSearch" class="input" placeholder="Pesquisar ponto..." />
+            </div>
+          </div>
+
+          <div class="table-wrap" style="margin-top:10px">
+            <table class="table" id="salesPointsTable">
+              <thead>
+                <tr>
+                  <th style="width:34px; text-align:center"><input id="salesPointsSelectAll" type="checkbox" /></th>
+                  <th style="width:110px">Código</th>
+                  <th>Nome</th>
+                  <th>Endereço</th>
+                  <th>Obs</th>
+                  <th style="width:220px; text-align:center">Ações</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Pedidos para pontos -->
+        <div id="salesOrdersView" class="hidden">
+          <div class="row between wrap" style="margin-top:10px">
+            <div class="row wrap" style="gap:10px;">
+              <button id="btnNewSalesOrderPoint" class="btn primary">+ Novo Pedido (Ponto)</button>
+              <button id="btnSalesOrdersArchiveSelected" class="btn secondary">Arquivar selecionados</button>
+              <button id="btnSalesOrdersUnarchiveSelected" class="btn secondary hidden">Desarquivar selecionados</button>
+              <button id="btnSalesOrdersArchived" class="btn secondary">Arquivados</button>
+            </div>
+            <div class="row wrap">
+              <input id="salesOrderSearch" class="input" placeholder="Pesquisar (ponto, PF, número)..." />
+            </div>
+          </div>
+
+          <div class="table-wrap" style="margin-top:10px">
+            <table class="table" id="salesOrdersTable">
+              <thead>
+                <tr>
+                  <th style="width:32px; text-align:center"><input type="checkbox" id="salesOrdersSelectAll" /></th>
+                  <th>Data</th>
+                  <th style="width:90px">PV</th>
+                  <th>Ponto</th>
+                  <th>Itens</th>
+                  <th>Status</th>
+                  <th style="width:320px; text-align:center">Ações</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Venda rápida -->
+        <div id="salesQuickView" class="hidden">
+          <div class="row between wrap" style="margin-top:10px">
+            <div>
+              <div class="muted">Venda rápida baixa direto do estoque de PF.</div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:12px; padding:14px;">
+            <div class="row wrap" style="gap:10px; align-items:flex-end;">
+              <label style="flex:1; min-width:220px;">
+                Produto Final (PF)
+                <select id="quickSalePf" class="input"></select>
+              </label>
+              <label style="width:120px;">
+                Qtde
+                <input id="quickSaleQty" class="input" type="number" step="1" min="1" value="1" />
+              </label>
+              <label style="width:220px;">
+                Canal
+                <select id="quickSaleChannel" class="input">
+                  <option value="Delivery">Delivery</option>
+                  <option value="iFood">iFood</option>
+                  <option value="Balcão">Balcão</option>
+                </select>
+              </label>
+              <button id="btnQuickSale" class="btn primary">Registrar venda</button>
+            </div>
+            <div id="quickSaleHint" class="muted small" style="margin-top:10px"></div>
+          </div>
+
+          <div class="row between wrap" style="margin-top:12px">
+            <div class="row wrap" style="gap:10px;">
+              <button id="btnQuickPrintVisible" class="btn secondary">Imprimir (visível)</button>
+              <button id="btnQuickPrintSelected" class="btn secondary">Imprimir selecionadas</button>
+              <button id="btnQuickArchiveSelected" class="btn secondary">Arquivar selecionadas</button>
+              <button id="btnQuickArchived" class="btn secondary">Arquivados</button>
+            </div>
+            <div class="row wrap">
+              <input id="quickSalesSearch" class="input" placeholder="Pesquisar (canal, PF, PVR)..." />
+            </div>
+          </div>
+
+          <div class="table-wrap" style="margin-top:10px">
+            <table class="table" id="quickSalesTable">
+              <thead>
+                <tr>
+                  <th style="width:32px; text-align:center"><input type="checkbox" id="quickSalesSelectAll" /></th>
+                  <th>Data</th>
+                  <th style="width:90px">PVR</th>
+                  <th style="width:110px">Canal</th>
+                  <th>Itens</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <section id="tab-usuarios" class="tabpanel card hidden">
+        <div class="row between wrap">
+          <div>
+            <h2>Usuários, senhas e permissões</h2>
+            <p class="muted">Crie usuários, defina senhas e controle permissões. As alterações exigem reauth (usuário + senha).</p>
+          </div>
+          <div class="row wrap" style="gap:10px;">
+            <button id="btnUsersReload" class="btn secondary">Atualizar</button>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: minmax(260px, 380px) 1fr; gap:14px; margin-top:12px;">
+          <!-- Form -->
+          <div class="card" style="padding:14px;">
+            <div id="userFormTitle" style="font-weight:800; margin-bottom:10px;">+ Novo usuário</div>
+            <form id="userForm" class="form">
+              <label>
+                Usuário (ID)
+                <input name="id" class="input" placeholder="ex.: joao" required />
+              </label>
+              <label>
+                Nome
+                <input name="name" class="input" placeholder="ex.: João" required />
+              </label>
+
+              <label>
+                Senha <span class="muted small" id="userPassHint">(mín. 4)</span>
+                <input name="password" class="input" type="password" placeholder="********" />
+              </label>
+
+              <div class="card" style="padding:12px; background: rgba(0,0,0,.03); border: 1px solid rgba(0,0,0,.08);">
+                <div style="font-weight:700; margin-bottom:8px;">Permissões</div>
+                <label class="row wrap" style="gap:10px; align-items:center; margin:6px 0;">
+                  <input type="checkbox" name="perm_inventory" /> Estoque
+                </label>
+                <label class="row wrap" style="gap:10px; align-items:center; margin:6px 0;">
+                  <input type="checkbox" name="perm_recipes" /> Receitas (MRP - Receitas)
+                </label>
+                <label class="row wrap" style="gap:10px; align-items:center; margin:6px 0;">
+                  <input type="checkbox" name="perm_op" /> Ordens de Produção (OP)
+                </label>
+                <label class="row wrap" style="gap:10px; align-items:center; margin:6px 0;">
+                  <input type="checkbox" name="perm_oc" /> Ordens de Compra (OC)
+                </label>
+                <label class="row wrap" style="gap:10px; align-items:center; margin:6px 0;">
+                  <input type="checkbox" name="perm_costs" /> Custos
+                </label>
+                <label class="row wrap" style="gap:10px; align-items:center; margin:6px 0;">
+                  <input type="checkbox" name="perm_sales" /> Vendas (PV/PVR/Pontos)
+                </label>
+                <label class="row wrap" style="gap:10px; align-items:center; margin:6px 0;">
+                  <input type="checkbox" name="perm_canReset" /> Pode Reset TOTAL
+                </label>
+                <label class="row wrap" style="gap:10px; align-items:center; margin:6px 0;">
+                  <input type="checkbox" name="perm_canImportExport" /> Pode Importar/Exportar XLSX
+                </label>
+                <label class="row wrap" style="gap:10px; align-items:center; margin:6px 0;">
+                  <input type="checkbox" name="perm_admin" /> ADMIN (gerenciar usuários)
+                </label>
+                <div class="muted small" style="margin-top:6px;">* ADMIN habilita tudo automaticamente.</div>
+              </div>
+
+              <div class="row wrap" style="gap:10px; margin-top:10px;">
+                <button id="btnUserSave" class="btn primary" type="submit">Criar usuário</button>
+                <button id="btnUserCancelEdit" class="btn secondary" type="button" style="display:none;">Cancelar</button>
+                <button id="btnUserDelete" class="btn danger" type="button" style="display:none;">Excluir</button>
+              </div>
+
+              <div id="usersError" class="error hidden" style="margin-top:10px"></div>
+            </form>
+          </div>
+
+          <!-- List -->
+          <div class="card" style="padding:14px;">
+            <div class="row between wrap" style="align-items:center; gap:10px;">
+              <div>
+                <div style="font-weight:800;">Lista de usuários</div>
+                <div class="muted small">Clique em um usuário para editar. Não é possível excluir a si mesmo nem o último admin.</div>
+              </div>
+              <input id="usersSearch" class="input" placeholder="Pesquisar usuário..." style="max-width:280px;" />
+            </div>
+
+            <div class="table-wrap" style="margin-top:10px;">
+              <table class="table" id="usersTable">
+                <thead>
+                  <tr>
+                    <th style="width:140px">Usuário</th>
+                    <th>Nome</th>
+                    <th style="width:260px">Permissões</th>
+                    <th style="width:170px">Atualizado</th>
+                  </tr>
+                </thead>
+                <tbody id="usersTbody">
+                  <tr><td colspan="4" class="muted">Carregando...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </section>
+  </main>
+
+  <!-- MODAL -->
+  <dialog id="modal" class="modal">
+    <form method="dialog" class="modal-card" id="modalForm">
+      <div class="modal-head">
+        <div>
+          <div id="modalTitle" class="modal-title">—</div>
+          <div id="modalSubtitle" class="modal-subtitle muted"></div>
+        </div>
+        <button id="modalCloseBtn" class="btn icon" type="button" aria-label="Fechar">✕</button>
+      </div>
+
+      <div id="modalBody" class="modal-body"></div>
+
+      <div class="modal-foot">
+        <button id="modalExtraBtn" class="btn secondary hidden" type="button">—</button>
+        <button id="modalCancelBtn" class="btn secondary" type="button">Cancelar</button>
+        <button id="modalSubmit" class="btn primary" type="submit">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- REAUTH MODAL (confirm credentials for sensitive actions) -->
+  <dialog id="reauthModal" class="modal">
+    <form method="dialog" class="modal-card" id="reauthForm">
+      <div class="modal-head">
+        <div>
+          <div class="modal-title">Confirmar usuário e senha</div>
+          <div id="reauthSubtitle" class="modal-subtitle muted"></div>
+        </div>
+        <button id="reauthCloseBtn" class="btn icon" type="button" aria-label="Fechar">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 12px;">
+          <label class="field">
+            <span class="label">Usuário</span>
+            <input id="reauth2User" class="input" type="text" autocomplete="username" />
+          </label>
+          <label class="field">
+            <span class="label">Senha</span>
+            <input id="reauth2Pass" class="input" type="password" autocomplete="current-password" />
+          </label>
+        </div>
+
+        <div id="reauth2Error" class="hint" style="color:var(--danger); margin-top:8px; display:none;">
+          Usuário ou senha inválidos.
+        </div>
+      </div>
+
+      <div class="modal-foot">
+        <button id="reauthCancelBtn" class="btn secondary" type="button">Cancelar</button>
+        <button id="reauthConfirmBtn" class="btn primary" type="submit">Confirmar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- UNITS MODAL (manage custom units) -->
+  <dialog id="unitsModal" class="modal">
+    <form method="dialog" class="modal-card units" id="unitsModalForm">
+      <div class="modal-head">
+        <div>
+          <div id="unitsModalTitle" class="modal-title">Unidades</div>
+          <div id="unitsModalSubtitle" class="modal-subtitle muted">Adicionar / editar / remover unidades do sistema.</div>
+        </div>
+        <button id="unitsModalCloseBtn" class="btn icon" type="button" aria-label="Fechar">✕</button>
+      </div>
+
+      <div id="unitsModalBody" class="modal-body"></div>
+
+      <div class="modal-foot">
+        <button id="unitsModalCancelBtn" class="btn secondary" type="button">Fechar</button>
+        <button id="unitsModalPickBtn" class="btn primary hidden" type="button">Usar unidade selecionada</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

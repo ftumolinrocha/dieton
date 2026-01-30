@@ -1,0 +1,1485 @@
+{
+  "meta": {
+    "createdAt": "2026-01-18T21:47:05.187Z",
+    "migratedFromCore": false,
+    "nextOpNumber": 1,
+    "nextOcNumber": 1,
+    "updatedAt": "2026-01-30T12:09:15.268Z",
+    "nextLotNumber": 1
+  },
+  "recipes": [
+    {
+      "id": "rcp_405d9247-2a73-4b04-97de-b9ef65b3b690",
+      "name": "Frango Cítrico & Arroz Perfumado",
+      "productId": "itm_df98b469-6a37-4b98-9e56-210c368e7b2e",
+      "yieldQty": 1,
+      "yieldUnit": "un",
+      "bom": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "qty": 0.051,
+          "pos": 1,
+          "fc": 2.6
+        },
+        {
+          "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+          "qty": 0.188,
+          "pos": 2,
+          "fc": 0.8
+        },
+        {
+          "itemId": "itm_62ce6156-dad2-4110-bce4-24503a6dea6f",
+          "qty": 0.073,
+          "pos": 3,
+          "fc": 0.82
+        },
+        {
+          "itemId": "itm_57e52731-92c3-44df-85b7-f99b695d7e75",
+          "qty": 0.144,
+          "pos": 4,
+          "fc": 0.9
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.062,
+          "pos": 5,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.005,
+          "pos": 6,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.03,
+          "pos": 7,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 8,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 11,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.001,
+          "pos": 12,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 13,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-18T22:44:50.847Z",
+      "outputItemId": "itm_df98b469-6a37-4b98-9e56-210c368e7b2e",
+      "photoFile": "itm_df98b469-6a37-4b98-9e56-210c368e7b2e_1768829070950.png",
+      "method": "1) Mise en place\n\nSeparar ingredientes conforme BOM.\n\nHigienizar brócolis e demais vegetais.\n\nPicar cebola em cubos pequenos, alho bem fino.\n\nEspremer/medir limão e reservar.\n\nPadronizar frango (filés/cubos) para cocção uniforme.\n\n2) Arroz branco\n\nAquecer panela e refogar parte da cebola no azeite.\n\nAdicionar arroz cru e “selar” 1 min.\n\nAdicionar água quente, ajustar sal.\n\nCozinhar até secar; tampar e finalizar 5 min.\n\nSoltar grãos e reservar.\n\n3) Frango cítrico\n\nTemperar frango com alho, limão, sal, pimenta-do-reino, páprica (e orégano se aplicável).\n\nMarinar 10–15 min.\n\nGrelhar em chapa/frigideira com azeite até dourar e cozinhar totalmente.\n\nReservar.\n\n4) Batata inglesa dourada\n\nCozinhar batata até macia porém firme.\n\nEscorrer bem.\n\nDourar em frigideira com azeite, amassar levemente para crosta.\n\nAjustar sal/ervas, reservar.\n\n5) Brócolis\n\nCozinhar no vapor até verde vivo e macio.\n\nFinalizar com pequena quantidade de azeite e ajustar sal.\n\n6) Montagem (embalagem 800ml)\n\nBase: arroz.\n\nProteína: frango.\n\nGuarnições: batata + brócolis.\n\nConferir peso final e fechar.\n\n7) Armazenamento\n\nResfriar rápido e refrigerar/congelar conforme fluxo.\n\nEtiquetar lote e validade.",
+      "notes": ""
+    },
+    {
+      "id": "rcp_306451ad-91a9-455e-bc16-4f1c406ac08d",
+      "name": "Patinho Chimichurri & Cabotiá Assada",
+      "productId": "itm_84f93753-d85f-46d8-bde0-cc9119d94be3",
+      "yieldQty": 1,
+      "yieldUnit": "UN",
+      "notes": "",
+      "method": "1) Mise en place\n\nSeparar todos os ingredientes conforme BOM (incluindo chimichurri seco, azeite e embalagem 800ml).\n\nHigienizar a cabotiá por fora (casca) e a bancada/utensílios.\n\nPicar cebola em cubos pequenos e alho bem fino.\n\nPré-aquecer o forno a 210–220°C.\n\n2) Cabotiá assada (carbo principal)\n\nAbrir a cabotiá, retirar sementes e fios.\n\nCortar em cubos/meias-luas padronizados (tamanho uniforme = assa por igual).\n\nTemperar com sal + pimenta-do-reino + um toque de alho (opcional) e, se estiver no BOM, um fio mínimo de azeite (ou use antiaderente pra não estourar gordura).\n\nAssar em assadeira “aberta” (sem amontoar) por 25–35 min, mexendo/virando na metade, até:\n\ndourar nas bordas\n\nficar macia sem desmanchar\n\nReservar quente para montagem.\n\n3) Patinho (base proteica) + tempero chimichurri\n\nAquecer uma panela/frigideira larga.\n\nRefogar parte da cebola até ficar translúcida (sem queimar).\n\nEntrar com o patinho e selar/dourar:\n\nno início, mexer pouco para criar cor\n\ndepois, quebrar/soltar e seguir cozinhando até não haver partes cruas\n\nTemperar com: sal, pimenta-do-reino, páprica.\n\nCom o fogo mais baixo, adicionar o chimichurri seco e misturar bem.\n\nFinalizar com limão (se estiver no BOM) para dar brilho e acidez.\n\nAjustar sal/acidez no final.\n\n4) Ajuste final (ponto e suculência)\n\nSe a carne estiver “seca”, pingar pequena quantidade de água quente e mexer (vira um molhinho leve e melhora a textura).\n\nDesligar e manter tampado 2–3 minutos antes de porcionar.\n\n5) Montagem (embalagem PP 800ml)\n\nBase: cabotiá assada.\n\nProteína: patinho chimichurri por cima ou ao lado (padrão visual).\n\nConferir peso final padrão e fechar.\n\n6) Armazenamento\n\nResfriar rápido conforme fluxo de segurança (bancada fria/abatidor, se tiver).\n\nRefrigerar ou congelar conforme padrão da operação.\n\nEtiquetar lote e validade.",
+      "bom": [
+        {
+          "itemId": "itm_76554c05-be51-4f1a-ae6b-cefb10aa86e5",
+          "qty": 0.42,
+          "pos": 1,
+          "fc": 0.85
+        },
+        {
+          "itemId": "itm_046b7ad0-e7dd-4815-a372-007700f67855",
+          "qty": 0.188,
+          "pos": 2,
+          "fc": 0.8
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.062,
+          "pos": 3,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.005,
+          "pos": 4,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.03,
+          "pos": 5,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 6,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 8,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f2194f5f-39e5-4645-b9e8-0140ad1b7061",
+          "qty": 0.003,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 11,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-19T14:52:17.351Z",
+      "outputItemId": "itm_84f93753-d85f-46d8-bde0-cc9119d94be3",
+      "photoFile": "itm_84f93753-d85f-46d8-bde0-cc9119d94be3_1768834355517.png"
+    },
+    {
+      "id": "rcp_2b8bd355-3a75-49cf-925c-5cee8e55c733",
+      "name": "Tilápia Defumada & Cuscuz dos Pimentões",
+      "productId": "itm_34f27b47-8e3d-458b-95d6-e220608a2e56",
+      "yieldQty": 1,
+      "yieldUnit": "UN",
+      "notes": "",
+      "method": "1) Mise en place\n\nSeparar ingredientes conforme BOM.\n\nHigienizar pimentões e limão.\n\nPicar cebola em cubos pequenos e alho bem fino.\n\nCortar pimentão em tiras/cubos padronizados.\n\nPré-aquecer forno a 200–220°C (para finalizar a tilápia, se quiser).\n\n2) Cuscuz dos pimentões\n\nAquecer uma panela e refogar cebola + alho com parte do azeite (ou antiaderente, se quiser concentrar o azeite na tilápia).\n\nAdicionar o pimentão e refogar até amaciar, mantendo cor viva.\n\nTemperar com sal, pimenta-do-reino, páprica e orégano (pode usar uma parte do cominho aqui).\n\nAdicionar água quente aos poucos (para hidratar o flocão; referência prática: ~1,3–1,5x do peso do flocão).\n\nDesligar o fogo, entrar com o flocão, misturar bem, tampar 5–7 min.\n\nSoltar com garfo e reservar.\n\n3) Tilápia “defumada” (efeito defumado com especiarias)\n\nTemperar a tilápia com alho, limão, sal, pimenta-do-reino, páprica, orégano e cominho.\n\nDescansar 10–15 min.\n\nAquecer frigideira/chapa e selar a tilápia com o restante do azeite até dourar.\n\nFinalizar:\n\nna frigideira (fogo médio) até cozinhar por completo, ou\n\nno forno por 6–10 min (dependendo da espessura), só para terminar o centro sem ressecar.\n\n4) Montagem (embalagem 800ml)\n\nBase: cuscuz dos pimentões.\n\nPor cima: tilápia.\n\nConferir peso padrão e fechar.\n\n5) Armazenamento\n\nResfriar rápido e refrigerar/congelar conforme fluxo.\n\nEtiquetar lote e validade.",
+      "bom": [
+        {
+          "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+          "qty": 0.22,
+          "pos": 1,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_49b5d383-ece8-4abc-8e21-85272e96c668",
+          "qty": 0.07,
+          "pos": 2,
+          "fc": 2.4
+        },
+        {
+          "itemId": "itm_a11ca27e-8adc-4531-b0de-2ff1827acfed",
+          "qty": 0.18,
+          "pos": 3,
+          "fc": 0.9
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.07,
+          "pos": 4,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.005,
+          "pos": 5,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.025,
+          "pos": 6,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 8,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.001,
+          "pos": 11,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_e982b492-7cf5-41a1-afa7-20cb99a69192",
+          "qty": 0.0005,
+          "pos": 12,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 13,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-19T15:33:08.987Z",
+      "outputItemId": "itm_34f27b47-8e3d-458b-95d6-e220608a2e56",
+      "photoFile": "itm_34f27b47-8e3d-458b-95d6-e220608a2e56_1768836804000.png"
+    },
+    {
+      "id": "rcp_545780f1-72ce-4e76-b005-e5685b518a4b",
+      "name": "Frango Cremoso de Mussarela & Abobrinha",
+      "productId": "itm_bd719dd5-bfa9-4cd2-b269-694c897b7f7f",
+      "yieldQty": 1,
+      "yieldUnit": "UN",
+      "notes": "",
+      "method": "1) Mise en place\n\nSeparar ingredientes conforme BOM (inclui creme de leite, mussarela, azeite, temperos e embalagem 800ml).\n\nPicar cebola em cubos pequenos e alho bem fino.\n\nCortar abobrinha em meias-luas ou cubos padronizados (para saltear rápido).\n\nPadronizar o frango (cubos/tiras) para cocção uniforme.\n\nRalar/picar a mussarela (derrete mais uniforme).\n\n2) Arroz branco (base do prato)\n\nAquecer panela e refogar um pouco de cebola (opcional) com mínima gordura/antiaderente (pra não “estourar” o azeite total do BOM).\n\nAdicionar o arroz e “selar” 1 min.\n\nEntrar com água quente e sal.\n\nCozinhar até secar; tampar e descansar 5 min.\n\nSoltar os grãos e reservar.\n\n3) Frango cremoso de mussarela\n\nTemperar o frango com alho, sal, pimenta-do-reino, páprica e orégano.\n\nAquecer frigideira/panela larga.\n\nSelar o frango até dourar e cozinhar completamente.\n\nBaixar o fogo e adicionar o creme de leite, mexendo até ficar liso e levemente reduzido (1–3 min).\n\nAdicionar a mussarela aos poucos e mexer até derreter e virar um molho cremoso.\n\nFinalizar com limão (suco) no final para dar brilho e equilibrar a gordura.\n\nAjustar sal/pimenta se necessário.\n\nDica de produção: não deixar ferver forte depois que entra a mussarela — fogo baixo evita “quebrar” o molho.\n\n4) Abobrinha na panela quente (guarnição)\n\nPanela/frigideira bem quente.\n\nEntrar com a abobrinha e saltear rápido (2–4 min), só até ficar macia mas ainda com estrutura.\n\nTemperar com sal e pimenta (e um toque de orégano, se quiser).\n\nSe for usar parte do azeite aqui, use bem pouco (mantendo o total do BOM).\n\n5) Montagem (embalagem PP 800ml)\n\nBase: arroz.\n\nPor cima/lado: frango cremoso de mussarela.\n\nCompletar: abobrinha salteada.\n\nConferir peso padrão e fechar.\n\n6) Armazenamento\n\nResfriar rápido conforme fluxo.\n\nRefrigerar/congelar.\n\nEtiquetar lote e validade.",
+      "bom": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "qty": 0.055,
+          "pos": 1,
+          "fc": 2.6
+        },
+        {
+          "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+          "qty": 0.18,
+          "pos": 2,
+          "fc": 0.8
+        },
+        {
+          "itemId": "itm_53c8f284-5225-41e3-a4dc-7d69ff36cc0c",
+          "qty": 0.22,
+          "pos": 3,
+          "fc": 0.7
+        },
+        {
+          "itemId": "itm_e907bec3-4373-4be3-bb3f-2139ed4640ae",
+          "qty": 0.035,
+          "pos": 4,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+          "qty": 0.03,
+          "pos": 5,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.055,
+          "pos": 6,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.005,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.02,
+          "pos": 8,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 11,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 12,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.001,
+          "pos": 13,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 14,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-19T15:59:58.959Z",
+      "outputItemId": "itm_bd719dd5-bfa9-4cd2-b269-694c897b7f7f",
+      "photoFile": "itm_bd719dd5-bfa9-4cd2-b269-694c897b7f7f_1768838427745.png"
+    },
+    {
+      "id": "rcp_03b76891-6391-4bcf-98a6-bda48993e211",
+      "name": "Tilápia Crocante na Aveia & Purê de Mandioquinha",
+      "productId": "itm_68b13011-7648-4254-85a5-a802c59cc70c",
+      "yieldQty": 1,
+      "yieldUnit": "un",
+      "notes": "",
+      "method": "1) Mise en place\n\nSeparar ingredientes conforme BOM (inclui aveia, ovo, creme de leite, temperos, azeite e embalagem 800ml).\n\nPicar cebola em cubos pequenos e alho bem fino.\n\nEspremer/medir limão.\n\nPadronizar os filés de tilápia (tamanho semelhante para assar/grelhar por igual).\n\n2) Purê de mandioquinha\n\nDescascar e cortar a mandioquinha em pedaços médios.\n\nCozinhar em água até ficar bem macia (sem desmanchar demais).\n\nEscorrer bem e amassar (espremedor/garfo).\n\nEm panela, suar cebola + alho rapidamente (pode ser antiaderente; se usar azeite aqui, é uma parte do total do BOM).\n\nVoltar o purê para a panela, adicionar creme de leite, mexer até ficar liso e cremoso.\n\nAjustar sal e pimenta-do-reino. Reservar quente.\n\n3) Tilápia crocante na aveia\n\nTemperar a tilápia com alho, limão, sal, pimenta, páprica e orégano.\n\nBater o ovo (porção do BOM) e passar os filés nele.\n\nEmpanar na aveia em flocos, pressionando para aderir bem.\n\nCocção (escolha operacional):\n\nAirfryer/forno (recomendado): 200°C por ~10–14 min, virando na metade.\n\nFrigideira antiaderente: usar o azeite do BOM e dourar dos dois lados até cozinhar por completo.\n\nNão cozinhar demais pra não ressecar.\n\n4) Montagem (embalagem PP 800ml)\n\nBase: purê de mandioquinha.\n\nPor cima/lado: tilápia crocante.\n\nConferir peso padrão e fechar.\n\n5) Armazenamento\n\nResfriar rápido conforme fluxo.\n\nRefrigerar/congelar.\n\nEtiquetar lote e validade.",
+      "bom": [
+        {
+          "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+          "qty": 0.25,
+          "pos": 1,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_0f5f0c31-107c-4db5-a789-60f58b6096e8",
+          "qty": 0.025,
+          "pos": 2,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_65b6664b-6278-4e95-bdc9-4d195c08ddf8",
+          "qty": 0.5,
+          "pos": 3,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_651d3d5e-cc7e-401e-ae67-22fe599a337e",
+          "qty": 0.265,
+          "pos": 4,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+          "qty": 0.03,
+          "pos": 5,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.055,
+          "pos": 6,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.005,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.025,
+          "pos": 8,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 11,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 12,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.001,
+          "pos": 13,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 14,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-19T16:36:57.357Z",
+      "outputItemId": "itm_68b13011-7648-4254-85a5-a802c59cc70c",
+      "photoFile": "itm_68b13011-7648-4254-85a5-a802c59cc70c_1768840640037.png"
+    },
+    {
+      "id": "rcp_f07ace6c-6bf8-4370-b784-9ab067e4c150",
+      "name": "Lagarto ao Molho de Cebola & Escarola",
+      "productId": "itm_9ca406f1-adf7-4326-9b32-b4e38799f40a",
+      "yieldQty": 1,
+      "yieldUnit": "un",
+      "bom": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "qty": 0.082,
+          "pos": 1,
+          "fc": 2.6
+        },
+        {
+          "itemId": "itm_d12dc32e-3ba8-4559-8cc6-19074d57c627",
+          "qty": 0.205,
+          "pos": 2,
+          "fc": 0.78
+        },
+        {
+          "itemId": "itm_0fe3c168-006c-4161-b22c-5739e246c5ed",
+          "qty": 0.25,
+          "pos": 3,
+          "fc": 0.4
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.087,
+          "pos": 4,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.005,
+          "pos": 5,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 6,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 8,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.001,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 11,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-19T23:09:02.227Z",
+      "outputItemId": "itm_9ca406f1-adf7-4326-9b32-b4e38799f40a",
+      "photoFile": "itm_9ca406f1-adf7-4326-9b32-b4e38799f40a_1768864889298.png",
+      "method": "1) Mise en place\n\nSeparar ingredientes conforme BOM (inclui azeite, temperos e embalagem 800ml).\n\nHigienizar a escarola e escorrer bem.\n\nFatiar cebola em tiras finas e picar alho bem pequeno.\n\nPorcionar/limpar o lagarto (manter peça ou cortar em 2–3 pedaços grandes para cozinhar uniforme).\n\n2) Arroz branco\n\nRefogar uma pequena parte da cebola (opcional) em panela antiaderente.\n\nAdicionar o arroz cru e “selar” 1 min.\n\nEntrar com água quente e sal.\n\nCozinhar até secar; tampar e descansar 5 min.\n\nSoltar os grãos e reservar.\n\n3) Lagarto ao molho de cebola\n\nTemperar o lagarto com sal, pimenta-do-reino, páprica e orégano.\n\nSelar o lagarto em panela quente (se precisar, use parte mínima do azeite do BOM ou antiaderente).\n\nAdicionar a cebola e deixar suar/dourar levemente.\n\nEntrar com o alho e mexer rápido (sem queimar).\n\nCobrir com água quente (só até metade da peça), tampar e cozinhar até ficar macio:\n\npanela comum: fogo baixo ~50–70 min (virando quando necessário)\n\npressão: ~25–35 min após pegar pressão\n\nRetirar o lagarto, fatiar ou desfiar e voltar para a panela.\n\nReduzir o molho até ficar “encorpado” e ajustar sal/pimenta.\n\n4) Escarola na “manteiga” de alho (na prática: alho + azeite)\n\nPanela bem quente.\n\nEntrar com a escarola e saltear rápido (2–4 min) até murchar, mas sem soltar água demais.\n\nFinalizar com alho (separado do cozimento da carne, se preferir) + um fio do azeite do BOM.\n\nAjustar sal e pimenta.\n\n5) Montagem (embalagem PP 800ml)\n\nBase: arroz.\n\nProteína: lagarto ao molho de cebola.\n\nGuarnição: escarola salteada.\n\nConferir peso padrão e fechar.\n\n6) Armazenamento\n\nResfriar rápido e refrigerar/congelar conforme fluxo.\n\nEtiquetar lote e validade"
+    },
+    {
+      "id": "rcp_facbfb97-08a3-4a90-b80c-c8e0fd0e4f22",
+      "name": "Frango Shawarma & Batata Rústica",
+      "productId": "itm_c38ace7f-a58c-445a-b38a-4772525149b0",
+      "yieldQty": 1,
+      "yieldUnit": "un",
+      "notes": "",
+      "method": "1) Mise en place (faz diferença no sabor)\n\nSeparar ingredientes conforme BOM.\n\nPicar cebola em tiras finas (ou cubos pequenos) e alho bem fininho.\n\nCortar batata em gomos rústicos (mesmo tamanho).\n\nFatiar repolho bem fininho e picar tomate (cubinhos).\n\nEspremer/medir o limão.\n\n2) Frango shawarma (marinada perfumada + dourado bonito)\n\nTemperar/marinar (10–20 min) o frango com:\n\nalho + limão + sal + pimenta-do-reino\n\ncominho + páprica + orégano (a alma do shawarma)\n\nAquecer bem a frigideira/chapa.\n\nEntrar com o frango e selar sem mexer no começo (pega cor = pega sabor).\n\nQuando estiver dourado, adicionar parte da cebola pra suar junto e “puxar” o tempero.\n\nFinalizar até o frango estar 100% cozido e suculento.\n\nDica ouro: se precisar, pingar 1–2 colheres de água quente no final e raspar o fundo — vira um “molhinho” natural com o tempero.\n\n3) Batata rústica (crocância de respeito)\n\nOpção top (forno/airfryer):\n\nPré-aquecer forno/airfryer a 200–220°C.\n\nTemperar batata com:\n\nsal + pimenta + alecrim + um toque de páprica\n\nAssar até dourar (virando na metade) até ficar crosta por fora e macia por dentro.\n\nDica de chef: não amontoar as batatas — espaço = crocância.\n\nAzeite (6g do BOM): usa a maior parte na batata (crocância) e o restante no frango (brilho).\n\n4) Toque fresco “estilo shawarma” (repolho + tomate)\n\nMisturar repolho + tomate com:\n\nlimão + pitadinha de sal + um toque de orégano\n\nFica crocante, refresca o prato e levanta o sabor (paladar da galera ama).\n\n5) Montagem (embalagem PP 800ml)\n\nBase/lado: batata rústica\n\nProteína: frango shawarma\n\nComplemento: saladinha de repolho + tomate\n\nConferir peso/padrão e fechar.\n\n6) Armazenamento\n\nResfriar rápido conforme fluxo.\n\nRefrigerar/congelar.\n\nEtiquetar lote e validade.",
+      "bom": [
+        {
+          "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+          "qty": 0.21,
+          "pos": 1,
+          "fc": 0.8
+        },
+        {
+          "itemId": "itm_62ce6156-dad2-4110-bce4-24503a6dea6f",
+          "qty": 0.25,
+          "pos": 2,
+          "fc": 0.82
+        },
+        {
+          "itemId": "itm_f509fb5e-4254-42b4-a85b-bf45612c9940",
+          "qty": 0.06,
+          "pos": 3,
+          "fc": 0.9
+        },
+        {
+          "itemId": "itm_bb84c43e-830a-416d-85e7-bf76c5075e8f",
+          "qty": 0.04,
+          "pos": 4,
+          "fc": 0.9
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.055,
+          "pos": 5,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.005,
+          "pos": 6,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.025,
+          "pos": 7,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 8,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 11,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_e982b492-7cf5-41a1-afa7-20cb99a69192",
+          "qty": 0.001,
+          "pos": 12,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.001,
+          "pos": 13,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_385c2723-d8da-4937-8ee1-a9b5ea4850b4",
+          "qty": 0.001,
+          "pos": 14,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 15,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-26T16:42:47.880Z",
+      "outputItemId": "itm_c38ace7f-a58c-445a-b38a-4772525149b0",
+      "photoFile": "itm_c38ace7f-a58c-445a-b38a-4772525149b0_1769445783520.png"
+    },
+    {
+      "id": "rcp_b9a9e234-28a9-4c43-a4e7-311ea7088055",
+      "name": "Atum Selado & Arroz Integral com Cogumelos",
+      "productId": "itm_47539680-8bb7-4357-94d8-c9f301897211",
+      "yieldQty": 1,
+      "yieldUnit": "un",
+      "notes": "",
+      "method": "PF008 — Atum Selado & Arroz Integral com Cogumelos — Método (caprichado)\n1) Mise en place\n\nSeparar ingredientes conforme BOM.\n\nPicar cebola e alho bem fininhos.\n\nFatiar champignon.\n\nPorcionar o atum (postinhas) e secar com papel (ajuda a selar bonito).\n\nEspremer limão.\n\n2) Arroz integral soltinho\n\nRefogar parte da cebola rapidamente.\n\nEntrar com arroz integral e “selar” 1 min.\n\nAdicionar água quente + sal e cozinhar em fogo baixo até macio.\n\nDesligar, tampar 5 min e soltar os grãos.\n\n3) Cogumelos dourados (sabor forte)\n\nFrigideira bem quente.\n\nEntrar com o champignon e deixar dourar antes de mexer (evita virar “água”).\n\nColocar o alho só no final (não queimar).\n\nMisturar no arroz e ajustar sal/pimenta.\n\n4) Atum selado (ponto e suculência)\n\nTemperar com sal + pimenta + páprica + orégano.\n\nFrigideira/chapa muito quente com um fio do azeite.\n\nSelar rápido: 40–60s por lado (dependendo da espessura).\n\nFinalizar com limão fora do fogo (brilho e frescor).\n\n5) Montagem (PP 800ml)\n\nBase: arroz integral com cogumelos.\n\nPor cima/lado: atum selado.\n\nConferir padrão de peso e fechar.",
+      "bom": [
+        {
+          "itemId": "itm_42c51570-7070-4fb6-84de-33dad7076c80",
+          "qty": 0.24,
+          "pos": 1,
+          "fc": 0.85
+        },
+        {
+          "itemId": "itm_3ed7d726-226c-4326-b4af-82d108d336bf",
+          "qty": 0.08,
+          "pos": 2,
+          "fc": 2.7
+        },
+        {
+          "itemId": "itm_9e4c83eb-6303-40df-a0e8-a7e36770d218",
+          "qty": 0.1,
+          "pos": 3,
+          "fc": 0.85
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.035,
+          "pos": 4,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.005,
+          "pos": 5,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.015,
+          "pos": 6,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 8,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.0005,
+          "pos": 11,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 12,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-26T17:23:02.861Z",
+      "outputItemId": "itm_47539680-8bb7-4357-94d8-c9f301897211",
+      "photoFile": "itm_47539680-8bb7-4357-94d8-c9f301897211_1769448199537.png"
+    },
+    {
+      "id": "rcp_d0099662-ab01-490b-af3c-ef98fb846a3e",
+      "name": "Suíno Dijon & Cabotiá Dourada",
+      "productId": "itm_a9bc1d82-e8f8-44c1-a85a-34b9fe51293d",
+      "yieldQty": 1,
+      "yieldUnit": "un",
+      "notes": "",
+      "method": "1) Mise en place\n\nSeparar ingredientes conforme BOM (inclui mostarda, temperos, azeite e embalagem).\n\nPicar cebola em tirinhas finas (ou cubos).\n\nPicar alho bem fino.\n\nLavar a cabotiá por fora, abrir e retirar sementes/fios.\n\nCortar cabotiá em cubos/luas padronizados (tamanho igual = dourado igual).\n\nMedir limão.\n\n2) Cabotiá dourada (caramelo natural + crosta leve)\n\nForno pré-aquecido a 210–220°C.\n\nTemperar cabotiá com:\n\nsal + pimenta + alecrim (e um toque de páprica se quiser)\n\nAssar em assadeira “aberta” (sem amontoar) por 25–35 min, virando na metade, até:\n\nbordas douradas\n\ninterior macio sem desmanchar\n\nReservar.\n\nDica de sabor: se a cabotiá estiver sem dourar, aumenta o forno no final (3–5 min) e deixa “tostar” de leve.\n\n3) Suíno “Dijon” (molho cremoso sem pesar)\n\nTemperar o suíno com sal + pimenta + páprica (e cominho bem de leve).\n\nPanela/frigideira bem quente: selar o suíno com um fio do azeite (pega cor = pega sabor).\n\nEntrar com a cebola e deixar suar até ficar macia.\n\nAdicionar o alho rápido (não queimar).\n\nBaixar o fogo e entrar com a mostarda.\n\nAjustar com limão no final (faz a mostarda “brilhar” e corta gordura).\n\nSe precisar de “molhinho” pra ficar suculento: pingar 1–2 colheres de água quente e mexer (fica sedoso).\n\n4) Montagem (PP 800ml)\n\nBase: cabotiá dourada\n\nProteína: suíno ao molho Dijon\n\nConferir padrão de peso e fechar.\n\n5) Armazenamento\n\nResfriar rápido conforme fluxo.\n\nRefrigerar/congelar.\n\nEtiquetar lote/validade.",
+      "bom": [
+        {
+          "itemId": "itm_1fb0016a-df3f-4585-b1ed-918d13cac24d",
+          "qty": 0.22,
+          "pos": 1,
+          "fc": 0.72
+        },
+        {
+          "itemId": "itm_76554c05-be51-4f1a-ae6b-cefb10aa86e5",
+          "qty": 0.32,
+          "pos": 2,
+          "fc": 0.85
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.035,
+          "pos": 3,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.005,
+          "pos": 4,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_369db651-8068-49ab-81d1-9c65616a33d2",
+          "qty": 0.012,
+          "pos": 5,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.012,
+          "pos": 6,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 8,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_e982b492-7cf5-41a1-afa7-20cb99a69192",
+          "qty": 0.0005,
+          "pos": 11,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.0005,
+          "pos": 12,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_385c2723-d8da-4937-8ee1-a9b5ea4850b4",
+          "qty": 0.0005,
+          "pos": 13,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 14,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-26T17:43:11.002Z",
+      "outputItemId": "itm_a9bc1d82-e8f8-44c1-a85a-34b9fe51293d",
+      "photoFile": "itm_a9bc1d82-e8f8-44c1-a85a-34b9fe51293d_1769449400750.png"
+    },
+    {
+      "id": "rcp_8848ae58-5fc6-4bfc-b3e5-98d1f418f3d9",
+      "name": "Maminha da Brasa & Duo de Legumes",
+      "productId": "itm_5d1b88de-26b7-41bf-a761-da1f728ee843",
+      "yieldQty": 1,
+      "yieldUnit": "un",
+      "notes": "",
+      "method": "1) Mise en place\n\nSeparar ingredientes conforme BOM.\n\nPicar cebola e alho bem finos.\n\nCortar a batata-doce em cubos/rodelas padronizadas.\n\nHigienizar o brócolis e separar em floretes.\n\nPorcionar a maminha (mantém em bifes/steaks médios pra selar bem).\n\n2) Batata-doce (parte do “duo”)\n\nAssar a 210–220°C (ou cozinhar e depois dourar rápido).\n\nTemperar com sal + pimenta + alecrim e um toque de páprica.\n\nAssar até ficar macia e levemente dourada. Reservar.\n\n3) Brócolis (parte do “duo”)\n\nCozinhar no vapor até ficar verde vivo e macio (sem passar).\n\nFinalizar na panela quente com alho e um fio do azeite do BOM.\n\nAjustar sal e pimenta.\n\n4) Maminha “da brasa” (sabor de churrasco)\n\nTemperar com sal + pimenta + páprica + orégano.\n\nSe quiser assinatura “brasa”: pingar limão no final (fora do fogo).\n\nSelar em chapa/frigideira bem quente:\n\ndourar bem dos dois lados\n\ndescansar 2 minutos e fatiar (mantém suculência)\n\nAjustar sal no final.\n\n5) Montagem (PP 800ml)\n\nBase/lado: batata-doce + brócolis (duo)\n\nProteína: maminha fatiada\n\nConferir padrão e fechar.",
+      "bom": [
+        {
+          "itemId": "itm_14914e91-edd8-4764-86b8-158dd25dcf06",
+          "qty": 0.25,
+          "pos": 1,
+          "fc": 0.78
+        },
+        {
+          "itemId": "itm_f72d7153-0cbd-4197-ab34-e60caf2da39f",
+          "qty": 0.15,
+          "pos": 2,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_57e52731-92c3-44df-85b7-f99b695d7e75",
+          "qty": 0.15,
+          "pos": 3,
+          "fc": 0.9
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.025,
+          "pos": 4,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.005,
+          "pos": 5,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.012,
+          "pos": 6,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 8,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.0005,
+          "pos": 11,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_385c2723-d8da-4937-8ee1-a9b5ea4850b4",
+          "qty": 0.0005,
+          "pos": 12,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 13,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-27T14:34:24.062Z",
+      "outputItemId": "itm_5d1b88de-26b7-41bf-a761-da1f728ee843",
+      "photoFile": "itm_5d1b88de-26b7-41bf-a761-da1f728ee843_1769524483797.png"
+    },
+    {
+      "id": "rcp_11a24b2d-332b-406b-b809-b6bab35db6e6",
+      "name": "Merluza ao Limão & Trio Verde com Champignon",
+      "productId": "itm_cf366718-c157-4c76-96f7-4fab42008cb1",
+      "yieldQty": 1,
+      "yieldUnit": "un",
+      "notes": "",
+      "method": "1) Mise en place\n\nSeparar ingredientes conforme BOM (temperos + azeite + embalagem 800ml).\n\nHigienizar brócolis, repolho e couve-manteiga.\n\nPicar cebola em cubinhos pequenos e alho bem fino.\n\nFatiar o champignon.\n\nEspremer/medir limão.\n\nSecar a merluza com papel (ajuda a dourar e não “cozinhar na água”).\n\n2) Trio verde com champignon (sabor forte, textura boa)\n\nFrigideira/panela bem quente.\n\nEntrar com o champignon e deixar dourar antes de mexer (evita soltar água).\n\nAdicionar cebola e deixar suar.\n\nColocar o alho por último (30–40s) só pra perfumar.\n\nEntrar com repolho (salteia rápido) e depois couve-manteiga (murcha e perfuma).\n\nFinalizar com brócolis (já pré-cozido no vapor ou salteado rápido pra ficar verde vivo).\n\nTemperar com sal, pimenta, páprica e orégano.\n\nReservar quente.\n\nDica ouro: brócolis no vapor 2–4 min e só depois vai pra panela. Fica verdinho e não fica “cozidão”.\n\n3) Merluza ao limão (suave, suculenta)\n\nTemperar a merluza com sal + pimenta + páprica + orégano.\n\nFrigideira/chapa bem quente com um fio do azeite.\n\nSelar a merluza (não mexe no começo): 2–3 min de um lado, vira e mais 1–2 min (depende da espessura).\n\nDesligar o fogo e finalizar com limão (fora do fogo pra não amargar).\n\nSe quiser “molhinho leve”: pingar 1–2 colheres de água quente e raspar o fundo pra soltar o sabor.\n\n4) Montagem (PP 800ml)\n\nBase: trio verde com champignon\n\nProteína: merluza ao limão\n\nConferir padrão e fechar.\n\n5) Armazenamento\n\nResfriar rápido conforme fluxo.\n\nRefrigerar/congelar.\n\nEtiquetar lote e validade",
+      "bom": [
+        {
+          "itemId": "itm_9e6663db-4ec0-4481-8158-52e6fe48ec4e",
+          "qty": 0.22,
+          "pos": 1,
+          "fc": 0.82
+        },
+        {
+          "itemId": "itm_57e52731-92c3-44df-85b7-f99b695d7e75",
+          "qty": 0.16,
+          "pos": 2,
+          "fc": 0.9
+        },
+        {
+          "itemId": "itm_f509fb5e-4254-42b4-a85b-bf45612c9940",
+          "qty": 0.07,
+          "pos": 3,
+          "fc": 0.9
+        },
+        {
+          "itemId": "itm_92cc318e-9717-4bd2-a73a-aa612a5f9959",
+          "qty": 0.04,
+          "pos": 4,
+          "fc": 0.45
+        },
+        {
+          "itemId": "itm_9e4c83eb-6303-40df-a0e8-a7e36770d218",
+          "qty": 0.06,
+          "pos": 5,
+          "fc": 0.85
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.015,
+          "pos": 6,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.005,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.01,
+          "pos": 8,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 11,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 12,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.0005,
+          "pos": 13,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 14,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-27T14:38:37.657Z",
+      "outputItemId": "itm_cf366718-c157-4c76-96f7-4fab42008cb1",
+      "photoFile": "itm_cf366718-c157-4c76-96f7-4fab42008cb1_1769524727317.png"
+    },
+    {
+      "id": "rcp_a2e9d3fb-5a62-4dde-9e41-fac7fb21200f",
+      "name": "Suíno na Chapa & Espinafre Reduzido",
+      "productId": "itm_9de2e9b3-b0d5-4066-9654-25ed50e06446",
+      "yieldQty": 1,
+      "yieldUnit": "un",
+      "notes": "",
+      "method": "1) Mise en place\n\nSeparar ingredientes conforme BOM (inclui azeite, temperos e embalagem 800ml).\n\nLavar o espinafre e escorrer MUITO bem (quanto menos água, mais “reduzido” e gostoso).\n\nPicar cebola em cubinhos e alho bem fino.\n\nFatiar o champignon.\n\nMedir o limão.\n\nPorcionar o suíno em bifes/medalhões (espessura parecida).\n\n2) Suíno na chapa (dourado + suculento)\n\nTemperar o suíno com sal, pimenta, páprica e orégano.\n\nChapa/frigideira bem quente com um fio do azeite.\n\nSelar sem mexer no começo (pega crosta).\n\nVirar e finalizar até cozinhar totalmente.\n\nDesligar e pingar limão fora do fogo (dá brilho e corta gordura).\n\nDescansar 2 min antes de fatiar (segura suculência).\n\n3) Espinafre reduzido com champignon (umami + textura)\n\nFrigideira/panela bem quente.\n\nEntrar com o champignon e deixar dourar antes de mexer (evita virar água).\n\nAdicionar a cebola e suar.\n\nEntrar com o alho por último (30–40s, só perfumar).\n\nAdicionar o espinafre aos poucos (ele murcha rápido).\n\nTemperar com sal e pimenta. Se quiser, uma pitada extra de páprica.\n\nCozinhar até evaporar a água e ficar “cremosinho”/reduzido (sem caldo).\n\n4) Montagem (PP 800ml)\n\nBase: espinafre reduzido com champignon.\n\nProteína: suíno fatiado na chapa.\n\nConferir padrão e fechar.\n\n5) Armazenamento\n\nResfriar rápido conforme fluxo.\n\nRefrigerar/congelar.\n\nEtiquetar lote e validade.1) Mise en place\n\nSeparar ingredientes conforme BOM (inclui azeite, temperos e embalagem 800ml).\n\nLavar o espinafre e escorrer MUITO bem (quanto menos água, mais “reduzido” e gostoso).\n\nPicar cebola em cubinhos e alho bem fino.\n\nFatiar o champignon.\n\nMedir o limão.\n\nPorcionar o suíno em bifes/medalhões (espessura parecida).\n\n2) Suíno na chapa (dourado + suculento)\n\nTemperar o suíno com sal, pimenta, páprica e orégano.\n\nChapa/frigideira bem quente com um fio do azeite.\n\nSelar sem mexer no começo (pega crosta).\n\nVirar e finalizar até cozinhar totalmente.\n\nDesligar e pingar limão fora do fogo (dá brilho e corta gordura).\n\nDescansar 2 min antes de fatiar (segura suculência).\n\n3) Espinafre reduzido com champignon (umami + textura)\n\nFrigideira/panela bem quente.\n\nEntrar com o champignon e deixar dourar antes de mexer (evita virar água).\n\nAdicionar a cebola e suar.\n\nEntrar com o alho por último (30–40s, só perfumar).\n\nAdicionar o espinafre aos poucos (ele murcha rápido).\n\nTemperar com sal e pimenta. Se quiser, uma pitada extra de páprica.\n\nCozinhar até evaporar a água e ficar “cremosinho”/reduzido (sem caldo).\n\n4) Montagem (PP 800ml)\n\nBase: espinafre reduzido com champignon.\n\nProteína: suíno fatiado na chapa.\n\nConferir padrão e fechar.\n\n5) Armazenamento\n\nResfriar rápido conforme fluxo.\n\nRefrigerar/congelar.\n\nEtiquetar lote e validade.",
+      "bom": [
+        {
+          "itemId": "itm_1fb0016a-df3f-4585-b1ed-918d13cac24d",
+          "qty": 0.23,
+          "pos": 1,
+          "fc": 0.72
+        },
+        {
+          "itemId": "itm_3886ba98-d629-43b0-8c96-da7da8bd4656",
+          "qty": 0.6,
+          "pos": 2,
+          "fc": 0.2
+        },
+        {
+          "itemId": "itm_9e4c83eb-6303-40df-a0e8-a7e36770d218",
+          "qty": 0.07,
+          "pos": 3,
+          "fc": 0.85
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.02,
+          "pos": 4,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.006,
+          "pos": 5,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.01,
+          "pos": 6,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 8,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.0005,
+          "pos": 11,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 12,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-27T14:43:45.129Z",
+      "outputItemId": "itm_9de2e9b3-b0d5-4066-9654-25ed50e06446",
+      "photoFile": "itm_9de2e9b3-b0d5-4066-9654-25ed50e06446_1769525040419.png"
+    },
+    {
+      "id": "rcp_eae28544-3cf6-4a3c-8b75-3ac5acd80557",
+      "name": "Ragú de Músculo & Noodles de Arroz",
+      "productId": "itm_1e49c544-1716-4cdd-a759-1b7f1b9c77b7",
+      "yieldQty": 1,
+      "yieldUnit": "un",
+      "notes": "",
+      "method": "1) Mise en place\n\nSeparar ingredientes conforme BOM (inclui azeite, temperos e embalagem 800ml).\n\nPicar cebola em cubinhos e alho bem fino.\n\nPicar o tomate (cubos pequenos) — quanto menor, mais rápido vira molho.\n\nCortar o músculo em cubos médios (se já vier em peça, porcionar).\n\nDeixar água fervendo pronta pra cozinhar o macarrão de arroz.\n\n2) Ragú de músculo (molho encorpado e “de panela”)\n\nPanela bem quente + um fio do azeite.\n\nEntrar com o músculo e selar/dourar bem (cor = sabor).\n\nAdicionar a cebola e deixar suar até ficar translúcida.\n\nEntrar com o alho rápido (não deixar queimar).\n\nColocar o tomate e temperar com sal, pimenta, páprica e orégano.\n\nCozinhar em fogo baixo até virar um molho encorpado:\n\nSe secar cedo, pingar água quente aos poucos (bem pouco) e ir reduzindo.\n\nObjetivo: carne macia + molho “grudando” nela, sem ficar aguado.\n\nAjustar sal no final.\n\nDica de paladar: deixar reduzir bem até o tomate “sumir” no molho — fica com cara de ragú mesmo.\n\n3) Noodles de arroz (soltinho, sem grudar)\n\nCozinhar o macarrão de arroz em água fervente até ficar al dente (não passar).\n\nEscorrer e, se precisar, dar um choque rápido com água para parar o cozimento.\n\nMisturar o macarrão direto no ragú (ou servir por baixo com ragú por cima).\n\n4) Montagem (PP 800ml)\n\nBase: noodles de arroz.\n\nPor cima/lado: ragú de músculo bem encorpado.\n\nConferir padrão e fechar.\n\n5) Armazenamento\n\nResfriar rápido conforme fluxo.\n\nRefrigerar/congelar.\n\nEtiquetar lote e validade.",
+      "bom": [
+        {
+          "itemId": "itm_76697b2c-546c-4207-82b8-9c2bdb39b6c3",
+          "qty": 0.26,
+          "pos": 1,
+          "fc": 0.8
+        },
+        {
+          "itemId": "itm_d046c528-330a-42f3-9723-d25759ddbcdc",
+          "qty": 0.105,
+          "pos": 2,
+          "fc": 2.3
+        },
+        {
+          "itemId": "itm_bb84c43e-830a-416d-85e7-bf76c5075e8f",
+          "qty": 0.17,
+          "pos": 3,
+          "fc": 0.9
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.035,
+          "pos": 4,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.006,
+          "pos": 5,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 6,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 8,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.0005,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 11,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-27T15:33:56.460Z",
+      "outputItemId": "itm_1e49c544-1716-4cdd-a759-1b7f1b9c77b7",
+      "photoFile": "itm_1e49c544-1716-4cdd-a759-1b7f1b9c77b7_1769528053438.png"
+    },
+    {
+      "id": "rcp_12c2cd37-6510-4fa4-ade6-63d563d8bb97",
+      "name": "Strogonoff Fit de Patinho & Dueto de Carbos",
+      "productId": "itm_6ae44817-e28c-4ac6-ac8a-c02453fabac6",
+      "yieldQty": 1,
+      "yieldUnit": "un",
+      "notes": "",
+      "method": "1) Mise en place\n\nSeparar ingredientes conforme BOM (inclui mostarda, shoyu, creme de leite, temperos, azeite e embalagem 800ml).\n\nPicar cebola em cubinhos pequenos e alho bem fino.\n\nFatiar o champignon.\n\nPicar o tomate bem miúdo (vai virar base do molho).\n\nCortar o patinho em tiras/cubos pequenos padronizados (cozinha rápido e fica macio).\n\nCortar batata em gomos rústicos (tamanho igual = crocância igual).\n\n2) Arroz branco (primeiro pra não atrasar linha)\n\nRefogar rapidamente (opcional) um pouco de cebola.\n\nEntrar com o arroz, “selar” 1 min.\n\nAdicionar água quente e sal.\n\nCozinhar até secar; tampar 5 min e soltar.\n\n3) Batata (o “2º carbo” com crocância)\n\nForno/airfryer a 200–220°C.\n\nTemperar batata com sal + pimenta + um toque de páprica e orégano.\n\nAssar até dourar e ficar macia por dentro (virar na metade).\n\nDica: não amontoar na assadeira.\n\n4) Strogonoff fit de patinho (cremoso sem ficar pesado)\n\nFrigideira/panela bem quente com um fio do azeite.\n\nEntrar com o patinho e selar sem mexer no começo (cor = sabor).\n\nAdicionar cebola e deixar suar.\n\nEntrar com alho rápido (sem queimar).\n\nAdicionar champignon e deixar dourar (não deixar virar água).\n\nEntrar com o tomate e deixar reduzir até virar “molho” (2–5 min).\n\nBaixar o fogo e adicionar mostarda + shoyu, mexendo até ficar bem uniforme.\n\nFinalizar com creme de leite em fogo baixo (não ferver forte).\n\nAjustar sal/pimenta e desligar.\n\nPulo do gato do sabor: deixar o tomate reduzir bem antes do creme — dá aquele “fundo” de strogonoff que a galera ama.\n\n5) Montagem (PP 800ml)\n\nBase: arroz\n\nAo lado: batata assada\n\nPor cima/lado: strogonoff de patinho\n\nConferir padrão e fechar.\n\n6) Armazenamento\n\nResfriar rápido conforme fluxo.\n\nRefrigerar/congelar.\n\nEtiquetar lote e validade.",
+      "bom": [
+        {
+          "itemId": "itm_046b7ad0-e7dd-4815-a372-007700f67855",
+          "qty": 0.23,
+          "pos": 1,
+          "fc": 0.8
+        },
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "qty": 0.07,
+          "pos": 2,
+          "fc": 2.6
+        },
+        {
+          "itemId": "itm_62ce6156-dad2-4110-bce4-24503a6dea6f",
+          "qty": 0.16,
+          "pos": 3,
+          "fc": 0.82
+        },
+        {
+          "itemId": "itm_9e4c83eb-6303-40df-a0e8-a7e36770d218",
+          "qty": 0.05,
+          "pos": 4,
+          "fc": 0.85
+        },
+        {
+          "itemId": "itm_bb84c43e-830a-416d-85e7-bf76c5075e8f",
+          "qty": 0.07,
+          "pos": 5,
+          "fc": 0.9
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.025,
+          "pos": 6,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.006,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_369db651-8068-49ab-81d1-9c65616a33d2",
+          "qty": 0.01,
+          "pos": 8,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8e4b237f-5b65-4d53-a5f5-c27cca08b486",
+          "qty": 0.008,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+          "qty": 0.025,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 11,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 12,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 13,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 14,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.0005,
+          "pos": 15,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 16,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-27T15:53:30.004Z",
+      "outputItemId": "itm_6ae44817-e28c-4ac6-ac8a-c02453fabac6",
+      "photoFile": "itm_6ae44817-e28c-4ac6-ac8a-c02453fabac6_1769529221347.png"
+    },
+    {
+      "id": "rcp_3a37a8a5-7263-4321-8f57-7339cf34ba29",
+      "name": "Teriyaki de Frango & Cuscuz do Milho",
+      "productId": "itm_f346945c-0433-4187-9254-3e21601a3fdd",
+      "yieldQty": 1,
+      "yieldUnit": "un",
+      "notes": "",
+      "method": "1) Mise en place\n\nSeparar tudo conforme BOM (shoyu, limão, temperos, azeite e embalagem 800ml).\n\nPicar cebola em cubinhos pequenos e alho bem fininho.\n\nMedir shoyu e limão.\n\nPadronizar o frango em cubos/tiras (cozinha por igual).\n\n2) Cuscuz do milho (soltinho + saboroso)\n\nPanela quente: refogar cebola + alho com um fio mínimo de azeite (ou antiaderente).\n\nEntrar com o milho verde e dar uma douradinha rápida (isso dá aquele gosto “de milho tostado”).\n\nTemperar com sal, pimenta e um toque de páprica/orégano.\n\nAdicionar água quente (na prática: ~1,3–1,5x o peso do flocão) e ajustar o sal.\n\nDesligar o fogo, entrar com o flocão, misturar bem, tampar 5–7 min.\n\nSoltar com garfo e reservar.\n\nDica de paladar: milho douradinho + páprica = “gourmetiza” demais.\n\n3) Frango “teriyaki” (glaceado, brilhante, gostoso)\n\nMarinar 10–15 min: frango + shoyu + limão + alho + pimenta + páprica.\n\nFrigideira/chapa bem quente: selar o frango até dourar (não mexer no começo).\n\nQuando estiver quase pronto, adicionar a cebola e deixar suar.\n\nEntrar com o restinho da marinada e reduzir até virar um “molho” que gruda no frango.\n\nSe ficar muito salgado/forte, pingar um tiquinho de água quente e reduzir de novo (fica brilhante e equilibrado).\n\nFinalizar com mais umas gotas de limão fora do fogo pra dar “lift”.\n\n4) Montagem (PP 800ml)\n\nBase: cuscuz do milho\n\nProteína: frango teriyaki por cima/lado\n\nConferir padrão e fechar.\n\n5) Armazenamento\n\nResfriar rápido, refrigerar/congelar e etiquetar.",
+      "bom": [
+        {
+          "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+          "qty": 0.26,
+          "pos": 1,
+          "fc": 0.8
+        },
+        {
+          "itemId": "itm_49b5d383-ece8-4abc-8e21-85272e96c668",
+          "qty": 0.1,
+          "pos": 2,
+          "fc": 2.4
+        },
+        {
+          "itemId": "itm_e5cefadb-9838-4672-a7b3-8c71e6442944",
+          "qty": 0.15,
+          "pos": 3,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.04,
+          "pos": 4,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.006,
+          "pos": 5,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8e4b237f-5b65-4d53-a5f5-c27cca08b486",
+          "qty": 0.012,
+          "pos": 6,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.01,
+          "pos": 7,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 8,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 11,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.0005,
+          "pos": 12,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 13,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-27T16:03:02.274Z",
+      "outputItemId": "itm_f346945c-0433-4187-9254-3e21601a3fdd",
+      "photoFile": "itm_f346945c-0433-4187-9254-3e21601a3fdd_1769529792582.png"
+    },
+    {
+      "id": "rcp_e952fcfc-7632-42c0-ba08-245468fbab69",
+      "name": "Moela Provençal & Arroz-Noodles com Escarola",
+      "productId": "itm_2ef5ca2c-6be3-4392-b347-642bcca9512e",
+      "yieldQty": 1,
+      "yieldUnit": "un",
+      "notes": "",
+      "method": "1) Mise en place\n\nSeparar tudo conforme BOM (inclui azeite, temperos e embalagem 800ml).\n\nLavar bem a moela (se necessário) e escorrer.\n\nHigienizar a escarola e escorrer MUITO bem (senão vira água).\n\nPicar cebola em cubos e alho bem fininho.\n\nMedir limão.\n\nDeixar água fervendo pronta para o macarrão de arroz.\n\n2) Moela “provençal” (macia + bem temperada)\n\nPré-cozimento (pra ficar macia e vender bem):\n\nCozinhar a moela em água com sal até ficar macia.\n\nSe usar pressão: ~20–30 min após pegar pressão.\n\nEscorrer e reservar.\n\nPanela bem quente + um fio do azeite:\n\nEntrar com cebola e suar rápido.\n\nAdicionar a moela e dourar (pega cor e sabor).\n\nEntrar com alho (parte boa do provençal) e mexer 30–40s sem queimar.\n\nTemperar com sal, pimenta, páprica e orégano.\n\nFinalizar com limão fora do fogo (brilho e corte de gordura).\n\nPulo do gato: dourar bem depois do cozimento. Moela macia + casquinha = “viciante”.\n\n3) Escarola (salteada sem soltar água)\n\nFrigideira/panela bem quente.\n\nEntrar com a escarola e saltear rápido até murchar.\n\nAjustar sal/pimenta.\n\nSe quiser, pingar só um tiquinho de limão no final pra levantar.\n\n4) Arroz‑noodles (macarrão de arroz) + mistura\n\nCozinhar o macarrão de arroz até ficar al dente.\n\nEscorrer bem.\n\nMisturar com a escarola salteada (fica leve e com volume bom).\n\n5) Montagem (PP 800ml)\n\nBase: arroz‑noodles com escarola\n\nPor cima/lado: moela provençal\n\nConferir padrão e fechar.\n\n6) Armazenamento\n\nResfriar rápido conforme fluxo.\n\nRefrigerar/congelar.\n\nEtiquetar lote e validade.",
+      "bom": [
+        {
+          "itemId": "itm_3a29a0dc-6d9b-4740-b7ee-f3940eaf0cbc",
+          "qty": 0.26,
+          "pos": 1,
+          "fc": 0.7
+        },
+        {
+          "itemId": "itm_d046c528-330a-42f3-9723-d25759ddbcdc",
+          "qty": 0.095,
+          "pos": 2,
+          "fc": 2.3
+        },
+        {
+          "itemId": "itm_0fe3c168-006c-4161-b22c-5739e246c5ed",
+          "qty": 0.35,
+          "pos": 3,
+          "fc": 0.4
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.035,
+          "pos": 4,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.007,
+          "pos": 5,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.012,
+          "pos": 6,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 8,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.0005,
+          "pos": 11,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 12,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-27T16:06:04.832Z",
+      "outputItemId": "itm_2ef5ca2c-6be3-4392-b347-642bcca9512e",
+      "photoFile": "itm_2ef5ca2c-6be3-4392-b347-642bcca9512e_1769529976454.png"
+    }
+  ],
+  "productionOrders": [],
+  "purchaseOrders": []
+}

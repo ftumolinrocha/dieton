@@ -1,0 +1,1327 @@
+:root{
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --muted:#475569;
+  --text:#0f172a;
+  --line:#e2e8f0;
+  --accent:#5b21b6;
+  --accent2:#16a34a;
+  --danger:#dc2626;
+}
+
+*{ box-sizing: border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: radial-gradient(1200px 800px at 20% 0%, rgba(91,33,182,.12), transparent 60%),
+              radial-gradient(900px 700px at 80% 10%, rgba(22,163,74,.10), transparent 60%),
+              var(--bg);
+  color:var(--text);
+}
+
+a{ color:inherit; }
+.hidden{ display:none !important; }
+
+.topbar{
+  position: sticky;
+  top:0;
+  z-index: 10;
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items:center;
+  gap:16px;
+  padding:10px 18px;
+  border-bottom:1px solid var(--line);
+  background: rgba(255,255,255,.75);
+  backdrop-filter: blur(10px);
+}
+.brand{ display:flex; gap:16px; align-items:center; }
+.logo{
+  /* Reduzido em ~40% para a versão final */
+  height: 84px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.brand-title{ font-weight:700; letter-spacing:.2px; }
+.brand-subtitle{ color:var(--muted); font-size:13px; margin-top:2px; }
+.topbar-right{ display:flex; align-items:center; gap:10px; }
+.user-badge{
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(15,23,42,.10);
+  background: rgba(2,6,23,.03);
+  color: var(--text);
+  font-size: 13px;
+}
+
+.container{ max-width: 1360px; margin: 22px auto; padding: 0 16px 60px; }
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,255,255,.92));
+  border: 1px solid rgba(15,23,42,.10);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 12px 30px rgba(2,6,23,.10);
+}
+
+h1{ margin:0 0 10px; font-size:24px; }
+h2{ margin:0 0 6px; font-size:20px; }
+h3{ margin: 14px 0 10px; font-size: 16px; }
+.muted{ color: var(--muted); }
+.error{ color: var(--danger); margin-top:10px; }
+
+.form{ display:grid; gap:16px; max-width: 380px; }
+label{ display:grid; gap:6px; font-size: 13px; color: var(--muted); }
+input, select, textarea{
+  width:100%;
+  padding:10px 12px;
+  border-radius: 12px;
+  border:1px solid rgba(15,23,42,.10);
+  background: rgba(2,6,23,.03);
+  color: var(--text);
+  outline: none;
+}
+textarea{ min-height: 90px; resize: vertical; }
+
+/* BOM: nome/descrição do PF pode ser longo; precisa quebrar linha sem estourar */
+.pf-name-textarea{
+  min-height: 38px;
+  resize: none;
+  white-space: pre-wrap;
+}
+
+/* BOM: input compacto do PF (no topo do modal) */
+.pf-name-input{
+  padding: 7px 10px;
+  border-radius: 12px;
+  height: 34px;
+}
+
+/* BOM: linha do PF com ações (export/import) */
+.pf-line{ display:flex; gap:10px; align-items:flex-end; }
+.pf-inline-actions{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+
+/* Botão bem compacto (para caber ao lado do input do PF) */
+.btn.tiny{ padding: 6px 10px; font-size: 12px; line-height: 1; height: 34px; }
+
+/* BOM: header com descrição + foto à direita */
+.bom-header-grid{
+  display:grid;
+  grid-template-columns: 1fr 240px;
+  gap: 12px;
+  align-items:start;
+  margin: 8px 0 6px;
+}
+.bom-header-left{ min-width:0; }
+.bom-header-photo{ display:flex; flex-direction:column; align-items:flex-end; }
+.bom-header-photo .photo-actions{ width:100%; justify-content:flex-end; }
+.bom-header-photo .photo-frame{ max-width:240px; }
+.tight{ margin: 0; }
+@media (max-width: 860px){
+  .bom-header-grid{ grid-template-columns: 1fr; }
+  .bom-header-photo{ align-items:flex-start; }
+}
+
+/* Método (novo módulo) */
+.method-textarea{
+  /* Mais área visível para o texto do método */
+  min-height: 260px;
+}
+
+/* MRP: descrição do PF na lista (1 linha com ellipsis) */
+.pf-desc{
+  display:block;
+  max-width: 380px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.row{ display:flex; gap:10px; align-items:center; }
+.row.between{ justify-content:space-between; }
+.row.center{ justify-content:center; }
+.row.wrap{ flex-wrap: wrap; }
+
+.tabs{
+  display:flex;
+  gap:8px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.tab{
+  padding:10px 12px;
+  border-radius: 999px;
+  border:1px solid rgba(15,23,42,.10);
+  background: rgba(2,6,23,.02);
+  color: var(--text);
+  cursor:pointer;
+}
+.tab.active{
+  border-color: rgba(124,58,237,.55);
+  background: rgba(124,58,237,.20);
+}
+
+.btn{
+  padding:10px 12px;
+  border-radius: 12px;
+  border:1px solid rgba(15,23,42,.12);
+  background: rgba(2,6,23,.03);
+  color: var(--text);
+  cursor:pointer;
+  font-weight: 600;
+}
+.btn:hover{ background: rgba(2,6,23,.06); }
+.btn.primary{
+  background: rgba(124,58,237,.22);
+  border-color: rgba(124,58,237,.55);
+}
+.btn.secondary{
+  background: rgba(2,6,23,.02);
+}
+.btn.icon{ padding:8px 10px; border-radius: 999px; }
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 10px;
+  border-radius: 999px;
+  border:1px solid rgba(15,23,42,.10);
+  background: rgba(2,6,23,.03);
+  font-size: 12px;
+}
+.pill.ok{ border-color: rgba(34,197,94,.45); background: rgba(34,197,94,.16); }
+.pill.bad{ border-color: rgba(239,68,68,.45); background: rgba(239,68,68,.16); }
+.pill.warn{ border-color: rgba(245,158,11,.55); background: rgba(245,158,11,.16); }
+
+.grid{ display:grid; gap:14px; }
+.grid.two{ grid-template-columns: 1.1fr .9fr; }
+@media (max-width: 980px){
+  .grid.two{ grid-template-columns: 1fr; }
+}
+
+.table-wrap{
+  border: 1px solid rgba(15,23,42,.10);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* BOM (modal) precisa permitir rolagem interna; caso contrario corta a tabela (ex.: mostra so 6 linhas). */
+.table-wrap.bom-comp-table{
+  overflow: auto;
+}
+.table{
+  width:100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.table th, .table td{
+  padding: 10px 10px;
+  border-bottom: 1px solid rgba(15,23,42,.08);
+  vertical-align: top;
+}
+.table th{
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: .2px;
+  color: var(--muted);
+  background: rgba(2,6,23,.03);
+}
+.table tr:hover td{ background: rgba(2,6,23,.02); }
+
+.list{ display:grid; gap:10px; }
+.list-item{
+  padding:12px;
+  border-radius: 14px;
+  border:1px solid rgba(15,23,42,.10);
+  background: rgba(2,6,23,.02);
+  cursor:pointer;
+}
+.list-item:hover{ background: rgba(2,6,23,.03); }
+.list-item.active{ border-color: rgba(124,58,237,.55); background: rgba(124,58,237,.16); }
+
+.modal::backdrop{ background: rgba(0,0,0,.65); }
+.modal{ border: none; background: transparent; padding: 0; }
+.modal-card{
+  width: min(720px, calc(100vw - 24px));
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 18px;
+  padding: 14px;
+  color: var(--text);
+  box-shadow: 0 18px 60px rgba(2,6,23,.18);
+}
+.modal-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+.modal-title{ font-weight: 800; font-size: 16px; }
+.modal-subtitle{ font-size: 13px; margin-top: 2px; }
+.modal-body{ margin-top: 12px; display:grid; gap:10px; }
+.modal-foot{ margin-top: 14px; display:flex; justify-content:flex-end; gap:10px; }
+
+/* Optional extra action in modal footer (e.g., Imprimir) */
+#modalExtraBtn{ margin-right:auto; }
+
+hr{ border:none; border-top:1px solid rgba(255,255,255,.10); }
+.small{ font-size: 10px; }
+
+/* Login hero (logo grande e centralizada) */
+#loginView{
+  max-width: 620px;
+  margin: 70px auto;
+}
+.login-hero{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:10px;
+  margin-bottom: 18px;
+}
+.login-logo{
+  /* Reduzido em ~40% para a versão final */
+  width: min(312px, 52%);
+  height: auto;
+  object-fit: contain;
+}
+.login-title{
+  font-weight: 900;
+  letter-spacing: .3px;
+  font-size: 22px;
+}
+.login-subtitle{
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.topbar-left{ height:1px; }
+.brand{ justify-self:center; display:flex; gap:16px; align-items:center; }
+.topbar-right{ justify-self:end; display:flex; align-items:center; gap:10px; }
+
+.build-badge{
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(15,23,42,.12);
+  background: rgba(2,6,23,.03);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+
+/* Centralizar formulário de login */
+#loginView .form{
+  margin: 0 auto;
+  width: min(420px, 100%);
+}
+#loginView h1{
+  text-align:center;
+}
+#loginView p{
+  text-align:center;
+}
+#loginView .form button{
+  width: 100%;
+}
+
+/* Sub-aba do estoque (Matéria-prima vs Produto final) */
+.stock-mode{
+  display:flex;
+  gap:10px;
+  flex-wrap: wrap;
+  align-items:center;
+}
+.pill-toggle{
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid rgba(15,23,42,.12);
+  background: rgba(2,6,23,.03);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 800;
+  cursor:pointer;
+}
+.pill-toggle.active{
+  border-color: rgba(91,33,182,.35);
+  background: rgba(91,33,182,.12);
+}
+
+.pill-action{
+  border-style: dashed;
+  opacity: 0.95;
+}
+.pill-action:hover{
+  opacity: 1;
+}
+
+/* Cabeçalho do Estoque */
+.estoque-head{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:12px;
+  margin-bottom: 8px;
+}
+.stock-mode.center{
+  justify-content:center;
+}
+
+.manage-items-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom: 10px;
+}
+.manage-items-title{
+  font-weight:900;
+}
+.manage-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn.danger{
+  border-color: rgba(220,38,38,.25);
+  background: rgba(220,38,38,.08);
+}
+.btn.danger:hover{
+  background: rgba(220,38,38,.12);
+}
+
+/* Tipografia menor no card de Estoque (clean) */
+#tab-estoque{
+  font-size: 11px;
+}
+#tab-estoque .muted,
+#tab-estoque button{
+  font-size: 11px;
+}
+#tab-estoque h2{
+  font-size: 16px;
+}
+
+/* Cadastro (modal) no formato tabela + toolbar */
+.cadastro-sub{
+  margin-bottom: 10px;
+  font-size: 11px;
+}
+.cadastro-toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom: 10px;
+}
+.cadastro-search{
+  flex: 1 1 220px;
+  min-width: 180px;
+}
+.cadastro-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.cadastro-sep{
+  width:1px;
+  height:26px;
+  background: rgba(15,23,42,.12);
+  margin: 0 2px;
+}
+.cadastro-tablewrap{
+  max-height: 52vh;
+  overflow:auto;
+}
+.cadastro-table{
+  font-size: 11px;
+}
+.cadastro-table th{
+  font-size: 10.5px;
+  letter-spacing: .06em;
+}
+.cadastro-table td{
+  vertical-align: top;
+}
+tr.row-selected{
+  outline: 2px solid rgba(91,33,182,.25);
+  background: rgba(91,33,182,.06);
+}
+
+.units-table tbody tr{ cursor:pointer; }
+.units-table tbody tr:hover{ background: rgba(2,6,23,.03); }
+
+.btn.small{ font-size: 10px; }
+
+
+/* Estoque - Cadastro inline (formato ERP, visual clean) */
+.estoque-cadastro{ margin-top: 14px; }
+.cadastro-card{
+  border: 1px solid rgba(15,23,42,.10);
+  background: rgba(255,255,255,.78);
+  border-radius: 18px;
+  padding: 14px 14px 12px;
+  box-shadow: 0 14px 32px rgba(15,23,42,.08);
+}
+
+/* Mantém cabeçalho/toolbar estáticos e faz a tabela rolar dentro do card */
+#tab-estoque .estoque-cadastro .cadastro-card{
+  display:flex;
+  flex-direction:column;
+  height: calc(100vh - 290px);
+  min-height: 420px;
+}
+#tab-estoque .estoque-cadastro .table-wrap{
+  flex:1 1 auto;
+  overflow:auto;
+}
+#tab-estoque .estoque-cadastro .muted.small{
+  flex:0 0 auto;
+}
+.cadastro-title{
+  font-size: 14px;
+  font-weight: 900;
+}
+.cadastro-sub{
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.toolbar{
+  margin-top: 12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(15,23,42,.08);
+  background: rgba(2,6,23,.02);
+}
+.toolbar-left{
+  flex: 1 1 220px;
+  min-width: 220px;
+}
+.toolbar-left .input{
+  width: 100%;
+
+  font-size: 12px;
+  font-weight: 400;
+}
+.toolbar-right{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.toolbar .sep{
+  width: 1px;
+  height: 26px;
+  background: rgba(15,23,42,.12);
+  display:inline-block;
+  margin: 0 2px;
+}
+.table#cadastroTable{
+  font-size: 12px;
+}
+#cadastroTable tbody tr{
+  cursor: pointer;
+}
+#cadastroTable tbody tr.selected{
+  outline: 2px solid rgba(91,33,182,.25);
+  background: rgba(91,33,182,.06);
+}
+
+/* Modal: seletor de item (Ajuste de inventário) */
+.pick-table tbody tr{ cursor: pointer; }
+
+/* reduzir fontes gerais do card de estoque */
+#tab-estoque .muted{ font-size: 11px; }
+#tab-estoque .pill-toggle{ font-size: 12px; }
+
+.toolbar-left .input::placeholder{ font-size:12px; font-weight:400; }
+
+.toolbar-right .btn{ font-size:12px; font-weight:400; }
+
+
+/* Modal form layout (cadastro de itens) */
+.grid2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  row-gap: 14px;
+}
+.field{
+  display:flex;
+  flex-direction:column;
+  gap: 6px;
+}
+.field.span2{ grid-column: 1 / -1; }
+.labelRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+  /* keep the label area height consistent with plain <label> so
+     the inputs in the same row (Unidade x % Perda) line up */
+  min-height: 24px;
+}
+
+/* Plain labels should reserve the same vertical space as .labelRow */
+.field > label{
+  display:flex;
+  align-items:center;
+  min-height: 24px;
+}
+
+/* "Saiba mais" is rendered as a small secondary button inside .labelRow;
+   tighten it so it doesn't increase the label row height */
+.labelRow .btn.small{
+  padding: 6px 10px;
+}
+.btn.small{ font-size: 10px; }
+
+
+
+/* Cadastro - coluna valor venda em uma linha */
+.cadastro-table th.col-sale,
+.cadastro-table td.col-sale {
+  min-width: 160px;
+  white-space: nowrap;
+}
+
+
+/* Cadastro - cabeçalho menor */
+.cadastro-table thead th{font-size:11px;}
+
+/* Cadastro - cabeçalho compacto e alinhamento */
+.cadastro-table thead.cad-head th{
+  font-size: 11px;
+  letter-spacing: 0.2px;
+}
+.cadastro-table th.cad-num,
+.cadastro-table td.cad-num{
+  text-align: center;
+}
+.cadastro-table th.col-sale,
+.cadastro-table td.col-sale{
+  min-width: 160px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+
+/* v3.6 — cadastro tables: smaller header + centered numeric cols */
+.table.cadastro-table thead th{
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+  white-space: nowrap;
+}
+.table.cadastro-table thead th:nth-child(3),
+.table.cadastro-table thead th:nth-child(4),
+.table.cadastro-table thead th:nth-child(5),
+.table.cadastro-table thead th:nth-child(6){
+  text-align: center;
+}
+
+/* Não quebrar os títulos das colunas numéricas */
+.table.cadastro-table thead th:nth-child(3),
+.table.cadastro-table thead th:nth-child(4),
+.table.cadastro-table thead th:nth-child(5),
+.table.cadastro-table thead th:nth-child(6){
+  white-space: nowrap;
+}
+.table.cadastro-table tbody td:nth-child(3),
+.table.cadastro-table tbody td:nth-child(4),
+.table.cadastro-table tbody td:nth-child(5),
+.table.cadastro-table tbody td:nth-child(6){
+  text-align: center;
+}
+
+/* Dá “corpo” para as colunas numéricas, para o alinhamento central ficar visível */
+.table.cadastro-table thead th:nth-child(3),
+.table.cadastro-table tbody td:nth-child(3){
+  min-width: 70px; /* UN */
+}
+.table.cadastro-table thead th:nth-child(4),
+.table.cadastro-table tbody td:nth-child(4){
+  min-width: 120px; /* CUSTO / V.VENDA */
+}
+.table.cadastro-table thead th:nth-child(5),
+.table.cadastro-table tbody td:nth-child(5){
+  min-width: 90px; /* % PERDA (MP) */
+}
+.table.cadastro-table thead th:nth-child(6),
+.table.cadastro-table tbody td:nth-child(6){
+  min-width: 140px; /* ESTOQUE MÍNIMO */
+}
+/* Hide % Perda column in Produto Final (we keep the 5th cell for alignment, but hide it) */
+.table.cadastro-table.hide-loss thead th:nth-child(5),
+.table.cadastro-table.hide-loss tbody td:nth-child(5),
+.table.cadastro-table.hide-loss thead th:nth-child(6),
+.table.cadastro-table.hide-loss tbody td:nth-child(6){
+  display: none;
+}
+
+
+
+/* --- Cadastro Geral --- */
+.modal-card.wide{ width: min(1240px, calc(100vw - 24px)); }
+
+/* OC/OP - modos compactos (linhas mais próximas, fonte menor) */
+.modal-card.po-compact .table{ font-size: 10px; }
+.modal-card.po-compact .table th,
+.modal-card.po-compact .table td{ padding: 3px 6px; line-height: 1.2; }
+.modal-card.po-compact .input{ font-size: 11px; padding: 5px 8px; height: 28px; }
+.modal-card.po-compact .btn{ padding: 4px 8px; border-radius: 10px; }
+.modal-card.po-compact .btn.micro{ font-size: 10px; padding: 3px 7px; }
+.modal-card.po-compact .modal-title{ font-size: 15px; }
+.modal-card.po-compact .modal-body{ gap: 8px; }
+
+/* OC - modal de edição/recebimento com 2 cards internos */
+.po-split{ display:grid; gap: 10px; }
+.po-subcard{
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,255,255,.92));
+  border: 1px solid rgba(15,23,42,.10);
+  border-radius: 16px;
+  padding: 12px;
+  display:grid;
+  gap: 10px;
+}
+.po-subhead{ display:flex; align-items:flex-end; justify-content:space-between; gap:10px; }
+.po-subtitle{ font-weight: 900; letter-spacing:.06em; text-transform: uppercase; font-size: 12px; color: var(--text); }
+.po-suboc{ font-size: 12px; }
+
+.po-meta-grid{
+  display:grid;
+  grid-template-columns: 220px 1fr;
+  gap: 10px;
+  align-items:end;
+}
+.po-add-grid{
+  display:grid;
+  grid-template-columns: 1fr 96px 170px auto;
+  gap: 10px;
+  align-items:end;
+}
+.po-add-btn{ display:flex; justify-content:flex-start; }
+
+@media (max-width: 860px){
+  .po-meta-grid{ grid-template-columns: 1fr; }
+  .po-add-grid{ grid-template-columns: 1fr 120px 1fr; }
+  .po-add-btn{ grid-column: 1 / -1; justify-content:flex-end; }
+}
+
+.po-subsection{ font-weight: 900; font-size: 13px; }
+
+/* OC: no modal de edição, o card superior fica fixo e os itens rolam dentro do card inferior */
+.modal-card.po-edit{
+  display:flex;
+  flex-direction:column;
+  max-height: calc(100vh - 24px);
+  overflow: hidden;
+}
+.modal-card.po-edit .modal-body{
+  display:flex;
+  flex-direction:column;
+  flex: 1;
+  min-height: 0;
+}
+.modal-card.po-edit .po-split{
+  display:flex;
+  flex-direction:column;
+  flex: 1;
+  min-height: 0;
+}
+.modal-card.po-edit .po-split > .po-subcard:first-child{ flex: 0 0 auto; }
+.modal-card.po-edit .po-split > .po-subcard:last-child{
+  flex: 1 1 auto;
+  min-height: 0;
+  display:flex;
+  flex-direction:column;
+}
+.modal-card.po-edit #poLines{
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+/* OC: recebimento também usa altura máxima (tabela pode rolar dentro) */
+.modal-card.po-recv{
+  display:flex;
+  flex-direction:column;
+  max-height: calc(100vh - 24px);
+  overflow: hidden;
+}
+.modal-card.po-recv .modal-body{
+  display:flex;
+  flex-direction:column;
+  flex: 1;
+  min-height: 0;
+}
+.modal-card.po-recv .table-wrap{
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+/* Inventory picker (Ajuste de Inventário MP/PF): keep the modal flexible but
+   avoid an oversized card with lots of empty space on wide screens. */
+.modal-card.inv-pick{ width: min(1040px, calc(100vw - 24px)); }
+
+/* Unidades: modal bem mais compacto (tabela curta, poucos digitos) */
+.modal-card.units{
+  width: min(560px, calc(100vw - 24px));
+  padding: 12px;
+}
+.modal-card.units .modal-body{ gap: 8px; }
+#unitsModalBody .toolbar{ margin-bottom: 6px; }
+#unitsModalBody .toolbar .toolbar-left{ flex: 1; }
+#unitsModalBody .grid2{ grid-template-columns: .75fr 1.25fr; gap: 10px; }
+#unitsModalBody .row{ margin-top: 2px; }
+#unitsModalBody .table-wrap{
+  max-height: 220px;
+  overflow: auto;
+}
+.units-table{ font-size: 12px; }
+.units-table th, .units-table td{ padding: 8px 10px; }
+.table th.sortable{ cursor:pointer; user-select:none; }
+.table th.sortable .sort-ind{ font-size: 11px; margin-left: 6px; opacity: .75; }
+.table tr.selected td{ background: rgba(2,6,23,.05); }
+
+/* Estoque mínimo: destaque de linhas no Cadastro Geral (MP/PF) */
+.table tr.min-at td{ background: rgba(245,158,11,.10); }
+.table tr.min-below td{ background: rgba(239,68,68,.10); }
+.table tr.min-below td:last-child{ font-weight: 700; }
+.table-scroll{ max-height: 58vh; overflow:auto; border: 1px solid rgba(15,23,42,.10); border-radius: 14px; }
+.general-toolbar{ display:flex; gap:10px; align-items:center; justify-content:space-between; }
+.general-toolbar .search{ flex:1; }
+.row-menu-wrap{ position:relative; display:flex; align-items:center; justify-content:center; }
+.row-menu-btn{ width: 24px; height: 24px; border-radius: 9px; border: 1px solid rgba(15,23,42,.12); background: rgba(255,255,255,.55); cursor:pointer; }
+.row-menu{ position:absolute; top: 32px; left: 0; z-index: 30; min-width: 190px; background: var(--card); border: 1px solid rgba(15,23,42,.12); border-radius: 12px; box-shadow: 0 16px 40px rgba(2,6,23,.18); padding: 6px; display:none; }
+.row-menu.open{ display:block; }
+/* Se o menu estiver perto do final da tela, abrimos "para cima" */
+.row-menu.open-up{ top: auto; bottom: 32px; }
+.row-menu button{ width:100%; text-align:left; padding:8px 10px; border:none; background:transparent; border-radius:10px; cursor:pointer; color: var(--text); }
+.row-menu button:hover{ background: rgba(2,6,23,.05); }
+
+/* Histórico de Inventário: alinhamentos e compactação */
+#invHistTable thead th,
+#invHistTable tbody td{ text-align: center; }
+
+/* Código e Descrição à esquerda */
+#invHistTable thead th:nth-child(3),
+#invHistTable tbody td:nth-child(3),
+#invHistTable thead th:nth-child(4),
+#invHistTable tbody td:nth-child(4){ text-align: left; }
+
+#invHistTable{ table-layout: fixed; }
+#invHistTable th, #invHistTable td{
+  padding: 4px 6px;
+  line-height: 1.08;
+  vertical-align: middle;
+}
+#invHistTable thead th{ font-size: 11px; }
+
+#invHistTable tbody td:nth-child(4){
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Histórico de Inventário: Observação deve quebrar linha (não cortar) */
+#invHistTable tbody td:nth-child(10){
+  white-space: normal;
+  word-break: break-word;
+  overflow: visible;
+  text-overflow: initial;
+  line-height: 1.15;
+  vertical-align: top;
+}
+
+/* A span da observação no histórico não pode herdar ellipsis/nowrap */
+#invHistTable tbody td:nth-child(10) .h-obs{
+  display: block;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  word-break: break-word;
+}
+
+/* Cadastro Geral: alinhar Código/Descrição à esquerda e o resto centralizado */
+#generalTableInline thead th,
+#generalTableInline tbody td{ text-align: center; }
+
+/* 1ª col (ações) central */
+#generalTableInline thead th:nth-child(1),
+#generalTableInline tbody td:nth-child(1){ text-align: center; }
+
+/* Código e Descrição à esquerda */
+#generalTableInline thead th:nth-child(2),
+#generalTableInline tbody td:nth-child(2),
+#generalTableInline thead th:nth-child(3),
+#generalTableInline tbody td:nth-child(3){ text-align: left; }
+
+/* Aumentar a coluna Descrição */
+#generalTableInline thead th:nth-child(3),
+#generalTableInline tbody td:nth-child(3){
+  min-width: 600px;
+}
+
+/* Cadastro Geral: mais compacto para caber PFs longos em 1 linha */
+.table-wrap.general-wrap{ overflow:auto; }
+#generalTableInline{ table-layout: fixed; }
+#generalTableInline th, #generalTableInline td{
+  padding: 4px 6px;
+  line-height: 1.08;
+  vertical-align: middle;
+}
+#generalTableInline thead th{ font-size: 11px; }
+/* Código (mais compacto) */
+#generalTableInline tbody td:nth-child(2){ padding-left: 4px; }
+#generalTableInline tbody td:nth-child(3){
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#generalTableInline thead th:nth-child(9),
+#generalTableInline tbody td:nth-child(9),
+#generalTableInline thead th:nth-child(9),
+#generalTableInline tbody td:nth-child(9),
+#generalTableInline thead th:nth-child(10),
+#generalTableInline tbody td:nth-child(10){ text-align:center !important; }
+#generalTableInline tbody td:nth-child(3) .g-desc{
+  display:block;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==============================
+   Estoque (MP / PF / Geral)
+   - Cabeçalho da tabela travado
+   - Compactação igual ao Cadastro Geral
+   ============================== */
+
+/* Faz o THEAD ficar fixo dentro do container com scroll */
+.estoque-cadastro .table-wrap table thead th{
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: var(--card);
+}
+
+/* Mesma compactação do Cadastro Geral para MP/PF */
+.table.cadastro-table{
+  table-layout: fixed;
+}
+.table.cadastro-table th,
+.table.cadastro-table td{
+  padding: 4px 6px;
+  line-height: 1.08;
+  vertical-align: middle;
+}
+.table.cadastro-table thead th{
+  font-size: 11px;
+}
+
+/* Descrição com ellipsis igual ao Geral */
+.table.cadastro-table tbody td:nth-child(2){
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Garantir largura mínima para rolagem horizontal quando necessário */
+.table.cadastro-table{ min-width: 980px; }
+#generalTableInline{ min-width: 980px; }
+
+
+
+/* Histórico: permitir ver OBS sem cortar (scroll horizontal quando precisar) */
+.table-wrap.invhist-wrap{
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+#invHistTable{ min-width: 920px; }
+
+/* Botão e modal de Observação */
+.btn.micro{
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 1;
+}
+.obs-cell{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.obs-full{
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding: 12px;
+  border: 1px solid rgba(15,23,42,.12);
+  border-radius: 14px;
+  background: rgba(255,255,255,.8);
+}
+
+
+/* BOM (Receitas / Produto Final) - allow many ingredients without growing the modal forever */
+.bom-lines{
+  max-height: 280px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px;
+  background: var(--card);
+}
+.bom-line{ margin: 0 0 10px 0; }
+.bom-line:last-child{ margin-bottom: 0; }
+.bom-line-row{
+  display: grid;
+  grid-template-columns: 1fr 220px 96px;
+  gap: 12px;
+  align-items: end;
+}
+.bom-line-row label{ margin: 0; }
+.bom-line-row .bom-remove{ height: 38px; }
+
+@media (max-width: 900px){
+  .bom-line-row{ grid-template-columns: 1fr 160px 90px; }
+}
+
+
+
+/* --- BOM topo (export/import + foto) --- */
+.bom-top-grid{
+  display:grid;
+  grid-template-columns: 1fr 210px;
+  gap: 14px;
+  align-items:start;
+  margin: 6px 0 4px;
+}
+.bom-top-actions{ min-width:0; }
+.bom-top-actions-row{ margin:0; gap:8px; }
+.bom-top-photo{ width:210px; display:flex; flex-direction:column; align-items:flex-end; }
+.bom-top-photo .photo-actions{ width:100%; justify-content:flex-end; }
+.bom-top-photo .photo-frame{ max-width:210px; }
+.bom-photo-help{ text-align:right; margin-top:4px; }
+@media (max-width: 860px){
+  .bom-top-grid{ grid-template-columns: 1fr; }
+  .bom-top-photo{ width:100%; align-items:flex-start; }
+  .bom-photo-help{ text-align:left; }
+}
+/* --- BOM (Produto Final) editor --- */
+.bom-editor{ margin-top: 10px; }
+.bom-comp-editor{
+  border: 1px solid rgba(15,23,42,.10);
+  border-radius: 16px;
+  padding: 10px;
+  background: rgba(2,6,23,.02);
+}
+
+/* versão mais compacta do card "Ingredientes (BOM)" */
+.bom-comp-editor-compact{ padding: 8px; border-radius: 14px; }
+
+/* Botões empilhados (Salvar/Limpar) */
+.stack{ display:flex; flex-direction:column; gap:6px; align-items:stretch; }
+.stack .btn{ width: 100%; }
+
+/* (bloco duplicado removido) */
+.grid.bom-comp-grid{ display:grid; grid-template-columns: 0.25fr 2.35fr 0.45fr 0.45fr 0.45fr 0.85fr auto; gap: 8px; align-items:end; }
+
+/* inputs mais compactos no editor do BOM */
+.grid.bom-comp-grid input,
+.grid.bom-comp-grid select{
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+.grid.bom-comp-grid label{
+  font-size: 12px;
+}
+@media (max-width: 860px){
+  .grid.bom-comp-grid{ grid-template-columns: 1fr 1fr; }
+}
+#bomPos{ max-width: 72px; min-width: 56px; padding: 8px 8px; text-align:center; }
+#bomPos::-webkit-outer-spin-button,
+#bomPos::-webkit-inner-spin-button{ -webkit-appearance: none; margin: 0; }
+#bomPos{ -moz-appearance: textfield; }
+
+/* BOM components table tweaks */
+.bom-comp-table table{ table-layout: fixed; }
+
+/* tighter table + smaller header to free space for description */
+.bom-comp-table .table{ font-size: 11px; }
+.bom-comp-table .table th, .bom-comp-table .table td{ padding: 5px 6px; }
+.bom-comp-table .table th{ font-size: 10px; line-height: 1.1; white-space: normal; }
+
+/* Column sizing (POS | COD | Descrição | UN Compra | UN Consumo | FC | QTE crua | QTE cozida | Ações) */
+.bom-comp-table .table th:nth-child(1), .bom-comp-table .table td:nth-child(1){ width: 44px; }
+.bom-comp-table .table th:nth-child(2), .bom-comp-table .table td:nth-child(2){ width: 76px; }
+.bom-comp-table .table th:nth-child(4), .bom-comp-table .table td:nth-child(4){ width: 74px; }
+.bom-comp-table .table th:nth-child(5), .bom-comp-table .table td:nth-child(5){ width: 82px; }
+.bom-comp-table .table th:nth-child(6), .bom-comp-table .table td:nth-child(6){ width: 60px; }
+.bom-comp-table .table th:nth-child(7), .bom-comp-table .table td:nth-child(7){ width: 90px; }
+.bom-comp-table .table th:nth-child(8), .bom-comp-table .table td:nth-child(8){ width: 96px; }
+.bom-comp-table .table th:nth-child(9), .bom-comp-table .table td:nth-child(9){ width: 132px; }
+
+/* Description should show more (wrap instead of ellipsis) */
+.bom-comp-table td:nth-child(3){
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  line-height: 1.15;
+}
+
+/* Bring COD/Descrição closer */
+.bom-comp-table .table th:nth-child(2), .bom-comp-table .table td:nth-child(2),
+.bom-comp-table .table th:nth-child(3), .bom-comp-table .table td:nth-child(3){
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+/* Ações em linha (editar + excluir) */
+.bom-row-actions{ display:flex; gap:8px; justify-content:center; align-items:center; flex-wrap:nowrap; }
+.bom-row-actions .btn{ padding:5px 9px; white-space:nowrap; }
+
+.bom-comp-actions .btn{ min-width: 0; padding:6px 10px; }
+/* bom editor layout tweaks (v3.37) */
+.bom-comp-actions .row{ flex-wrap:nowrap; gap:8px; }
+.bom-comp-actions .btn{ white-space:nowrap; }
+/* (removido bloco duplicado que voltava o ellipsis na descrição) */
+/* small inline link button (used in BOM FC help) */
+.link-btn{
+  border: none;
+  background: transparent;
+  padding: 0 6px;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  opacity: .85;
+}
+.link-btn:hover{ opacity: 1; }
+
+
+.bom-row-actions { display:flex; gap:8px; justify-content:center; align-items:center; flex-wrap:nowrap; }
+.bom-row-actions .btn { white-space:nowrap; }
+
+
+/* --- Inputs especiais --- */
+input[type="checkbox"], input[type="radio"]{
+  width:auto;
+  padding:0;
+  background: transparent;
+  border:1px solid rgba(15,23,42,.18);
+  border-radius:6px;
+}
+.input-unit{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.qty-input{
+  max-width:160px;
+}
+.input-unit .unit{
+  min-width:34px;
+  text-align:left;
+}
+
+/* --- MRP layout (70/30) --- */
+.mrp-flex{ display:flex; gap:14px; margin-top:14px; align-items:flex-start; }
+.mrp-panel{
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(15,23,42,.10);
+  border-radius: 16px;
+  padding: 14px;
+}
+.mrp-panel h3{ margin-top:0; }
+.mrp-left{ flex: 1 1 auto; min-width:0; }
+.mrp-split{ display:grid; grid-template-columns: 1fr 360px; gap: 14px; align-items:start; }
+.mrp-split-left{ min-width: 0; }
+.mrp-split-right{ min-width: 0; }
+.mrp-table-scroll{ overflow:auto; max-height: 420px; }
+.simulate-box{ font-size: 12px; line-height: 1.25; }
+
+/* --- Simulação: quantidade por PF --- */
+.sim-qty-input{
+  width: 90px;
+  max-width: 90px;
+}
+.sim-table th.qty,
+.sim-table td.qty{ text-align:center; }
+
+
+/* MRP: ações (Criar/Editar + Excluir) sempre na mesma linha */
+.mrp-row-actions{
+  display:flex;
+  gap:6px;
+  justify-content:center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+/* MRP: tabela mais compacta */
+.mrp-table-scroll .table th,
+.mrp-table-scroll .table td{
+  padding: 8px 10px;
+}
+
+/* --- MRP: preview do PF (centralizar botoes + foto) --- */
+.pf-preview-title{ font-weight:900; font-size:16px; text-align:left; }
+.pf-preview-center{ display:flex; flex-direction:column; align-items:center; }
+
+/* --- Fotos do PF (marmita) --- */
+.pf-photo-card{ margin-top: 12px; }
+.photo-frame{
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  border: 1px solid rgba(15,23,42,.12);
+  background: rgba(255,255,255,.55);
+  overflow: hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+.photo-frame-sm{ max-width: 210px; }
+.photo-frame img{ width:100%; height:100%; object-fit: cover; display:block; }
+.photo-placeholder{
+  font-size: 48px;
+  opacity: .55;
+  font-weight: 700;
+  line-height: 1;
+  user-select: none;
+}
+.photo-actions{ display:flex; gap:8px; justify-content:center; margin-top: 8px; flex-wrap: wrap; }
+
+@media (max-width: 980px){
+  .mrp-flex{ flex-direction: column; }
+  .mrp-split{ grid-template-columns: 1fr; }
+  .mrp-table-scroll{ max-height: none; }
+}
+
+/* Modal: escolher PF para incluir MP em receita (reduzir tipografia) */
+.pf-pick-list{ gap:8px; }
+.pf-pick-list .list-item{ padding:10px; }
+.pf-pick-title{ font-size: 13px; font-weight: 800; line-height: 1.25; }
+.pf-pick-list .muted.small{ font-size: 11px; }
+
+/* Modal: seletor de item (Ajuste de inventário)
+   Regras:
+   - sem rolagem horizontal
+   - CÓDIGO compacto (até 6 chars)
+   - DESCRIÇÃO compacta (até ~60 chars)
+   - ESTOQUE ATUAL + UN sempre visíveis dentro do card
+*/
+.inv-pick-wrap{ overflow-x: hidden; }
+.table.pick-table{
+  /*
+    IMPORTANTE:
+    O modal de seleção precisa manter ESTOQUE/UN sempre visíveis SEM criar rolagem horizontal.
+    Para isso, usamos inline-table com larguras fixas por coluna.
+    Assim a coluna DESCRIÇÃO não "puxa" a tabela inteira quando o card é muito largo.
+  */
+  table-layout: fixed;
+  display: inline-table;
+  width: auto;
+  max-width: 100%;
+}
+.table.pick-table th,
+.table.pick-table td{ vertical-align: middle; }
+.inv-pick-wrap .table.pick-table th,
+.inv-pick-wrap .table.pick-table td{
+  padding: 6px 8px;
+  font-size: 12px;
+}
+/* Larguras fixas para garantir que não estoure */
+.table.pick-table th:nth-child(1),
+.table.pick-table td:nth-child(1){ width: 70px; }
+.table.pick-table th:nth-child(2),
+.table.pick-table td:nth-child(2){ width: 420px; }
+.table.pick-table th:nth-child(3),
+.table.pick-table td:nth-child(3){ width: 110px; text-align:center; font-weight: 800; }
+.table.pick-table th:nth-child(4),
+.table.pick-table td:nth-child(4){ width: 50px; text-align:center; }
+.table.pick-table td:nth-child(2) .g-desc{
+  display:block;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Truncagem visual extra */
+.table.pick-table td.inv-code{ max-width: 6ch; overflow:hidden; text-overflow: ellipsis; white-space: nowrap; }
+.table.pick-table td.inv-desc .g-desc{ max-width: 60ch; }
+
+/* OPs: mini-preview de etiqueta/lote (1 círculo) para rastreabilidade */
+.op-lot-preview{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.op-lot-circle{
+  width: 150px;
+  height: 150px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px dashed #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10px;
+  text-align: center;
+  color: #0f172a;
+}
+.op-lot-circle .code{ font-size: 12px; font-weight: 900; line-height: 1.0; margin-bottom: 2px; }
+.op-lot-circle .name{
+  font-size: 10px;
+  line-height: 1.05;
+  font-weight: 800;
+  margin-bottom: 6px;
+  max-height: 42px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.op-lot-circle .barcode{ width: 120px; height: auto; }
+.op-lot-circle .human{
+  font-size: 9px;
+  line-height: 1.0;
+  color: #334155;
+  margin-top: 3px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.op-lot-circle .meta{
+  margin-top: 6px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 9px;
+  line-height: 1.0;
+  color: #0f172a;
+  font-variant-numeric: tabular-nums;
+}

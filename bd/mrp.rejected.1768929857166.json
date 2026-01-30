@@ -1,0 +1,4169 @@
+{
+  "meta": {
+    "createdAt": "2026-01-18T21:47:05.187Z",
+    "migratedFromCore": false,
+    "nextOpNumber": 25,
+    "nextOcNumber": 26,
+    "updatedAt": "2026-01-20T17:24:17.165Z"
+  },
+  "recipes": [
+    {
+      "id": "rcp_405d9247-2a73-4b04-97de-b9ef65b3b690",
+      "name": "Frango Cítrico & Arroz Perfumado",
+      "productId": "itm_df98b469-6a37-4b98-9e56-210c368e7b2e",
+      "yieldQty": 1,
+      "yieldUnit": "un",
+      "bom": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "qty": 0.051,
+          "pos": 1,
+          "fc": 2.6
+        },
+        {
+          "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+          "qty": 0.188,
+          "pos": 2,
+          "fc": 0.8
+        },
+        {
+          "itemId": "itm_62ce6156-dad2-4110-bce4-24503a6dea6f",
+          "qty": 0.073,
+          "pos": 3,
+          "fc": 0.82
+        },
+        {
+          "itemId": "itm_57e52731-92c3-44df-85b7-f99b695d7e75",
+          "qty": 0.144,
+          "pos": 4,
+          "fc": 0.9
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.062,
+          "pos": 5,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.005,
+          "pos": 6,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.03,
+          "pos": 7,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 8,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 11,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.001,
+          "pos": 12,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 13,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-18T22:44:50.847Z",
+      "outputItemId": "itm_df98b469-6a37-4b98-9e56-210c368e7b2e",
+      "photoFile": "itm_df98b469-6a37-4b98-9e56-210c368e7b2e_1768829070950.png",
+      "method": "1) Mise en place\n\nSeparar ingredientes conforme BOM.\n\nHigienizar brócolis e demais vegetais.\n\nPicar cebola em cubos pequenos, alho bem fino.\n\nEspremer/medir limão e reservar.\n\nPadronizar frango (filés/cubos) para cocção uniforme.\n\n2) Arroz branco\n\nAquecer panela e refogar parte da cebola no azeite.\n\nAdicionar arroz cru e “selar” 1 min.\n\nAdicionar água quente, ajustar sal.\n\nCozinhar até secar; tampar e finalizar 5 min.\n\nSoltar grãos e reservar.\n\n3) Frango cítrico\n\nTemperar frango com alho, limão, sal, pimenta-do-reino, páprica (e orégano se aplicável).\n\nMarinar 10–15 min.\n\nGrelhar em chapa/frigideira com azeite até dourar e cozinhar totalmente.\n\nReservar.\n\n4) Batata inglesa dourada\n\nCozinhar batata até macia porém firme.\n\nEscorrer bem.\n\nDourar em frigideira com azeite, amassar levemente para crosta.\n\nAjustar sal/ervas, reservar.\n\n5) Brócolis\n\nCozinhar no vapor até verde vivo e macio.\n\nFinalizar com pequena quantidade de azeite e ajustar sal.\n\n6) Montagem (embalagem 800ml)\n\nBase: arroz.\n\nProteína: frango.\n\nGuarnições: batata + brócolis.\n\nConferir peso final e fechar.\n\n7) Armazenamento\n\nResfriar rápido e refrigerar/congelar conforme fluxo.\n\nEtiquetar lote e validade.",
+      "notes": ""
+    },
+    {
+      "id": "rcp_306451ad-91a9-455e-bc16-4f1c406ac08d",
+      "name": "Patinho Chimichurri & Cabotiá Assada",
+      "productId": "itm_84f93753-d85f-46d8-bde0-cc9119d94be3",
+      "yieldQty": 1,
+      "yieldUnit": "UN",
+      "notes": "",
+      "method": "1) Mise en place\n\nSeparar todos os ingredientes conforme BOM (incluindo chimichurri seco, azeite e embalagem 800ml).\n\nHigienizar a cabotiá por fora (casca) e a bancada/utensílios.\n\nPicar cebola em cubos pequenos e alho bem fino.\n\nPré-aquecer o forno a 210–220°C.\n\n2) Cabotiá assada (carbo principal)\n\nAbrir a cabotiá, retirar sementes e fios.\n\nCortar em cubos/meias-luas padronizados (tamanho uniforme = assa por igual).\n\nTemperar com sal + pimenta-do-reino + um toque de alho (opcional) e, se estiver no BOM, um fio mínimo de azeite (ou use antiaderente pra não estourar gordura).\n\nAssar em assadeira “aberta” (sem amontoar) por 25–35 min, mexendo/virando na metade, até:\n\ndourar nas bordas\n\nficar macia sem desmanchar\n\nReservar quente para montagem.\n\n3) Patinho (base proteica) + tempero chimichurri\n\nAquecer uma panela/frigideira larga.\n\nRefogar parte da cebola até ficar translúcida (sem queimar).\n\nEntrar com o patinho e selar/dourar:\n\nno início, mexer pouco para criar cor\n\ndepois, quebrar/soltar e seguir cozinhando até não haver partes cruas\n\nTemperar com: sal, pimenta-do-reino, páprica.\n\nCom o fogo mais baixo, adicionar o chimichurri seco e misturar bem.\n\nFinalizar com limão (se estiver no BOM) para dar brilho e acidez.\n\nAjustar sal/acidez no final.\n\n4) Ajuste final (ponto e suculência)\n\nSe a carne estiver “seca”, pingar pequena quantidade de água quente e mexer (vira um molhinho leve e melhora a textura).\n\nDesligar e manter tampado 2–3 minutos antes de porcionar.\n\n5) Montagem (embalagem PP 800ml)\n\nBase: cabotiá assada.\n\nProteína: patinho chimichurri por cima ou ao lado (padrão visual).\n\nConferir peso final padrão e fechar.\n\n6) Armazenamento\n\nResfriar rápido conforme fluxo de segurança (bancada fria/abatidor, se tiver).\n\nRefrigerar ou congelar conforme padrão da operação.\n\nEtiquetar lote e validade.",
+      "bom": [
+        {
+          "itemId": "itm_76554c05-be51-4f1a-ae6b-cefb10aa86e5",
+          "qty": 0.42,
+          "pos": 1,
+          "fc": 0.85
+        },
+        {
+          "itemId": "itm_046b7ad0-e7dd-4815-a372-007700f67855",
+          "qty": 0.188,
+          "pos": 2,
+          "fc": 0.8
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.062,
+          "pos": 3,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.005,
+          "pos": 4,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.03,
+          "pos": 5,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 6,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 8,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f2194f5f-39e5-4645-b9e8-0140ad1b7061",
+          "qty": 0.003,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 11,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-19T14:52:17.351Z",
+      "outputItemId": "itm_84f93753-d85f-46d8-bde0-cc9119d94be3",
+      "photoFile": "itm_84f93753-d85f-46d8-bde0-cc9119d94be3_1768834355517.png"
+    },
+    {
+      "id": "rcp_2b8bd355-3a75-49cf-925c-5cee8e55c733",
+      "name": "Tilápia Defumada & Cuscuz dos Pimentões",
+      "productId": "itm_34f27b47-8e3d-458b-95d6-e220608a2e56",
+      "yieldQty": 1,
+      "yieldUnit": "UN",
+      "notes": "",
+      "method": "1) Mise en place\n\nSeparar ingredientes conforme BOM.\n\nHigienizar pimentões e limão.\n\nPicar cebola em cubos pequenos e alho bem fino.\n\nCortar pimentão em tiras/cubos padronizados.\n\nPré-aquecer forno a 200–220°C (para finalizar a tilápia, se quiser).\n\n2) Cuscuz dos pimentões\n\nAquecer uma panela e refogar cebola + alho com parte do azeite (ou antiaderente, se quiser concentrar o azeite na tilápia).\n\nAdicionar o pimentão e refogar até amaciar, mantendo cor viva.\n\nTemperar com sal, pimenta-do-reino, páprica e orégano (pode usar uma parte do cominho aqui).\n\nAdicionar água quente aos poucos (para hidratar o flocão; referência prática: ~1,3–1,5x do peso do flocão).\n\nDesligar o fogo, entrar com o flocão, misturar bem, tampar 5–7 min.\n\nSoltar com garfo e reservar.\n\n3) Tilápia “defumada” (efeito defumado com especiarias)\n\nTemperar a tilápia com alho, limão, sal, pimenta-do-reino, páprica, orégano e cominho.\n\nDescansar 10–15 min.\n\nAquecer frigideira/chapa e selar a tilápia com o restante do azeite até dourar.\n\nFinalizar:\n\nna frigideira (fogo médio) até cozinhar por completo, ou\n\nno forno por 6–10 min (dependendo da espessura), só para terminar o centro sem ressecar.\n\n4) Montagem (embalagem 800ml)\n\nBase: cuscuz dos pimentões.\n\nPor cima: tilápia.\n\nConferir peso padrão e fechar.\n\n5) Armazenamento\n\nResfriar rápido e refrigerar/congelar conforme fluxo.\n\nEtiquetar lote e validade.",
+      "bom": [
+        {
+          "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+          "qty": 0.22,
+          "pos": 1,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_49b5d383-ece8-4abc-8e21-85272e96c668",
+          "qty": 0.07,
+          "pos": 2,
+          "fc": 2.4
+        },
+        {
+          "itemId": "itm_a11ca27e-8adc-4531-b0de-2ff1827acfed",
+          "qty": 0.18,
+          "pos": 3,
+          "fc": 0.9
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.07,
+          "pos": 4,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.005,
+          "pos": 5,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.025,
+          "pos": 6,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 8,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.001,
+          "pos": 11,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_e982b492-7cf5-41a1-afa7-20cb99a69192",
+          "qty": 0.0005,
+          "pos": 12,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 13,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-19T15:33:08.987Z",
+      "outputItemId": "itm_34f27b47-8e3d-458b-95d6-e220608a2e56",
+      "photoFile": "itm_34f27b47-8e3d-458b-95d6-e220608a2e56_1768836804000.png"
+    },
+    {
+      "id": "rcp_545780f1-72ce-4e76-b005-e5685b518a4b",
+      "name": "Frango Cremoso de Mussarela & Abobrinha",
+      "productId": "itm_bd719dd5-bfa9-4cd2-b269-694c897b7f7f",
+      "yieldQty": 1,
+      "yieldUnit": "UN",
+      "notes": "",
+      "method": "1) Mise en place\n\nSeparar ingredientes conforme BOM (inclui creme de leite, mussarela, azeite, temperos e embalagem 800ml).\n\nPicar cebola em cubos pequenos e alho bem fino.\n\nCortar abobrinha em meias-luas ou cubos padronizados (para saltear rápido).\n\nPadronizar o frango (cubos/tiras) para cocção uniforme.\n\nRalar/picar a mussarela (derrete mais uniforme).\n\n2) Arroz branco (base do prato)\n\nAquecer panela e refogar um pouco de cebola (opcional) com mínima gordura/antiaderente (pra não “estourar” o azeite total do BOM).\n\nAdicionar o arroz e “selar” 1 min.\n\nEntrar com água quente e sal.\n\nCozinhar até secar; tampar e descansar 5 min.\n\nSoltar os grãos e reservar.\n\n3) Frango cremoso de mussarela\n\nTemperar o frango com alho, sal, pimenta-do-reino, páprica e orégano.\n\nAquecer frigideira/panela larga.\n\nSelar o frango até dourar e cozinhar completamente.\n\nBaixar o fogo e adicionar o creme de leite, mexendo até ficar liso e levemente reduzido (1–3 min).\n\nAdicionar a mussarela aos poucos e mexer até derreter e virar um molho cremoso.\n\nFinalizar com limão (suco) no final para dar brilho e equilibrar a gordura.\n\nAjustar sal/pimenta se necessário.\n\nDica de produção: não deixar ferver forte depois que entra a mussarela — fogo baixo evita “quebrar” o molho.\n\n4) Abobrinha na panela quente (guarnição)\n\nPanela/frigideira bem quente.\n\nEntrar com a abobrinha e saltear rápido (2–4 min), só até ficar macia mas ainda com estrutura.\n\nTemperar com sal e pimenta (e um toque de orégano, se quiser).\n\nSe for usar parte do azeite aqui, use bem pouco (mantendo o total do BOM).\n\n5) Montagem (embalagem PP 800ml)\n\nBase: arroz.\n\nPor cima/lado: frango cremoso de mussarela.\n\nCompletar: abobrinha salteada.\n\nConferir peso padrão e fechar.\n\n6) Armazenamento\n\nResfriar rápido conforme fluxo.\n\nRefrigerar/congelar.\n\nEtiquetar lote e validade.",
+      "bom": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "qty": 0.055,
+          "pos": 1,
+          "fc": 2.6
+        },
+        {
+          "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+          "qty": 0.18,
+          "pos": 2,
+          "fc": 0.8
+        },
+        {
+          "itemId": "itm_53c8f284-5225-41e3-a4dc-7d69ff36cc0c",
+          "qty": 0.22,
+          "pos": 3,
+          "fc": 0.7
+        },
+        {
+          "itemId": "itm_e907bec3-4373-4be3-bb3f-2139ed4640ae",
+          "qty": 0.035,
+          "pos": 4,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+          "qty": 0.03,
+          "pos": 5,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.055,
+          "pos": 6,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.005,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.02,
+          "pos": 8,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 11,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 12,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.001,
+          "pos": 13,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 14,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-19T15:59:58.959Z",
+      "outputItemId": "itm_bd719dd5-bfa9-4cd2-b269-694c897b7f7f",
+      "photoFile": "itm_bd719dd5-bfa9-4cd2-b269-694c897b7f7f_1768838427745.png"
+    },
+    {
+      "id": "rcp_03b76891-6391-4bcf-98a6-bda48993e211",
+      "name": "Tilápia Crocante na Aveia & Purê de Mandioquinha",
+      "productId": "itm_68b13011-7648-4254-85a5-a802c59cc70c",
+      "yieldQty": 1,
+      "yieldUnit": "un",
+      "notes": "",
+      "method": "1) Mise en place\n\nSeparar ingredientes conforme BOM (inclui aveia, ovo, creme de leite, temperos, azeite e embalagem 800ml).\n\nPicar cebola em cubos pequenos e alho bem fino.\n\nEspremer/medir limão.\n\nPadronizar os filés de tilápia (tamanho semelhante para assar/grelhar por igual).\n\n2) Purê de mandioquinha\n\nDescascar e cortar a mandioquinha em pedaços médios.\n\nCozinhar em água até ficar bem macia (sem desmanchar demais).\n\nEscorrer bem e amassar (espremedor/garfo).\n\nEm panela, suar cebola + alho rapidamente (pode ser antiaderente; se usar azeite aqui, é uma parte do total do BOM).\n\nVoltar o purê para a panela, adicionar creme de leite, mexer até ficar liso e cremoso.\n\nAjustar sal e pimenta-do-reino. Reservar quente.\n\n3) Tilápia crocante na aveia\n\nTemperar a tilápia com alho, limão, sal, pimenta, páprica e orégano.\n\nBater o ovo (porção do BOM) e passar os filés nele.\n\nEmpanar na aveia em flocos, pressionando para aderir bem.\n\nCocção (escolha operacional):\n\nAirfryer/forno (recomendado): 200°C por ~10–14 min, virando na metade.\n\nFrigideira antiaderente: usar o azeite do BOM e dourar dos dois lados até cozinhar por completo.\n\nNão cozinhar demais pra não ressecar.\n\n4) Montagem (embalagem PP 800ml)\n\nBase: purê de mandioquinha.\n\nPor cima/lado: tilápia crocante.\n\nConferir peso padrão e fechar.\n\n5) Armazenamento\n\nResfriar rápido conforme fluxo.\n\nRefrigerar/congelar.\n\nEtiquetar lote e validade.",
+      "bom": [
+        {
+          "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+          "qty": 0.25,
+          "pos": 1,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_0f5f0c31-107c-4db5-a789-60f58b6096e8",
+          "qty": 0.025,
+          "pos": 2,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_65b6664b-6278-4e95-bdc9-4d195c08ddf8",
+          "qty": 0.5,
+          "pos": 3,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_651d3d5e-cc7e-401e-ae67-22fe599a337e",
+          "qty": 0.265,
+          "pos": 4,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+          "qty": 0.03,
+          "pos": 5,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.055,
+          "pos": 6,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.005,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "qty": 0.025,
+          "pos": 8,
+          "fc": 0.95
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 11,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 12,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.001,
+          "pos": 13,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 14,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-19T16:36:57.357Z",
+      "outputItemId": "itm_68b13011-7648-4254-85a5-a802c59cc70c",
+      "photoFile": "itm_68b13011-7648-4254-85a5-a802c59cc70c_1768840640037.png"
+    },
+    {
+      "id": "rcp_f07ace6c-6bf8-4370-b784-9ab067e4c150",
+      "name": "Lagarto ao Molho de Cebola & Escarola",
+      "productId": "itm_9ca406f1-adf7-4326-9b32-b4e38799f40a",
+      "yieldQty": 1,
+      "yieldUnit": "un",
+      "bom": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "qty": 0.082,
+          "pos": 1,
+          "fc": 2.6
+        },
+        {
+          "itemId": "itm_d12dc32e-3ba8-4559-8cc6-19074d57c627",
+          "qty": 0.205,
+          "pos": 2,
+          "fc": 0.78
+        },
+        {
+          "itemId": "itm_0fe3c168-006c-4161-b22c-5739e246c5ed",
+          "qty": 0.25,
+          "pos": 3,
+          "fc": 0.4
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "qty": 0.087,
+          "pos": 4,
+          "fc": 0.65
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "qty": 0.005,
+          "pos": 5,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "qty": 0.006,
+          "pos": 6,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "qty": 0.002,
+          "pos": 7,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "qty": 0.0005,
+          "pos": 8,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "qty": 0.001,
+          "pos": 9,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "qty": 0.001,
+          "pos": 10,
+          "fc": 1
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "qty": 1,
+          "pos": 11,
+          "fc": 1
+        }
+      ],
+      "createdAt": "2026-01-19T23:09:02.227Z",
+      "outputItemId": "itm_9ca406f1-adf7-4326-9b32-b4e38799f40a",
+      "photoFile": "itm_9ca406f1-adf7-4326-9b32-b4e38799f40a_1768864889298.png",
+      "method": "1) Mise en place\n\nSeparar ingredientes conforme BOM (inclui azeite, temperos e embalagem 800ml).\n\nHigienizar a escarola e escorrer bem.\n\nFatiar cebola em tiras finas e picar alho bem pequeno.\n\nPorcionar/limpar o lagarto (manter peça ou cortar em 2–3 pedaços grandes para cozinhar uniforme).\n\n2) Arroz branco\n\nRefogar uma pequena parte da cebola (opcional) em panela antiaderente.\n\nAdicionar o arroz cru e “selar” 1 min.\n\nEntrar com água quente e sal.\n\nCozinhar até secar; tampar e descansar 5 min.\n\nSoltar os grãos e reservar.\n\n3) Lagarto ao molho de cebola\n\nTemperar o lagarto com sal, pimenta-do-reino, páprica e orégano.\n\nSelar o lagarto em panela quente (se precisar, use parte mínima do azeite do BOM ou antiaderente).\n\nAdicionar a cebola e deixar suar/dourar levemente.\n\nEntrar com o alho e mexer rápido (sem queimar).\n\nCobrir com água quente (só até metade da peça), tampar e cozinhar até ficar macio:\n\npanela comum: fogo baixo ~50–70 min (virando quando necessário)\n\npressão: ~25–35 min após pegar pressão\n\nRetirar o lagarto, fatiar ou desfiar e voltar para a panela.\n\nReduzir o molho até ficar “encorpado” e ajustar sal/pimenta.\n\n4) Escarola na “manteiga” de alho (na prática: alho + azeite)\n\nPanela bem quente.\n\nEntrar com a escarola e saltear rápido (2–4 min) até murchar, mas sem soltar água demais.\n\nFinalizar com alho (separado do cozimento da carne, se preferir) + um fio do azeite do BOM.\n\nAjustar sal e pimenta.\n\n5) Montagem (embalagem PP 800ml)\n\nBase: arroz.\n\nProteína: lagarto ao molho de cebola.\n\nGuarnição: escarola salteada.\n\nConferir peso padrão e fechar.\n\n6) Armazenamento\n\nResfriar rápido e refrigerar/congelar conforme fluxo.\n\nEtiquetar lote e validade"
+    }
+  ],
+  "productionOrders": [
+    {
+      "id": "po_e8be078a-1b5c-43e0-bb0d-2a4f886abb9d",
+      "number": 1,
+      "recipeId": "rcp_405d9247-2a73-4b04-97de-b9ef65b3b690",
+      "recipeName": "Frango Cítrico & Arroz Perfumado",
+      "qtyToProduce": 10,
+      "note": "Simulação em lote (quantidade por PF) • rcp_405d9247-2a73-4b04-97de-b9ef65b3b690 • 10 un",
+      "createdAt": "2026-01-19T23:58:48.996Z",
+      "status": "HOLD",
+      "factor": 10,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+            "qty": 0.5151
+          },
+          {
+            "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+            "qty": 1.8988
+          },
+          {
+            "itemId": "itm_62ce6156-dad2-4110-bce4-24503a6dea6f",
+            "qty": 0.876
+          },
+          {
+            "itemId": "itm_57e52731-92c3-44df-85b7-f99b695d7e75",
+            "qty": 1.728
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.682
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.05
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.345
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.06
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.0206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 10
+          }
+        ],
+        "produced": {
+          "itemId": "itm_df98b469-6a37-4b98-9e56-210c368e7b2e",
+          "qty": 10
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "shortage": 0.5151,
+          "required": 0.5151,
+          "available": 0
+        },
+        {
+          "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+          "shortage": 1.8988,
+          "required": 1.8988,
+          "available": 0
+        },
+        {
+          "itemId": "itm_62ce6156-dad2-4110-bce4-24503a6dea6f",
+          "shortage": 0.876,
+          "required": 0.876,
+          "available": 0
+        },
+        {
+          "itemId": "itm_57e52731-92c3-44df-85b7-f99b695d7e75",
+          "shortage": 1.728,
+          "required": 1.728,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.682,
+          "required": 0.682,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.05,
+          "required": 0.05,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.345,
+          "required": 0.345,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.06,
+          "required": 0.06,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.0206,
+          "required": 0.0206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 10,
+          "required": 10,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_5e313232-f3ab-4302-8a77-1f62c7814ecd",
+      "number": 2,
+      "recipeId": "rcp_306451ad-91a9-455e-bc16-4f1c406ac08d",
+      "recipeName": "Patinho Chimichurri & Cabotiá Assada",
+      "qtyToProduce": 10,
+      "note": "Simulação em lote (quantidade por PF) • rcp_306451ad-91a9-455e-bc16-4f1c406ac08d • 10 un",
+      "createdAt": "2026-01-19T23:58:49.011Z",
+      "status": "HOLD",
+      "factor": 10,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_76554c05-be51-4f1a-ae6b-cefb10aa86e5",
+            "qty": 5.88
+          },
+          {
+            "itemId": "itm_046b7ad0-e7dd-4815-a372-007700f67855",
+            "qty": 1.8988
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.682
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.05
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.345
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.06
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.0206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_f2194f5f-39e5-4645-b9e8-0140ad1b7061",
+            "qty": 0.03
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 10
+          }
+        ],
+        "produced": {
+          "itemId": "itm_84f93753-d85f-46d8-bde0-cc9119d94be3",
+          "qty": 10
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_76554c05-be51-4f1a-ae6b-cefb10aa86e5",
+          "shortage": 5.88,
+          "required": 5.88,
+          "available": 0
+        },
+        {
+          "itemId": "itm_046b7ad0-e7dd-4815-a372-007700f67855",
+          "shortage": 1.8988,
+          "required": 1.8988,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.682,
+          "required": 0.682,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.05,
+          "required": 0.05,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.345,
+          "required": 0.345,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.06,
+          "required": 0.06,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.0206,
+          "required": 0.0206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f2194f5f-39e5-4645-b9e8-0140ad1b7061",
+          "shortage": 0.03,
+          "required": 0.03,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 10,
+          "required": 10,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_eda63828-c498-492b-a77a-4d08220ca4ef",
+      "number": 3,
+      "recipeId": "rcp_2b8bd355-3a75-49cf-925c-5cee8e55c733",
+      "recipeName": "Tilápia Defumada & Cuscuz dos Pimentões",
+      "qtyToProduce": 10,
+      "note": "Simulação em lote (quantidade por PF) • rcp_2b8bd355-3a75-49cf-925c-5cee8e55c733 • 10 un",
+      "createdAt": "2026-01-19T23:58:49.025Z",
+      "status": "HOLD",
+      "factor": 10,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+            "qty": 2.222
+          },
+          {
+            "itemId": "itm_49b5d383-ece8-4abc-8e21-85272e96c668",
+            "qty": 0.707
+          },
+          {
+            "itemId": "itm_a11ca27e-8adc-4531-b0de-2ff1827acfed",
+            "qty": 2.25
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.77
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.05
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.2875
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.06
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.0206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_e982b492-7cf5-41a1-afa7-20cb99a69192",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 10
+          }
+        ],
+        "produced": {
+          "itemId": "itm_34f27b47-8e3d-458b-95d6-e220608a2e56",
+          "qty": 10
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+          "shortage": 2.222,
+          "required": 2.222,
+          "available": 0
+        },
+        {
+          "itemId": "itm_49b5d383-ece8-4abc-8e21-85272e96c668",
+          "shortage": 0.707,
+          "required": 0.707,
+          "available": 0
+        },
+        {
+          "itemId": "itm_a11ca27e-8adc-4531-b0de-2ff1827acfed",
+          "shortage": 2.25,
+          "required": 2.25,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.77,
+          "required": 0.77,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.05,
+          "required": 0.05,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.2875,
+          "required": 0.2875,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.06,
+          "required": 0.06,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.0206,
+          "required": 0.0206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_e982b492-7cf5-41a1-afa7-20cb99a69192",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 10,
+          "required": 10,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_7e2e4b1f-3b35-48b3-92f6-219c1ec3bc31",
+      "number": 4,
+      "recipeId": "rcp_545780f1-72ce-4e76-b005-e5685b518a4b",
+      "recipeName": "Frango Cremoso de Mussarela & Abobrinha",
+      "qtyToProduce": 10,
+      "note": "Simulação em lote (quantidade por PF) • rcp_545780f1-72ce-4e76-b005-e5685b518a4b • 10 un",
+      "createdAt": "2026-01-19T23:58:49.039Z",
+      "status": "HOLD",
+      "factor": 10,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+            "qty": 0.5555
+          },
+          {
+            "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+            "qty": 1.818
+          },
+          {
+            "itemId": "itm_53c8f284-5225-41e3-a4dc-7d69ff36cc0c",
+            "qty": 2.376
+          },
+          {
+            "itemId": "itm_e907bec3-4373-4be3-bb3f-2139ed4640ae",
+            "qty": 0.35
+          },
+          {
+            "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+            "qty": 0.3
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.605
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.05
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.23
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.06
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.0206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 10
+          }
+        ],
+        "produced": {
+          "itemId": "itm_bd719dd5-bfa9-4cd2-b269-694c897b7f7f",
+          "qty": 10
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "shortage": 0.5555,
+          "required": 0.5555,
+          "available": 0
+        },
+        {
+          "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+          "shortage": 1.818,
+          "required": 1.818,
+          "available": 0
+        },
+        {
+          "itemId": "itm_53c8f284-5225-41e3-a4dc-7d69ff36cc0c",
+          "shortage": 2.376,
+          "required": 2.376,
+          "available": 0
+        },
+        {
+          "itemId": "itm_e907bec3-4373-4be3-bb3f-2139ed4640ae",
+          "shortage": 0.35,
+          "required": 0.35,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+          "shortage": 0.3,
+          "required": 0.3,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.605,
+          "required": 0.605,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.05,
+          "required": 0.05,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.23,
+          "required": 0.23,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.06,
+          "required": 0.06,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.0206,
+          "required": 0.0206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 10,
+          "required": 10,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_38e0525e-3e36-4f1c-b141-b06744c8dcc4",
+      "number": 5,
+      "recipeId": "rcp_03b76891-6391-4bcf-98a6-bda48993e211",
+      "recipeName": "Tilápia Crocante na Aveia & Purê de Mandioquinha",
+      "qtyToProduce": 1,
+      "note": "Simulação em lote (quantidade por PF) • rcp_03b76891-6391-4bcf-98a6-bda48993e211 • 1 un",
+      "createdAt": "2026-01-19T23:58:49.052Z",
+      "status": "HOLD",
+      "factor": 1,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+            "qty": 0.2525
+          },
+          {
+            "itemId": "itm_0f5f0c31-107c-4db5-a789-60f58b6096e8",
+            "qty": 0.02525
+          },
+          {
+            "itemId": "itm_65b6664b-6278-4e95-bdc9-4d195c08ddf8",
+            "qty": 0.5
+          },
+          {
+            "itemId": "itm_651d3d5e-cc7e-401e-ae67-22fe599a337e",
+            "qty": 0.318
+          },
+          {
+            "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+            "qty": 0.03
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.0605
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.02875
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.006
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.00206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.0005
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.001
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.001
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 1
+          }
+        ],
+        "produced": {
+          "itemId": "itm_68b13011-7648-4254-85a5-a802c59cc70c",
+          "qty": 1
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+          "shortage": 0.2525,
+          "required": 0.2525,
+          "available": 0
+        },
+        {
+          "itemId": "itm_0f5f0c31-107c-4db5-a789-60f58b6096e8",
+          "shortage": 0.02525,
+          "required": 0.02525,
+          "available": 0
+        },
+        {
+          "itemId": "itm_65b6664b-6278-4e95-bdc9-4d195c08ddf8",
+          "shortage": 0.5,
+          "required": 0.5,
+          "available": 0
+        },
+        {
+          "itemId": "itm_651d3d5e-cc7e-401e-ae67-22fe599a337e",
+          "shortage": 0.318,
+          "required": 0.318,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+          "shortage": 0.03,
+          "required": 0.03,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.0605,
+          "required": 0.0605,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.02875,
+          "required": 0.02875,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.006,
+          "required": 0.006,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.00206,
+          "required": 0.00206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.0005,
+          "required": 0.0005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.001,
+          "required": 0.001,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.001,
+          "required": 0.001,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 1,
+          "required": 1,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_5e2ea1b2-b6b7-4745-8065-86594a8c6e1e",
+      "number": 6,
+      "recipeId": "rcp_f07ace6c-6bf8-4370-b784-9ab067e4c150",
+      "recipeName": "Lagarto ao Molho de Cebola & Escarola",
+      "qtyToProduce": 1,
+      "note": "Simulação em lote (quantidade por PF) • rcp_f07ace6c-6bf8-4370-b784-9ab067e4c150 • 1 un",
+      "createdAt": "2026-01-19T23:58:49.066Z",
+      "status": "HOLD",
+      "factor": 1,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+            "qty": 0.08282
+          },
+          {
+            "itemId": "itm_d12dc32e-3ba8-4559-8cc6-19074d57c627",
+            "qty": 0.20705
+          },
+          {
+            "itemId": "itm_0fe3c168-006c-4161-b22c-5739e246c5ed",
+            "qty": 0.3
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.0957
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.006
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.00206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.0005
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.001
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.001
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 1
+          }
+        ],
+        "produced": {
+          "itemId": "itm_9ca406f1-adf7-4326-9b32-b4e38799f40a",
+          "qty": 1
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "shortage": 0.08282,
+          "required": 0.08282,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d12dc32e-3ba8-4559-8cc6-19074d57c627",
+          "shortage": 0.20705,
+          "required": 0.20705,
+          "available": 0
+        },
+        {
+          "itemId": "itm_0fe3c168-006c-4161-b22c-5739e246c5ed",
+          "shortage": 0.3,
+          "required": 0.3,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.0957,
+          "required": 0.0957,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.006,
+          "required": 0.006,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.00206,
+          "required": 0.00206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.0005,
+          "required": 0.0005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.001,
+          "required": 0.001,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.001,
+          "required": 0.001,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 1,
+          "required": 1,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_c296c49d-9631-40a6-9e64-b3272c38d10a",
+      "number": 7,
+      "recipeId": "rcp_405d9247-2a73-4b04-97de-b9ef65b3b690",
+      "recipeName": "Frango Cítrico & Arroz Perfumado",
+      "qtyToProduce": 1,
+      "note": "Simulação em lote (quantidade por PF) • rcp_405d9247-2a73-4b04-97de-b9ef65b3b690 • 1 un",
+      "createdAt": "2026-01-19T23:59:37.368Z",
+      "status": "HOLD",
+      "factor": 1,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+            "qty": 0.05151
+          },
+          {
+            "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+            "qty": 0.18988
+          },
+          {
+            "itemId": "itm_62ce6156-dad2-4110-bce4-24503a6dea6f",
+            "qty": 0.0876
+          },
+          {
+            "itemId": "itm_57e52731-92c3-44df-85b7-f99b695d7e75",
+            "qty": 0.1728
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.0682
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.0345
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.006
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.00206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.0005
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.001
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.001
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 1
+          }
+        ],
+        "produced": {
+          "itemId": "itm_df98b469-6a37-4b98-9e56-210c368e7b2e",
+          "qty": 1
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "shortage": 0.05151,
+          "required": 0.05151,
+          "available": 0
+        },
+        {
+          "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+          "shortage": 0.18988,
+          "required": 0.18988,
+          "available": 0
+        },
+        {
+          "itemId": "itm_62ce6156-dad2-4110-bce4-24503a6dea6f",
+          "shortage": 0.0876,
+          "required": 0.0876,
+          "available": 0
+        },
+        {
+          "itemId": "itm_57e52731-92c3-44df-85b7-f99b695d7e75",
+          "shortage": 0.1728,
+          "required": 0.1728,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.0682,
+          "required": 0.0682,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.0345,
+          "required": 0.0345,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.006,
+          "required": 0.006,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.00206,
+          "required": 0.00206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.0005,
+          "required": 0.0005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.001,
+          "required": 0.001,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.001,
+          "required": 0.001,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 1,
+          "required": 1,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_d1f4d264-a708-49ef-bfdc-d1b62dc22e6b",
+      "number": 8,
+      "recipeId": "rcp_306451ad-91a9-455e-bc16-4f1c406ac08d",
+      "recipeName": "Patinho Chimichurri & Cabotiá Assada",
+      "qtyToProduce": 1,
+      "note": "Simulação em lote (quantidade por PF) • rcp_306451ad-91a9-455e-bc16-4f1c406ac08d • 1 un",
+      "createdAt": "2026-01-19T23:59:37.386Z",
+      "status": "HOLD",
+      "factor": 1,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_76554c05-be51-4f1a-ae6b-cefb10aa86e5",
+            "qty": 0.588
+          },
+          {
+            "itemId": "itm_046b7ad0-e7dd-4815-a372-007700f67855",
+            "qty": 0.18988
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.0682
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.0345
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.006
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.00206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.0005
+          },
+          {
+            "itemId": "itm_f2194f5f-39e5-4645-b9e8-0140ad1b7061",
+            "qty": 0.003
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.001
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 1
+          }
+        ],
+        "produced": {
+          "itemId": "itm_84f93753-d85f-46d8-bde0-cc9119d94be3",
+          "qty": 1
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_76554c05-be51-4f1a-ae6b-cefb10aa86e5",
+          "shortage": 0.588,
+          "required": 0.588,
+          "available": 0
+        },
+        {
+          "itemId": "itm_046b7ad0-e7dd-4815-a372-007700f67855",
+          "shortage": 0.18988,
+          "required": 0.18988,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.0682,
+          "required": 0.0682,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.0345,
+          "required": 0.0345,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.006,
+          "required": 0.006,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.00206,
+          "required": 0.00206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.0005,
+          "required": 0.0005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f2194f5f-39e5-4645-b9e8-0140ad1b7061",
+          "shortage": 0.003,
+          "required": 0.003,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.001,
+          "required": 0.001,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 1,
+          "required": 1,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_feb9a4da-3ea9-4bd7-a2c0-51086b24cdf9",
+      "number": 9,
+      "recipeId": "rcp_2b8bd355-3a75-49cf-925c-5cee8e55c733",
+      "recipeName": "Tilápia Defumada & Cuscuz dos Pimentões",
+      "qtyToProduce": 1,
+      "note": "Simulação em lote (quantidade por PF) • rcp_2b8bd355-3a75-49cf-925c-5cee8e55c733 • 1 un",
+      "createdAt": "2026-01-19T23:59:37.403Z",
+      "status": "HOLD",
+      "factor": 1,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+            "qty": 0.2222
+          },
+          {
+            "itemId": "itm_49b5d383-ece8-4abc-8e21-85272e96c668",
+            "qty": 0.0707
+          },
+          {
+            "itemId": "itm_a11ca27e-8adc-4531-b0de-2ff1827acfed",
+            "qty": 0.225
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.077
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.02875
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.006
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.00206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.0005
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.001
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.001
+          },
+          {
+            "itemId": "itm_e982b492-7cf5-41a1-afa7-20cb99a69192",
+            "qty": 0.0005
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 1
+          }
+        ],
+        "produced": {
+          "itemId": "itm_34f27b47-8e3d-458b-95d6-e220608a2e56",
+          "qty": 1
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+          "shortage": 0.2222,
+          "required": 0.2222,
+          "available": 0
+        },
+        {
+          "itemId": "itm_49b5d383-ece8-4abc-8e21-85272e96c668",
+          "shortage": 0.0707,
+          "required": 0.0707,
+          "available": 0
+        },
+        {
+          "itemId": "itm_a11ca27e-8adc-4531-b0de-2ff1827acfed",
+          "shortage": 0.225,
+          "required": 0.225,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.077,
+          "required": 0.077,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.02875,
+          "required": 0.02875,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.006,
+          "required": 0.006,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.00206,
+          "required": 0.00206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.0005,
+          "required": 0.0005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.001,
+          "required": 0.001,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.001,
+          "required": 0.001,
+          "available": 0
+        },
+        {
+          "itemId": "itm_e982b492-7cf5-41a1-afa7-20cb99a69192",
+          "shortage": 0.0005,
+          "required": 0.0005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 1,
+          "required": 1,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_6055a5df-c147-43c6-b55c-db1a7b657e93",
+      "number": 10,
+      "recipeId": "rcp_545780f1-72ce-4e76-b005-e5685b518a4b",
+      "recipeName": "Frango Cremoso de Mussarela & Abobrinha",
+      "qtyToProduce": 1,
+      "note": "Simulação em lote (quantidade por PF) • rcp_545780f1-72ce-4e76-b005-e5685b518a4b • 1 un",
+      "createdAt": "2026-01-19T23:59:37.420Z",
+      "status": "HOLD",
+      "factor": 1,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+            "qty": 0.05555
+          },
+          {
+            "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+            "qty": 0.1818
+          },
+          {
+            "itemId": "itm_53c8f284-5225-41e3-a4dc-7d69ff36cc0c",
+            "qty": 0.2376
+          },
+          {
+            "itemId": "itm_e907bec3-4373-4be3-bb3f-2139ed4640ae",
+            "qty": 0.035
+          },
+          {
+            "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+            "qty": 0.03
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.0605
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.023
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.006
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.00206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.0005
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.001
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.001
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 1
+          }
+        ],
+        "produced": {
+          "itemId": "itm_bd719dd5-bfa9-4cd2-b269-694c897b7f7f",
+          "qty": 1
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "shortage": 0.05555,
+          "required": 0.05555,
+          "available": 0
+        },
+        {
+          "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+          "shortage": 0.1818,
+          "required": 0.1818,
+          "available": 0
+        },
+        {
+          "itemId": "itm_53c8f284-5225-41e3-a4dc-7d69ff36cc0c",
+          "shortage": 0.2376,
+          "required": 0.2376,
+          "available": 0
+        },
+        {
+          "itemId": "itm_e907bec3-4373-4be3-bb3f-2139ed4640ae",
+          "shortage": 0.035,
+          "required": 0.035,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+          "shortage": 0.03,
+          "required": 0.03,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.0605,
+          "required": 0.0605,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.023,
+          "required": 0.023,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.006,
+          "required": 0.006,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.00206,
+          "required": 0.00206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.0005,
+          "required": 0.0005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.001,
+          "required": 0.001,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.001,
+          "required": 0.001,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 1,
+          "required": 1,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_60a71a61-c344-4d64-8489-67c8332e435b",
+      "number": 11,
+      "recipeId": "rcp_03b76891-6391-4bcf-98a6-bda48993e211",
+      "recipeName": "Tilápia Crocante na Aveia & Purê de Mandioquinha",
+      "qtyToProduce": 1,
+      "note": "Simulação em lote (quantidade por PF) • rcp_03b76891-6391-4bcf-98a6-bda48993e211 • 1 un",
+      "createdAt": "2026-01-19T23:59:37.435Z",
+      "status": "HOLD",
+      "factor": 1,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+            "qty": 0.2525
+          },
+          {
+            "itemId": "itm_0f5f0c31-107c-4db5-a789-60f58b6096e8",
+            "qty": 0.02525
+          },
+          {
+            "itemId": "itm_65b6664b-6278-4e95-bdc9-4d195c08ddf8",
+            "qty": 0.5
+          },
+          {
+            "itemId": "itm_651d3d5e-cc7e-401e-ae67-22fe599a337e",
+            "qty": 0.318
+          },
+          {
+            "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+            "qty": 0.03
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.0605
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.02875
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.006
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.00206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.0005
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.001
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.001
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 1
+          }
+        ],
+        "produced": {
+          "itemId": "itm_68b13011-7648-4254-85a5-a802c59cc70c",
+          "qty": 1
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+          "shortage": 0.2525,
+          "required": 0.2525,
+          "available": 0
+        },
+        {
+          "itemId": "itm_0f5f0c31-107c-4db5-a789-60f58b6096e8",
+          "shortage": 0.02525,
+          "required": 0.02525,
+          "available": 0
+        },
+        {
+          "itemId": "itm_65b6664b-6278-4e95-bdc9-4d195c08ddf8",
+          "shortage": 0.5,
+          "required": 0.5,
+          "available": 0
+        },
+        {
+          "itemId": "itm_651d3d5e-cc7e-401e-ae67-22fe599a337e",
+          "shortage": 0.318,
+          "required": 0.318,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+          "shortage": 0.03,
+          "required": 0.03,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.0605,
+          "required": 0.0605,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.02875,
+          "required": 0.02875,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.006,
+          "required": 0.006,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.00206,
+          "required": 0.00206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.0005,
+          "required": 0.0005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.001,
+          "required": 0.001,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.001,
+          "required": 0.001,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 1,
+          "required": 1,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_5845c25a-4527-43ba-80b7-55e1d2e5e71d",
+      "number": 12,
+      "recipeId": "rcp_f07ace6c-6bf8-4370-b784-9ab067e4c150",
+      "recipeName": "Lagarto ao Molho de Cebola & Escarola",
+      "qtyToProduce": 1,
+      "note": "Simulação em lote (quantidade por PF) • rcp_f07ace6c-6bf8-4370-b784-9ab067e4c150 • 1 un",
+      "createdAt": "2026-01-19T23:59:37.452Z",
+      "status": "HOLD",
+      "factor": 1,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+            "qty": 0.08282
+          },
+          {
+            "itemId": "itm_d12dc32e-3ba8-4559-8cc6-19074d57c627",
+            "qty": 0.20705
+          },
+          {
+            "itemId": "itm_0fe3c168-006c-4161-b22c-5739e246c5ed",
+            "qty": 0.3
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.0957
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.006
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.00206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.0005
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.001
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.001
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 1
+          }
+        ],
+        "produced": {
+          "itemId": "itm_9ca406f1-adf7-4326-9b32-b4e38799f40a",
+          "qty": 1
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "shortage": 0.08282,
+          "required": 0.08282,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d12dc32e-3ba8-4559-8cc6-19074d57c627",
+          "shortage": 0.20705,
+          "required": 0.20705,
+          "available": 0
+        },
+        {
+          "itemId": "itm_0fe3c168-006c-4161-b22c-5739e246c5ed",
+          "shortage": 0.3,
+          "required": 0.3,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.0957,
+          "required": 0.0957,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.006,
+          "required": 0.006,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.00206,
+          "required": 0.00206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.0005,
+          "required": 0.0005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.001,
+          "required": 0.001,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.001,
+          "required": 0.001,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 1,
+          "required": 1,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_a54ebede-7185-405b-87fc-370e7d5577af",
+      "number": 13,
+      "recipeId": "rcp_405d9247-2a73-4b04-97de-b9ef65b3b690",
+      "recipeName": "Frango Cítrico & Arroz Perfumado",
+      "qtyToProduce": 10,
+      "note": "Simulação em lote (quantidade por PF) • rcp_405d9247-2a73-4b04-97de-b9ef65b3b690 • 10 un",
+      "createdAt": "2026-01-20T00:28:28.924Z",
+      "status": "HOLD",
+      "factor": 10,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+            "qty": 0.5151
+          },
+          {
+            "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+            "qty": 1.8988
+          },
+          {
+            "itemId": "itm_62ce6156-dad2-4110-bce4-24503a6dea6f",
+            "qty": 0.876
+          },
+          {
+            "itemId": "itm_57e52731-92c3-44df-85b7-f99b695d7e75",
+            "qty": 1.728
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.682
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.05
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.345
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.06
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.0206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 10
+          }
+        ],
+        "produced": {
+          "itemId": "itm_df98b469-6a37-4b98-9e56-210c368e7b2e",
+          "qty": 10
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "shortage": 0.5151,
+          "required": 0.5151,
+          "available": 0
+        },
+        {
+          "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+          "shortage": 1.8988,
+          "required": 1.8988,
+          "available": 0
+        },
+        {
+          "itemId": "itm_62ce6156-dad2-4110-bce4-24503a6dea6f",
+          "shortage": 0.876,
+          "required": 0.876,
+          "available": 0
+        },
+        {
+          "itemId": "itm_57e52731-92c3-44df-85b7-f99b695d7e75",
+          "shortage": 1.728,
+          "required": 1.728,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.682,
+          "required": 0.682,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.05,
+          "required": 0.05,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.345,
+          "required": 0.345,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.06,
+          "required": 0.06,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.0206,
+          "required": 0.0206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 10,
+          "required": 10,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_50366cdd-7d36-49f8-a5d6-288dd57866da",
+      "number": 14,
+      "recipeId": "rcp_306451ad-91a9-455e-bc16-4f1c406ac08d",
+      "recipeName": "Patinho Chimichurri & Cabotiá Assada",
+      "qtyToProduce": 15,
+      "note": "Simulação em lote (quantidade por PF) • rcp_306451ad-91a9-455e-bc16-4f1c406ac08d • 15 un",
+      "createdAt": "2026-01-20T00:28:28.941Z",
+      "status": "HOLD",
+      "factor": 15,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_76554c05-be51-4f1a-ae6b-cefb10aa86e5",
+            "qty": 8.82
+          },
+          {
+            "itemId": "itm_046b7ad0-e7dd-4815-a372-007700f67855",
+            "qty": 2.8482
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 1.023
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.075
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.5175
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.09
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.0309
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.0075
+          },
+          {
+            "itemId": "itm_f2194f5f-39e5-4645-b9e8-0140ad1b7061",
+            "qty": 0.045
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.015
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 15
+          }
+        ],
+        "produced": {
+          "itemId": "itm_84f93753-d85f-46d8-bde0-cc9119d94be3",
+          "qty": 15
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_76554c05-be51-4f1a-ae6b-cefb10aa86e5",
+          "shortage": 8.82,
+          "required": 8.82,
+          "available": 0
+        },
+        {
+          "itemId": "itm_046b7ad0-e7dd-4815-a372-007700f67855",
+          "shortage": 2.8482,
+          "required": 2.8482,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 1.023,
+          "required": 1.023,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.075,
+          "required": 0.075,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.5175,
+          "required": 0.5175,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.09,
+          "required": 0.09,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.0309,
+          "required": 0.0309,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.0075,
+          "required": 0.0075,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f2194f5f-39e5-4645-b9e8-0140ad1b7061",
+          "shortage": 0.045,
+          "required": 0.045,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.015,
+          "required": 0.015,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 15,
+          "required": 15,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_adfaa16c-c8bd-4320-be30-b10231960852",
+      "number": 15,
+      "recipeId": "rcp_2b8bd355-3a75-49cf-925c-5cee8e55c733",
+      "recipeName": "Tilápia Defumada & Cuscuz dos Pimentões",
+      "qtyToProduce": 10,
+      "note": "Simulação em lote (quantidade por PF) • rcp_2b8bd355-3a75-49cf-925c-5cee8e55c733 • 10 un",
+      "createdAt": "2026-01-20T00:28:28.955Z",
+      "status": "HOLD",
+      "factor": 10,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+            "qty": 2.222
+          },
+          {
+            "itemId": "itm_49b5d383-ece8-4abc-8e21-85272e96c668",
+            "qty": 0.707
+          },
+          {
+            "itemId": "itm_a11ca27e-8adc-4531-b0de-2ff1827acfed",
+            "qty": 2.25
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.77
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.05
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.2875
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.06
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.0206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_e982b492-7cf5-41a1-afa7-20cb99a69192",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 10
+          }
+        ],
+        "produced": {
+          "itemId": "itm_34f27b47-8e3d-458b-95d6-e220608a2e56",
+          "qty": 10
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+          "shortage": 2.222,
+          "required": 2.222,
+          "available": 0
+        },
+        {
+          "itemId": "itm_49b5d383-ece8-4abc-8e21-85272e96c668",
+          "shortage": 0.707,
+          "required": 0.707,
+          "available": 0
+        },
+        {
+          "itemId": "itm_a11ca27e-8adc-4531-b0de-2ff1827acfed",
+          "shortage": 2.25,
+          "required": 2.25,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.77,
+          "required": 0.77,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.05,
+          "required": 0.05,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.2875,
+          "required": 0.2875,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.06,
+          "required": 0.06,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.0206,
+          "required": 0.0206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_e982b492-7cf5-41a1-afa7-20cb99a69192",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 10,
+          "required": 10,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_71ac1731-3403-41a7-a909-9f21285fee8f",
+      "number": 16,
+      "recipeId": "rcp_545780f1-72ce-4e76-b005-e5685b518a4b",
+      "recipeName": "Frango Cremoso de Mussarela & Abobrinha",
+      "qtyToProduce": 11,
+      "note": "Simulação em lote (quantidade por PF) • rcp_545780f1-72ce-4e76-b005-e5685b518a4b • 11 un",
+      "createdAt": "2026-01-20T00:28:28.970Z",
+      "status": "HOLD",
+      "factor": 11,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+            "qty": 0.61105
+          },
+          {
+            "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+            "qty": 1.9998
+          },
+          {
+            "itemId": "itm_53c8f284-5225-41e3-a4dc-7d69ff36cc0c",
+            "qty": 2.6136
+          },
+          {
+            "itemId": "itm_e907bec3-4373-4be3-bb3f-2139ed4640ae",
+            "qty": 0.385
+          },
+          {
+            "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+            "qty": 0.33
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.6655
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.055
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.253
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.066
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.02266
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.0055
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.011
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.011
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 11
+          }
+        ],
+        "produced": {
+          "itemId": "itm_bd719dd5-bfa9-4cd2-b269-694c897b7f7f",
+          "qty": 11
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "shortage": 0.61105,
+          "required": 0.61105,
+          "available": 0
+        },
+        {
+          "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+          "shortage": 1.9998,
+          "required": 1.9998,
+          "available": 0
+        },
+        {
+          "itemId": "itm_53c8f284-5225-41e3-a4dc-7d69ff36cc0c",
+          "shortage": 2.6136,
+          "required": 2.6136,
+          "available": 0
+        },
+        {
+          "itemId": "itm_e907bec3-4373-4be3-bb3f-2139ed4640ae",
+          "shortage": 0.385,
+          "required": 0.385,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+          "shortage": 0.33,
+          "required": 0.33,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.6655,
+          "required": 0.6655,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.055,
+          "required": 0.055,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.253,
+          "required": 0.253,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.066,
+          "required": 0.066,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.02266,
+          "required": 0.02266,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.0055,
+          "required": 0.0055,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.011,
+          "required": 0.011,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.011,
+          "required": 0.011,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 11,
+          "required": 11,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_417197fb-125f-44b5-9e3b-56ced734e4ab",
+      "number": 17,
+      "recipeId": "rcp_03b76891-6391-4bcf-98a6-bda48993e211",
+      "recipeName": "Tilápia Crocante na Aveia & Purê de Mandioquinha",
+      "qtyToProduce": 12,
+      "note": "Simulação em lote (quantidade por PF) • rcp_03b76891-6391-4bcf-98a6-bda48993e211 • 12 un",
+      "createdAt": "2026-01-20T00:28:28.985Z",
+      "status": "HOLD",
+      "factor": 12,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+            "qty": 3.03
+          },
+          {
+            "itemId": "itm_0f5f0c31-107c-4db5-a789-60f58b6096e8",
+            "qty": 0.303
+          },
+          {
+            "itemId": "itm_65b6664b-6278-4e95-bdc9-4d195c08ddf8",
+            "qty": 6
+          },
+          {
+            "itemId": "itm_651d3d5e-cc7e-401e-ae67-22fe599a337e",
+            "qty": 3.816
+          },
+          {
+            "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+            "qty": 0.36
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.726
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.06
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.345
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.072
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.02472
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.006
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.012
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.012
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 12
+          }
+        ],
+        "produced": {
+          "itemId": "itm_68b13011-7648-4254-85a5-a802c59cc70c",
+          "qty": 12
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+          "shortage": 3.03,
+          "required": 3.03,
+          "available": 0
+        },
+        {
+          "itemId": "itm_0f5f0c31-107c-4db5-a789-60f58b6096e8",
+          "shortage": 0.303,
+          "required": 0.303,
+          "available": 0
+        },
+        {
+          "itemId": "itm_65b6664b-6278-4e95-bdc9-4d195c08ddf8",
+          "shortage": 6,
+          "required": 6,
+          "available": 0
+        },
+        {
+          "itemId": "itm_651d3d5e-cc7e-401e-ae67-22fe599a337e",
+          "shortage": 3.816,
+          "required": 3.816,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+          "shortage": 0.36,
+          "required": 0.36,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.726,
+          "required": 0.726,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.06,
+          "required": 0.06,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.345,
+          "required": 0.345,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.072,
+          "required": 0.072,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.02472,
+          "required": 0.02472,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.006,
+          "required": 0.006,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.012,
+          "required": 0.012,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.012,
+          "required": 0.012,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 12,
+          "required": 12,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_b4cf4f88-ea16-4ee5-8461-56ec2c880bb7",
+      "number": 18,
+      "recipeId": "rcp_f07ace6c-6bf8-4370-b784-9ab067e4c150",
+      "recipeName": "Lagarto ao Molho de Cebola & Escarola",
+      "qtyToProduce": 10,
+      "note": "Simulação em lote (quantidade por PF) • rcp_f07ace6c-6bf8-4370-b784-9ab067e4c150 • 10 un",
+      "createdAt": "2026-01-20T00:28:29.001Z",
+      "status": "HOLD",
+      "factor": 10,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+            "qty": 0.8282
+          },
+          {
+            "itemId": "itm_d12dc32e-3ba8-4559-8cc6-19074d57c627",
+            "qty": 2.0705
+          },
+          {
+            "itemId": "itm_0fe3c168-006c-4161-b22c-5739e246c5ed",
+            "qty": 3
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.957
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.05
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.06
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.0206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 10
+          }
+        ],
+        "produced": {
+          "itemId": "itm_9ca406f1-adf7-4326-9b32-b4e38799f40a",
+          "qty": 10
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "shortage": 0.8282,
+          "required": 0.8282,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d12dc32e-3ba8-4559-8cc6-19074d57c627",
+          "shortage": 2.0705,
+          "required": 2.0705,
+          "available": 0
+        },
+        {
+          "itemId": "itm_0fe3c168-006c-4161-b22c-5739e246c5ed",
+          "shortage": 3,
+          "required": 3,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.957,
+          "required": 0.957,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.05,
+          "required": 0.05,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.06,
+          "required": 0.06,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.0206,
+          "required": 0.0206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 10,
+          "required": 10,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_7597fe0e-8d69-476b-a2bf-9dacef99a809",
+      "number": 19,
+      "recipeId": "rcp_405d9247-2a73-4b04-97de-b9ef65b3b690",
+      "recipeName": "Frango Cítrico & Arroz Perfumado",
+      "qtyToProduce": 10,
+      "note": "Simulação em lote (quantidade por PF) • rcp_405d9247-2a73-4b04-97de-b9ef65b3b690 • 10 un",
+      "createdAt": "2026-01-20T00:28:53.663Z",
+      "status": "HOLD",
+      "factor": 10,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+            "qty": 0.5151
+          },
+          {
+            "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+            "qty": 1.8988
+          },
+          {
+            "itemId": "itm_62ce6156-dad2-4110-bce4-24503a6dea6f",
+            "qty": 0.876
+          },
+          {
+            "itemId": "itm_57e52731-92c3-44df-85b7-f99b695d7e75",
+            "qty": 1.728
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.682
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.05
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.345
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.06
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.0206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 10
+          }
+        ],
+        "produced": {
+          "itemId": "itm_df98b469-6a37-4b98-9e56-210c368e7b2e",
+          "qty": 10
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "shortage": 0.5151,
+          "required": 0.5151,
+          "available": 0
+        },
+        {
+          "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+          "shortage": 1.8988,
+          "required": 1.8988,
+          "available": 0
+        },
+        {
+          "itemId": "itm_62ce6156-dad2-4110-bce4-24503a6dea6f",
+          "shortage": 0.876,
+          "required": 0.876,
+          "available": 0
+        },
+        {
+          "itemId": "itm_57e52731-92c3-44df-85b7-f99b695d7e75",
+          "shortage": 1.728,
+          "required": 1.728,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.682,
+          "required": 0.682,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.05,
+          "required": 0.05,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.345,
+          "required": 0.345,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.06,
+          "required": 0.06,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.0206,
+          "required": 0.0206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 10,
+          "required": 10,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_44092c9b-0ef0-4e4f-a671-a825f5f2fbed",
+      "number": 20,
+      "recipeId": "rcp_306451ad-91a9-455e-bc16-4f1c406ac08d",
+      "recipeName": "Patinho Chimichurri & Cabotiá Assada",
+      "qtyToProduce": 15,
+      "note": "Simulação em lote (quantidade por PF) • rcp_306451ad-91a9-455e-bc16-4f1c406ac08d • 15 un",
+      "createdAt": "2026-01-20T00:28:53.679Z",
+      "status": "HOLD",
+      "factor": 15,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_76554c05-be51-4f1a-ae6b-cefb10aa86e5",
+            "qty": 8.82
+          },
+          {
+            "itemId": "itm_046b7ad0-e7dd-4815-a372-007700f67855",
+            "qty": 2.8482
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 1.023
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.075
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.5175
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.09
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.0309
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.0075
+          },
+          {
+            "itemId": "itm_f2194f5f-39e5-4645-b9e8-0140ad1b7061",
+            "qty": 0.045
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.015
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 15
+          }
+        ],
+        "produced": {
+          "itemId": "itm_84f93753-d85f-46d8-bde0-cc9119d94be3",
+          "qty": 15
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_76554c05-be51-4f1a-ae6b-cefb10aa86e5",
+          "shortage": 8.82,
+          "required": 8.82,
+          "available": 0
+        },
+        {
+          "itemId": "itm_046b7ad0-e7dd-4815-a372-007700f67855",
+          "shortage": 2.8482,
+          "required": 2.8482,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 1.023,
+          "required": 1.023,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.075,
+          "required": 0.075,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.5175,
+          "required": 0.5175,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.09,
+          "required": 0.09,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.0309,
+          "required": 0.0309,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.0075,
+          "required": 0.0075,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f2194f5f-39e5-4645-b9e8-0140ad1b7061",
+          "shortage": 0.045,
+          "required": 0.045,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.015,
+          "required": 0.015,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 15,
+          "required": 15,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_4a990538-6712-4632-8f8f-bae14692d33b",
+      "number": 21,
+      "recipeId": "rcp_2b8bd355-3a75-49cf-925c-5cee8e55c733",
+      "recipeName": "Tilápia Defumada & Cuscuz dos Pimentões",
+      "qtyToProduce": 10,
+      "note": "Simulação em lote (quantidade por PF) • rcp_2b8bd355-3a75-49cf-925c-5cee8e55c733 • 10 un",
+      "createdAt": "2026-01-20T00:28:53.694Z",
+      "status": "HOLD",
+      "factor": 10,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+            "qty": 2.222
+          },
+          {
+            "itemId": "itm_49b5d383-ece8-4abc-8e21-85272e96c668",
+            "qty": 0.707
+          },
+          {
+            "itemId": "itm_a11ca27e-8adc-4531-b0de-2ff1827acfed",
+            "qty": 2.25
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.77
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.05
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.2875
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.06
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.0206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_e982b492-7cf5-41a1-afa7-20cb99a69192",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 10
+          }
+        ],
+        "produced": {
+          "itemId": "itm_34f27b47-8e3d-458b-95d6-e220608a2e56",
+          "qty": 10
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+          "shortage": 2.222,
+          "required": 2.222,
+          "available": 0
+        },
+        {
+          "itemId": "itm_49b5d383-ece8-4abc-8e21-85272e96c668",
+          "shortage": 0.707,
+          "required": 0.707,
+          "available": 0
+        },
+        {
+          "itemId": "itm_a11ca27e-8adc-4531-b0de-2ff1827acfed",
+          "shortage": 2.25,
+          "required": 2.25,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.77,
+          "required": 0.77,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.05,
+          "required": 0.05,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.2875,
+          "required": 0.2875,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.06,
+          "required": 0.06,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.0206,
+          "required": 0.0206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_e982b492-7cf5-41a1-afa7-20cb99a69192",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 10,
+          "required": 10,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_7e58db1e-bbe6-4d48-ad87-e5c5c3278c26",
+      "number": 22,
+      "recipeId": "rcp_545780f1-72ce-4e76-b005-e5685b518a4b",
+      "recipeName": "Frango Cremoso de Mussarela & Abobrinha",
+      "qtyToProduce": 11,
+      "note": "Simulação em lote (quantidade por PF) • rcp_545780f1-72ce-4e76-b005-e5685b518a4b • 11 un",
+      "createdAt": "2026-01-20T00:28:53.709Z",
+      "status": "HOLD",
+      "factor": 11,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+            "qty": 0.61105
+          },
+          {
+            "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+            "qty": 1.9998
+          },
+          {
+            "itemId": "itm_53c8f284-5225-41e3-a4dc-7d69ff36cc0c",
+            "qty": 2.6136
+          },
+          {
+            "itemId": "itm_e907bec3-4373-4be3-bb3f-2139ed4640ae",
+            "qty": 0.385
+          },
+          {
+            "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+            "qty": 0.33
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.6655
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.055
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.253
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.066
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.02266
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.0055
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.011
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.011
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 11
+          }
+        ],
+        "produced": {
+          "itemId": "itm_bd719dd5-bfa9-4cd2-b269-694c897b7f7f",
+          "qty": 11
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "shortage": 0.61105,
+          "required": 0.61105,
+          "available": 0
+        },
+        {
+          "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+          "shortage": 1.9998,
+          "required": 1.9998,
+          "available": 0
+        },
+        {
+          "itemId": "itm_53c8f284-5225-41e3-a4dc-7d69ff36cc0c",
+          "shortage": 2.6136,
+          "required": 2.6136,
+          "available": 0
+        },
+        {
+          "itemId": "itm_e907bec3-4373-4be3-bb3f-2139ed4640ae",
+          "shortage": 0.385,
+          "required": 0.385,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+          "shortage": 0.33,
+          "required": 0.33,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.6655,
+          "required": 0.6655,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.055,
+          "required": 0.055,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.253,
+          "required": 0.253,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.066,
+          "required": 0.066,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.02266,
+          "required": 0.02266,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.0055,
+          "required": 0.0055,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.011,
+          "required": 0.011,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.011,
+          "required": 0.011,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 11,
+          "required": 11,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_574e426e-596b-4bfe-aac5-69809f036c8e",
+      "number": 23,
+      "recipeId": "rcp_03b76891-6391-4bcf-98a6-bda48993e211",
+      "recipeName": "Tilápia Crocante na Aveia & Purê de Mandioquinha",
+      "qtyToProduce": 12,
+      "note": "Simulação em lote (quantidade por PF) • rcp_03b76891-6391-4bcf-98a6-bda48993e211 • 12 un",
+      "createdAt": "2026-01-20T00:28:53.726Z",
+      "status": "HOLD",
+      "factor": 12,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+            "qty": 3.03
+          },
+          {
+            "itemId": "itm_0f5f0c31-107c-4db5-a789-60f58b6096e8",
+            "qty": 0.303
+          },
+          {
+            "itemId": "itm_65b6664b-6278-4e95-bdc9-4d195c08ddf8",
+            "qty": 6
+          },
+          {
+            "itemId": "itm_651d3d5e-cc7e-401e-ae67-22fe599a337e",
+            "qty": 3.816
+          },
+          {
+            "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+            "qty": 0.36
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.726
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.06
+          },
+          {
+            "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+            "qty": 0.345
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.072
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.02472
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.006
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.012
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.012
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 12
+          }
+        ],
+        "produced": {
+          "itemId": "itm_68b13011-7648-4254-85a5-a802c59cc70c",
+          "qty": 12
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+          "shortage": 3.03,
+          "required": 3.03,
+          "available": 0
+        },
+        {
+          "itemId": "itm_0f5f0c31-107c-4db5-a789-60f58b6096e8",
+          "shortage": 0.303,
+          "required": 0.303,
+          "available": 0
+        },
+        {
+          "itemId": "itm_65b6664b-6278-4e95-bdc9-4d195c08ddf8",
+          "shortage": 6,
+          "required": 6,
+          "available": 0
+        },
+        {
+          "itemId": "itm_651d3d5e-cc7e-401e-ae67-22fe599a337e",
+          "shortage": 3.816,
+          "required": 3.816,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+          "shortage": 0.36,
+          "required": 0.36,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.726,
+          "required": 0.726,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.06,
+          "required": 0.06,
+          "available": 0
+        },
+        {
+          "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+          "shortage": 0.345,
+          "required": 0.345,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.072,
+          "required": 0.072,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.02472,
+          "required": 0.02472,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.006,
+          "required": 0.006,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.012,
+          "required": 0.012,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.012,
+          "required": 0.012,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 12,
+          "required": 12,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    },
+    {
+      "id": "po_6d9f182b-f826-414b-aeff-7ceb2c7202a6",
+      "number": 24,
+      "recipeId": "rcp_f07ace6c-6bf8-4370-b784-9ab067e4c150",
+      "recipeName": "Lagarto ao Molho de Cebola & Escarola",
+      "qtyToProduce": 10,
+      "note": "Simulação em lote (quantidade por PF) • rcp_f07ace6c-6bf8-4370-b784-9ab067e4c150 • 10 un",
+      "createdAt": "2026-01-20T00:28:53.742Z",
+      "status": "HOLD",
+      "factor": 10,
+      "planned": {
+        "consumed": [
+          {
+            "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+            "qty": 0.8282
+          },
+          {
+            "itemId": "itm_d12dc32e-3ba8-4559-8cc6-19074d57c627",
+            "qty": 2.0705
+          },
+          {
+            "itemId": "itm_0fe3c168-006c-4161-b22c-5739e246c5ed",
+            "qty": 3
+          },
+          {
+            "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+            "qty": 0.957
+          },
+          {
+            "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+            "qty": 0.05
+          },
+          {
+            "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+            "qty": 0.06
+          },
+          {
+            "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+            "qty": 0.0206
+          },
+          {
+            "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+            "qty": 0.005
+          },
+          {
+            "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+            "qty": 0.01
+          },
+          {
+            "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+            "qty": 10
+          }
+        ],
+        "produced": {
+          "itemId": "itm_9ca406f1-adf7-4326-9b32-b4e38799f40a",
+          "qty": 10
+        }
+      },
+      "consumed": [],
+      "produced": null,
+      "shortages": [
+        {
+          "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+          "shortage": 0.8282,
+          "required": 0.8282,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d12dc32e-3ba8-4559-8cc6-19074d57c627",
+          "shortage": 2.0705,
+          "required": 2.0705,
+          "available": 0
+        },
+        {
+          "itemId": "itm_0fe3c168-006c-4161-b22c-5739e246c5ed",
+          "shortage": 3,
+          "required": 3,
+          "available": 0
+        },
+        {
+          "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+          "shortage": 0.957,
+          "required": 0.957,
+          "available": 0
+        },
+        {
+          "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+          "shortage": 0.05,
+          "required": 0.05,
+          "available": 0
+        },
+        {
+          "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+          "shortage": 0.06,
+          "required": 0.06,
+          "available": 0
+        },
+        {
+          "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+          "shortage": 0.0206,
+          "required": 0.0206,
+          "available": 0
+        },
+        {
+          "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+          "shortage": 0.005,
+          "required": 0.005,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+          "shortage": 0.01,
+          "required": 0.01,
+          "available": 0
+        },
+        {
+          "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+          "shortage": 10,
+          "required": 10,
+          "available": 0
+        }
+      ],
+      "linkedPurchaseOrderId": null
+    }
+  ],
+  "purchaseOrders": []
+}

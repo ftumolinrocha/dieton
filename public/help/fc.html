@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DietON • Cru → Cozido (Ganho/Perda de Peso)</title>
+  <style>
+    :root{
+      --green:#105028;
+      --orange:#F09828;
+      --bg:#f6f8f6;
+      --card:#ffffff;
+      --text:#0f1a12;
+      --muted:#5a6b5f;
+      --line:rgba(16,80,40,.14);
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(240,152,40,.14), transparent 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(16,80,40,.14), transparent 55%),
+        var(--bg);
+    }
+    .wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 60px;
+    }
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom: 18px;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width: 240px;
+    }
+    .logo img{
+      height: 66px;
+      width:auto;
+      display:block;
+      object-fit:contain;
+      border-radius: 10px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(16,80,40,.08);
+      border: 1px solid rgba(16,80,40,.16);
+      color: var(--green);
+      font-weight: 650;
+      letter-spacing: .2px;
+      white-space: nowrap;
+    }
+    .badge .dot{
+      width:10px;height:10px;border-radius:99px;background: var(--orange);
+      box-shadow: 0 0 0 4px rgba(240,152,40,.20);
+    }
+
+    .hero{
+      background: linear-gradient(135deg, rgba(16,80,40,.10), rgba(240,152,40,.10));
+      border: 1px solid rgba(16,80,40,.15);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px 20px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+    .hero h1{
+      margin:0 0 6px;
+      font-size: clamp(20px, 2.2vw, 28px);
+      letter-spacing: .2px;
+    }
+    .hero p{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+      align-content:start;
+    }
+    .kpi{
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(16,80,40,.14);
+      border-radius: var(--radius-sm);
+      padding: 12px 12px;
+    }
+    .kpi .label{
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .pill{
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(240,152,40,.14);
+      border: 1px solid rgba(240,152,40,.22);
+      color: #7a4700;
+      font-weight: 650;
+    }
+    .kpi .value{
+      font-size: 20px;
+      font-weight: 850;
+      color: var(--green);
+      letter-spacing: .2px;
+    }
+    .kpi .sub{
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .card{
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid rgba(16,80,40,.14);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card .hd{
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      background: linear-gradient(90deg, rgba(16,80,40,.06), rgba(240,152,40,.06));
+    }
+    .card .hd h2{
+      margin:0;
+      font-size: 16px;
+      letter-spacing: .2px;
+    }
+    .card .hd small{
+      color: var(--muted);
+      display:block;
+      margin-top: 3px;
+      line-height: 1.35;
+    }
+    .card .bd{padding: 14px 16px}
+
+    .two{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .callout{
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(240,152,40,.28);
+      background: rgba(240,152,40,.10);
+      padding: 12px 12px;
+      color: #553200;
+      line-height: 1.45;
+    }
+    .callout strong{color:#3b2400}
+
+    .formula{
+      background: #0c1d12;
+      color:#e8f5ee;
+      border-radius: 14px;
+      padding: 12px 12px;
+      overflow:auto;
+      border: 1px solid rgba(240,152,40,.22);
+      margin-top: 12px;
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .formula b{color: #ffd8a5}
+
+    .toolbar{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items:center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .search{
+      flex: 1 1 260px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background: rgba(255,255,255,.85);
+      border: 1px solid rgba(16,80,40,.18);
+      border-radius: 999px;
+      padding: 10px 12px;
+      min-width: 240px;
+    }
+    .search input{
+      border:0;
+      outline:0;
+      width:100%;
+      background: transparent;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .chips{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .chip{
+      cursor:pointer;
+      user-select:none;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(16,80,40,.18);
+      background: rgba(16,80,40,.06);
+      color: var(--green);
+      font-weight: 700;
+      font-size: 12px;
+      transition: transform .06s ease, background .15s ease;
+    }
+    .chip:hover{transform: translateY(-1px)}
+    .chip.active{
+      background: rgba(240,152,40,.14);
+      border-color: rgba(240,152,40,.28);
+      color: #6b3c00;
+    }
+
+    .tableWrap{
+      width:100%;
+      overflow:auto;
+      border-radius: 14px;
+      border: 1px solid rgba(16,80,40,.14);
+    }
+    table{
+      width:100%;
+      border-collapse: collapse;
+      min-width: 1040px;
+      background: white;
+    }
+    thead th{
+      text-align:left;
+      font-size: 12px;
+      letter-spacing: .35px;
+      text-transform: uppercase;
+      color: var(--green);
+      background: rgba(16,80,40,.06);
+      border-bottom: 1px solid rgba(16,80,40,.14);
+      padding: 12px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    tbody td{
+      padding: 12px 12px;
+      border-bottom: 1px solid rgba(16,80,40,.10);
+      vertical-align: top;
+      color: #1b2b20;
+      line-height: 1.35;
+      font-size: 14px;
+    }
+    tbody tr:hover td{background: rgba(16,80,40,.03)}
+    .mono{font-family: var(--mono); font-size: 13px}
+    .muted{color: var(--muted)}
+    .delta{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-weight: 800;
+      border-radius: 999px;
+      padding: 6px 10px;
+      border: 1px solid rgba(16,80,40,.14);
+      background: rgba(16,80,40,.05);
+      white-space: nowrap;
+    }
+    .delta.up{
+      border-color: rgba(16,80,40,.14);
+      background: rgba(16,80,40,.06);
+      color: var(--green);
+    }
+    .delta.down{
+      border-color: rgba(240,152,40,.26);
+      background: rgba(240,152,40,.10);
+      color: #6b3c00;
+    }
+
+    .avg{
+      font-weight: 900;
+      color: var(--green);
+      letter-spacing: .2px;
+    }
+
+    .footer{
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+      text-align:center;
+    }
+
+    @media (max-width: 860px){
+      .hero{grid-template-columns: 1fr}
+      .kpis{grid-template-columns: 1fr 1fr}
+      .top{flex-direction:column; align-items:flex-start}
+      .logo{min-width:unset}
+      .two{grid-template-columns:1fr}
+      table{min-width: 980px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="top">
+      <div class="logo">
+        <img src="DietON Logo.png" alt="DietON — Dieta fácil do jeito certo" />
+      </div>
+      <div class="badge">
+        <span class="dot" aria-hidden="true"></span>
+        Informativo • Cru → Cozido
+      </div>
+    </div>
+
+    <section class="hero" role="region" aria-label="Resumo cru para cozido">
+      <div>
+        <h1>Ganho e perda de peso: do alimento cru para o cozido</h1>
+        <p>
+          Use o <b>Fator de Cocção (FC)</b> para calcular rendimento e porcionamento:
+          <b>FC = peso cozido / peso cru</b>. Como você cadastra sempre pelo <b>peso cru</b>,
+          fica fácil prever o cozido: <b>peso cozido = cru × FC</b>.
+        </p>
+
+        <div class="formula" aria-label="Fórmulas">
+<b>FC (Fator de Cocção)</b> = peso cozido / peso cru
+
+• Prever COZIDO (você cadastra CRU):
+  peso cozido = peso cru × FC
+
+• Calcular CRU a partir do cozido desejado:
+  peso cru = peso cozido / FC
+        </div>
+      </div>
+
+      <div class="kpis" aria-label="Regras rápidas">
+        <div class="kpi">
+          <div class="label">Grãos e massas <span class="pill">ganham</span></div>
+          <div class="value">FC &gt; 1,0</div>
+          <div class="sub">Arroz, feijão, lentilha, macarrão…</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Carnes <span class="pill">perdem</span></div>
+          <div class="value">FC &lt; 1,0</div>
+          <div class="sub">Grelhar/assar reduz mais que ensopado.</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Legumes</div>
+          <div class="value">0,7–1,1</div>
+          <div class="sub">Vapor perde menos; forno perde mais.</div>
+        </div>
+        <div class="kpi">
+          <div class="label">Folhas</div>
+          <div class="value">0,1–0,6</div>
+          <div class="sub">Murcham muito na panela.</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid">
+
+      <section class="card" role="region" aria-label="Dicas de uso">
+        <div class="hd">
+          <div>
+            <h2>Dicas rápidas (pra ficar consistente)</h2>
+            <small>O FC muda com tempo, ponto e método de cocção — padronize.</small>
+          </div>
+        </div>
+        <div class="bd">
+          <div class="two">
+            <div class="callout">
+              <strong>Padronize o método:</strong><br/>
+              “Arroz branco soltinho”, “frango grelhado”, “brócolis no vapor” etc.
+            </div>
+            <div class="callout">
+              <strong>Calibre o FC da sua cozinha:</strong><br/>
+              Pese o cru, cozinhe do seu jeito padrão, pese o cozido após escorrer/descansar.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" role="region" aria-label="Tabela de fatores de cocção">
+        <div class="hd">
+          <div>
+            <h2>Tabela de fatores (FC) e variação de peso</h2>
+            <small>Com a coluna <b>FC Média</b> (média do intervalo do FC típico).</small>
+          </div>
+        </div>
+
+        <div class="bd">
+          <div class="toolbar">
+            <div class="search" aria-label="Buscar item">
+              🔎 <input id="q" type="text" placeholder="Ex.: arroz, feijão, frango, brócolis, macarrão..." />
+            </div>
+            <div class="chips" aria-label="Filtros">
+              <span class="chip active" data-group="all">Todos</span>
+              <span class="chip" data-group="graos">Grãos/Massas</span>
+              <span class="chip" data-group="leguminosas">Leguminosas</span>
+              <span class="chip" data-group="carnes">Carnes</span>
+              <span class="chip" data-group="legumes">Legumes</span>
+              <span class="chip" data-group="folhas">Folhas</span>
+              <span class="chip" data-group="tuberculos">Tubérculos</span>
+            </div>
+          </div>
+
+          <div class="tableWrap" role="region" aria-label="Tabela FC">
+            <table id="t">
+              <thead>
+                <tr>
+                  <th>Item (cru → cozido)</th>
+                  <th>Grupo</th>
+                  <th>FC típico (cozido/cru)</th>
+                  <th>FC Média</th>
+                  <th>Δ% (aprox.)</th>
+                  <th>Observações (método)</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <!-- GRÃOS / MASSAS -->
+                <tr data-group="graos">
+                  <td>Arroz branco (cru → cozido)</td>
+                  <td>Grãos/Massas</td>
+                  <td class="mono fc-range" data-fc="2.7-3.2">2,7–3,2</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta up">+170% a +220%</span></td>
+                  <td class="muted">Absorção de água; depende de hidratação e “soltinho”.</td>
+                </tr>
+                <tr data-group="graos">
+                  <td>Arroz integral (cru → cozido)</td>
+                  <td>Grãos/Massas</td>
+                  <td class="mono fc-range" data-fc="2.4-3.0">2,4–3,0</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta up">+140% a +200%</span></td>
+                  <td class="muted">Tende a render um pouco menos que o branco.</td>
+                </tr>
+                <tr data-group="graos">
+                  <td>Macarrão seco (cru → cozido)</td>
+                  <td>Grãos/Massas</td>
+                  <td class="mono fc-range" data-fc="2.2-2.8">2,2–2,8</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta up">+120% a +180%</span></td>
+                  <td class="muted">Tempo de cozimento e escorrimento mudam o FC.</td>
+                </tr>
+                <tr data-group="graos">
+                  <td>Macarrão de arroz seco (cru → cozido)</td>
+                  <td>Grãos/Massas</td>
+                  <td class="mono fc-range" data-fc="2.0-2.6">2,0–2,6</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta up">+100% a +160%</span></td>
+                  <td class="muted">Varia por marca/ponto.</td>
+                </tr>
+                <tr data-group="graos">
+                  <td>Cuscuz (flocão) (cru → cozido)</td>
+                  <td>Grãos/Massas</td>
+                  <td class="mono fc-range" data-fc="2.0-2.5">2,0–2,5</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta up">+100% a +150%</span></td>
+                  <td class="muted">Hidratação define o resultado.</td>
+                </tr>
+                <tr data-group="graos">
+                  <td>Quinoa (crua → cozida)</td>
+                  <td>Grãos/Massas</td>
+                  <td class="mono fc-range" data-fc="2.5-3.0">2,5–3,0</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta up">+150% a +200%</span></td>
+                  <td class="muted">Após lavar e cozinhar com água medida.</td>
+                </tr>
+
+                <!-- LEGUMINOSAS -->
+                <tr data-group="leguminosas">
+                  <td>Feijão (seco → cozido escorrido)</td>
+                  <td>Leguminosas</td>
+                  <td class="mono fc-range" data-fc="2.3-2.8">2,3–2,8</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta up">+130% a +180%</span></td>
+                  <td class="muted">Depende de molho, caldo e quanto escorre.</td>
+                </tr>
+                <tr data-group="leguminosas">
+                  <td>Lentilha (seca → cozida escorrida)</td>
+                  <td>Leguminosas</td>
+                  <td class="mono fc-range" data-fc="2.0-2.5">2,0–2,5</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta up">+100% a +150%</span></td>
+                  <td class="muted">Menos “caldo”; FC tende a ser estável.</td>
+                </tr>
+                <tr data-group="leguminosas">
+                  <td>Grão-de-bico (seco → cozido escorrido)</td>
+                  <td>Leguminosas</td>
+                  <td class="mono fc-range" data-fc="2.2-2.8">2,2–2,8</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta up">+120% a +180%</span></td>
+                  <td class="muted">Molho e ponto alteram o rendimento.</td>
+                </tr>
+
+                <!-- CARNES -->
+                <tr data-group="carnes">
+                  <td>Frango (peito) grelhado</td>
+                  <td>Carnes</td>
+                  <td class="mono fc-range" data-fc="0.75-0.85">0,75–0,85</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−15% a −25%</span></td>
+                  <td class="muted">Perde água; quanto mais seco, menor o FC.</td>
+                </tr>
+                <tr data-group="carnes">
+                  <td>Frango (coxa/sobrecoxa) assado</td>
+                  <td>Carnes</td>
+                  <td class="mono fc-range" data-fc="0.70-0.82">0,70–0,82</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−18% a −30%</span></td>
+                  <td class="muted">Pele e gordura derretem; forno reduz mais.</td>
+                </tr>
+                <tr data-group="carnes">
+                  <td>Carne bovina (bife) grelhada</td>
+                  <td>Carnes</td>
+                  <td class="mono fc-range" data-fc="0.70-0.80">0,70–0,80</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−20% a −30%</span></td>
+                  <td class="muted">Ponto malpassado rende mais que bem-passado.</td>
+                </tr>
+                <tr data-group="carnes">
+                  <td>Carne moída refogada (escorrida)</td>
+                  <td>Carnes</td>
+                  <td class="mono fc-range" data-fc="0.75-0.85">0,75–0,85</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−15% a −25%</span></td>
+                  <td class="muted">Se escorrer gordura, FC cai.</td>
+                </tr>
+                <tr data-group="carnes">
+                  <td>Peixe (filé) grelhado</td>
+                  <td>Carnes</td>
+                  <td class="mono fc-range" data-fc="0.75-0.88">0,75–0,88</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−12% a −25%</span></td>
+                  <td class="muted">Tempo alto resseca e reduz FC.</td>
+                </tr>
+                <tr data-group="carnes">
+                  <td>Filé mignon suíno (grelhado/assado)</td>
+                  <td>Carnes</td>
+                  <td class="mono fc-range" data-fc="0.72-0.85">0,72–0,85</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−15% a −28%</span></td>
+                  <td class="muted">Corte magro; FC cai mais se passar do ponto (ressecado).</td>
+                </tr>
+                <tr data-group="carnes">
+                  <td>Ovo (mexido/omelete)</td>
+                  <td>Carnes</td>
+                  <td class="mono fc-range" data-fc="0.90-1.00">0,90–1,00</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">0% a −10%</span></td>
+                  <td class="muted">Perda pequena (evaporação).</td>
+                </tr>
+
+                <!-- LEGUMES -->
+                <tr data-group="legumes">
+                  <td>Brócolis (vapor)</td>
+                  <td>Legumes</td>
+                  <td class="mono fc-range" data-fc="0.85-0.95">0,85–0,95</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−5% a −15%</span></td>
+                  <td class="muted">Vapor preserva mais peso que forno/sauté.</td>
+                </tr>
+                <tr data-group="legumes">
+                  <td>Couve-flor (vapor)</td>
+                  <td>Legumes</td>
+                  <td class="mono fc-range" data-fc="0.85-0.95">0,85–0,95</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−5% a −15%</span></td>
+                  <td class="muted">Escorrer bem após cozinhar.</td>
+                </tr>
+                <tr data-group="legumes">
+                  <td>Abobrinha (sauté/refogada)</td>
+                  <td>Legumes</td>
+                  <td class="mono fc-range" data-fc="0.60-0.80">0,60–0,80</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−20% a −40%</span></td>
+                  <td class="muted">Solta muita água; fogo alto reduz FC.</td>
+                </tr>
+                <tr data-group="legumes">
+                  <td>Berinjela (forno/sauté)</td>
+                  <td>Legumes</td>
+                  <td class="mono fc-range" data-fc="0.60-0.80">0,60–0,80</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−20% a −40%</span></td>
+                  <td class="muted">Perde água e murcha.</td>
+                </tr>
+                <tr data-group="legumes">
+                  <td>Cebola (caramelizada/refogada)</td>
+                  <td>Legumes</td>
+                  <td class="mono fc-range" data-fc="0.55-0.75">0,55–0,75</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−25% a −45%</span></td>
+                  <td class="muted">Cozimento longo derruba bastante o peso.</td>
+                </tr>
+                <tr data-group="legumes">
+                  <td>Pimentão (sauté/forno)</td>
+                  <td>Legumes</td>
+                  <td class="mono fc-range" data-fc="0.70-0.88">0,70–0,88</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−12% a −30%</span></td>
+                  <td class="muted">Fogo alto + tempo longo reduz FC.</td>
+                </tr>
+                <tr data-group="legumes">
+                  <td>Quiabo (refogado)</td>
+                  <td>Legumes</td>
+                  <td class="mono fc-range" data-fc="0.75-0.90">0,75–0,90</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−10% a −25%</span></td>
+                  <td class="muted">Depende se tampa a panela e do ponto.</td>
+                </tr>
+                <tr data-group="legumes">
+                  <td>Cogumelos (champignon/shiitake/shimeji) sauté</td>
+                  <td>Legumes</td>
+                  <td class="mono fc-range" data-fc="0.45-0.65">0,45–0,65</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−35% a −55%</span></td>
+                  <td class="muted">Soltam muita água; fogo forte concentra mais.</td>
+                </tr>
+
+                <!-- FOLHAS -->
+                <tr data-group="folhas">
+                  <td>Espinafre (refogado)</td>
+                  <td>Folhas</td>
+                  <td class="mono fc-range" data-fc="0.10-0.20">0,10–0,20</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−80% a −90%</span></td>
+                  <td class="muted">Murcha muito (alto teor de água no cru).</td>
+                </tr>
+                <tr data-group="folhas">
+                  <td>Couve-manteiga (refogada)</td>
+                  <td>Folhas</td>
+                  <td class="mono fc-range" data-fc="0.35-0.55">0,35–0,55</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−45% a −65%</span></td>
+                  <td class="muted">Quanto mais fininha e fogo alto, menor o FC.</td>
+                </tr>
+                <tr data-group="folhas">
+                  <td>Escarola / Chicória (refogada)</td>
+                  <td>Folhas</td>
+                  <td class="mono fc-range" data-fc="0.30-0.50">0,30–0,50</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−50% a −70%</span></td>
+                  <td class="muted">Murcha bastante.</td>
+                </tr>
+
+                <!-- TUBÉRCULOS -->
+                <tr data-group="tuberculos">
+                  <td>Batata inglesa (cozida em água, escorrida)</td>
+                  <td>Tubérculos</td>
+                  <td class="mono fc-range" data-fc="0.95-1.05">0,95–1,05</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta up">−5% a +5%</span></td>
+                  <td class="muted">Pode ganhar leve água ou perder leve, depende do tempo.</td>
+                </tr>
+                <tr data-group="tuberculos">
+                  <td>Batata inglesa (assada)</td>
+                  <td>Tubérculos</td>
+                  <td class="mono fc-range" data-fc="0.75-0.90">0,75–0,90</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−10% a −25%</span></td>
+                  <td class="muted">Forno remove água, especialmente se bem dourada.</td>
+                </tr>
+                <tr data-group="tuberculos">
+                  <td>Batata-doce (cozida)</td>
+                  <td>Tubérculos</td>
+                  <td class="mono fc-range" data-fc="0.95-1.05">0,95–1,05</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta up">−5% a +5%</span></td>
+                  <td class="muted">Sem grandes variações quando escorrida.</td>
+                </tr>
+                <tr data-group="tuberculos">
+                  <td>Batata-doce (assada)</td>
+                  <td>Tubérculos</td>
+                  <td class="mono fc-range" data-fc="0.75-0.90">0,75–0,90</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−10% a −25%</span></td>
+                  <td class="muted">Assar concentra e reduz peso.</td>
+                </tr>
+                <tr data-group="tuberculos">
+                  <td>Mandioca (cozida)</td>
+                  <td>Tubérculos</td>
+                  <td class="mono fc-range" data-fc="0.95-1.05">0,95–1,05</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta up">−5% a +5%</span></td>
+                  <td class="muted">Geralmente estabilidade após escorrer.</td>
+                </tr>
+                <tr data-group="tuberculos">
+                  <td>Abóbora cabotiá (assada/cozida bem escorrida)</td>
+                  <td>Tubérculos</td>
+                  <td class="mono fc-range" data-fc="0.75-0.95">0,75–0,95</td>
+                  <td class="mono avg fc-avg">—</td>
+                  <td><span class="delta down">−5% a −25%</span></td>
+                  <td class="muted">Forno reduz mais; se cozinhar e não escorrer, FC sobe.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout" style="margin-top:12px">
+            <strong>Importante:</strong> esta tabela é para <b>cru limpo</b> (não inclui perdas de limpeza).
+            Para custo real: use <b>perda de MP</b> + <b>FC (cocção)</b>.
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="footer">
+      Se quiser, eu incluo uma mini-calculadora “peso cru → peso cozido” nessa mesma tela.
+    </div>
+
+  </div>
+
+  <script>
+    // --- Busca e filtros ---
+    const q = document.getElementById('q');
+    const rows = [...document.querySelectorAll('#t tbody tr')];
+    const chips = [...document.querySelectorAll('.chip')];
+    let activeGroup = 'all';
+
+    function normalize(s){
+      return (s || '')
+        .toString()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim();
+    }
+
+    function applyFilter(){
+      const term = normalize(q.value);
+      rows.forEach(tr => {
+        const group = tr.getAttribute('data-group') || '';
+        const text = normalize(tr.innerText);
+        const okGroup = (activeGroup === 'all') || (group === activeGroup);
+        const okText = !term || text.includes(term);
+        tr.style.display = (okGroup && okText) ? '' : 'none';
+      });
+    }
+
+    chips.forEach(ch => {
+      ch.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('active'));
+        ch.classList.add('active');
+        activeGroup = ch.getAttribute('data-group');
+        applyFilter();
+      });
+    });
+
+    q.addEventListener('input', applyFilter);
+
+    // --- Cálculo automático da FC Média ---
+    function formatPt(n){
+      return n.toFixed(2).replace('.', ',');
+    }
+
+    function computeAvgFromRange(rangeStr){
+      if(!rangeStr) return null;
+      const parts = rangeStr.split('-').map(x => parseFloat(x));
+      if(parts.length === 1 && Number.isFinite(parts[0])) return parts[0];
+      if(parts.length === 2 && Number.isFinite(parts[0]) && Number.isFinite(parts[1])){
+        return (parts[0] + parts[1]) / 2;
+      }
+      return null;
+    }
+
+    function fillAverages(){
+      document.querySelectorAll('.fc-range').forEach(td => {
+        const range = td.getAttribute('data-fc');
+        const avg = computeAvgFromRange(range);
+        const avgCell = td.parentElement.querySelector('.fc-avg');
+        if(avgCell){
+          avgCell.textContent = (avg === null) ? '—' : formatPt(avg);
+        }
+      });
+    }
+
+    fillAverages();
+    applyFilter();
+  </script>
+</body>
+</html>

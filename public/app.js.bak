@@ -1,0 +1,3510 @@
+
+function escapeHtml(value) {
+  const s = String(value ?? "");
+  return s
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function unitOptionsHtml(selected) {
+  const fallback = [
+    { v: "kg", l: "kg (kilograma)" },
+    { v: "un", l: "un (unidade)" },
+    { v: "ml", l: "ml (mililitro)" },
+    { v: "l",  l: "l (litro)" }
+  ];
+  const list = (state?.units && state.units.length) ? state.units : fallback;
+  const hasSelected = !!selected && list.some((u) => u.v === selected);
+  const prepend = (!hasSelected && selected && selected !== "__manage__" && selected !== "__custom__")
+    ? `<option value="${escapeHtml(selected)}" selected>${escapeHtml(selected)}</option>`
+    : "";
+  const opts = list.map(u => `<option value="${escapeHtml(u.v)}" ${u.v===selected ? "selected" : ""}>${escapeHtml(u.l || u.v)}</option>`).join("");
+  // special actions (do not persist as unit)
+  return prepend + opts + `
+    <option value="__custom__">+ Unidade custom...</option>
+    <option value="__manage__">⚙️ Gerenciar unidades...</option>
+  `;
+}
+
+
+
+
+function computeNextCode(items, mode){
+  const isFg = mode === "fg";
+  const prefix = isFg ? "PF" : "MP";
+  const nums = (items || []).map(it => {
+    const c = String(it.code || "").toUpperCase().trim();
+    if (!c.startsWith(prefix)) return NaN;
+    const n = parseInt(c.slice(prefix.length), 10);
+    return Number.isFinite(n) ? n : NaN;
+  }).filter(n => Number.isFinite(n));
+  const next = (nums.length ? Math.max(...nums) + 1 : 1);
+  return prefix + String(next).padStart(3, "0");
+}
+
+const $ = (sel) => document.querySelector(sel);
+const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
+const BUILD_INFO = { version: "3.47", builtAt: "15/01/2026, 00:00:00" };
+
+// INIT_BUILD_BADGE
+(function initBuildBadge(){
+  const bb = document.querySelector('#buildBadge');
+  if (!bb) return;
+  const d = new Date(BUILD_INFO.builtAt);
+  const when = isNaN(d.getTime()) ? BUILD_INFO.builtAt : d.toLocaleString('pt-BR');
+  bb.textContent = `BUILD ${BUILD_INFO.version} • ${when}`;
+})();
+
+
+const state = {
+  selectedItemId: null,
+  cadastroQuery: "",
+
+  me: null,
+  items: [],
+  movements: [],
+  rawItems: [],
+  fgItems: [],
+  recipes: [],
+  selectedPFId: null,
+  ops: [],
+  purchaseOrders: [],
+  selectedRecipeId: null,
+  stockMode: "raw",
+
+  units: [],
+};
+
+function showBackendOffline(err){
+  try {
+    const isLogin = !state.me;
+    openModal({
+      title: "Servidor local não encontrado",
+      subtitle: "O app está aberto, mas o servidor (API) não está respondendo.",
+      submitText: "Ok",
+      cardClass: "wide",
+      bodyHtml: `
+        <div class="muted" style="line-height:1.6">
+          <b>O que aconteceu:</b> não foi possível conectar em <code>/api</code> (erro: <code>${escapeHtml(err?.message || "failed to fetch")}</code>).
+          <br/><br/>
+          <b>Como resolver:</b>
+          <ol style="margin:8px 0 0 18px">
+            <li>Abra um terminal na pasta do projeto</li>
+            <li>Rode <code>npm install</code> (só na primeira vez)</li>
+            <li>Rode <code>npm start</code></li>
+            <li>Abra <code>http://localhost:4000</code> no navegador</li>
+          </ol>
+          <br/>
+          Se o terminal mostrar algum erro, copie e me envie aqui que eu arrumo no pack.
+        </div>
+      `,
+      onSubmit: () => true,
+    });
+  } catch(_) {}
+}
+
+async function api(path, options = {}) {
+  try {
+    const res = await fetch(path, {
+      headers: { "Content-Type": "application/json" },
+      ...options,
+    });
+    const ct = res.headers.get("content-type") || "";
+    const data = ct.includes("application/json") ? await res.json() : await res.text();
+    if (!res.ok) {
+      const err = new Error("API error");
+      err.status = res.status;
+      err.data = data;
+      throw err;
+    }
+    return data;
+  } catch (err) {
+    // Network / connection errors
+    if (String(err?.message || "").toLowerCase().includes("fetch")) {
+      showBackendOffline(err);
+    }
+    throw err;
+  }
+}
+
+async function pingBackend(){
+  try{
+    const r = await api("/api/health");
+    return !!r?.ok;
+  }catch{
+    return false;
+  }
+}
+
+
+function filteredItems() {
+  return state.items.filter((i) => (i.type || "raw") === state.stockMode);
+}
+
+function filteredMovements() {
+  const allowed = new Set(filteredItems().map((i) => i.id));
+  return state.movements.filter((m) => allowed.has(m.itemId));
+}
+
+
+function fmt(n) {
+  const x = Number(n);
+  if (!Number.isFinite(x)) return "0";
+  // show up to 3 decimals, trim zeros
+  return x.toLocaleString("pt-BR", { maximumFractionDigits: 3 });
+}
+
+// Compat: algumas telas chamam fmtNum(). Mantemos como alias de fmt().
+function fmtNum(n){
+  const x = Number(n);
+  if (!Number.isFinite(x)) return "0";
+  return x.toLocaleString("pt-BR", { maximumFractionDigits: 3 });
+}
+
+function fmtMoney(n) {
+  const x = Number(n);
+  if (!Number.isFinite(x)) return "—";
+  return x.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+}
+
+function fmtDate(iso) {
+  try {
+    const d = new Date(iso);
+    return d.toLocaleString("pt-BR");
+  } catch {
+    return iso;
+  }
+}
+
+function show(el, on = true) {
+  el.classList.toggle("hidden", !on);
+}
+
+// Re-render only what the user is currently seeing (avoid jumping tabs)
+function renderCurrentView() {
+  // Main tabs
+  const tabEstoque = $("#tab-estoque");
+  const tabMrp = $("#tab-mrp");
+  const tabOps = $("#tab-ops");
+
+  const isVisible = (el) => el && !el.classList.contains("hidden");
+
+  // MRP
+  if (isVisible(tabMrp)) {
+    Promise.resolve(loadMRP())
+      .catch(() => null)
+      .finally(() => {
+        if (typeof renderPFBomList === "function") renderPFBomList();
+        if (typeof renderSimulateBox === "function") renderSimulateBox();
+      });
+    return;
+  }
+
+  // OPs
+  if (isVisible(tabOps)) {
+    if (typeof renderOps === "function") renderOps();
+    return;
+  }
+
+  // Estoque (default)
+  if (isVisible(tabEstoque)) {
+    const secGeneral = $("#estoqueCadastroGeneral");
+    const secMp = $("#estoqueCadastroMP");
+    const secPf = $("#estoqueCadastroPF");
+    const secAdjMp = $("#estoqueAdjustMP");
+    const secAdjPf = $("#estoqueAdjustPF");
+    const secHist = $("#estoqueHistory");
+
+    if (isVisible(secGeneral)) {
+      if (typeof renderGeneralTableInline === "function") renderGeneralTableInline();
+      return;
+    }
+    if (isVisible(secHist)) {
+      if (typeof renderInvHistTable === "function") renderInvHistTable();
+      return;
+    }
+    if (isVisible(secAdjMp) || isVisible(secAdjPf)) {
+      // Ajuste usa a mesma renderização do modo atual
+      if (typeof renderAjusteInventario === "function") renderAjusteInventario();
+      return;
+    }
+    if (isVisible(secMp) || isVisible(secPf)) {
+      if (typeof renderCadastro === "function") renderCadastro();
+      return;
+    }
+    // fallback
+    if (typeof renderCadastro === "function") renderCadastro();
+  }
+}
+
+// ---------- Login / Session ----------
+async function refreshMe() {
+  const me = await api("/api/me");
+  state.me = me.authenticated ? me.user : null;
+
+  show($("#topbar"), true);
+  show($("#topbar"), true);
+  show($("#loginView"), !state.me);
+  show($("#appView"), !!state.me);
+show($("#btnLogout"), !!state.me);
+  show($("#userBadge"), !!state.me);
+  if (state.me) $("#userBadge").textContent = `👤 ${state.me.name} (${state.me.id})`;
+  const bb = document.querySelector('#buildBadge');
+  if (bb) {
+    const d = new Date(BUILD_INFO.builtAt);
+    const when = isNaN(d.getTime()) ? BUILD_INFO.builtAt : d.toLocaleString('pt-BR');
+    bb.textContent = `BUILD ${BUILD_INFO.version} • ${when}`;
+  }
+}
+
+$("#loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  show($("#loginError"), false);
+
+  const form = new FormData(e.currentTarget);
+  const userId = form.get("userId");
+  const password = form.get("password");
+
+  try {
+    await api("/api/login", { method: "POST", body: JSON.stringify({ userId, password }) });
+    await refreshMe();
+    await loadAll();
+  } catch (err) {
+    show($("#loginError"), true);
+    $("#loginError").textContent = "Usuário ou senha inválidos.";
+  }
+});
+
+$("#btnLogout").addEventListener("click", async () => {
+  await api("/api/logout", { method: "POST", body: JSON.stringify({}) });
+  state.selectedRecipeId = null;
+  await refreshMe();
+});
+
+// ---------- Tabs ----------
+$$(".tab").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    $$(".tab").forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const tab = btn.dataset.tab;
+    $$(".tabpanel").forEach((p) => p.classList.add("hidden"));
+    $(`#tab-${tab}`).classList.remove("hidden");
+  });
+});
+
+// ---------- Modal ----------
+const modal = $("#modal");
+const modalTitle = $("#modalTitle");
+const modalSubtitle = $("#modalSubtitle");
+const modalBody = $("#modalBody");
+const modalSubmit = $("#modalSubmit");
+
+// Units manager modal (separate dialog, can be opened on top of item modal)
+const unitsModal = $("#unitsModal");
+const unitsModalTitle = $("#unitsModalTitle");
+const unitsModalSubtitle = $("#unitsModalSubtitle");
+const unitsModalBody = $("#unitsModalBody");
+const unitsModalPickBtn = $("#unitsModalPickBtn");
+const unitsModalCloseBtn = $("#unitsModalCloseBtn");
+const unitsModalCancelBtn = $("#unitsModalCancelBtn");
+if (unitsModalCloseBtn) unitsModalCloseBtn.addEventListener("click", () => unitsModal.close());
+if (unitsModalCancelBtn) unitsModalCancelBtn.addEventListener("click", () => unitsModal.close());
+
+// Close/cancel buttons must not trigger form validation
+const modalCloseBtn = document.querySelector("#modalCloseBtn");
+const modalCancelBtn = document.querySelector("#modalCancelBtn");
+if (modalCloseBtn) modalCloseBtn.addEventListener("click", () => modal.close());
+if (modalCancelBtn) modalCancelBtn.addEventListener("click", () => modal.close());
+
+
+let modalOnSubmit = null;
+
+function openModal({ title, subtitle = "", submitText = "Salvar", bodyHtml = "", onSubmit, onOpen, cardClass = "" }) {
+  modalTitle.textContent = title;
+  modalSubtitle.textContent = subtitle;
+  modalBody.innerHTML = bodyHtml;
+  const mf = $("#modalForm");
+  if (mf) mf.className = "modal-card" + (cardClass ? (" " + cardClass) : "");
+  modalSubmit.textContent = submitText;
+  modalOnSubmit = onSubmit;
+  modal.showModal();
+  try { if (typeof onOpen === "function") onOpen(); } catch (e) { console.warn("onOpen error", e); }
+}
+
+$("#modalForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const form = e.currentTarget;
+  const fd = new FormData(form);
+  if (modalOnSubmit) {
+    const ok = await modalOnSubmit(fd);
+    if (ok !== false) modal.close();
+  } else {
+    modal.close();
+  }
+});
+
+// ---------- Units (custom) ----------
+function setSelectUnit(sel, unitCode) {
+  const v = String(unitCode || "").trim();
+  const prev = sel.value;
+  sel.innerHTML = unitOptionsHtml(v || prev);
+  if (v) sel.value = v;
+}
+
+function refreshOpenUnitSelects() {
+  document.querySelectorAll('select[data-unit-select="1"]').forEach((sel) => {
+    const current = sel.value;
+    // Don't overwrite if user is sitting on a special action
+    if (current === "__manage__" || current === "__custom__") return;
+    sel.innerHTML = unitOptionsHtml(current);
+    sel.value = current;
+  });
+}
+
+function wireUnitSelect(sel) {
+  if (!sel || sel._unitWired) return;
+  sel._unitWired = true;
+  let lastGood = sel.value;
+
+  sel.addEventListener("change", () => {
+    const v = sel.value;
+    if (v === "__manage__") {
+      sel.value = lastGood;
+      openUnitsManager({ pickMode: true, initial: lastGood, onPick: (u) => { lastGood = u; setSelectUnit(sel, u); } });
+      return;
+    }
+    if (v === "__custom__") {
+      sel.value = lastGood;
+      openUnitsManager({ pickMode: true, initial: lastGood, startInAddMode: true, onPick: (u) => { lastGood = u; setSelectUnit(sel, u); } });
+      return;
+    }
+    lastGood = v;
+  });
+}
+
+async function openUnitsManager({ pickMode = false, initial = "", onPick, startInAddMode = false } = {}) {
+  if (!unitsModal) return;
+  unitsModalTitle.textContent = "Unidades";
+  unitsModalSubtitle.textContent = "Adicionar / editar / remover unidades do sistema.";
+  unitsModalPickBtn.classList.toggle("hidden", !pickMode);
+
+  let selected = String(initial || "");
+  let searchQ = "";
+  let editingOld = "";
+
+  const u$ = (s) => unitsModal.querySelector(s);
+
+  unitsModalBody.innerHTML = `
+    <div class="toolbar">
+      <div class="toolbar-left">
+        <input id="unitsSearch" class="input" placeholder="Pesquisar unidade..." />
+      </div>
+      <div class="toolbar-right">
+        <button id="btnUnitsNew" type="button" class="btn secondary small">Novo</button>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="field">
+        <label>Sigla</label>
+        <input id="unitCode" class="input" placeholder="Ex.: g, pct, cx" />
+      </div>
+      <div class="field">
+        <label>Descrição</label>
+        <input id="unitLabel" class="input" placeholder="Ex.: g (grama)" />
+      </div>
+    </div>
+
+    <div class="row" style="justify-content:flex-end; gap:10px">
+      <button id="btnUnitDelete" type="button" class="btn danger small">Remover</button>
+      <button id="btnUnitSave" type="button" class="btn primary small">Salvar</button>
+    </div>
+
+    <div class="table-wrap">
+      <table class="table units-table">
+        <thead>
+              <tr>
+                <th style="text-align:center">POS</th>
+                <th style="text-align:left">COD</th>
+                <th style="text-align:left">Descrição</th>
+                <th style="text-align:center">UN Compra</th>
+                <th style="text-align:center">UN Consumo</th>
+                <th style="text-align:center">FC</th>
+                <th style="text-align:center">QTE (crua)</th>
+                <th style="text-align:center">QTE (cozida)</th>
+                <th style="text-align:center">Ações</th>
+              </tr>
+            </thead>
+        <tbody id="unitsTbody"></tbody>
+      </table>
+    </div>
+
+    <div id="unitsError" class="error hidden"></div>
+  `;
+
+  const render = () => {
+    const tbody = u$("#unitsTbody");
+    if (!tbody) return;
+    tbody.innerHTML = "";
+
+    const qq = searchQ.trim().toLowerCase();
+    const list = (state.units || []).slice()
+      .sort((a, b) => String(a.v || "").localeCompare(String(b.v || ""), "pt-BR"));
+
+    const filtered = !qq ? list : list.filter((u) => {
+      const hay = `${u.v || ""} ${u.l || ""}`.toLowerCase();
+      return hay.includes(qq);
+    });
+
+    if (filtered.length === 0) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td colspan="2" class="muted">Nenhuma unidade encontrada.</td>`;
+      tbody.appendChild(tr);
+      return;
+    }
+
+    for (const u of filtered) {
+      const tr = document.createElement("tr");
+      tr.className = (u.v === selected ? "row-selected" : "");
+      tr.innerHTML = `
+        <td><b>${escapeHtml(u.v)}</b></td>
+        <td>${escapeHtml(u.l || u.v)}</td>
+      `;
+      tr.addEventListener("click", () => {
+        selected = u.v;
+        editingOld = u.v;
+        const codeIn = u$("#unitCode");
+        const lblIn = u$("#unitLabel");
+        if (codeIn) codeIn.value = u.v;
+        if (lblIn) lblIn.value = u.l || u.v;
+        render();
+      });
+      tr.addEventListener("dblclick", () => {
+        if (pickMode && typeof onPick === "function") {
+          onPick(u.v);
+          unitsModal.close();
+        }
+      });
+      tbody.appendChild(tr);
+    }
+  };
+
+  const showErr = (msg) => {
+    const el = u$("#unitsError");
+    if (!el) return;
+    el.textContent = msg;
+    el.classList.remove("hidden");
+  };
+  const clearErr = () => {
+    const el = u$("#unitsError");
+    if (!el) return;
+    el.classList.add("hidden");
+    el.textContent = "";
+  };
+
+  u$("#unitsSearch")?.addEventListener("input", (e) => {
+    searchQ = e.target.value;
+    render();
+  });
+
+  u$("#btnUnitsNew")?.addEventListener("click", () => {
+    selected = "";
+    editingOld = "";
+    const codeIn = u$("#unitCode");
+    const lblIn = u$("#unitLabel");
+    if (codeIn) codeIn.value = "";
+    if (lblIn) lblIn.value = "";
+    render();
+    codeIn?.focus();
+  });
+
+  u$("#btnUnitSave")?.addEventListener("click", async () => {
+    clearErr();
+    const codeIn = u$("#unitCode");
+    const lblIn = u$("#unitLabel");
+    const code = String(codeIn?.value || "").trim();
+    const label = String(lblIn?.value || "").trim();
+    if (!code) return showErr("Informe a sigla (ex.: kg, un, g…).");
+
+    try {
+      const exists = (state.units || []).some((u) => u.v === editingOld);
+      if (exists && editingOld) {
+        await api(`/api/units/${encodeURIComponent(editingOld)}`, {
+          method: "PUT",
+          body: JSON.stringify({ v: code, l: label }),
+        });
+      } else {
+        await api(`/api/units`, {
+          method: "POST",
+          body: JSON.stringify({ v: code, l: label }),
+        });
+      }
+      await loadUnits();
+      refreshOpenUnitSelects();
+      selected = code;
+      editingOld = code;
+      render();
+    } catch (err) {
+      const code = String(err?.data?.error || "");
+      if (code === "unit_in_use") showErr("Não é possível alterar: unidade está em uso por algum item.");
+      else if (code === "unit_exists") showErr("Já existe uma unidade com essa sigla.");
+      else showErr("Erro ao salvar unidade.");
+    }
+  });
+
+  u$("#btnUnitDelete")?.addEventListener("click", async () => {
+    clearErr();
+    const codeIn = u$("#unitCode");
+    const code = String(codeIn?.value || "").trim();
+    if (!code) return showErr("Selecione uma unidade para remover.");
+    if (!confirm(`Remover a unidade "${code}"?`)) return;
+    try {
+      await api(`/api/units/${encodeURIComponent(code)}`, { method: "DELETE" });
+      await loadUnits();
+      refreshOpenUnitSelects();
+      selected = "";
+      editingOld = "";
+      const lblIn = u$("#unitLabel");
+      if (codeIn) codeIn.value = "";
+      if (lblIn) lblIn.value = "";
+      render();
+    } catch (err) {
+      const code = String(err?.data?.error || "");
+      if (code === "unit_in_use") showErr("Não é possível remover: unidade está em uso por algum item.");
+      else showErr("Erro ao remover unidade.");
+    }
+  });
+
+  if (unitsModalPickBtn) {
+    unitsModalPickBtn.onclick = () => {
+      if (!selected) return;
+      if (pickMode && typeof onPick === "function") {
+        onPick(selected);
+        unitsModal.close();
+      }
+    };
+  }
+
+  // Make sure units are loaded
+  if (!state.units || state.units.length === 0) {
+    try { await loadUnits(); } catch (e) { /* ignore */ }
+  }
+
+  // Prefill selection
+  if (startInAddMode) {
+    u$("#btnUnitsNew")?.click();
+  } else if (initial) {
+    const found = (state.units || []).find((u) => u.v === initial);
+    if (found) {
+      selected = found.v;
+      editingOld = found.v;
+      const codeIn = u$("#unitCode");
+      const lblIn = u$("#unitLabel");
+      if (codeIn) codeIn.value = found.v;
+      if (lblIn) lblIn.value = found.l || found.v;
+    }
+  }
+
+  render();
+  unitsModal.showModal();
+}
+
+// ---------- Inventory UI ----------
+function renderItems() {
+  const tbody = $("#itemsTable tbody");
+  if (!tbody) return;
+  tbody.innerHTML = "";
+
+  const items = [...filteredItems()].sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
+
+  for (const it of items) {
+    const low = Number(it.currentStock) < Number(it.minStock || 0);
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>
+        <div style="font-weight:700">${it.name}</div>
+        <div class="muted small">${it.sku ? `SKU: ${it.sku}` : ""}</div>
+      </td>
+      <td>${it.unit}</td>
+      <td>${fmt(it.currentStock)} ${it.unit} ${low ? `<span class="pill bad">baixo</span>` : ""}</td>
+      <td>${fmt(it.minStock || 0)} ${it.unit}</td>
+      <td>${state.stockMode === "fg" ? fmtMoney(it.salePrice || 0) : fmtMoney(it.cost || 0)}</td>
+      <td style="text-align:right"><button class="btn secondary small" data-edit="${it.id}">Editar</button></td>
+    `;
+    tbody.appendChild(tr);
+  }
+
+  tbody.querySelectorAll("[data-edit]").forEach((b) => {
+    b.addEventListener("click", () => {
+      const id = b.getAttribute("data-edit");
+      const it = state.items.find((x) => x.id === id);
+      openEditItem(it);
+    });
+  });
+}
+
+function renderMovements() {
+  const tbody = $("#movementsTable tbody");
+  if (!tbody) return;
+  tbody.innerHTML = "";
+  const itemsById = new Map(((state.rawItems && state.rawItems.length) ? state.rawItems : state.items).map((i) => [i.id, i]));
+
+  for (const mv of filteredMovements()) {
+    const it = itemsById.get(mv.itemId);
+    const typeLabel = mv.type === "in" ? "Entrada" : mv.type === "out" ? "Saída" : "Ajuste";
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${fmtDate(mv.at)}</td>
+      <td>${typeLabel}</td>
+      <td>${it?.name || "—"}</td>
+      <td>${fmt(mv.qty)} ${it?.unit || ""}</td>
+      <td class="muted">${mv.reason || ""}</td>
+    `;
+    tbody.appendChild(tr);
+  }
+}
+
+function openNewItem(afterSave) {
+  const isRaw = state.stockMode === "raw";
+  const isFg = state.stockMode === "fg";
+  const suggestedCode = computeNextCode(state.items.filter(i => (i.type||'raw')===state.stockMode), state.stockMode);
+  const unitDefault = isFg ? "un" : "kg";
+  const subtitle = isFg
+    ? "Ex.: Marmita Arroz/Cambotian/Carne Vermelha/Verduras/Ovo 300g"
+    : "Ex.: Frango (kg), Arroz integral (kg), Embalagem (un)…";
+
+  openModal({
+    title: "Novo item de estoque",
+    subtitle,
+    submitText: "Salvar",
+    bodyHtml: `
+      <div class="grid2">\n        <div class="field span2">\n          <label>Código</label>\n          <input id="itCode" class="input" value="${escapeHtml(suggestedCode)}" readonly />\n        </div>\n
+        <div class="field span2">
+          <label>Nome</label>
+          <input id="itName" class="input" required />
+        </div>
+
+        <div class="field">
+          <div class="labelRow">
+            <label>Unidade</label>
+            <button id="btnUnitsManage" type="button" class="btn secondary small">Unidades</button>
+          </div>
+          <select id="itUnit" class="input" required data-unit-select="1">
+            ${unitOptionsHtml(unitDefault)}
+          </select>
+        </div>
+
+        ${isRaw ? `
+          <div class="field">
+            <div class="labelRow">
+              <label>% Perda</label>
+              <button id="btnPerdaHelp" type="button" class="btn secondary small">Saiba mais</button>
+            </div>
+            <input id="itLoss" class="input" type="number" min="0" max="100" step="0.1" value="0" />
+          </div>
+
+          <div class="field">
+            <div class="labelRow">
+              <label>FC</label>
+              <button id="btnFcHelp" type="button" class="btn secondary small">Saiba mais</button>
+            </div>
+            <input id="itFc" class="input" type="number" min="0.01" step="0.01" value="1" placeholder="Ex.: arroz 2,8 | frango 0,80" />
+          </div>
+        ` : `
+          <div class="field">
+            <label>Estoque mínimo</label>
+            <input id="itMin" class="input" type="number" step="0.01" value="0" />
+          </div>
+        `}
+
+        ${isRaw ? `
+          <div class="field">
+            <label>Estoque mínimo</label>
+            <input id="itMin" class="input" type="number" step="0.01" value="0" />
+          </div>
+          <div class="field">
+            <label>Custo unitário (R$)</label>
+            <input id="itCost" class="input" type="number" step="0.01" value="0" />
+          </div>
+        ` : `
+          <div class="field">
+            <label>Valor venda (R$)</label>
+            <input id="itSale" class="input" type="number" step="0.01" value="0" />
+          </div>
+        `}
+      </div>
+    `,
+    onOpen: () => {
+      const btn = document.querySelector("#btnPerdaHelp");
+      if (btn) btn.addEventListener("click", openPerdaHelp);
+      const btnFc = document.querySelector("#btnFcHelp");
+      if (btnFc) btnFc.addEventListener("click", openFcHelp);
+      const sel = document.querySelector("#itUnit");
+      if (sel) wireUnitSelect(sel);
+      const btnUnits = document.querySelector("#btnUnitsManage");
+      if (btnUnits && sel) btnUnits.addEventListener("click", () => openUnitsManager({ pickMode: true, initial: sel.value, onPick: (u) => setSelectUnit(sel, u) }));
+    },
+    onSubmit: async () => {
+      const name = $("#itName").value.trim();
+      const unit = $("#itUnit").value.trim();
+
+      const payload = {
+        name,
+        unit,
+        minStock: Number($("#itMin")?.value || 0) || 0,
+      };
+
+      if (isRaw) {
+        payload.lossPercent = Number($("#itLoss")?.value || 0) || 0;
+        payload.cookFactor = Number($("#itFc")?.value || 1) || 1;
+        payload.cost = Number($("#itCost")?.value || 0) || 0;
+      }
+      if (isFg) {
+        payload.salePrice = Number($("#itSale")?.value || 0) || 0;
+      }
+
+      await api(`/api/inventory/items?type=${state.stockMode}`, {
+        method: "POST",
+        body: JSON.stringify(payload),
+      });
+      await loadInventory();
+      try { await loadMRP(); } catch (e) {}
+      // Atualiza qualquer tela que use o cadastro (BOM, receitas, ordens, etc.)
+      renderCurrentView();
+      if (typeof afterSave === "function") afterSave();
+      return true;
+    },
+  });
+}
+
+
+function openEditItem(it, afterSave) {
+  const isRaw = state.stockMode === "raw";
+  const isFg = state.stockMode === "fg";
+  const subtitle = isFg
+    ? "Ex.: Marmita Arroz/Cambotian/Carne Vermelha/Verduras/Ovo 300g"
+    : "Ex.: Frango (kg), Arroz integral (kg), Embalagem (un)…";
+
+  openModal({
+    title: "Editar item de estoque",
+    subtitle,
+    submitText: "Salvar",
+    bodyHtml: `
+      <div class="grid2">\n        <div class="field span2">\n          <label>Código</label>\n          <input id="itCode" class="input" value="${escapeHtml(it?.code || '')}" readonly />\n        </div>\n
+        <div class="field span2">
+          <label>Nome</label>
+          <input id="itName" class="input" required value="${escapeHtml(it?.name || "")}" />
+        </div>
+
+        <div class="field">
+          <div class="labelRow">
+            <label>Unidade</label>
+            <button id="btnUnitsManage" type="button" class="btn secondary small">Unidades</button>
+          </div>
+          <select id="itUnit" class="input" required data-unit-select="1">
+            ${unitOptionsHtml(it?.unit || (isFg ? "un" : "kg"))}
+          </select>
+        </div>
+
+        ${isRaw ? `
+          <div class="field">
+            <div class="labelRow">
+              <label>% Perda</label>
+              <button id="btnPerdaHelp" type="button" class="btn secondary small">Saiba mais</button>
+            </div>
+            <input id="itLoss" class="input" type="number" min="0" max="100" step="0.1" value="${Number(it?.lossPercent ?? 0)}" />
+          </div>
+
+          <div class="field">
+            <div class="labelRow">
+              <label>FC</label>
+              <button id="btnFcHelp" type="button" class="btn secondary small">Saiba mais</button>
+            </div>
+            <input id="itFc" class="input" type="number" min="0.01" step="0.01" value="${Number(it?.cookFactor ?? 1)}" placeholder="Ex.: arroz 2,8 | frango 0,80" />
+          </div>
+        ` : `
+          <div class="field">
+            <label>Estoque mínimo</label>
+            <input id="itMin" class="input" type="number" step="0.01" value="${Number(it?.minStock ?? 0)}" />
+          </div>
+        `}
+
+        ${isRaw ? `
+          <div class="field">
+            <label>Estoque mínimo</label>
+            <input id="itMin" class="input" type="number" step="0.01" value="${Number(it?.minStock ?? 0)}" />
+          </div>
+          <div class="field">
+            <label>Custo unitário (R$)</label>
+            <input id="itCost" class="input" type="number" step="0.01" value="${Number(it?.cost ?? 0)}" />
+          </div>
+        ` : `
+          <div class="field">
+            <label>Valor venda (R$)</label>
+            <input id="itSale" class="input" type="number" step="0.01" value="${Number(it?.salePrice ?? 0)}" />
+          </div>
+        `}
+      </div>
+    `,
+    onOpen: () => {
+      const btn = document.querySelector("#btnPerdaHelp");
+      if (btn) btn.addEventListener("click", openPerdaHelp);
+      const btnFc = document.querySelector("#btnFcHelp");
+      if (btnFc) btnFc.addEventListener("click", openFcHelp);
+      const sel = document.querySelector("#itUnit");
+      if (sel) wireUnitSelect(sel);
+      const btnUnits = document.querySelector("#btnUnitsManage");
+      if (btnUnits && sel) btnUnits.addEventListener("click", () => openUnitsManager({ pickMode: true, initial: sel.value, onPick: (u) => setSelectUnit(sel, u) }));
+    },
+    onSubmit: async () => {
+      const name = $("#itName").value.trim();
+      const unit = $("#itUnit").value.trim();
+
+      const payload = {
+        name,
+        unit,
+        minStock: Number($("#itMin")?.value || 0) || 0,
+      };
+
+      if (isRaw) {
+        payload.lossPercent = Number($("#itLoss")?.value || 0) || 0;
+        payload.cookFactor = Number($("#itFc")?.value || 1) || 1;
+        payload.cost = Number($("#itCost")?.value || 0) || 0;
+      }
+      if (isFg) {
+        payload.salePrice = Number($("#itSale")?.value || 0) || 0;
+      }
+
+      await api(`/api/inventory/items/${it.id}?type=${state.stockMode}`, {
+        method: "PUT",
+        body: JSON.stringify(payload),
+      });
+      await loadInventory();
+      await loadMRP();
+      if (typeof state._rerenderRecipeEditor === "function") state._rerenderRecipeEditor();
+      // Atualiza qualquer tela que use o cadastro (BOM, receitas, ordens, etc.)
+      renderCurrentView();
+      if (typeof afterSave === "function") afterSave();
+      return true;
+    },
+  });
+}
+
+
+
+function openMovement(type, opts = {}) {
+  const preselectItemId = String(opts.preselectItemId || "");
+  const lockItem = !!opts.lockItem;
+
+  const typeLabel = type === "in" ? "Entrada" : type === "out" ? "Saída" : "Ajuste";
+  const note = type === "adjust"
+    ? "Ajuste define o estoque ABSOLUTO (ex.: contar e informar o novo valor)."
+    : "Movimentação soma/subtrai do estoque.";
+
+  const itemsSorted = filteredItems()
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
+
+  const options = itemsSorted
+    .map((it) => {
+      const sel = preselectItemId && String(it.id) === preselectItemId ? "selected" : "";
+      return `<option value="${it.id}" ${sel}>${escapeHtml(it.name)} (${fmt(it.currentStock)} ${escapeHtml(it.unit)})</option>`;
+    })
+    .join("");
+
+  // If select is disabled, it won't submit; add a hidden field for itemId.
+  const lockedHidden = lockItem && preselectItemId
+    ? `<input type="hidden" name="itemId" value="${escapeHtml(preselectItemId)}" />`
+    : "";
+
+  openModal({
+    title: `Movimentação • ${typeLabel}`,
+    subtitle: note,
+    submitText: "Lançar",
+    bodyHtml: `
+      <label>Item
+        <select name="itemId" required ${lockItem ? "disabled" : ""}>
+          <option value="" disabled ${preselectItemId ? "" : "selected"}>Selecione…</option>
+          ${options}
+        </select>
+      </label>
+      ${lockedHidden}
+      <label>${type === "adjust" ? "Novo estoque (absoluto)" : "Quantidade"}
+        <input name="qty" type="number" step="0.001" required />
+      </label>
+      <label>Observação<input name="reason" placeholder="Ex.: compra fornecedor / perda / contagem..." /></label>
+    `,
+    onSubmit: async (fd) => {
+      if (filteredItems().length === 0) {
+        alert("Cadastre um item antes.");
+        return false;
+      }
+      const payload = {
+        type,
+        itemId: fd.get("itemId"),
+        qty: Number(fd.get("qty")),
+        reason: fd.get("reason"),
+      };
+      try {
+        await api(`/api/inventory/movements?type=${state.stockMode}`, { method: "POST", body: JSON.stringify(payload) });
+      } catch (err) {
+        if (err?.data?.error === "insufficient_stock") {
+          alert(`Estoque insuficiente. Atual: ${fmt(err.data.stock)}.`);
+          return false;
+        }
+        throw err;
+      }
+      await loadInventory();
+      if (typeof afterSave === 'function') { afterSave(); }
+      return true;
+    },
+  });
+}
+
+function openAdjustPicker() {
+  const modeLabel = state.stockMode === "fg" ? "Produto Final (PF)" : "Matéria-prima & Insumos (MP)";
+  const items = filteredItems().slice().sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
+
+  if (items.length === 0) {
+    alert("Cadastre um item antes de fazer ajuste de inventário.");
+    return;
+  }
+
+  const rows = items.map(it => `
+    <tr data-id="${it.id}" data-search="${escapeHtml((it.code + " " + it.name + " " + it.unit).toLowerCase())}">
+      <td>${escapeHtml(it.code)}</td>
+      <td><span class="g-desc" title="${escapeHtml(it.name)}">${escapeHtml(it.name)}</span></td>
+      <td style="text-align:center; font-weight:800">${fmt(it.currentStock)}</td>
+      <td style="text-align:center">${escapeHtml(it.unit)}</td>
+    </tr>
+  `).join("");
+
+  openModal({
+    title: `Ajuste de Inventário • ${modeLabel}`,
+    subtitle: "Selecione um item para ajustar manualmente. Depois informe o novo estoque (contagem física).",
+    submitText: "Selecionar item",
+    bodyHtml: `
+      <div class="toolbar" style="margin-top:0;">
+        <div class="toolbar-left">
+          <input id="adjustPickSearch" class="input" placeholder="Pesquisar..." />
+        </div>
+        <div class="muted small" style="flex: 0 0 auto;">Mostrando: código, descrição e estoque atual</div>
+      </div>
+
+      <div class="cadastro-tablewrap" style="margin-top:10px;">
+        <table class="table cadastro-table pick-table">
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Descrição</th>
+              <th style="text-align:center;">Estoque atual</th>
+              <th style="text-align:center;">UN</th>
+            </tr>
+          </thead>
+          <tbody id="adjustPickTbody">
+            ${rows}
+          </tbody>
+        </table>
+      </div>
+
+      <input type="hidden" name="itemId" id="adjustPickItemId" required />
+    `,
+    onOpen: () => {
+      const tbody = document.querySelector("#adjustPickTbody");
+      const hidden = document.querySelector("#adjustPickItemId");
+      const search = document.querySelector("#adjustPickSearch");
+
+      modalSubmit.disabled = true;
+
+      function clearSelection() {
+        tbody?.querySelectorAll("tr.row-selected").forEach(tr => tr.classList.remove("row-selected"));
+        if (hidden) hidden.value = "";
+        modalSubmit.disabled = true;
+      }
+
+      tbody?.addEventListener("click", (e) => {
+        const tr = e.target?.closest?.("tr[data-id]");
+        if (!tr) return;
+        tbody.querySelectorAll("tr.row-selected").forEach(x => x.classList.remove("row-selected"));
+        tr.classList.add("row-selected");
+        if (hidden) hidden.value = tr.dataset.id;
+        modalSubmit.disabled = false;
+      });
+
+      search?.addEventListener("input", () => {
+        const q = (search.value || "").toLowerCase().trim();
+        let visibleSelected = false;
+        tbody?.querySelectorAll("tr[data-id]").forEach(tr => {
+          const hay = (tr.dataset.search || "");
+          const ok = !q || hay.includes(q);
+          tr.style.display = ok ? "" : "none";
+          if (ok && tr.classList.contains("row-selected")) visibleSelected = true;
+        });
+        if (!visibleSelected) clearSelection();
+      });
+    },
+    onSubmit: async (fd) => {
+      const itemId = String(fd.get("itemId") || "");
+      if (!itemId) {
+        alert("Selecione um item.");
+        return false;
+      }
+      setTimeout(() => {
+        openMovement("adjust", { preselectItemId: itemId, lockItem: true });
+      }, 50);
+      return true;
+    },
+  });
+}
+
+
+// ---------- MRP UI ----------
+
+function renderRecipes() {
+  // Legacy (UI moved to PF BOM list). Keep as no-op to avoid breaking older calls.
+  return;
+}
+
+function recipeForPF(pfId) {
+  return (state.recipes || []).find((r) => String(r.productId || "") === String(pfId)) || null;
+}
+
+function renderPFBomList() {
+  const table = document.querySelector("#pfBomTable");
+  const searchEl = document.querySelector("#pfBomSearch");
+  const tbody = table?.querySelector("tbody");
+  if (!tbody) return;
+
+  const q = String(searchEl?.value || "").toLowerCase().trim();
+
+  const pfs = (state.fgItems || [])
+    .slice()
+    .sort((a, b) => String(a.code || "").localeCompare(String(b.code || ""), "pt-BR"));
+
+  tbody.innerHTML = "";
+
+  const filtered = pfs.filter((pf) => {
+    const hay = `${pf.code || ""} ${pf.name || ""} ${pf.unit || ""}`.toLowerCase();
+    return !q || hay.includes(q);
+  });
+
+  if (filtered.length === 0) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td colspan="5" class="muted">Nenhum Produto Final encontrado.</td>`;
+    tbody.appendChild(tr);
+    return;
+  }
+
+  for (const pf of filtered) {
+    const r = recipeForPF(pf.id);
+    const hasBom = !!(r && Array.isArray(r.bom) && r.bom.length > 0);
+
+    const tr = document.createElement("tr");
+    tr.dataset.id = pf.id;
+    tr.dataset.search = `${pf.code || ""} ${pf.name || ""} ${pf.unit || ""}`.toLowerCase();
+    if (state.selectedPFId === pf.id) tr.classList.add("row-selected");
+
+    tr.innerHTML = `
+      <td style="text-align:left"><b>${escapeHtml(pf.code || "PF")}</b></td>
+      <td style="text-align:left">${escapeHtml(pf.name || "")}</td>
+      <td style="text-align:center">${escapeHtml(pf.unit || "")}</td>
+      <td style="text-align:center">${hasBom ? `<span class="pill ok">cadastrado</span>` : `<span class="pill warn">pendente</span>`}</td>
+      <td style="text-align:center">
+        <button class="btn secondary small" data-bom="${escapeHtml(pf.id)}">${hasBom ? "Editar BOM" : "Criar BOM"}</button>
+      </td>
+    `;
+
+    tr.addEventListener("click", (e) => {
+      if (e.target?.matches?.("button[data-bom]")) return;
+      state.selectedPFId = pf.id;
+      const rr = recipeForPF(pf.id);
+      state.selectedRecipeId = rr?.id || null;
+      renderPFBomList();
+      renderSimulate();
+    });
+
+    tr.querySelector("button[data-bom]").addEventListener("click", (e) => {
+      e.stopPropagation();
+      openBOMForPF(pf.id);
+    });
+
+    tbody.appendChild(tr);
+  }
+
+  // Default selection: first PF
+  if (!state.selectedPFId && filtered[0]) {
+    state.selectedPFId = filtered[0].id;
+    const rr = recipeForPF(filtered[0].id);
+    state.selectedRecipeId = rr?.id || null;
+  }
+}
+
+function openBOMForPF(pfId, { prefillBomItemId = "" } = {}) {
+  state.selectedPFId = pfId;
+  const pf = (state.fgItems || []).find((x) => x.id === pfId);
+  if (!pf) {
+    alert("Produto Final não encontrado.");
+    return;
+  }
+
+  // Needs MP items to build BOM
+  if ((state.rawItems || []).length === 0) {
+    alert("Cadastre Matéria-prima & Insumos (MP) antes (ex.: Frango, Arroz, Embalagem).");
+    return;
+  }
+
+  const existing = recipeForPF(pfId);
+  if (existing) {
+    // ensure editor is linked
+    openRecipeEditor({ mode: "edit", recipe: existing, productId: pfId, prefillBomItemId });
+    return;
+  }
+
+  // Create new, prefilled with PF info
+  const prefill = {
+    id: "",
+    name: pf.name || `${pf.code || "PF"} - Produto Final`,
+    productId: pfId,
+    yieldQty: 1,
+    yieldUnit: pf.unit || "un",
+    notes: "",
+    bom: [],
+  };
+
+  openRecipeEditor({ mode: "new", recipe: prefill, productId: pfId, prefillBomItemId });
+}
+
+function openPFBomPicker({ prefillBomItemId = "" } = {}) {
+  const pfs = (state.fgItems || []).slice().sort((a, b) => String(a.code||"").localeCompare(String(b.code||""), "pt-BR"));
+  openModal({
+    title: "Selecionar Produto Final (PF)",
+    subtitle: "Escolha o PF para cadastrar/editar o BOM.",
+    submitText: "Abrir BOM",
+    bodyHtml: `
+      <div class="toolbar">
+        <input id="pfPickSearch" class="input" placeholder="Pesquisar PF (código, descrição...)" />
+      </div>
+      <div class="table-wrap" style="max-height: 340px;">
+        <table class="table">
+          <thead><tr><th>COD</th><th>Descrição</th><th style="text-align:center">UN</th><th style="text-align:center">BOM</th></tr></thead>
+          <tbody id="pfPickTbody">
+            ${pfs.map(pf => {
+              const r = recipeForPF(pf.id);
+              const hasBom = !!(r && r.bom?.length);
+              return `<tr data-id="${escapeHtml(pf.id)}" data-search="${escapeHtml((pf.code+" "+pf.name).toLowerCase())}">
+                <td><b>${escapeHtml(pf.code||"PF")}</b></td>
+                <td>${escapeHtml(pf.name||"")}</td>
+                <td style="text-align:center">${escapeHtml(pf.unit||"")}</td>
+                <td style="text-align:center">${hasBom ? `<span class="pill ok">ok</span>` : `<span class="pill warn">—</span>`}</td>
+              </tr>`;
+            }).join("")}
+          </tbody>
+        </table>
+      </div>
+      <input type="hidden" name="pfId" id="pfPickId" required />
+    `,
+    onOpen: () => {
+      const tbody = document.querySelector("#pfPickTbody");
+      const hidden = document.querySelector("#pfPickId");
+      const search = document.querySelector("#pfPickSearch");
+      modalSubmit.disabled = true;
+
+      function clearSel() {
+        tbody?.querySelectorAll("tr.row-selected").forEach(tr => tr.classList.remove("row-selected"));
+        if (hidden) hidden.value = "";
+        modalSubmit.disabled = true;
+      }
+
+      tbody?.addEventListener("click", (e) => {
+        const tr = e.target?.closest?.("tr[data-id]");
+        if (!tr) return;
+        tbody.querySelectorAll("tr.row-selected").forEach(x => x.classList.remove("row-selected"));
+        tr.classList.add("row-selected");
+        if (hidden) hidden.value = tr.dataset.id;
+        modalSubmit.disabled = false;
+      });
+
+      search?.addEventListener("input", () => {
+        const qq = (search.value || "").toLowerCase().trim();
+        let visibleSelected = false;
+        tbody?.querySelectorAll("tr[data-id]").forEach(tr => {
+          const ok = !qq || (tr.dataset.search || "").includes(qq);
+          tr.style.display = ok ? "" : "none";
+          if (ok && tr.classList.contains("row-selected")) visibleSelected = true;
+        });
+        if (!visibleSelected) clearSel();
+      });
+    },
+    onSubmit: async (fd) => {
+      const pfId = String(fd.get("pfId") || "");
+      if (!pfId) return false;
+      openBOMForPF(pfId, { prefillBomItemId });
+      return true;
+    }
+  });
+}
+async function renderSimulate() {
+  const box = $("#simulateBox");
+  const recipe = state.recipes.find((r) => r.id === state.selectedRecipeId);
+
+  if (!recipe) {
+    if (state.selectedPFId) {
+      const pf = (state.fgItems || []).find((x) => x.id === state.selectedPFId);
+      box.innerHTML = `
+        <div>
+          <div style="font-weight:900; font-size:16px;">${escapeHtml(pf?.code || "PF")} • ${escapeHtml(pf?.name || "")}</div>
+          <div class="muted small">Sem BOM cadastrado para este Produto Final.</div>
+          <div class="row wrap" style="margin-top:10px">
+            <button id="btnCreateBomNow" class="btn primary">Criar BOM</button>
+          </div>
+        </div>
+      `;
+      $("#btnCreateBomNow").addEventListener("click", () => openBOMForPF(state.selectedPFId));
+      return;
+    }
+    box.innerHTML = `<div class="muted">Selecione um Produto Final (PF).</div>`;
+    return;
+  }
+
+  box.innerHTML = `
+    <div>
+      <div style="font-weight:900; font-size:16px;">${escapeHtml(recipe.name)}</div>
+      <div class="muted small">Rendimento base: ${fmt(recipe.yieldQty)} ${escapeHtml(recipe.yieldUnit)}</div>
+      <hr />
+      <label>Quantas ${escapeHtml(recipe.yieldUnit)} você quer produzir?
+        <input id="qtyToProduce" type="number" step="0.001" value="${Number(recipe.yieldQty || 1)}" />
+      </label>
+      <div class="row wrap" style="margin-top:10px">
+        <button id="btnCalcReq" class="btn">Calcular necessidades</button>
+        <button id="btnCreateOP" class="btn primary">Gerar Ordem de Produção</button>
+      </div>
+      <div id="reqArea" style="margin-top:12px"></div>
+    </div>
+  `;
+
+  $("#btnCalcReq").addEventListener("click", async () => {
+    const qtp = Number($("#qtyToProduce").value);
+    const data = await api("/api/mrp/requirements", { method: "POST", body: JSON.stringify({ recipeId: recipe.id, qtyToProduce: qtp }) });
+    renderRequirements(data);
+  });
+
+  
+$("#btnCreateOP").addEventListener("click", async () => {
+  const qtp = Number($("#qtyToProduce").value);
+  const data = await api("/api/mrp/requirements", { method: "POST", body: JSON.stringify({ recipeId: recipe.id, qtyToProduce: qtp }) });
+  renderRequirements(data);
+
+  const shortages = data.requirements.filter(r => !r.ok);
+  const hasShortages = shortages.length > 0;
+
+  const rows = data.requirements.map(r => {
+    const fr = friendlyQty(r.required, r.unit);
+    const fa = friendlyQty(r.available, r.unit);
+    const fs = friendlyQty(Math.max(0, r.required - r.available), r.unit);
+    const buyCell = r.ok
+      ? `<span class="muted">—</span>`
+      : `<input class="input poBuyQty" data-itemid="${escapeHtml(r.itemId)}" data-unit="${escapeHtml(r.unit||"")}" type="number" step="0.001" value="${fmt(fs.v)}" /> <span class="muted small">${escapeHtml(fs.u)}</span>`;
+    return `
+      <tr>
+        <td>${escapeHtml(r.itemName)}</td>
+        <td>${fmt(fr.v)} ${escapeHtml(fr.u)}</td>
+        <td>${fmt(fa.v)} ${escapeHtml(fa.u)}</td>
+        <td>${r.ok ? `<span class="pill ok">ok</span>` : `<span class="pill bad">faltando</span>`}</td>
+        <td>${buyCell}</td>
+      </tr>
+    `;
+  }).join("");
+
+  openModal({
+    title: "Gerar Ordem de Produção",
+    subtitle: hasShortages
+      ? "Vai criar OP em HOLD e gerar Ordem de Compra (editável) para os itens faltantes."
+      : "Vai dar baixa no estoque automaticamente (consumo dos ingredientes).",
+    submitText: hasShortages ? "Gerar OP + OC" : "Gerar OP",
+    cardClass: "wide",
+    bodyHtml: `
+      ${hasShortages ? `<div class="pill warn">⚠️ Itens faltantes</div>` : `<div class="pill ok">✅ Estoque suficiente</div>`}
+      <div class="muted small">Receita: <b>${escapeHtml(recipe.name)}</b></div>
+      <div class="muted small">Quantidade: <b>${fmt(qtp)} ${escapeHtml(recipe.yieldUnit)}</b></div>
+      <hr/>
+      <label>Observação (opcional)<input name="note" placeholder="Ex.: produção do dia / lote..." /></label>
+
+      ${hasShortages ? `
+        <label style="margin-top:10px; display:flex; gap:8px; align-items:center;">
+          <input type="checkbox" id="chkCreatePO" checked />
+          <span>Criar Ordem de Compra (OC) automaticamente</span>
+        </label>
+        <div class="muted small">Edite abaixo o que deseja comprar (padrão = faltante).</div>
+      ` : ""}
+
+      <div class="table-wrap" style="margin-top:10px">
+        <table class="table">
+          <thead><tr><th>Item</th><th>Necessário</th><th>Disponível</th><th>Status</th><th>Comprar</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+
+      ${hasShortages ? `
+        <div class="muted small" style="margin-top:10px; line-height:1.5">
+          <b>Como funciona:</b> a OP será criada em <b>HOLD</b> (sem baixar estoque) e a OC fica <b>OPEN</b>.  
+          Quando você <b>receber</b> a OC, o estoque entra e a OP pode ser <b>executada</b>.
+        </div>
+      ` : ""}
+    `,
+    onSubmit: async (fd) => {
+      const note = fd.get("note") || "";
+      const createPO = hasShortages ? !!document.querySelector("#chkCreatePO")?.checked : false;
+
+      // coleta quantidades a comprar (em unidade base)
+      const purchaseItems = [];
+      if (hasShortages && createPO) {
+        document.querySelectorAll(".poBuyQty").forEach(inp => {
+          const itemId = inp.dataset.itemid;
+          const unit = inp.dataset.unit || "";
+          const qFriendly = Number(inp.value || 0);
+          const qBase = friendlyToBase(qFriendly, unit);
+          if (itemId && Number.isFinite(qBase) && qBase > 0) purchaseItems.push({ itemId, qty: qBase });
+        });
+      }
+
+      await api("/api/mrp/production-orders", {
+        method: "POST",
+        body: JSON.stringify({
+          recipeId: recipe.id,
+          qtyToProduce: qtp,
+          note,
+          allowInsufficient: true,
+          createPurchaseOrder: createPO,
+          purchaseItems,
+        })
+      });
+
+      await loadAll();
+      // Se criou OC, vai para Compras; senão, vai para OPs
+      const tab = (hasShortages && createPO) ? "compras" : "ops";
+      document.querySelector(`.tab[data-tab="${tab}"]`)?.click();
+      return true;
+    }
+  });
+});
+  });
+}
+
+function friendlyQty(qty, unit) {
+  const u = String(unit||"").toLowerCase();
+  const q = Number(qty||0);
+  if (!Number.isFinite(q)) return { v: 0, u: unit || "" };
+  if (u === "kg") return { v: q * 1000, u: "g" };
+  if (u === "l")  return { v: q * 1000, u: "ml" };
+  return { v: q, u: unit || "" };
+}
+
+
+function friendlyToBase(qtyFriendly, unit) {
+  const u = String(unit||"").toLowerCase();
+  const q = Number(qtyFriendly||0);
+  if (!Number.isFinite(q)) return 0;
+  // UI trabalha com g/ml quando base é kg/l
+  if (u === "kg") return q / 1000; // g -> kg
+  if (u === "l")  return q / 1000; // ml -> l
+  return q; // un permanece
+}
+
+function renderRequirements(data) {
+  const area = $("#reqArea");
+  const rows = data.requirements.map((r) => {
+    const fr = friendlyQty(r.required, r.unit);
+    const fa = friendlyQty(r.available, r.unit);
+    return `
+    <tr>
+      <td>${escapeHtml(r.itemName)}</td>
+      <td>${fmt(fr.v)} ${escapeHtml(fr.u)}</td>
+      <td>${fmt(fa.v)} ${escapeHtml(fa.u)}</td>
+      <td>${r.ok ? `<span class="pill ok">ok</span>` : `<span class="pill bad">faltando</span>`}</td>
+    </tr>
+  `;
+  }).join("");
+
+  area.innerHTML = `
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th>Item</th><th>Necessário</th><th>Disponível</th><th>Status</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+    <div class="muted small" style="margin-top:8px;">
+      Fator: ${fmt(data.factor)} (base ${fmt(data.recipe.yieldQty)} → produzir ${fmt(data.qtyToProduce)})
+      <br/>Obs.: “Necessário” já considera % Perda do cadastro (MP).
+    </div>
+  `;
+}
+
+function openNewRecipe() {
+  if ((state.rawItems || []).length === 0) {
+    alert("Cadastre Matéria-prima & Insumos (MP) antes (ex.: Frango, Arroz, Embalagem).");
+    return;
+  }
+
+  openRecipeEditor({ mode: "new" });
+}
+
+function openEditRecipe(recipe) {
+  openRecipeEditor({ mode: "edit", recipe });
+}
+
+function openRecipeEditor({ mode, recipe, productId = "", prefillBomItemId = "" }) {
+  // IMPORTANTE:
+  // Não cachear a lista de MPs aqui. O usuário pode editar o cadastro de itens e
+  // esperamos que o BOM reflita automaticamente a nova descrição/unidade/FC.
+  // Por isso, mantemos uma função de refresh que reconstrói rawItems e o índice.
+  let rawItems = [];
+  let itemById = new Map();
+  const refreshRawItems = () => {
+    rawItems = (state.rawItems || state.items || [])
+      .filter((i) => (i.type || "raw") === "raw")
+      .slice()
+      .sort((a, b) => String(a.name || "").localeCompare(String(b.name || ""), "pt-BR"));
+    itemById = new Map(rawItems.map((it) => [it.id, it]));
+  };
+  refreshRawItems();
+
+  const buildItemsOptions = () => rawItems
+    .map((it) => `<option value="${it.id}">${escapeHtml(it.name)} (${escapeHtml(it.unit)})</option>`)
+    .join("");
+  const itemsOptions = buildItemsOptions();
+
+  const effectiveProductId = String(productId || recipe?.productId || "");
+  const linkedPF = effectiveProductId ? (state.fgItems||[]).find(x=>x.id===effectiveProductId) : null;
+
+  const title = linkedPF ? "BOM do Produto Final" : (mode === "new" ? "Nova receita" : "Editar receita");
+  const subtitle = linkedPF
+    ? `${escapeHtml(linkedPF.code || "PF")} - ${escapeHtml(linkedPF.name || "")}`
+    : (mode === "new"
+        ? "Monte a lista de ingredientes (BOM) com quantidades na base do rendimento."
+        : (recipe?.id || ""));
+
+  // ---- quantity conversion: user inputs g/ml when unit is kg/l ----
+  const dispUnit = (u) => {
+    const uu = String(u||"").toLowerCase();
+    if (uu === "kg") return "g";
+    if (uu === "l") return "ml";
+    return uu || "";
+  };
+  const toBaseQty = (inputQty, itemUnit) => {
+    const q = Number(inputQty || 0);
+    const uu = String(itemUnit||"").toLowerCase();
+    if (!Number.isFinite(q)) return 0;
+    if (uu === "kg") return q / 1000; // g -> kg
+    if (uu === "l") return q / 1000;  // ml -> l
+    return q; // un/ml/kg already base or custom
+  };
+  const fromBaseQty = (baseQty, itemUnit) => {
+    const q = Number(baseQty || 0);
+    const uu = String(itemUnit||"").toLowerCase();
+    if (!Number.isFinite(q)) return 0;
+    if (uu === "kg") return q * 1000; // kg -> g
+    if (uu === "l") return q * 1000;  // l -> ml
+    return q;
+  };
+
+  
+// editable BOM state (stored in base units: kg/l/un/ml)
+// each line: { itemId, qty, fc (override|null), pos (unique int) }
+let bomState = Array.isArray(recipe?.bom)
+  ? recipe.bom.map((l, idx) => ({
+      itemId: l.itemId,
+      qty: Number(l.qty || 0),
+      fc: (l.fc === undefined ? null : Number(l.fc)),
+      pos: (Number.isFinite(Number(l.pos)) && Number(l.pos) > 0) ? Number(l.pos) : (idx + 1),
+    }))
+  : [];
+
+// helpers for unique POS
+const nextFreePos = (excludeIdx = -1, takenAlso = []) => {
+  const used = new Set();
+  bomState.forEach((l, i) => {
+    if (i === excludeIdx) return;
+    const p = Number(l.pos);
+    if (Number.isFinite(p) && p > 0) used.add(p);
+  });
+  takenAlso.forEach(p => used.add(Number(p)));
+  let p = 1;
+  while (used.has(p)) p += 1;
+  return p;
+};
+// allow excluding multiple indices (used for POS conflict handling)
+const nextFreePosMulti = (excludeIdxs = [], takenAlso = []) => {
+  const ex = new Set(excludeIdxs.filter(x => x !== null && x !== undefined));
+  const used = new Set();
+  bomState.forEach((l, i) => {
+    if (ex.has(i)) return;
+    const p = Number(l.pos);
+    if (Number.isFinite(p) && p > 0) used.add(p);
+  });
+  takenAlso.forEach(p => {
+    const n = Number(p);
+    if (Number.isFinite(n) && n > 0) used.add(n);
+  });
+  let p = 1;
+  while (used.has(p)) p += 1;
+  return p;
+};
+
+
+const normalizePositions = () => {
+  const used = new Set();
+  const ordered = bomState.map((l, idx) => ({ l, idx }))
+          .sort((a, b) => Number(a.l.pos||0) - Number(b.l.pos||0));
+        for (let i = 0; i < ordered.length; i++) {
+    let p = Number(bomState[i].pos);
+    if (!Number.isFinite(p) || p <= 0 || used.has(p)) {
+      p = nextFreePos(i);
+      bomState[i].pos = p;
+    }
+    used.add(p);
+  }
+};
+
+// If opening from Cadastro Geral: pre-add MP line (qty 0)
+if (prefillBomItemId && !bomState.some(l => l.itemId === prefillBomItemId)) {
+  bomState.push({ itemId: prefillBomItemId, qty: 0, fc: null, pos: nextFreePos() });
+}
+// Ensure at least one line for convenience (but user will "Salvar linha" to commit)
+if (!bomState.length && rawItems[0]) bomState = [{ itemId: rawItems[0].id, qty: 0, fc: null, pos: 1 }];
+
+normalizePositions();
+
+  const yieldUnitDefault = linkedPF ? (linkedPF.unit || "un") : (recipe?.yieldUnit || "un");
+
+  openModal({
+    title,
+    subtitle,
+    submitText: mode === "new" ? "Criar" : "Salvar",
+    cardClass: "wide",
+    bodyHtml: `
+      ${linkedPF ? `
+        <div class="muted small">Produto Final: <b>${escapeHtml(linkedPF.code || "PF")}</b> — ${escapeHtml(linkedPF.name || "")}</div>
+        <label>Produto Final<input name="name" readonly required value="${escapeHtml(linkedPF.name || recipe?.name || "")}" /></label>
+        <input type="hidden" name="productId" value="${escapeHtml(effectiveProductId)}" />
+      ` : `
+        <label>Nome da receita<input name="name" required value="${escapeHtml(recipe?.name || "")}" /></label>
+      `}
+
+      ${linkedPF ? "" : `
+      <div class="grid two">
+        <label>Rendimento (quantidade)
+          <input name="yieldQty" type="number" step="0.001" required value="${Number(recipe?.yieldQty || 1)}" />
+        </label>
+        <label>Unidade do rendimento (un, kg, porção...)
+          <input name="yieldUnit" required value="${escapeHtml(yieldUnitDefault)}" />
+        </label>
+      </div>
+      `}
+
+
+      <div class="bom-editor">
+        <div class="row between" style="margin-bottom:8px">
+          <div style="font-weight:800">Ingredientes (BOM)</div>
+          <div class="muted small">Digite a quantidade em <b>g</b> (para itens em kg) e <b>ml</b> (para itens em l). (un) mantém.</div>
+        </div>
+
+        <div class="bom-comp-editor">
+          <div class="grid bom-comp-grid">
+            <div class="field">
+              <label>POS</label>
+              <input id="bomPos" class="input" type="number" min="1" step="1" value="1" />
+            </div>
+            <div class="field">
+              <label>Item (MP)</label>
+              <select id="bomItemSel" class="input"><option value="">Selecione...</option>${itemsOptions}</select>
+            </div>
+            <div class="field">
+              <label>UN Compra</label>
+              <input id="bomUnitBuy" class="input" readonly value="" />
+            </div>
+            <div class="field">
+              <label>UN Consumo</label>
+              <input id="bomUnitUse" class="input" readonly value="" />
+            </div>
+            <div class="field">
+              <label>FC <button type="button" id="bomFcHelp" class="link-btn">Saiba mais</button></label>
+              <input id="bomFC" class="input" value="" placeholder="Ex.: 2,8" />
+            </div>
+            <div class="field">
+              <label id="bomQtyLabel">Quantidade</label>
+              <input id="bomQtyInput" class="input" type="number" step="0.001" placeholder="0" />
+            </div>
+            <div class="field bom-comp-actions">
+              <label>&nbsp;</label>
+              <div class="row wrap">
+                <button type="button" id="bomSaveLine" class="btn primary small">Salvar linha</button>
+                <button type="button" id="bomClearLine" class="btn secondary small">Limpar</button>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="justify-content:flex-end; margin-top:6px">
+            <div id="bomCookPreview" class="muted small"></div>
+          </div>
+          <div id="bomEditHint" class="muted small" style="margin-top:6px;"></div>
+        </div>
+
+        <div class="table-wrap bom-comp-table" style="margin-top:12px; max-height: 260px;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th style="text-align:center">POS</th>
+                <th style="text-align:left">COD</th>
+                <th style="text-align:left">Descrição</th>
+                <th style="text-align:center">UN Compra</th>
+                <th style="text-align:center">UN Consumo</th>
+                <th style="text-align:center">FC</th>
+                <th style="text-align:center">QTE (crua)</th>
+                <th style="text-align:center">QTE (cozida)</th>
+                <th style="text-align:center">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="bomCompTbody"></tbody>
+          </table>
+        </div>
+
+        <div class="muted small" style="margin-top:8px">Dica: inclua também “Embalagem (un)” se você quiser controlar.</div>
+      </div>
+
+      <label>Observações<textarea name="notes" placeholder="Modo de preparo, observações...">${escapeHtml(recipe?.notes || "")}</textarea></label>
+    `,
+    onOpen: () => {
+      const sel = $("#bomItemSel");
+
+      // Garante que as MPs e o mapa (id -> item) estejam sempre atualizados
+      // (ex.: depois de editar a descrição no cadastro de estoque)
+      refreshRawItems();
+      const prevSel = sel.value;
+      sel.innerHTML = `
+        <option value="">Selecione...</option>
+        ${buildItemsOptions()}
+      `;
+      if (prevSel) sel.value = prevSel;
+
+      const posInput = $("#bomPos");
+      const unitBuy = $("#bomUnitBuy");
+      const unitUse = $("#bomUnitUse");
+      const fcInput = $("#bomFC");
+      const qtyInput = $("#bomQtyInput");
+      const cookPrev = $("#bomCookPreview");
+      const qtyLabel = $("#bomQtyLabel");
+      const saveBtn = $("#bomSaveLine");
+      const clearBtn = $("#bomClearLine");
+      const tbody = $("#bomCompTbody");
+      const hint = $("#bomEditHint");
+
+      let editingIndex = -1;
+      let posTouched = false; // só considera conflito quando o usuário digita a POS
+
+      // itemById (Map) é mantido/atualizado fora do onOpen via refreshRawItems().
+
+      const getFC = (it) => {
+        const v = Number(it?.cookFactor ?? it?.fc ?? 1);
+        return Number.isFinite(v) && v > 0 ? v : 1;
+      };
+
+      const updateCookPreview = () => {
+        const it = itemById.get(sel.value);
+        if (!it) return;
+        const fcTyped = Number(String(fcInput.value || "").replace(",", "."));
+        const fc = (Number.isFinite(fcTyped) && fcTyped > 0) ? fcTyped : getFC(it);
+        const qtyIn = Number(qtyInput.value);
+        const du = dispUnit(it.unit);
+        if (!Number.isFinite(qtyIn) || qtyIn <= 0) {
+          cookPrev.textContent = fc !== 1 ? `Após cocção (FC ${fmt(fc)}): —` : "";
+          return;
+        }
+        const cookedDisp = qtyIn * fc;
+        cookPrev.textContent = (fc === 1) ? "" : `Após cocção (FC ${fmt(fc)}): ${fmt(cookedDisp)} ${du || ""}`;
+      };
+
+      const refreshEditorForItem = (itemId, qtyBase = 0, fcOverride = null) => {
+        const it = itemById.get(itemId) || rawItems[0] || null;
+        if (!it) return;
+        sel.value = it.id;
+        unitBuy.value = it.unit || "";
+        unitUse.value = dispUnit(it.unit) || (it.unit || "");
+        const defFc = getFC(it);
+        const fcUse = (fcOverride !== null && fcOverride !== undefined && Number.isFinite(Number(fcOverride)) && Number(fcOverride) > 0) ? Number(fcOverride) : defFc;
+        fcInput.value = fmt(fcUse);
+        const du = dispUnit(it.unit);
+        qtyLabel.textContent = linkedPF ? `Quantidade (${du || "—"}) (por 1 unidade do PF)` : `Quantidade (${du || "—"}) (na base do rendimento)`;
+        qtyInput.placeholder = du === "g" ? "Ex.: 150" : (du === "ml" ? "Ex.: 100" : "Ex.: 1");
+        qtyInput.value = (qtyBase ? fromBaseQty(qtyBase, it.unit) : "");
+        updateCookPreview();
+      };
+
+      const setDefaultPos = () => {
+        if (!posInput) return;
+        if (editingIndex >= 0 && bomState[editingIndex]) {
+          posInput.value = String(bomState[editingIndex].pos ?? 1);
+        } else {
+          // Novo item: sempre vai para a próxima posição disponível
+          posInput.value = String(nextFreePos(-1));
+        }
+        posTouched = false;
+      };
+
+      const renderTable = () => {
+        tbody.innerHTML = "";
+        if (!bomState.length) {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `<td colspan="9" class="muted">Sem ingredientes ainda. Use o editor acima para adicionar.</td>`;
+          tbody.appendChild(tr);
+          return;
+        }
+
+        const ordered = bomState.map((l, idx) => ({ l, idx }))
+          .sort((a, b) => Number(a.l.pos||0) - Number(b.l.pos||0));
+        for (let i = 0; i < ordered.length; i++) {
+          const l = ordered[i].l;
+          const realIdx = ordered[i].idx;
+          const it = itemById.get(l.itemId);
+          if (!it) continue;
+
+          const du = dispUnit(it.unit);
+          const qDisp = fromBaseQty(l.qty, it.unit);
+
+          const tr = document.createElement("tr");
+          const fcUsed = (l.fc !== null && l.fc !== undefined && Number.isFinite(Number(l.fc)) && Number(l.fc) > 0) ? Number(l.fc) : getFC(it);
+          const cookedDisp = qDisp * fcUsed;
+
+          tr.innerHTML = `
+            <td style="text-align:center">${escapeHtml(String(l.pos || (i+1)))}</td>
+            <td style="text-align:left"><b>${escapeHtml(it.code || "MP")}</b></td>
+            <td style="text-align:left">${escapeHtml(it.name || "")}</td>
+            <td style="text-align:center">${escapeHtml(it.unit || "")}</td>
+            <td style="text-align:center">${escapeHtml(du || "")}</td>
+            <td style="text-align:center">${fmt(fcUsed)}</td>
+            <td style="text-align:center">${fmt(qDisp)} ${escapeHtml(du || "")}</td>
+            <td style="text-align:center">${fmt(cookedDisp)} ${escapeHtml(du || "")}</td>
+            <td style="text-align:center"><div class="bom-row-actions">
+              <button type="button" class="btn secondary small" data-edit="${realIdx}">Editar</button>
+              <button type="button" class="btn secondary small" data-del="${realIdx}">Excluir</button>
+            </div></td>
+          `;
+          tbody.appendChild(tr);
+        }
+
+        tbody.querySelectorAll("button[data-edit]").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const idx = Number(btn.dataset.edit);
+            const l = bomState[idx];
+            const it = itemById.get(l.itemId);
+            if (!it) return;
+            editingIndex = idx;
+            posTouched = false;
+            if (posInput) posInput.value = String(l.pos || 1);
+            refreshEditorForItem(l.itemId, l.qty, l.fc);
+            hint.innerHTML = `Editando: <b>${escapeHtml(it.code || "MP")}</b> — ${escapeHtml(it.name || "")}.`;
+            saveBtn.textContent = "Atualizar linha";
+          });
+        });
+
+        tbody.querySelectorAll("button[data-del]").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const idx = Number(btn.dataset.del);
+            bomState.splice(idx, 1);
+            // exit edit if needed
+            if (editingIndex === idx) {
+              editingIndex = -1;
+              hint.textContent = "";
+              saveBtn.textContent = "Salvar linha";
+              qtyInput.value = "";
+            }
+            renderTable();
+          });
+        });
+      };
+
+      const clearEditor = () => {
+        refreshRawItems();
+        editingIndex = -1;
+        posTouched = false;
+        hint.textContent = "";
+        saveBtn.textContent = "Salvar linha";
+
+        // POS: ao limpar, já sugere a próxima posição disponível
+        setDefaultPos();
+
+        // limpa seleção e campos
+        sel.value = "";
+        unitBuy.value = "";
+        unitUse.value = "";
+        fcInput.value = "";
+        qtyInput.value = "";
+        qtyLabel.textContent = linkedPF ? "Quantidade (—) (por 1 unidade do PF)" : "Quantidade (—) (na base do rendimento)";
+        cookPreview.textContent = "Após cocção: —";
+      };
+
+      sel.addEventListener("change", () => {
+        const it = itemById.get(sel.value);
+        if (!it) return;
+        unitBuy.value = it.unit || "";
+        unitUse.value = dispUnit(it.unit) || (it.unit || "");
+        // ao trocar o item, volta para o FC padrão do cadastro
+        fcInput.value = fmt(getFC(it));
+        const du = dispUnit(it.unit);
+        qtyLabel.textContent = linkedPF ? `Quantidade (${du || "—"}) (por 1 unidade do PF)` : `Quantidade (${du || "—"}) (na base do rendimento)`;
+        // POS: para novo item, sempre sugere a próxima posição disponível (a não ser que o usuário tenha digitado)
+        if (editingIndex < 0 && !posTouched) setDefaultPos();
+        updateCookPreview();
+      });
+
+      // marcar quando o usuário digita POS (só aí aplicamos regra de substituição)
+      posInput.addEventListener("input", () => {
+        posTouched = true;
+      });
+
+      qtyInput.addEventListener("input", () => updateCookPreview());
+
+      fcInput.addEventListener("input", () => updateCookPreview());
+
+      const fcHelpBtn = $("#bomFcHelp");
+      if (fcHelpBtn) fcHelpBtn.addEventListener("click", () => window.open("help/fc.html", "_blank"));
+
+      saveBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+        const it = itemById.get(sel.value);
+        if (!it) return;
+
+        const qtyIn = Number(qtyInput.value);
+        if (!Number.isFinite(qtyIn) || qtyIn <= 0) {
+          alert("Informe uma quantidade maior que zero.");
+          return;
+        }
+
+        const qtyBase = toBaseQty(qtyIn, it.unit);
+
+        const defFc = getFC(it);
+        const fcTyped = Number(String(fcInput.value || "").replace(",", "."));
+        const fcNew = (Number.isFinite(fcTyped) && fcTyped > 0) ? fcTyped : defFc;
+
+        let fcOverride = null;
+
+        // Se digitou FC diferente do cadastro, pergunta se quer atualizar o cadastro
+        if (Math.abs(fcNew - defFc) > 1e-9) {
+          const ok = confirm(`Você digitou um FC diferente do cadastro (${fmt(defFc)} → ${fmt(fcNew)}).\n\nDeseja atualizar o FC do item no cadastro?`);
+          if (ok) {
+            try {
+              await api(`/api/inventory/items/${it.id}?type=raw`, { method: "PUT", body: JSON.stringify({ cookFactor: fcNew }) });
+              // atualiza cache local
+              it.cookFactor = fcNew;
+            } catch (e) {
+              console.warn("Falha ao atualizar FC no cadastro:", e);
+              alert("Não foi possível atualizar o FC no cadastro. Vou manter o FC apenas neste BOM.");
+              fcOverride = fcNew;
+            }
+          } else {
+            fcOverride = fcNew;
+            hint.innerHTML = `FC salvo apenas neste BOM. Se ficou em dúvida, clique em <b>Saiba mais</b>.`;
+          }
+        }
+
+        // se igual ao cadastro, não precisa salvar override
+        if (fcOverride !== null && Math.abs(fcOverride - getFC(it)) <= 1e-9) {
+          fcOverride = null;
+        }
+
+        // decide which line we are updating
+        let targetIdx = editingIndex;
+        if (targetIdx < 0) {
+          const existingIdx = bomState.findIndex(x => x.itemId === it.id);
+          targetIdx = existingIdx;
+        }
+
+        // POS handling (regra: nova linha sempre vai para a próxima POS disponível;
+        // só substitui/move quando o usuário DIGITA a POS)
+        let desiredPos;
+        if (!posTouched) {
+          if (targetIdx >= 0 && bomState[targetIdx]) desiredPos = Number(bomState[targetIdx].pos) || 1;
+          else desiredPos = nextFreePos(-1);
+          if (posInput) posInput.value = String(desiredPos);
+        } else {
+          desiredPos = posInput ? Number(posInput.value) : NaN;
+        }
+
+        if (!Number.isFinite(desiredPos) || desiredPos <= 0) {
+          alert("Informe uma POS válida (1, 2, 3...).");
+          return;
+        }
+
+        // Se há conflito de POS, só resolve se o usuário digitou a POS
+        const conflictIdx = bomState.findIndex((l, idx) => idx !== targetIdx && Number(l.pos) === desiredPos);
+        if (posTouched && conflictIdx >= 0) {
+          const conflictIt = itemById.get(bomState[conflictIdx].itemId);
+          const movedTo = nextFreePosMulti([conflictIdx, targetIdx], [desiredPos]);
+          const okMove = confirm(`A posição ${desiredPos} já está preenchida com o item ${conflictIt?.code || ""} ${conflictIt?.name || ""}.
+
+Se você confirmar, ele será movido para a próxima posição disponível (${movedTo}).`);
+          if (!okMove) return;
+          bomState[conflictIdx].pos = movedTo;
+        }
+
+        // apply changes to target line
+        if (targetIdx >= 0) {
+          bomState[targetIdx] = { ...bomState[targetIdx], itemId: it.id, qty: qtyBase, fc: fcOverride, pos: desiredPos };
+        } else {
+          bomState.push({ itemId: it.id, qty: qtyBase, fc: fcOverride, pos: desiredPos });
+        }
+
+        normalizePositions();
+        clearEditor();
+        renderTable();
+      });
+
+      clearBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      clearEditor();
+    });
+
+  
+
+    // expõe um rerender leve para outras telas (ex: Cadastro) atualizarem rótulos/descrições
+    state._rerenderRecipeEditor = () => {
+      try {
+        refreshRawItems();
+        const prev = sel.value;
+        sel.innerHTML = `
+          <option value="">Selecione...</option>
+          ${buildItemsOptions()}
+        `;
+        if (prev) sel.value = prev;
+      } catch (e) { /* noop */ }
+      renderTable();
+      updateCookPreview();
+    };
+    // initial editor + table
+      renderTable();
+      clearEditor();
+    },
+    onSubmit: async (fd) => {
+      const name = fd.get("name");
+      const yieldQty = linkedPF ? 1 : Number(fd.get("yieldQty") || 1);
+      const yieldUnit = linkedPF ? "un" : String(fd.get("yieldUnit") || "un");
+      const notes = fd.get("notes");
+
+      
+const lines = bomState
+  .map((l) => {
+    const o = { itemId: l.itemId, qty: Number(l.qty || 0) };
+    const p = Number(l.pos);
+    if (Number.isFinite(p) && p > 0) o.pos = p;
+    if (l.fc !== null && l.fc !== undefined && Number.isFinite(Number(l.fc)) && Number(l.fc) > 0) o.fc = Number(l.fc);
+    return o;
+  })
+        .filter((l) => l.itemId && Number.isFinite(l.qty) && l.qty > 0);
+
+      if (lines.length === 0) {
+        alert("Adicione pelo menos 1 ingrediente (BOM). Use “Salvar linha”.");
+        return false;
+      }
+
+      const productId2 = fd.get("productId") || "";
+      const payload = { name, productId: productId2, yieldQty, yieldUnit, notes, bom: lines };
+
+      if (mode === "new") {
+        await api("/api/mrp/recipes", { method: "POST", body: JSON.stringify(payload) });
+      } else {
+        await api(`/api/mrp/recipes/${recipe.id}`, { method: "PUT", body: JSON.stringify(payload) });
+      }
+
+      await loadMRP();
+      return true;
+    },
+  });
+}
+
+
+// ---------- OPs UI ----------
+function renderOps() {
+  const tbody = $("#opsTable tbody");
+  tbody.innerHTML = "";
+
+  const itemsById = new Map((state.rawItems || state.items || []).map((i) => [i.id, i]));
+
+  const statusPill = (st) => {
+    const s = String(st || "EXECUTED").toUpperCase();
+    if (s === "HOLD") return `<span class="pill warn">hold</span>`;
+    if (s === "READY") return `<span class="pill ok">ready</span>`;
+    if (s === "EXECUTED") return `<span class="pill ok">executada</span>`;
+    return `<span class="pill">${escapeHtml(s.toLowerCase())}</span>`;
+  };
+
+  for (const op of state.ops) {
+    const consumption = (op.consumed || []).map((c) => {
+      const it = itemsById.get(c.itemId);
+      return `${escapeHtml(it?.name || "—")}: ${fmt(c.qty)} ${escapeHtml(it?.unit || "")}`;
+    }).join("<br/>");
+
+    const missing = (op.shortages || []).map((s) => {
+      const it = itemsById.get(s.itemId);
+      return `${escapeHtml(it?.name || "—")}: ${fmt(s.shortage)} ${escapeHtml(it?.unit || "")}`;
+    }).join("<br/>");
+
+    const st = String(op.status || "EXECUTED").toUpperCase();
+
+    const actions = `
+      ${st === "READY" ? `<button class="btn primary small" data-act="exec" data-id="${escapeHtml(op.id)}">Executar</button>` : ""}
+      ${st === "HOLD" ? `<button class="btn secondary small" data-act="why" data-id="${escapeHtml(op.id)}">Ver faltas</button>` : ""}
+      ${op.linkedPurchaseOrderId ? `<button class="btn secondary small" data-act="openpo" data-po="${escapeHtml(op.linkedPurchaseOrderId)}">Ver OC</button>` : ""}
+    ` || "—";
+
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${fmtDate(op.createdAt)}</td>
+      <td><b>${escapeHtml(op.recipeName || op.recipeId)}</b></td>
+      <td>${fmt(op.qtyToProduce)}</td>
+      <td>${statusPill(st)}</td>
+      <td class="muted">${escapeHtml(op.note || "")}</td>
+      <td class="muted small">${consumption || (missing ? `<span class="pill bad">faltando</span><br/>${missing}` : "—")}</td>
+      <td style="text-align:center">${actions}</td>
+    `;
+    tbody.appendChild(tr);
+  }
+
+  if (state.ops.length === 0) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td colspan="7" class="muted">Sem ordens de produção ainda.</td>`;
+    tbody.appendChild(tr);
+  }
+
+  // actions
+  tbody.querySelectorAll("button[data-act]").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const act = btn.dataset.act;
+      if (act === "exec") {
+        try {
+          await api(`/api/mrp/production-orders/${btn.dataset.id}/execute`, { method: "POST", body: JSON.stringify({}) });
+          await loadAll();
+        } catch (e) {
+          alert("Ainda falta estoque para executar essa OP. Confira as faltas e receba a OC.");
+        }
+      } else if (act === "why") {
+        const op = state.ops.find(x => x.id === btn.dataset.id);
+        if (!op) return;
+        const itemsById2 = new Map((state.rawItems || []).map(i => [i.id, i]));
+        const rows = (op.shortages || []).map(s => {
+          const it = itemsById2.get(s.itemId);
+          return `<tr>
+            <td>${escapeHtml(it?.name || "—")}</td>
+            <td>${fmt(s.required)}</td>
+            <td>${fmt(s.available)}</td>
+            <td>${fmt(s.shortage)} ${escapeHtml(it?.unit || "")}</td>
+          </tr>`;
+        }).join("");
+        openModal({
+          title: "Faltas da OP (HOLD)",
+          subtitle: `OP ${escapeHtml(op.id)} • ${escapeHtml(op.recipeName||"")}`,
+          submitText: "Fechar",
+          bodyHtml: `
+            <div class="table-wrap">
+              <table class="table">
+                <thead><tr><th>Item</th><th>Necessário</th><th>Disponível</th><th>Faltante</th></tr></thead>
+                <tbody>${rows || `<tr><td colspan="4" class="muted">Sem faltas.</td></tr>`}</tbody>
+              </table>
+            </div>
+          `,
+          onSubmit: () => true
+        });
+      } else if (act === "openpo") {
+        const po = state.purchaseOrders.find(x => x.id === btn.dataset.po);
+        if (po) openEditPurchaseOrder(po);
+      }
+    });
+  });
+}
+
+// ---------- Purchase Orders UI ----------
+function renderPurchaseOrders() {
+  const tbody = $("#poTable tbody");
+  if (!tbody) return;
+  tbody.innerHTML = "";
+
+  const itemsById = new Map((state.rawItems || []).map(i => [i.id, i]));
+
+  const pill = (st) => {
+    const s = String(st || "OPEN").toUpperCase();
+    if (s === "OPEN") return `<span class="pill warn">open</span>`;
+    if (s === "PARTIAL") return `<span class="pill warn">parcial</span>`;
+    if (s === "RECEIVED") return `<span class="pill ok">recebida</span>`;
+    if (s === "CANCELLED") return `<span class="pill bad">cancelada</span>`;
+    return `<span class="pill">${escapeHtml(s.toLowerCase())}</span>`;
+  };
+
+  for (const po of (state.purchaseOrders || [])) {
+    const itemsTxt = (po.items || []).map(li => {
+      const it = itemsById.get(li.itemId);
+      const u = it?.unit || "";
+      const ord = fmt(li.qtyOrdered);
+      const rec = fmt(li.qtyReceived || 0);
+      return `${escapeHtml(it?.name || "—")}: ${ord} ${escapeHtml(u)} <span class="muted small">(rec: ${rec})</span>`;
+    }).join("<br/>");
+
+    const vinc = po.linkedProductionOrderId
+      ? `OP ${escapeHtml(po.linkedProductionOrderId)}`
+      : `<span class="muted">—</span>`;
+
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${fmtDate(po.createdAt)}</td>
+      <td>${pill(po.status)}</td>
+      <td>${vinc}</td>
+      <td class="muted">${escapeHtml(po.note || "")}</td>
+      <td class="muted small">${itemsTxt || "—"}</td>
+      <td style="text-align:center">
+        <button class="btn secondary small" data-act="edit" data-id="${escapeHtml(po.id)}">Editar</button>
+        <button class="btn primary small" data-act="recv" data-id="${escapeHtml(po.id)}">Receber</button>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  }
+
+  if (!state.purchaseOrders || state.purchaseOrders.length === 0) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td colspan="6" class="muted">Sem ordens de compra ainda.</td>`;
+    tbody.appendChild(tr);
+  }
+
+  tbody.querySelectorAll("button[data-act]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const po = (state.purchaseOrders || []).find(x => x.id === btn.dataset.id);
+      if (!po) return;
+      if (btn.dataset.act === "edit") openEditPurchaseOrder(po);
+      if (btn.dataset.act === "recv") openReceivePurchaseOrder(po);
+    });
+  });
+}
+
+function openNewPurchaseOrder() {
+  openEditPurchaseOrder({ id: "", status: "OPEN", note: "", items: [], linkedProductionOrderId: null }, { mode: "new" });
+}
+
+function openEditPurchaseOrder(po, { mode = "edit" } = {}) {
+  const rawItems = (state.rawItems || []).slice().sort((a,b)=>String(a.name||"").localeCompare(String(b.name||""),"pt-BR"));
+  const itemsById = new Map(rawItems.map(i => [i.id, i]));
+
+  let lines = (po.items || []).map(li => ({
+    itemId: li.itemId,
+    qtyOrdered: Number(li.qtyOrdered || 0),
+    qtyReceived: Number(li.qtyReceived || 0),
+  }));
+
+  const renderLines = () => {
+    const rows = lines.map((li, idx) => {
+      const it = itemsById.get(li.itemId);
+      return `<tr>
+        <td>${escapeHtml(it?.name || "—")}</td>
+        <td style="width:130px">
+          <input class="input" type="number" step="0.001" value="${fmt(li.qtyOrdered)}" data-idx="${idx}" data-f="qty" />
+        </td>
+        <td style="width:110px" class="muted">${fmt(li.qtyReceived||0)}</td>
+        <td style="width:70px" class="muted">${escapeHtml(it?.unit || "")}</td>
+        <td style="width:90px; text-align:center">
+          <button class="btn danger small" type="button" data-del="${idx}">Excluir</button>
+        </td>
+      </tr>`;
+    }).join("");
+
+    return `
+      <div class="row wrap" style="gap:8px; align-items:flex-end">
+        <label style="flex:1; min-width:240px">
+          Item (MP)
+          <select id="poAddItem" class="input">
+            <option value="">Selecione...</option>
+            ${rawItems.map(it => `<option value="${it.id}">${escapeHtml(it.name)} (${escapeHtml(it.unit)})</option>`).join("")}
+          </select>
+        </label>
+        <label style="width:160px">
+          Qtde
+          <input id="poAddQty" class="input" type="number" step="0.001" value="0" />
+        </label>
+        <button id="poAddBtn" class="btn secondary" type="button">Adicionar</button>
+      </div>
+
+      <div class="table-wrap" style="margin-top:10px">
+        <table class="table">
+          <thead><tr><th>Item</th><th>Qtde pedida</th><th>Recebida</th><th>UN</th><th></th></tr></thead>
+          <tbody>${rows || `<tr><td colspan="5" class="muted">Adicione itens.</td></tr>`}</tbody>
+        </table>
+      </div>
+    `;
+  };
+
+  openModal({
+    title: mode === "new" ? "Nova Ordem de Compra" : `Editar Ordem de Compra`,
+    subtitle: po.id ? `OC ${po.id}` : "",
+    submitText: "Salvar",
+    cardClass: "wide",
+    bodyHtml: `
+      <label>Status
+        <select name="status" class="input">
+          ${["OPEN","PARTIAL","RECEIVED","CANCELLED"].map(s => `<option value="${s}" ${String(po.status||"OPEN").toUpperCase()===s?"selected":""}>${s}</option>`).join("")}
+        </select>
+      </label>
+      <label>Vincular à OP (opcional)
+        <input name="linkedProductionOrderId" class="input" placeholder="po_xxx" value="${escapeHtml(po.linkedProductionOrderId||"")}" />
+      </label>
+      <label>Observação
+        <input name="note" class="input" value="${escapeHtml(po.note||"")}" />
+      </label>
+      <hr/>
+      <div id="poLines"></div>
+    `,
+    onOpen: () => {
+      const box = document.querySelector("#poLines");
+      if (!box) return;
+      box.innerHTML = renderLines();
+
+      const bind = () => {
+        box.querySelectorAll("input[data-idx][data-f='qty']").forEach(inp => {
+          inp.addEventListener("input", () => {
+            const idx = Number(inp.dataset.idx);
+            const v = Number(inp.value || 0);
+            if (lines[idx]) lines[idx].qtyOrdered = Number.isFinite(v) ? v : 0;
+          });
+        });
+        box.querySelectorAll("button[data-del]").forEach(b => {
+          b.addEventListener("click", () => {
+            const idx = Number(b.dataset.del);
+            lines.splice(idx, 1);
+            box.innerHTML = renderLines();
+            bind();
+          });
+        });
+        const addBtn = box.querySelector("#poAddBtn");
+        addBtn?.addEventListener("click", () => {
+          const itemId = box.querySelector("#poAddItem")?.value || "";
+          const qty = Number(box.querySelector("#poAddQty")?.value || 0);
+          if (!itemId || !Number.isFinite(qty) || qty <= 0) return;
+          const existing = lines.find(x => x.itemId === itemId);
+          if (existing) existing.qtyOrdered = Number(existing.qtyOrdered || 0) + qty;
+          else lines.push({ itemId, qtyOrdered: qty, qtyReceived: 0 });
+          box.innerHTML = renderLines();
+          bind();
+        });
+      };
+      bind();
+    },
+    onSubmit: async (fd) => {
+      if (!lines.length) {
+        alert("Adicione pelo menos 1 item na OC.");
+        return false;
+      }
+      const payload = {
+        status: fd.get("status"),
+        note: fd.get("note") || "",
+        linkedProductionOrderId: fd.get("linkedProductionOrderId") || null,
+        items: lines.map(li => ({ itemId: li.itemId, qtyOrdered: Number(li.qtyOrdered||0), qtyReceived: Number(li.qtyReceived||0) }))
+          .filter(li => li.itemId && Number(li.qtyOrdered||0) > 0),
+      };
+
+      if (mode === "new") {
+        await api("/api/mrp/purchase-orders", { method: "POST", body: JSON.stringify(payload) });
+      } else {
+        await api(`/api/mrp/purchase-orders/${po.id}`, { method: "PUT", body: JSON.stringify(payload) });
+      }
+      await loadAll();
+      return true;
+    }
+  });
+}
+
+function openReceivePurchaseOrder(po) {
+  const rawItems = (state.rawItems || []).slice();
+  const itemsById = new Map(rawItems.map(i => [i.id, i]));
+
+  const rows = (po.items || []).map(li => {
+    const it = itemsById.get(li.itemId);
+    const u = it?.unit || "";
+    const remaining = Math.max(0, Number(li.qtyOrdered||0) - Number(li.qtyReceived||0));
+    return `<tr>
+      <td>${escapeHtml(it?.name || "—")}</td>
+      <td class="muted">${fmt(li.qtyOrdered)} ${escapeHtml(u)}</td>
+      <td class="muted">${fmt(li.qtyReceived||0)} ${escapeHtml(u)}</td>
+      <td style="width:220px">
+        <input class="input recvQty" data-itemid="${escapeHtml(li.itemId)}" type="number" step="0.001" value="${fmt(remaining)}" />
+      </td>
+      <td class="muted" style="width:70px">${escapeHtml(u)}</td>
+    </tr>`;
+  }).join("");
+
+  openModal({
+    title: "Receber Ordem de Compra",
+    subtitle: `OC ${po.id}`,
+    submitText: "Receber",
+    cardClass: "wide",
+    bodyHtml: `
+      <label>Observação (opcional)
+        <input name="note" class="input" placeholder="Ex.: NF 123 / fornecedor..." />
+      </label>
+      <div class="table-wrap" style="margin-top:10px">
+        <table class="table">
+          <thead><tr><th>Item</th><th>Pedida</th><th>Recebida</th><th>Receber agora</th><th>UN</th></tr></thead>
+          <tbody>${rows || `<tr><td colspan="5" class="muted">Sem itens.</td></tr>`}</tbody>
+        </table>
+      </div>
+      <div class="muted small" style="margin-top:10px; line-height:1.5">
+        Ao receber, o sistema faz <b>entrada no estoque (MP)</b>. Se a OC estiver vinculada a uma OP, ela pode sair de HOLD para READY automaticamente.
+      </div>
+    `,
+    onSubmit: async (fd) => {
+      const note = fd.get("note") || "";
+      const items = [];
+      document.querySelectorAll(".recvQty").forEach(inp => {
+        const itemId = inp.dataset.itemid;
+        const qty = Number(inp.value || 0);
+        if (itemId && Number.isFinite(qty) && qty > 0) items.push({ itemId, qty });
+      });
+      if (!items.length) return false;
+      await api(`/api/mrp/purchase-orders/${po.id}/receive`, { method: "POST", body: JSON.stringify({ items, note }) });
+      await loadAll();
+      return true;
+    }
+  });
+}
+
+// ---------- Loaders ----------
+async function loadInventory() {
+  const itemsRes = await api(`/api/inventory/items?type=${state.stockMode}`);
+  state.items = itemsRes.items;
+
+  const mvRes = await api(`/api/inventory/movements?type=${state.stockMode}&limit=80`);
+  state.movements = mvRes.movements;
+
+  renderItems();
+  renderMovements();
+}
+
+async function loadMRP() {
+  const [recRes, rawRes, fgRes] = await Promise.all([
+    api("/api/mrp/recipes"),
+    api("/api/inventory/items?type=raw"),
+    api("/api/inventory/items?type=fg"),
+  ]);
+
+  state.recipes = recRes.recipes;
+  state.rawItems = rawRes.items;
+  state.fgItems = fgRes.items;
+
+  // ensure selection still exists
+  if (state.selectedRecipeId && !state.recipes.find((r) => r.id === state.selectedRecipeId)) {
+    state.selectedRecipeId = state.recipes[0]?.id || null;
+  }
+  renderPFBomList();
+  renderSimulate();
+}
+
+async function loadOps() {
+  const res = await api("/api/mrp/production-orders");
+  state.ops = res.orders;
+  renderOps();
+}
+
+async function loadPurchaseOrders() {
+  const res = await api("/api/mrp/purchase-orders");
+  state.purchaseOrders = res.orders;
+  renderPurchaseOrders();
+}
+
+async function loadUnits() {
+  const res = await api("/api/units");
+  state.units = Array.isArray(res.units) ? res.units : [];
+}
+
+async function loadAll() {
+  await Promise.all([loadInventory(), loadMRP(), loadOps(), loadPurchaseOrders(), loadUnits()]);
+}
+
+// ---------- Buttons ----------
+const _btnNewItem = document.querySelector("#btnNewItem");
+if (_btnNewItem) _btnNewItem.addEventListener("click", openNewItem);
+const _btnIn = document.querySelector("#btnIn");
+if (_btnIn) _btnIn.addEventListener("click", () => openMovement("in"));
+const _btnOut = document.querySelector("#btnOut");
+if (_btnOut) _btnOut.addEventListener("click", () => openMovement("out"));
+const _btnAdjust = document.querySelector("#btnAdjust");
+if (_btnAdjust) _btnAdjust.addEventListener("click", () => openMovement("adjust"));
+
+const _btnNewRecipe = document.querySelector("#btnNewRecipe");
+if (_btnNewRecipe) _btnNewRecipe.addEventListener("click", openNewRecipe);
+
+const _btnNewPO = document.querySelector("#btnNewPO");
+if (_btnNewPO) _btnNewPO.addEventListener("click", openNewPurchaseOrder);
+
+const _btnNewPFBom = document.querySelector("#btnNewPFBom");
+if (_btnNewPFBom) _btnNewPFBom.addEventListener("click", async () => {
+  // ensure MRP data is loaded
+  await loadMRP();
+  openPFBomPicker();
+});
+
+const _pfBomSearch = document.querySelector("#pfBomSearch");
+if (_pfBomSearch) _pfBomSearch.addEventListener("input", () => renderPFBomList());
+
+const _btnPFBomExport = document.querySelector("#btnPFBomExport");
+if (_btnPFBomExport) _btnPFBomExport.addEventListener("click", () => {
+  const out = (state.fgItems || []).slice().sort((a,b)=>String(a.code||"").localeCompare(String(b.code||""),"pt-BR")).map(pf => {
+    const r = recipeForPF(pf.id);
+    return {
+      pf: { id: pf.id, code: pf.code, name: pf.name, unit: pf.unit },
+      bom: r?.bom || [],
+      recipeId: r?.id || null,
+      notes: r?.notes || ""
+    };
+  });
+  downloadText("bom_produto_final.json", JSON.stringify({ exportedAt: new Date().toISOString(), items: out }, null, 2));
+});
+
+
+
+// ---------- Estoque: tipo (Matéria-prima vs Produto final) ----------
+const stockModeRawBtn = document.querySelector("#stockModeRaw");
+const stockModeFgBtn = document.querySelector("#stockModeFg");
+const stockModeAllBtn = document.querySelector("#stockModeAll");
+const stockAdjustRawBtn = document.querySelector("#stockAdjustRaw");
+const stockAdjustFgBtn = document.querySelector("#stockAdjustFg");
+const stockInvHistoryBtn = document.querySelector("#stockInvHistory");
+
+
+function openCadastroItensModal(){
+  const typeLabel = state.stockMode === "fg" ? "Produto Final" : "Matéria-prima & Insumos";
+  const dbLabel = state.stockMode === "fg" ? "bd/estoque_pf.json" : "bd/estoque_mp.json";
+  const nextCode = computeNextCode(state.items.filter(i => (i.type||'raw')===state.stockMode), state.stockMode);
+
+  let selectedId = null;
+  let q = "";
+
+  const sortItems = (arr) => [...arr].sort((a,b) => {
+    const ac = String(a.code || "").localeCompare(String(b.code || ""), 'pt-BR');
+    if (ac !== 0) return ac;
+    return String(a.name || "").localeCompare(String(b.name || ""), 'pt-BR');
+  });
+
+  const filterItems = () => {
+    const qq = q.trim().toLowerCase();
+    if (!qq) return sortItems(state.items);
+    return sortItems(state.items).filter((it) => {
+      const hay = `${it.code||""} ${it.name||""} ${it.sku||""} ${it.unit||""}`.toLowerCase();
+      return hay.includes(qq);
+    });
+  };
+
+  const body = `
+    <div class="cadastro-sub muted">
+      Cadastro de itens — código gerado automaticamente. Código automático: <b>${nextCode}</b>
+    </div>
+
+    <div class="cadastro-toolbar">
+      <div class="cadastro-search">
+        <input id="cadSearch" class="input" placeholder="Pesquisar..." />
+      </div>
+      <div class="cadastro-actions">
+        <button id="cadImport" type="button" class="btn secondary small">Importar</button>
+        <button id="cadExport" type="button" class="btn secondary small">Exportar</button>
+        <span class="cadastro-sep"></span>
+        <button id="cadNew" type="button" class="btn primary small">+ Novo</button>
+        <button id="cadEdit" type="button" class="btn secondary small" disabled>Editar</button>
+        <button id="cadDup" type="button" class="btn secondary small" disabled>Duplicar</button>
+        <button id="cadDel" type="button" class="btn danger small" disabled>Excluir</button>
+      </div>
+      <input id="cadFile" type="file" accept="application/json" style="display:none" />
+    </div>
+
+    <div class="table-wrap cadastro-tablewrap">
+      <table class="table cadastro-table">
+        <thead class="cad-head">
+          <tr>
+            ${state.stockMode === "fg" ? `
+              <th style="width:90px">CÓDIGO</th>
+              <th>DESCRIÇÃO</th>
+              <th class="cad-num" style="width:80px">UN</th>
+              <th class="cad-num col-sale">V.VENDA (R$)</th>
+              <th class="cad-num" style="width:160px">ESTOQUE MÍNIMO</th>
+            ` : `
+              <th style="width:90px">CÓDIGO</th>
+              <th>DESCRIÇÃO</th>
+              <th class="cad-num" style="width:80px">UN</th>
+              <th class="cad-num" style="width:120px">CUSTO (R$)</th>
+              <th class="cad-num" style="width:90px">% PERDA</th>
+              <th class="cad-num" style="width:160px">ESTOQUE MÍNIMO</th>
+            `}
+          </tr>
+        </thead>
+        <tbody id="cadTbody"></tbody>
+      </table>
+    </div>
+
+    <div class="muted small" style="margin-top:10px">
+      Dica: clique em uma linha para selecionar. Editar/Duplicar/Excluir usam o item selecionado.
+    </div>
+  `;
+
+  openModal({
+    title: `Cadastro • ${typeLabel}`,
+    subtitle: "",
+    submitText: "Fechar",
+    bodyHtml: body,
+    onSubmit: async () => true,
+  });
+
+  const elSearch = document.querySelector("#cadSearch");
+  const elTbody = document.querySelector("#cadTbody");
+  const elEdit = document.querySelector("#cadEdit");
+  const elDup = document.querySelector("#cadDup");
+  const elDel = document.querySelector("#cadDel");
+  const elNew = document.querySelector("#cadNew");
+  const elImport = document.querySelector("#cadImport");
+  const elExport = document.querySelector("#cadExport");
+  const elFile = document.querySelector("#cadFile");
+
+  const setButtons = () => {
+    const ok = !!selectedId;
+    if (elEdit) elEdit.disabled = !ok;
+    if (elDup) elDup.disabled = !ok;
+    if (elDel) elDel.disabled = !ok;
+  };
+
+  const rowHtml = (it) => {
+    const isFg = state.stockMode === "fg";
+    const cols = isFg ? `
+      <td><b>${escapeHtml(it.code || "")}</b></td>
+      <td><b>${escapeHtml(it.name)}</b></td>
+      <td class="cad-num">${escapeHtml(it.unit)}</td>
+      <td class="cad-num col-sale">${fmtMoney(it.salePrice || 0)}</td>
+      <td class="cad-num">${fmt(it.minStock || 0)} ${escapeHtml(it.unit)}</td>
+    ` : `
+      <td><b>${escapeHtml(it.code || "")}</b></td>
+      <td><b>${escapeHtml(it.name)}</b></td>
+      <td class="cad-num">${escapeHtml(it.unit)}</td>
+      <td class="cad-num">${fmtMoney(it.cost || 0)}</td>
+      <td class="cad-num">${fmt(it.lossPercent || 0)}%</td>
+      <td class="cad-num">${fmt(it.minStock || 0)} ${escapeHtml(it.unit)}</td>
+    `;
+    return `
+      <tr class="${it.id === selectedId ? "row-selected" : ""}" data-id="${it.id}">
+        ${cols}
+      </tr>
+    `;
+  };
+
+  const renderRows = () => {
+    if (!elTbody) return;
+    const items = filterItems();
+    elTbody.innerHTML = items.length ? items.map(rowHtml).join("") : `<tr><td colspan="${state.stockMode==='fg'?6:6}" class="muted">Nenhum item cadastrado.</td></tr>`;
+    elTbody.querySelectorAll("tr[data-id]").forEach((tr) => {
+      tr.addEventListener("click", () => {
+        selectedId = tr.getAttribute("data-id");
+        renderRows();
+        setButtons();
+      });
+    });
+  };
+
+  const downloadJson = (filename, data) => {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  };
+
+  if (elSearch) elSearch.addEventListener("input", () => {
+    q = elSearch.value || "";
+    renderRows();
+  });
+
+  if (elNew) elNew.addEventListener("click", () => {
+    modal.close();
+    openNewItem(() => openCadastroItensModal());
+  });
+
+  if (elEdit) elEdit.addEventListener("click", () => {
+    const it = state.items.find((x) => x.id === selectedId);
+    if (!it) return;
+    modal.close();
+    openEditItem(it, () => openCadastroItensModal());
+  });
+
+  if (elDup) elDup.addEventListener("click", async () => {
+    const it = state.items.find((x) => x.id === selectedId);
+    if (!it) return;
+    const isFg = state.stockMode === "fg";
+    const payload = isFg
+      ? { name: `${it.name} (cópia)`, unit: it.unit, minStock: it.minStock || 0, salePrice: it.salePrice || 0 }
+      : { name: `${it.name} (cópia)`, unit: it.unit, minStock: it.minStock || 0, cost: it.cost || 0, lossPercent: it.lossPercent || 0 };
+    await api(`/api/inventory/items?type=${state.stockMode}`, { method: "POST", body: JSON.stringify(payload) });
+    await loadInventory();
+    selectedId = null;
+    setButtons();
+    renderRows();
+  });
+
+  if (elDel) elDel.addEventListener("click", async () => {
+    const it = state.items.find((x) => x.id === selectedId);
+    if (!it) return;
+    const ok = confirm(`Excluir o item "${it.name}"? (só é permitido se ele não tiver movimentações)`);
+    if (!ok) return;
+    try{
+      await api(`/api/inventory/items/${it.id}?type=${state.stockMode}`, { method: "DELETE" });
+    } catch (err){
+      if (err?.data?.error === "has_movements"){
+        alert("Não é possível excluir: este item já possui movimentações.");
+        return;
+      }
+      throw err;
+    }
+    await loadInventory();
+    selectedId = null;
+    setButtons();
+    renderRows();
+  });
+
+  if (elExport) elExport.addEventListener("click", () => {
+    const name = state.stockMode === "fg" ? "produto-final" : "materia-prima";
+    downloadJson(`cadastro-${name}.json`, { exportedAt: new Date().toISOString(), type: state.stockMode, items: state.items });
+  });
+
+  if (elImport) elImport.addEventListener("click", () => {
+    if (elFile) elFile.click();
+  });
+
+  if (elFile) elFile.addEventListener("change", async () => {
+    const file = elFile.files && elFile.files[0];
+    if (!file) return;
+    try{
+      const text = await file.text();
+      const parsed = JSON.parse(text);
+      const arr = Array.isArray(parsed) ? parsed : (parsed.items || []);
+      if (!Array.isArray(arr)) throw new Error("Formato inválido");
+      // Importa (merge simples por nome+unidade)
+      for (const it of arr){
+        if (!it || !it.name || !it.unit) continue;
+        const isFgImport = state.stockMode === "fg";
+        const payload = isFgImport
+          ? {
+              name: String(it.name).trim(),
+              unit: String(it.unit).trim(),
+              minStock: Number(it.minStock) || 0,
+              salePrice: Number(it.salePrice ?? it.sale_price ?? it.price ?? 0) || 0,
+            }
+          : {
+              name: String(it.name).trim(),
+              unit: String(it.unit).trim(),
+              minStock: Number(it.minStock) || 0,
+              cost: Number(it.cost) || 0,
+              lossPercent: Number(it.lossPercent ?? it.loss_percent ?? 0) || 0,
+              cookFactor: Number(it.cookFactor ?? it.fc ?? it.FC ?? it.fatorCoccao ?? 1) || 1,
+            };
+        await api(`/api/inventory/items?type=${state.stockMode}`, { method: "POST", body: JSON.stringify(payload) });
+      }
+      await loadInventory();
+      selectedId = null;
+      setButtons();
+      renderRows();
+      alert("Importação concluída.");
+    } catch(e){
+      alert("Falha ao importar JSON. Verifique o arquivo.");
+    } finally {
+      elFile.value = "";
+    }
+  });
+
+  setButtons();
+  renderRows();
+}
+
+
+async function setStockMode(mode){
+  state.stockMode = (mode === "fg") ? "fg" : "raw";
+  if (stockModeRawBtn && stockModeFgBtn){
+    stockModeRawBtn.classList.toggle("active", state.stockMode === "raw");
+    stockModeFgBtn.classList.toggle("active", state.stockMode === "fg");
+  }
+  if (stockModeAllBtn) stockModeAllBtn.classList.remove("active");
+  if (stockInvHistoryBtn) stockInvHistoryBtn.classList.remove("active");
+  // volta para a área padrão (cadastro MP/PF)
+  if (generalBox) generalBox.classList.add("hidden");
+  if (invHistBox) invHistBox.classList.add("hidden");
+  if (cadastroBox) cadastroBox.classList.remove("hidden");
+  state.selectedItemId = null;
+  await loadInventory();
+  try { renderCadastro(); } catch(e) {}
+}
+
+
+if (stockModeRawBtn) stockModeRawBtn.addEventListener("click", async () => { await setStockMode("raw"); });
+if (stockModeFgBtn) stockModeFgBtn.addEventListener("click", async () => { await setStockMode("fg"); });
+
+// Cadastro Geral (MP + PF) abre na mesma área (sem modal)
+if (stockModeAllBtn) stockModeAllBtn.addEventListener("click", async () => { await openGeneralCadastroInline(); });
+
+if (stockInvHistoryBtn) stockInvHistoryBtn.addEventListener("click", async () => { await openInventoryHistoryInline(); });
+
+if (stockAdjustRawBtn) stockAdjustRawBtn.addEventListener("click", async () => { await setStockMode("raw"); openAdjustPicker(); });
+if (stockAdjustFgBtn) stockAdjustFgBtn.addEventListener("click", async () => { await setStockMode("fg"); openAdjustPicker(); });
+
+
+
+// ---------- Cadastro Geral (MP + PF) ----------
+const generalState = { items: [], rawItems: [], fgItems: [], filter: "", sortKey: "code", sortDir: "asc", selectedId: null };
+
+const generalBox = document.querySelector("#estoqueCadastroGeneral");
+const invHistBox = document.querySelector("#estoqueInventoryHistory");
+const generalSearchInline = document.querySelector("#generalSearchInline");
+const generalTbodyInline = document.querySelector("#generalTbodyInline");
+const generalTableInline = document.querySelector("#generalTableInline");
+const btnGeneralExport = document.querySelector("#btnGeneralExport");
+
+// ---------- Histórico de Inventário (ajustes) ----------
+const invHistState = { rows: [], filter: "", sortKey: "at", sortDir: "desc" };
+const invHistSearch = document.querySelector("#invHistSearch");
+const invHistTbody = document.querySelector("#invHistTbody");
+
+if (invHistTbody){
+  invHistTbody.addEventListener("click", (e) => {
+    const btn = e.target.closest(".obs-btn");
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const idx = Number(btn.getAttribute("data-idx"));
+    if (!Number.isFinite(idx)) return;
+    openInvHistObs(idx);
+  });
+}
+
+const invHistTable = document.querySelector("#invHistTable");
+const btnInvHistExport = document.querySelector("#btnInvHistExport");
+
+function normalizeHistRow(r){
+  const st = r.stockType === "fg" ? "PF" : "MP";
+  const byName = String(r.by?.name || r.byName || "").trim() || String(r.by?.id || "").trim() || "";
+  return {
+    id: String(r.id || ""),
+    at: String(r.at || ""),
+    stockType: st,
+    code: String(r.code || ""),
+    name: String(r.name || ""),
+    unit: String(r.unit || ""),
+    beforeQty: Number(r.beforeQty ?? 0),
+    afterQty: Number(r.afterQty ?? 0),
+    delta: Number(r.delta ?? (Number(r.afterQty ?? 0) - Number(r.beforeQty ?? 0))),
+    byName,
+    reason: String(r.reason || ""),
+  };
+}
+
+function sortInvHistRows(rows){
+  const key = invHistState.sortKey;
+  const dir = invHistState.sortDir;
+  const cmp = (a, b) => {
+    const va = a[key];
+    const vb = b[key];
+    if (key === "at") return String(va).localeCompare(String(vb));
+    if (typeof va === "number" && typeof vb === "number") return va - vb;
+    return String(va ?? "").localeCompare(String(vb ?? ""), "pt-BR", { numeric: true, sensitivity: "base" });
+  };
+  const out = rows.slice().sort(cmp);
+  return dir === "desc" ? out.reverse() : out;
+}
+
+function updateInvHistSortIndicators(){
+  const keys = ["at","stockType","code","name","unit","beforeQty","afterQty","delta","byName","reason"];
+  keys.forEach((k) => {
+    const el = document.querySelector("#hSort_" + k);
+    if (!el) return;
+    if (invHistState.sortKey !== k) { el.textContent = ""; return; }
+    el.textContent = invHistState.sortDir === "asc" ? "▲" : "▼";
+  });
+}
+
+function renderInvHistTable(){
+  if (!invHistTbody) return;
+  const q = String(invHistState.filter || "").trim().toLowerCase();
+  let rows = invHistState.rows.slice();
+  if (q){
+    rows = rows.filter((r) => (
+      r.code.toLowerCase().includes(q) ||
+      r.name.toLowerCase().includes(q) ||
+      r.unit.toLowerCase().includes(q) ||
+      r.stockType.toLowerCase().includes(q) ||
+      r.byName.toLowerCase().includes(q) ||
+      r.reason.toLowerCase().includes(q)
+    ));
+  }
+  rows = sortInvHistRows(rows);
+
+  if (rows.length === 0){
+    invHistTbody.innerHTML = `<tr><td colspan="10" class="muted">Nenhum registro encontrado.</td></tr>`;
+    updateInvHistSortIndicators();
+    return;
+  }
+
+  invHistState.viewRows = rows;
+
+  invHistTbody.innerHTML = rows.map((r, i) => {
+    return `
+      <tr>
+        <td>${escapeHtml(fmtDate(r.at))}</td>
+        <td><b>${escapeHtml(r.stockType)}</b></td>
+        <td><b>${escapeHtml(r.code)}</b></td>
+        <td><span class="g-desc" title="${escapeHtml(r.name)}">${escapeHtml(r.name)}</span></td>
+        <td>${escapeHtml(r.unit)}</td>
+        <td>${escapeHtml(fmt(r.beforeQty))}</td>
+        <td>${escapeHtml(fmt(r.afterQty))}</td>
+        <td>${escapeHtml(fmt(r.delta))}</td>
+        <td>${escapeHtml(r.byName)}</td>
+        <td>
+          <div class="obs-cell">
+            <button type="button" class="btn micro obs-btn" data-idx="${i}" title="Ver observação">Obs</button>
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join("");
+
+  updateInvHistSortIndicators();
+}
+
+
+function openInvHistObs(idx){
+  const rows = invHistState.viewRows || [];
+  const r = rows[idx];
+  if (!r) return;
+  const reason = (r.reason || "").trim();
+  openModal({
+    title: "Observação",
+    subtitle: `${r.code} • ${r.name} • ${fmtDate(r.at)} • ${r.byName}`,
+    submitText: "Fechar",
+    bodyHtml: `<div class="obs-full">${escapeHtml(reason || "(sem observação)")}</div>`
+  });
+}
+
+function normalizeGeneralItem(it){
+  return {
+    id: it.id,
+    code: String(it.code || ""),
+    name: String(it.name || ""),
+    unit: String(it.unit || ""),
+    minStock: Number(it.minStock || 0),
+    cost: Number(it.cost || 0),
+    salePrice: Number(it.salePrice || 0),
+    lossPercent: Number(it.lossPercent || 0),
+    cookFactor: Number(it.cookFactor || 0),
+    currentStock: Number(it.currentStock || 0),
+    type: it.type === "fg" ? "fg" : "raw",
+  };
+}
+
+function sortGeneralItems(items){
+  const key = generalState.sortKey;
+  const dir = generalState.sortDir;
+  const cmp = (a, b) => {
+    const va = a[key];
+    const vb = b[key];
+    if (typeof va === "number" && typeof vb === "number") return va - vb;
+    return String(va ?? "").localeCompare(String(vb ?? ""), "pt-BR", { numeric: true, sensitivity: "base" });
+  };
+  const out = items.slice().sort(cmp);
+  return dir === "desc" ? out.reverse() : out;
+}
+
+function formatCellMoney(n){ return (Number(n) ? fmtMoney(n) : ""); }
+function formatCellNum(n){ return (Number(n) || Number(n) === 0) ? fmtNum(n) : ""; }
+
+function closeAllRowMenus(exceptId=""){
+  document.querySelectorAll(".row-menu.open").forEach((m) => {
+    if (exceptId && m.getAttribute("data-menu") === exceptId) return;
+    m.classList.remove("open");
+  });
+}
+
+function updateGeneralSortIndicators(){
+  const keys = ["code","name","unit","cost","salePrice","lossPercent","cookFactor","minStock","currentStock"];
+  keys.forEach((k) => {
+    const el = document.querySelector("#gSort_" + k);
+    if (!el) return;
+    if (generalState.sortKey !== k) { el.textContent = ""; return; }
+    el.textContent = generalState.sortDir === "asc" ? "▲" : "▼";
+  });
+}
+
+function renderGeneralTableInline(){
+  if (!generalTbodyInline) return;
+
+  const q = (generalState.filter || "").trim().toLowerCase();
+  let rows = generalState.items.slice();
+  if (q){
+    rows = rows.filter((it) => (
+      it.code.toLowerCase().includes(q) ||
+      it.name.toLowerCase().includes(q) ||
+      it.unit.toLowerCase().includes(q)
+    ));
+  }
+  rows = sortGeneralItems(rows);
+
+  if (rows.length === 0){
+    generalTbodyInline.innerHTML = `<tr><td colspan="10" class="muted">Nenhum item encontrado.</td></tr>`;
+    return;
+  }
+
+  generalTbodyInline.innerHTML = rows.map((it) => {
+    const selected = (generalState.selectedId === it.id) ? "selected" : "";
+    return `
+      <tr class="${selected}" data-id="${escapeHtml(it.id)}">
+        <td>
+          <div class="row-menu-wrap">
+            <button class="row-menu-btn" type="button" data-menu-btn="${escapeHtml(it.id)}" title="Ações">⋮</button>
+            <div class="row-menu" data-menu="${escapeHtml(it.id)}">
+              <button type="button" data-action="edit" data-id="${escapeHtml(it.id)}">Editar cadastro</button>
+              <button type="button" data-action="inv" data-id="${escapeHtml(it.id)}">Alterar inventário</button>
+              <button type="button" data-action="recipe" data-id="${escapeHtml(it.id)}">Receita</button>
+            </div>
+          </div>
+        </td>
+        <td><b>${escapeHtml(it.code)}</b></td>
+        <td><span class="g-desc" title="${escapeHtml(it.name)}">${escapeHtml(it.name)}</span></td>
+        <td>${escapeHtml(it.unit)}</td>
+        <td>${escapeHtml(formatCellMoney(it.cost))}</td>
+        <td>${escapeHtml(formatCellMoney(it.salePrice))}</td>
+        <td>${escapeHtml(formatCellNum(it.lossPercent))}</td>
+        <td>${escapeHtml(formatCellNum(it.cookFactor))}</td>
+        <td>${escapeHtml(formatCellNum(it.minStock))}</td>
+        <td>${escapeHtml(formatCellNum(it.currentStock))}</td>
+      </tr>
+    `;
+  }).join("");
+
+  // row select
+  generalTbodyInline.querySelectorAll("tr[data-id]").forEach((tr) => {
+    tr.addEventListener("click", (e) => {
+      if (e.target && (e.target.closest && e.target.closest(".row-menu-wrap"))) return;
+      generalState.selectedId = tr.getAttribute("data-id");
+      renderGeneralTableInline();
+    });
+  });
+
+  // menu button toggles
+  generalTbodyInline.querySelectorAll("[data-menu-btn]").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const id = btn.getAttribute("data-menu-btn");
+      const menu = document.querySelector(`.row-menu[data-menu="${CSS.escape(id)}"]`);
+      if (!menu) return;
+      const isOpen = menu.classList.contains("open");
+      closeAllRowMenus(isOpen ? "" : id);
+      const willOpen = !isOpen;
+      menu.classList.toggle("open", willOpen);
+      // Se estiver nas últimas linhas / perto do final da tela, abrir o menu para cima
+      menu.classList.remove("open-up");
+      if (willOpen) {
+        requestAnimationFrame(() => {
+          try {
+            const btnRect = btn.getBoundingClientRect();
+            const menuRect = menu.getBoundingClientRect();
+            const pad = 10;
+            const wrap = btn.closest(".table-wrap") || document.body;
+            const wrapRect = (wrap && wrap.getBoundingClientRect) ? wrap.getBoundingClientRect() : { top: 0, bottom: window.innerHeight };
+            const spaceBelow = wrapRect.bottom - btnRect.bottom;
+            const spaceAbove = btnRect.top - wrapRect.top;
+            if (spaceBelow < menuRect.height + pad && spaceAbove > menuRect.height + pad) {
+              menu.classList.add("open-up");
+            } else {
+              menu.classList.remove("open-up");
+            }
+          } catch (_) {}
+        });
+      }
+    });
+  });
+
+  // menu actions
+  generalTbodyInline.querySelectorAll(".row-menu button[data-action]").forEach((b) => {
+    b.addEventListener("click", async (e) => {
+      e.stopPropagation();
+      const action = b.getAttribute("data-action");
+      const id = b.getAttribute("data-id");
+      const item = generalState.items.find((x) => x.id === id);
+      closeAllRowMenus();
+      if (!item) return;
+      await handleGeneralAction(action, item);
+    });
+  });
+
+  updateGeneralSortIndicators();
+}
+
+async function handleGeneralAction(action, item){
+  if (action === "edit"){
+    await setStockMode(item.type === "fg" ? "fg" : "raw");
+    const it = state.items.find((x) => x.id === item.id);
+    if (!it){ alert("Item não encontrado no cadastro atual."); return; }
+    openEditItem(it);
+    return;
+  }
+
+  if (action === "inv"){
+    await setStockMode(item.type === "fg" ? "fg" : "raw");
+    openMovement("adjust", { preselectItemId: item.id, lockItem: true });
+    return;
+  }
+
+  if (action === "recipe"){
+    // garante dados do MRP carregados
+    await loadMRP();
+
+    if (item.type === "fg"){
+      await openRecipeForPF(item.id);
+    } else {
+      const pfId = await pickPFForMP();
+      if (!pfId) return;
+      await openRecipeForPF(pfId, { addRawItemId: item.id });
+    }
+  }
+}
+
+async function pickPFForMP(){
+  const pfItems = (state.fgItems || []).slice().sort((a,b) => String(a.code||"").localeCompare(String(b.code||""), "pt-BR", { numeric:true }));
+  if (pfItems.length === 0){ alert("Cadastre pelo menos 1 Produto Final (PF) antes."); return null; }
+
+  return await new Promise((resolve) => {
+    let selected = pfItems[0]?.id || "";
+    let q = "";
+
+    const renderList = () => {
+      const box = document.querySelector("#pfPickList");
+      const hint = document.querySelector("#pfPickHint");
+      if (!box) return;
+      const filtered = q
+        ? pfItems.filter((it) => (String(it.code||"")+" "+String(it.name||"")).toLowerCase().includes(q))
+        : pfItems;
+      if (hint) hint.textContent = filtered.length ? `${filtered.length} encontrado(s)` : "Nenhum resultado";
+      box.innerHTML = filtered.map((it) => {
+        const active = it.id === selected ? "active" : "";
+        return `<div class="list-item ${active}" data-pf="${escapeHtml(it.id)}" style="cursor:pointer">
+          <div style="font-weight:800">${escapeHtml(it.code || "")} • ${escapeHtml(it.name || "")}</div>
+          <div class="muted small">UN: ${escapeHtml(it.unit || "")}</div>
+        </div>`;
+      }).join("");
+      box.querySelectorAll("[data-pf]").forEach((div) => {
+        div.addEventListener("click", () => {
+          selected = div.getAttribute("data-pf");
+          renderList();
+        });
+      });
+    };
+
+    const onClose = () => {
+      modal.removeEventListener("close", onClose);
+      resolve(null);
+    };
+    modal.addEventListener("close", onClose);
+
+    openModal({
+      title: "Receita • escolher Produto Final",
+      subtitle: "Você clicou “Receita” em um item MP. Selecione o PF onde ele será incluído.",
+      submitText: "Selecionar",
+      cardClass: "wide",
+      bodyHtml: `
+        <input id="pfPickSearch" class="input search" placeholder="Pesquisar PF (código / nome)..." />
+        <div class="muted small" id="pfPickHint" style="margin-top:6px"></div>
+        <div id="pfPickList" class="list" style="margin-top:10px"></div>
+      `,
+      onOpen: () => {
+        const s = document.querySelector("#pfPickSearch");
+        if (s){
+          s.addEventListener("input", () => {
+            q = String(s.value||"").trim().toLowerCase();
+            renderList();
+          });
+        }
+        renderList();
+      },
+      onSubmit: () => {
+        modal.removeEventListener("close", onClose);
+        resolve(selected || null);
+        return true;
+      },
+    });
+  });
+}
+
+async function openRecipeForPF(pfId, opts = {}){
+  await loadMRP();
+  const pfItem = (state.fgItems || []).find((x) => x.id === pfId);
+  if (!pfItem){ alert("Produto Final não encontrado."); return; }
+
+  const existing = (state.recipes || []).find((r) => r.productId === pfId);
+  if (existing){
+    openRecipeEditor({ mode: "edit", recipe: existing, productId: pfId, prefillBomItemId: opts.addRawItemId });
+  } else {
+    openRecipeEditor({
+      mode: "new",
+      recipe: { name: pfItem.name, yieldQty: 1, yieldUnit: pfItem.unit, notes: "", bom: [] },
+      productId: pfId,
+      prefillBomItemId: opts.addRawItemId,
+    });
+  }
+}
+
+let generalInlineBound = false;
+
+async function openGeneralCadastroInline(){
+  if (stockModeAllBtn) stockModeAllBtn.classList.add("active");
+  if (stockInvHistoryBtn) stockInvHistoryBtn.classList.remove("active");
+  if (stockModeRawBtn) stockModeRawBtn.classList.remove("active");
+  if (stockModeFgBtn) stockModeFgBtn.classList.remove("active");
+  if (cadastroBox) cadastroBox.classList.add("hidden");
+  if (invHistBox) invHistBox.classList.add("hidden");
+  if (generalBox) generalBox.classList.remove("hidden");
+
+  // carrega itens MP e PF
+  const [rawRes, fgRes] = await Promise.all([
+    api("/api/inventory/items?type=raw"),
+    api("/api/inventory/items?type=fg"),
+  ]);
+  generalState.rawItems = (rawRes.items || []).map((x) => ({ ...x, type: "raw" }));
+  generalState.fgItems = (fgRes.items || []).map((x) => ({ ...x, type: "fg" }));
+  const merged = [...generalState.rawItems, ...generalState.fgItems].map(normalizeGeneralItem);
+  generalState.items = merged;
+  generalState.filter = "";
+  generalState.sortKey = "code";
+  generalState.sortDir = "asc";
+  generalState.selectedId = null;
+
+  if (generalSearchInline){
+    generalSearchInline.value = "";
+  }
+
+  // bind listeners once
+  if (!generalInlineBound){
+    generalInlineBound = true;
+
+    if (generalSearchInline){
+      generalSearchInline.addEventListener("input", () => {
+        generalState.filter = String(generalSearchInline.value || "");
+        renderGeneralTableInline();
+      });
+    }
+
+    if (generalTableInline){
+      generalTableInline.querySelectorAll("th.sortable").forEach((th) => {
+        th.addEventListener("click", () => {
+          const key = th.getAttribute("data-key");
+          if (!key) return;
+          if (generalState.sortKey === key) {
+            generalState.sortDir = generalState.sortDir === "asc" ? "desc" : "asc";
+          } else {
+            generalState.sortKey = key;
+            generalState.sortDir = "asc";
+          }
+          renderGeneralTableInline();
+        });
+      });
+    }
+
+    // fechar menus ao clicar fora
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest || !e.target.closest(".row-menu-wrap")) closeAllRowMenus();
+    });
+
+    if (btnGeneralExport){
+      btnGeneralExport.addEventListener("click", () => {
+        const out = {
+          mp: generalState.rawItems,
+          pf: generalState.fgItems,
+          exportedAt: new Date().toISOString(),
+        };
+        downloadText("cadastro_geral.json", JSON.stringify(out, null, 2));
+      });
+    }
+  }
+
+  renderGeneralTableInline();
+}
+
+
+// ---------- Histórico de Inventário (inline) ----------
+let invHistInlineBound = false;
+
+async function openInventoryHistoryInline(){
+  if (stockInvHistoryBtn) stockInvHistoryBtn.classList.add("active");
+  if (stockModeAllBtn) stockModeAllBtn.classList.remove("active");
+  if (stockModeRawBtn) stockModeRawBtn.classList.remove("active");
+  if (stockModeFgBtn) stockModeFgBtn.classList.remove("active");
+
+  if (cadastroBox) cadastroBox.classList.add("hidden");
+  if (generalBox) generalBox.classList.add("hidden");
+  if (invHistBox) invHistBox.classList.remove("hidden");
+
+  // carrega ajustes (MP + PF)
+  const res = await api("/api/inventory/inventory-history?limit=800");
+  invHistState.rows = (res.history || []).map(normalizeHistRow);
+  invHistState.filter = "";
+  invHistState.sortKey = "at";
+  invHistState.sortDir = "desc";
+  if (invHistSearch) invHistSearch.value = "";
+
+  if (!invHistInlineBound){
+    invHistInlineBound = true;
+    if (invHistSearch){
+      invHistSearch.addEventListener("input", () => {
+        invHistState.filter = String(invHistSearch.value || "");
+        renderInvHistTable();
+      });
+    }
+    if (invHistTable){
+      invHistTable.querySelectorAll("th.sortable").forEach((th) => {
+        th.addEventListener("click", () => {
+          const key = th.getAttribute("data-key");
+          if (!key) return;
+          if (invHistState.sortKey === key) {
+            invHistState.sortDir = invHistState.sortDir === "asc" ? "desc" : "asc";
+          } else {
+            invHistState.sortKey = key;
+            invHistState.sortDir = "asc";
+          }
+          renderInvHistTable();
+        });
+      });
+    }
+    if (btnInvHistExport){
+      btnInvHistExport.addEventListener("click", () => {
+        const out = { history: invHistState.rows, exportedAt: new Date().toISOString() };
+        downloadText("historico_inventario.json", JSON.stringify(out, null, 2));
+      });
+    }
+  }
+
+  renderInvHistTable();
+}
+
+
+// ---------- Cadastro inline (Estoque) ----------
+const cadastroBox = document.querySelector("#estoqueCadastro");
+const cadastroTitle = document.querySelector("#cadastroTitle");
+const cadastroCodeHint = document.querySelector("#cadastroCodeHint");
+const cadastroSearch = document.querySelector("#cadastroSearch");
+const cadastroTbody = document.querySelector("#cadastroTbody");
+const cadastroPriceTh = document.querySelector("#cadastroPriceTh");
+const cadastroMidTh = document.querySelector("#cadastroMidTh");
+const cadastroFcTh = document.querySelector("#cadastroFcTh");
+const cadastroTable = document.querySelector("#cadastroTable");
+const btnImport = document.querySelector("#btnImport");
+const btnExport = document.querySelector("#btnExport");
+const btnCadNew = document.querySelector("#btnCadNew");
+const btnCadEdit = document.querySelector("#btnCadEdit");
+const btnCadDup = document.querySelector("#btnCadDup");
+const btnCadDel = document.querySelector("#btnCadDel");
+
+function currentDbLabel(){
+  return state.stockMode === "fg" ? "bd/estoque_pf.json" : "bd/estoque_mp.json";
+}
+function currentTitle(){
+  return state.stockMode === "fg" ? "Cadastro • Produto Final" : "Cadastro • Matéria Prima & Insumos";
+}
+function currentCodeHint(){
+  return state.stockMode === "fg" ? "PF001" : "MP001";
+}
+
+function applyQuery(items){
+  const q = (state.cadastroQuery || "").trim().toLowerCase();
+  if (!q) return items;
+  return items.filter(it => {
+    const code = (it.code || it.sku || "").toLowerCase();
+    return (it.name||"").toLowerCase().includes(q) || code.includes(q) || (it.unit||"").toLowerCase().includes(q);
+  });
+}
+
+function renderCadastro(){
+  if (!cadastroBox) return;
+  cadastroBox.classList.remove("hidden");
+  if (cadastroTitle) cadastroTitle.textContent = currentTitle();
+    if (cadastroCodeHint) cadastroCodeHint.textContent = currentCodeHint();
+  if (cadastroPriceTh) cadastroPriceTh.textContent = (state.stockMode === "fg") ? "V.VENDA (R$)" : "CUSTO (R$)";
+  if (cadastroPriceTh) cadastroPriceTh.style.width = (state.stockMode === "fg") ? "140px" : "110px";
+  // Produto Final não exibe colunas % Perda e FC
+  if (cadastroTable) cadastroTable.classList.toggle("hide-loss", state.stockMode === "fg");
+  if (cadastroMidTh) cadastroMidTh.textContent = "% PERDA";
+  if (cadastroFcTh) cadastroFcTh.textContent = "FC";
+
+
+  const items = applyQuery(state.items || []);
+  if (!cadastroTbody) return;
+
+  if (items.length === 0){
+    cadastroTbody.innerHTML = `<tr><td colspan="9" class="muted">Nenhum item cadastrado.</td></tr>`;
+    return;
+  }
+
+  cadastroTbody.innerHTML = items.map(it => {
+    const selected = (state.selectedItemId === it.id) ? "selected" : "";
+    const code = escapeHtml(it.code || it.sku || "");
+    if (state.stockMode === "fg") {
+      // PF: não exibe coluna % Perda (mantemos a célula para manter a estrutura de 6 colunas e escondemos via CSS)
+      return `
+        <tr class="${selected}" data-item-id="${it.id}">
+          <td><b>${code}</b></td>
+          <td>${escapeHtml(it.name)}</td>
+          <td>${escapeHtml(it.unit)}</td>
+          <td class="col-sale">${fmtMoney(it.salePrice || 0)}</td>
+          <td class="col-loss"></td>
+          <td class="col-fc"></td>
+          <td class="col-min">${fmt(it.minStock || 0)}</td>
+        </tr>
+      `;
+    }
+    return `
+      <tr class="${selected}" data-item-id="${it.id}">
+        <td><b>${code}</b></td>
+        <td>${escapeHtml(it.name)}</td>
+        <td>${escapeHtml(it.unit)}</td>
+        <td>${fmtMoney(it.cost || 0)}</td>
+        <td>${fmt(it.lossPercent || 0)}</td>
+        <td>${fmt(it.cookFactor ?? 1)}</td>
+        <td>${fmt(it.minStock || 0)}</td>
+      </tr>
+    `;
+  }).join("");
+
+  // row click selection
+  cadastroTbody.querySelectorAll("tr[data-item-id]").forEach(tr => {
+    tr.addEventListener("click", () => {
+      state.selectedItemId = tr.getAttribute("data-item-id");
+      renderCadastro();
+    });
+  });
+}
+
+function getSelectedItem(){
+  return (state.items || []).find(it => it.id === state.selectedItemId) || null;
+}
+
+function requireSelection(){
+  const it = getSelectedItem();
+  if (!it){
+    alert("Selecione um item na tabela primeiro.");
+    return null;
+  }
+  return it;
+}
+
+if (cadastroSearch){
+  cadastroSearch.addEventListener("input", () => {
+    state.cadastroQuery = cadastroSearch.value || "";
+    renderCadastro();
+  });
+}
+
+if (btnCadNew){
+  btnCadNew.addEventListener("click", () => {
+    openNewItem(() => { renderCadastro(); });
+  });
+}
+if (btnCadEdit){
+  btnCadEdit.addEventListener("click", () => {
+    const it = requireSelection();
+    if (!it) return;
+    openEditItem(it, () => { renderCadastro(); });
+  });
+}
+if (btnCadDup){
+  btnCadDup.addEventListener("click", async () => {
+    const it = requireSelection();
+    if (!it) return;
+    const isFg = state.stockMode === "fg";
+    const payload = isFg
+      ? { name: `${it.name} (cópia)`, unit: it.unit, minStock: it.minStock || 0, salePrice: it.salePrice || 0 }
+      : { name: `${it.name} (cópia)`, unit: it.unit, minStock: it.minStock || 0, cost: it.cost || 0, lossPercent: it.lossPercent || 0 };
+    await api(`/api/inventory/items?type=${state.stockMode}`, { method: "POST", body: JSON.stringify(payload) });
+    await loadInventory();
+    renderCadastro();
+  });
+}
+if (btnCadDel){
+  btnCadDel.addEventListener("click", async () => {
+    const it = requireSelection();
+    if (!it) return;
+    const ok = confirm(`Excluir o item "${it.name}"? (só é permitido se ele não tiver movimentações)`);
+    if (!ok) return;
+    try{
+      await api(`/api/inventory/items/${it.id}?type=${state.stockMode}`, { method: "DELETE" });
+    } catch (err){
+      if (err?.data?.error === "has_movements"){
+        alert("Não é possível excluir: este item já possui movimentações.");
+        return;
+      }
+      throw err;
+    }
+    state.selectedItemId = null;
+    await loadInventory();
+    renderCadastro();
+  });
+}
+
+function openPerdaHelp(){ window.open('/help/perda.html', '_blank', 'noopener,noreferrer'); }
+function openFcHelp(){ window.open('/help/fc.html', '_blank', 'noopener,noreferrer'); }
+
+function downloadText(filename, text){
+  const blob = new Blob([text], { type: "application/json;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+if (btnExport){
+  btnExport.addEventListener("click", () => {
+    const payload = { exportedAt: new Date().toISOString(), type: state.stockMode, items: state.items || [] };
+    const fname = state.stockMode === "fg" ? "produto_final_export.json" : "materia_prima_export.json";
+    downloadText(fname, JSON.stringify(payload, null, 2));
+  });
+}
+
+if (btnImport){
+  btnImport.addEventListener("click", async () => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "application/json";
+    input.onchange = async () => {
+      const file = input.files && input.files[0];
+      if (!file) return;
+      const text = await file.text();
+      let data;
+      try { data = JSON.parse(text); } catch { alert("Arquivo inválido (JSON)."); return; }
+      const list = Array.isArray(data.items) ? data.items : (Array.isArray(data) ? data : []);
+      if (!Array.isArray(list) || list.length === 0){ alert("Nada para importar."); return; }
+      // Import: cria itens (nome/un) e copia custo/min. Código será gerado automaticamente.
+      for (const it of list){
+        if (!it || !it.name || !it.unit) continue;
+        const isFgImport = state.stockMode === "fg";
+        const payload = isFgImport
+          ? { name: String(it.name), unit: String(it.unit), minStock: Number(it.minStock||0)||0, salePrice: Number(it.salePrice ?? it.sale_price ?? it.price ?? 0)||0 }
+          : { name: String(it.name), unit: String(it.unit), minStock: Number(it.minStock||0)||0, cost: Number(it.cost||0)||0, lossPercent: Number(it.lossPercent ?? it.loss_percent ?? 0)||0 };
+        await api(`/api/inventory/items?type=${state.stockMode}`, { method: "POST", body: JSON.stringify(payload) });
+      }
+      await loadInventory();
+      renderCadastro();
+      alert("Importação concluída.");
+    };
+    input.click();
+  });
+}
+

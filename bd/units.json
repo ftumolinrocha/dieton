@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "createdAt": "2026-01-18T21:47:05.194Z",
+    "updatedAt": "2026-01-18T21:47:05.195Z"
+  },
+  "units": [
+    {
+      "v": "kg",
+      "l": "kg (kilograma)"
+    },
+    {
+      "v": "un",
+      "l": "un (unidade)"
+    },
+    {
+      "v": "ml",
+      "l": "ml (mililitro)"
+    },
+    {
+      "v": "l",
+      "l": "l (litro)"
+    }
+  ]
+}

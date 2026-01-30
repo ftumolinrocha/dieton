@@ -1,0 +1,549 @@
+{
+  "meta": {
+    "createdAt": "2026-01-18T21:47:05.192Z",
+    "type": "fg",
+    "updatedAt": "2026-01-30T12:09:15.278Z"
+  },
+  "items": [
+    {
+      "id": "itm_df98b469-6a37-4b98-9e56-210c368e7b2e",
+      "code": "PF001",
+      "name": "Frango Cítrico & Arroz Perfumado",
+      "unit": "un",
+      "sku": "",
+      "type": "fg",
+      "minStock": 5,
+      "cost": 0,
+      "createdAt": "2026-01-18T22:13:47.267Z",
+      "salePrice": 21
+    },
+    {
+      "id": "itm_84f93753-d85f-46d8-bde0-cc9119d94be3",
+      "code": "PF002",
+      "name": "Patinho Chimichurri & Cabotiá Assada",
+      "unit": "UN",
+      "sku": "",
+      "type": "fg",
+      "minStock": 5,
+      "cost": 0,
+      "createdAt": "2026-01-18T22:13:47.267Z",
+      "salePrice": 0
+    },
+    {
+      "id": "itm_34f27b47-8e3d-458b-95d6-e220608a2e56",
+      "code": "PF003",
+      "name": "Tilápia Defumada & Cuscuz dos Pimentões",
+      "unit": "UN",
+      "sku": "",
+      "type": "fg",
+      "minStock": 0,
+      "cost": 0,
+      "createdAt": "2026-01-18T22:13:47.267Z",
+      "salePrice": 0
+    },
+    {
+      "id": "itm_bd719dd5-bfa9-4cd2-b269-694c897b7f7f",
+      "code": "PF004",
+      "name": "Frango Cremoso de Mussarela & Abobrinha",
+      "unit": "UN",
+      "sku": "",
+      "type": "fg",
+      "minStock": 0,
+      "cost": 0,
+      "createdAt": "2026-01-18T22:13:47.267Z",
+      "salePrice": 0
+    },
+    {
+      "id": "itm_68b13011-7648-4254-85a5-a802c59cc70c",
+      "code": "PF005",
+      "name": "Tilápia Crocante na Aveia & Purê de Mandioquinha",
+      "unit": "un",
+      "sku": "",
+      "type": "fg",
+      "minStock": 0,
+      "cost": 0,
+      "createdAt": "2026-01-18T22:13:47.267Z",
+      "salePrice": 0
+    },
+    {
+      "id": "itm_9ca406f1-adf7-4326-9b32-b4e38799f40a",
+      "code": "PF006",
+      "name": "Lagarto ao Molho de Cebola & Escarola",
+      "unit": "un",
+      "sku": "",
+      "type": "fg",
+      "minStock": 0,
+      "cost": 0,
+      "createdAt": "2026-01-18T22:13:47.267Z",
+      "salePrice": 0
+    },
+    {
+      "id": "itm_c38ace7f-a58c-445a-b38a-4772525149b0",
+      "code": "PF007",
+      "name": "Frango Shawarma & Batata Rústica",
+      "unit": "un",
+      "sku": "",
+      "type": "fg",
+      "minStock": 0,
+      "cost": 0,
+      "createdAt": "2026-01-18T22:13:47.267Z",
+      "salePrice": 0
+    },
+    {
+      "id": "itm_47539680-8bb7-4357-94d8-c9f301897211",
+      "code": "PF008",
+      "name": "Atum Selado & Arroz Integral com Cogumelos",
+      "unit": "un",
+      "sku": "",
+      "type": "fg",
+      "minStock": 0,
+      "cost": 0,
+      "createdAt": "2026-01-18T22:13:47.267Z",
+      "salePrice": 0
+    },
+    {
+      "id": "itm_a9bc1d82-e8f8-44c1-a85a-34b9fe51293d",
+      "code": "PF009",
+      "name": "Suíno Dijon & Cabotiá Dourada",
+      "unit": "un",
+      "sku": "",
+      "type": "fg",
+      "minStock": 0,
+      "cost": 0,
+      "createdAt": "2026-01-18T22:13:47.267Z",
+      "salePrice": 0
+    },
+    {
+      "id": "itm_5d1b88de-26b7-41bf-a761-da1f728ee843",
+      "code": "PF010",
+      "name": "Maminha da Brasa & Duo de Legumes",
+      "unit": "un",
+      "sku": "",
+      "type": "fg",
+      "minStock": 0,
+      "cost": 0,
+      "createdAt": "2026-01-18T22:13:47.267Z",
+      "salePrice": 0
+    },
+    {
+      "id": "itm_cf366718-c157-4c76-96f7-4fab42008cb1",
+      "code": "PF011",
+      "name": "Merluza ao Limão & Trio Verde com Champignon",
+      "unit": "un",
+      "sku": "",
+      "type": "fg",
+      "minStock": 0,
+      "cost": 0,
+      "createdAt": "2026-01-18T22:13:47.267Z",
+      "salePrice": 0
+    },
+    {
+      "id": "itm_9de2e9b3-b0d5-4066-9654-25ed50e06446",
+      "code": "PF012",
+      "name": "Suíno na Chapa & Espinafre Reduzido",
+      "unit": "un",
+      "sku": "",
+      "type": "fg",
+      "minStock": 0,
+      "cost": 0,
+      "createdAt": "2026-01-18T22:13:47.267Z",
+      "salePrice": 0
+    },
+    {
+      "id": "itm_1e49c544-1716-4cdd-a759-1b7f1b9c77b7",
+      "code": "PF013",
+      "name": "Ragú de Músculo & Noodles de Arroz",
+      "unit": "un",
+      "sku": "",
+      "type": "fg",
+      "minStock": 0,
+      "cost": 0,
+      "createdAt": "2026-01-18T22:13:47.267Z",
+      "salePrice": 0
+    },
+    {
+      "id": "itm_6ae44817-e28c-4ac6-ac8a-c02453fabac6",
+      "code": "PF014",
+      "name": "Strogonoff Fit de Patinho & Dueto de Carbos",
+      "unit": "un",
+      "sku": "",
+      "type": "fg",
+      "minStock": 0,
+      "cost": 0,
+      "createdAt": "2026-01-18T22:13:47.267Z",
+      "salePrice": 0
+    },
+    {
+      "id": "itm_f346945c-0433-4187-9254-3e21601a3fdd",
+      "code": "PF015",
+      "name": "Teriyaki de Frango & Cuscuz do Milho",
+      "unit": "un",
+      "sku": "",
+      "type": "fg",
+      "minStock": 0,
+      "cost": 0,
+      "createdAt": "2026-01-18T22:13:47.267Z",
+      "salePrice": 0
+    },
+    {
+      "id": "itm_2ef5ca2c-6be3-4392-b347-642bcca9512e",
+      "code": "PF016",
+      "name": "Moela Provençal & Arroz-Noodles com Escarola",
+      "unit": "un",
+      "sku": "",
+      "type": "fg",
+      "minStock": 0,
+      "cost": 0,
+      "createdAt": "2026-01-18T22:13:47.267Z",
+      "salePrice": 0
+    }
+  ],
+  "movements": [
+    {
+      "id": "mv_2eeac885-784d-4f2a-8340-7f6f0e00f9c6",
+      "type": "adjust",
+      "itemId": "itm_df98b469-6a37-4b98-9e56-210c368e7b2e",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:47.267Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_6146f406-fa19-406f-a933-82d39f63c839",
+      "type": "adjust",
+      "itemId": "itm_84f93753-d85f-46d8-bde0-cc9119d94be3",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:47.267Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_9eafc42e-4146-4343-9d29-29fed011a40f",
+      "type": "adjust",
+      "itemId": "itm_34f27b47-8e3d-458b-95d6-e220608a2e56",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:47.267Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_ad346ec3-d9aa-4b02-be73-79d1a753d49c",
+      "type": "adjust",
+      "itemId": "itm_bd719dd5-bfa9-4cd2-b269-694c897b7f7f",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:47.267Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_fc0c3a8b-6619-418e-ae18-c6e5fbb3419d",
+      "type": "adjust",
+      "itemId": "itm_68b13011-7648-4254-85a5-a802c59cc70c",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:47.267Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_862443b3-da4e-4396-8d2c-b72ebf0d6062",
+      "type": "adjust",
+      "itemId": "itm_9ca406f1-adf7-4326-9b32-b4e38799f40a",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:47.267Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_52bdb7ed-9720-4797-896a-590ac7468dc8",
+      "type": "adjust",
+      "itemId": "itm_c38ace7f-a58c-445a-b38a-4772525149b0",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:47.267Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_2795be92-4b39-467f-870f-d2e8ecffce83",
+      "type": "adjust",
+      "itemId": "itm_47539680-8bb7-4357-94d8-c9f301897211",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:47.267Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_2c27a0b0-f27e-4fb5-97bd-f6f63c135c35",
+      "type": "adjust",
+      "itemId": "itm_a9bc1d82-e8f8-44c1-a85a-34b9fe51293d",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:47.267Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_6fb8fbb5-0d1c-40a3-83ec-0a3474adc723",
+      "type": "adjust",
+      "itemId": "itm_5d1b88de-26b7-41bf-a761-da1f728ee843",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:47.267Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_e9bbbe86-2933-4695-8c3b-53cd1c535958",
+      "type": "adjust",
+      "itemId": "itm_cf366718-c157-4c76-96f7-4fab42008cb1",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:47.267Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_cbccf2cc-1be7-4d4f-8298-9bab9d7c3463",
+      "type": "adjust",
+      "itemId": "itm_9de2e9b3-b0d5-4066-9654-25ed50e06446",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:47.267Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_271a98fc-978f-4ba8-b1be-3db3cc54489f",
+      "type": "adjust",
+      "itemId": "itm_1e49c544-1716-4cdd-a759-1b7f1b9c77b7",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:47.267Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_1b4172d6-4a88-4d3f-bba5-7c99950534cb",
+      "type": "adjust",
+      "itemId": "itm_6ae44817-e28c-4ac6-ac8a-c02453fabac6",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:47.267Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_043fc18f-c4a3-491a-8c4a-86a39a47c8df",
+      "type": "adjust",
+      "itemId": "itm_f346945c-0433-4187-9254-3e21601a3fdd",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:47.267Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_decc0021-9688-411f-ba53-0aaaf23828e6",
+      "type": "adjust",
+      "itemId": "itm_2ef5ca2c-6be3-4392-b347-642bcca9512e",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:47.267Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_cd9b1ee1-1e13-4946-b62d-faf7d0f04253",
+      "type": "adjust",
+      "itemId": "itm_df98b469-6a37-4b98-9e56-210c368e7b2e",
+      "qty": 50,
+      "reason": "",
+      "at": "2026-01-28T19:45:45.749Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 7,
+      "afterQty": 50,
+      "delta": 43
+    },
+    {
+      "id": "mv_e00e3e10-60ab-439b-afc4-afe7a99f01d0",
+      "type": "adjust",
+      "itemId": "itm_84f93753-d85f-46d8-bde0-cc9119d94be3",
+      "qty": 50,
+      "reason": "",
+      "at": "2026-01-28T19:45:50.318Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 50,
+      "delta": 50
+    },
+    {
+      "id": "mv_97b4e176-afc4-4ddb-bae0-e6248ea462ee",
+      "type": "adjust",
+      "itemId": "itm_34f27b47-8e3d-458b-95d6-e220608a2e56",
+      "qty": 50,
+      "reason": "",
+      "at": "2026-01-28T19:46:48.107Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 50,
+      "delta": 50
+    },
+    {
+      "id": "mv_ccc7c93c-537b-408b-9cb1-a8d3204c8ee5",
+      "type": "adjust",
+      "itemId": "itm_df98b469-6a37-4b98-9e56-210c368e7b2e",
+      "qty": 0,
+      "reason": "",
+      "at": "2026-01-30T11:47:35.323Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 50,
+      "afterQty": 0,
+      "delta": -50
+    },
+    {
+      "id": "mv_91896ea3-cd38-4372-8207-5bf53d7a6cc5",
+      "type": "adjust",
+      "itemId": "itm_84f93753-d85f-46d8-bde0-cc9119d94be3",
+      "qty": 0,
+      "reason": "",
+      "at": "2026-01-30T11:47:40.582Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 50,
+      "afterQty": 0,
+      "delta": -50
+    },
+    {
+      "id": "mv_d81393f7-3580-4a51-8a00-621c20eb42ca",
+      "type": "adjust",
+      "itemId": "itm_34f27b47-8e3d-458b-95d6-e220608a2e56",
+      "qty": 0,
+      "reason": "",
+      "at": "2026-01-30T11:47:47.171Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 50,
+      "afterQty": 0,
+      "delta": -50
+    }
+  ]
+}

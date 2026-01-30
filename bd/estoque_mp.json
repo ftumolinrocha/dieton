@@ -1,0 +1,3911 @@
+{
+  "meta": {
+    "createdAt": "2026-01-18T21:47:05.190Z",
+    "type": "raw",
+    "updatedAt": "2026-01-30T15:32:46.203Z"
+  },
+  "items": [
+    {
+      "id": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+      "code": "MP001",
+      "name": "Arroz Branco Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 3,
+      "cost": 4.69,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 1,
+      "cookFactor": 2.6
+    },
+    {
+      "id": "itm_1e9f51ed-7c3c-496c-9f8a-052182d3ef8e",
+      "code": "MP002",
+      "name": "Macarrão Spaghetti Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 4.6,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 1,
+      "cookFactor": 2.5
+    },
+    {
+      "id": "itm_f72d7153-0cbd-4197-ab34-e60caf2da39f",
+      "code": "MP003",
+      "name": "Batata Doce Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 5,
+      "cost": 5,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 15,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_62ce6156-dad2-4110-bce4-24503a6dea6f",
+      "code": "MP004",
+      "name": "Batata Inglesa Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 5,
+      "cost": 5,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 20,
+      "cookFactor": 0.82
+    },
+    {
+      "id": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+      "code": "MP005",
+      "name": "Filé de Peito de Frango Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 3,
+      "cost": 25.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 1,
+      "cookFactor": 0.8
+    },
+    {
+      "id": "itm_d6e5ee7e-759c-4063-a079-fc4b15e553f4",
+      "code": "MP006",
+      "name": "Músculo Bovino Traseiro ou Dianteiro moído Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 3,
+      "cost": 28.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 1,
+      "cookFactor": 0.8
+    },
+    {
+      "id": "itm_3f4b0e20-ddeb-4183-8c31-e659cef007fd",
+      "code": "MP007",
+      "name": "Feijão Preto Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 5,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 1,
+      "cookFactor": 2.55
+    },
+    {
+      "id": "itm_3ed7d726-226c-4326-b4af-82d108d336bf",
+      "code": "MP008",
+      "name": "Arroz Integral Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 6,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 1,
+      "cookFactor": 2.7
+    },
+    {
+      "id": "itm_76554c05-be51-4f1a-ae6b-cefb10aa86e5",
+      "code": "MP009",
+      "name": "Abóbora Cabotiá Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 2.99,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 40,
+      "cookFactor": 0.85
+    },
+    {
+      "id": "itm_c04ec45d-5f95-4a15-be4a-8f0669b86d8d",
+      "code": "MP010",
+      "name": "Mandioca Descascada Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 3,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 30,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_1fb0016a-df3f-4585-b1ed-918d13cac24d",
+      "code": "MP011",
+      "name": "Filé Mignon Suíno Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 18,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 1,
+      "cookFactor": 0.72
+    },
+    {
+      "id": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+      "code": "MP012",
+      "name": "Tilápia Filé Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 3,
+      "cost": 40,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 1,
+      "cookFactor": 0.65
+    },
+    {
+      "id": "itm_57e52731-92c3-44df-85b7-f99b695d7e75",
+      "code": "MP013",
+      "name": "Brócolis Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 5.69,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 20,
+      "cookFactor": 0.9
+    },
+    {
+      "id": "itm_f93343a4-336a-4f0b-b3b8-ed12ae765510",
+      "code": "MP014",
+      "name": "Couve-Flor Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 12,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 35,
+      "cookFactor": 0.9
+    },
+    {
+      "id": "itm_53c8f284-5225-41e3-a4dc-7d69ff36cc0c",
+      "code": "MP015",
+      "name": "Abobrinha Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 7,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 8,
+      "cookFactor": 0.7
+    },
+    {
+      "id": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+      "code": "MP016",
+      "name": "Cebola Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 3.59,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 10,
+      "cookFactor": 0.65
+    },
+    {
+      "id": "itm_e75b4c41-ab42-401e-9c1e-318fced4d946",
+      "code": "MP017",
+      "name": "Quiabo Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 12,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 8,
+      "cookFactor": 0.82
+    },
+    {
+      "id": "itm_39c00e19-e691-4385-83a7-0f7d534c648b",
+      "code": "MP018",
+      "name": "Pepino Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 1,
+      "cost": 5.98,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 12,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+      "code": "MP019",
+      "name": "Alho Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 22,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 0,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+      "code": "MP020",
+      "name": "Sal Refinado",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 10,
+      "cost": 5,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 3,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_0fe3c168-006c-4161-b22c-5739e246c5ed",
+      "code": "MP021",
+      "name": "Escarola Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 1,
+      "cost": 17.5,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 20,
+      "cookFactor": 0.4
+    },
+    {
+      "id": "itm_f3b14c65-4f85-44ac-81db-479d7b20fce1",
+      "code": "MP022",
+      "name": "Chicória Crua",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 1,
+      "cost": 17.5,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 20,
+      "cookFactor": 0.4
+    },
+    {
+      "id": "itm_92cc318e-9717-4bd2-a73a-aa612a5f9959",
+      "code": "MP023",
+      "name": "Couve-manteiga Crua",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 5,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 15,
+      "cookFactor": 0.45
+    },
+    {
+      "id": "itm_e907bec3-4373-4be3-bb3f-2139ed4640ae",
+      "code": "MP024",
+      "name": "Queijo Tipo Mussarela Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 3,
+      "cost": 56.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 0,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_65b6664b-6278-4e95-bdc9-4d195c08ddf8",
+      "code": "MP025",
+      "name": "Ovo",
+      "unit": "un",
+      "sku": "",
+      "type": "raw",
+      "minStock": 50,
+      "cost": 0.8,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 0,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_046b7ad0-e7dd-4815-a372-007700f67855",
+      "code": "MP026",
+      "name": "Patinho Bovino Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 3,
+      "cost": 32.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 1,
+      "cookFactor": 0.8
+    },
+    {
+      "id": "itm_d12dc32e-3ba8-4559-8cc6-19074d57c627",
+      "code": "MP027",
+      "name": "Lagarto Bovino Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 3,
+      "cost": 31.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 1,
+      "cookFactor": 0.78
+    },
+    {
+      "id": "itm_14914e91-edd8-4764-86b8-158dd25dcf06",
+      "code": "MP028",
+      "name": "Maminha Bovina Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 3,
+      "cost": 34.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 1,
+      "cookFactor": 0.78
+    },
+    {
+      "id": "itm_3a29a0dc-6d9b-4740-b7ee-f3940eaf0cbc",
+      "code": "MP029",
+      "name": "Moela de Frango Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 14.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 5,
+      "cookFactor": 0.7
+    },
+    {
+      "id": "itm_9e6663db-4ec0-4481-8158-52e6fe48ec4e",
+      "code": "MP030",
+      "name": "Merluza Filé Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 3,
+      "cost": 24.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 1,
+      "cookFactor": 0.82
+    },
+    {
+      "id": "itm_42c51570-7070-4fb6-84de-33dad7076c80",
+      "code": "MP031",
+      "name": "Atum Filé Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 49.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 1,
+      "cookFactor": 0.85
+    },
+    {
+      "id": "itm_49b5d383-ece8-4abc-8e21-85272e96c668",
+      "code": "MP032",
+      "name": "Cuscuz de Milho Flocão Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 6.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 1,
+      "cookFactor": 2.4
+    },
+    {
+      "id": "itm_d046c528-330a-42f3-9723-d25759ddbcdc",
+      "code": "MP033",
+      "name": "Macarrão de Arroz Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 12.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 1,
+      "cookFactor": 2.3
+    },
+    {
+      "id": "itm_651d3d5e-cc7e-401e-ae67-22fe599a337e",
+      "code": "MP034",
+      "name": "Mandioquinha (Batata Baroa) Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 7.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 20,
+      "cookFactor": 0.95
+    },
+    {
+      "id": "itm_e5cefadb-9838-4672-a7b3-8c71e6442944",
+      "code": "MP035",
+      "name": "Milho Verde Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 4.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 15,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_0f5f0c31-107c-4db5-a789-60f58b6096e8",
+      "code": "MP036",
+      "name": "Aveia em Flocos Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 8.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 1,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_3886ba98-d629-43b0-8c96-da7da8bd4656",
+      "code": "MP037",
+      "name": "Espinafre Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 6.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 40,
+      "cookFactor": 0.2
+    },
+    {
+      "id": "itm_f509fb5e-4254-42b4-a85b-bf45612c9940",
+      "code": "MP038",
+      "name": "Repolho Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 3.5,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 15,
+      "cookFactor": 0.9
+    },
+    {
+      "id": "itm_a11ca27e-8adc-4531-b0de-2ff1827acfed",
+      "code": "MP039",
+      "name": "Pimentão Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 7.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 25,
+      "cookFactor": 0.9
+    },
+    {
+      "id": "itm_336a302f-386f-40f2-a002-9ad1599c9ede",
+      "code": "MP040",
+      "name": "Rúcula Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 1,
+      "cost": 8.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 30,
+      "cookFactor": 0.8
+    },
+    {
+      "id": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+      "code": "MP041",
+      "name": "Azeite de Oliva Extra Virgem",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 1,
+      "cost": 38.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 0,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+      "code": "MP042",
+      "name": "Creme de Leite Tradicional (Integral)",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 1,
+      "cost": 14.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 0,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_8e4b237f-5b65-4d53-a5f5-c27cca08b486",
+      "code": "MP043",
+      "name": "Shoyu Light",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 1,
+      "cost": 9.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 0,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_369db651-8068-49ab-81d1-9c65616a33d2",
+      "code": "MP044",
+      "name": "Mostarda",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 1,
+      "cost": 7.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 0,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_76697b2c-546c-4207-82b8-9c2bdb39b6c3",
+      "code": "MP045",
+      "name": "Músculo Bovino Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 4,
+      "cost": 29.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 1,
+      "cookFactor": 0.8
+    },
+    {
+      "id": "itm_731cac33-da2b-4773-ad6e-9f24f9cd426c",
+      "code": "MP046",
+      "name": "Berinjela Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 5.5,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 20,
+      "cookFactor": 0.8
+    },
+    {
+      "id": "itm_bb84c43e-830a-416d-85e7-bf76c5075e8f",
+      "code": "MP047",
+      "name": "Tomate Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 3,
+      "cost": 6.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 15,
+      "cookFactor": 0.9
+    },
+    {
+      "id": "itm_a7eeff24-f91a-4aaf-bcc1-49eb47d20679",
+      "code": "MP048",
+      "name": "Cogumelo Paris Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 19.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 10,
+      "cookFactor": 0.85
+    },
+    {
+      "id": "itm_9e4c83eb-6303-40df-a0e8-a7e36770d218",
+      "code": "MP049",
+      "name": "Champignon Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 2,
+      "cost": 18.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 10,
+      "cookFactor": 0.85
+    },
+    {
+      "id": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+      "code": "MP050",
+      "name": "Pimenta-do-Reino Moída",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 1,
+      "cost": 89.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 0,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_f2194f5f-39e5-4645-b9e8-0140ad1b7061",
+      "code": "MP052",
+      "name": "Chimichurri Seco",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 1,
+      "cost": 39.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 0,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_e982b492-7cf5-41a1-afa7-20cb99a69192",
+      "code": "MP053",
+      "name": "Cominho Moído",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 1,
+      "cost": 36.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 0,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+      "code": "MP054",
+      "name": "Orégano Seco",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 1,
+      "cost": 34.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 0,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_385c2723-d8da-4937-8ee1-a9b5ea4850b4",
+      "code": "MP055",
+      "name": "Alecrim Seco",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 1,
+      "cost": 49.9,
+      "createdAt": "2026-01-18T22:13:38.480Z",
+      "lossPercent": 0,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+      "code": "MP051",
+      "name": "Páprica Doce",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 1,
+      "cost": 42.9,
+      "createdAt": "2026-01-19T00:21:20.545Z",
+      "lossPercent": 0,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+      "code": "MP056",
+      "name": "Limão Tahiti Cru",
+      "unit": "kg",
+      "sku": "",
+      "type": "raw",
+      "minStock": 3,
+      "cost": 4.9,
+      "createdAt": "2026-01-19T00:21:20.545Z",
+      "lossPercent": 15,
+      "cookFactor": 1
+    },
+    {
+      "id": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+      "code": "MP057",
+      "name": "Embalagem PP 800ml com Tampa",
+      "unit": "un",
+      "sku": "",
+      "type": "raw",
+      "minStock": 200,
+      "cost": 2.62,
+      "createdAt": "2026-01-19T00:21:20.545Z",
+      "lossPercent": 0,
+      "cookFactor": 1
+    }
+  ],
+  "movements": [
+    {
+      "id": "mv_ec5f1b73-411e-42f0-8397-59b3e8e8f8ac",
+      "type": "adjust",
+      "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_f57c46cb-bd6b-4ba9-99b8-e0d47ceba83d",
+      "type": "adjust",
+      "itemId": "itm_1e9f51ed-7c3c-496c-9f8a-052182d3ef8e",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_1f7288e3-d8d6-4169-b25b-0d9bf27916c6",
+      "type": "adjust",
+      "itemId": "itm_f72d7153-0cbd-4197-ab34-e60caf2da39f",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_10a559dd-4f9f-4794-b4c6-2a669fef2c42",
+      "type": "adjust",
+      "itemId": "itm_62ce6156-dad2-4110-bce4-24503a6dea6f",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_b3e6c8e1-9c29-4510-962e-caebde606cc1",
+      "type": "adjust",
+      "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_fc897923-21d9-4f0d-8608-e768485cf199",
+      "type": "adjust",
+      "itemId": "itm_d6e5ee7e-759c-4063-a079-fc4b15e553f4",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_5bea7614-b718-46cf-868a-86b710155719",
+      "type": "adjust",
+      "itemId": "itm_3f4b0e20-ddeb-4183-8c31-e659cef007fd",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_b8d1e656-6b4e-4333-b106-a8b47898eef2",
+      "type": "adjust",
+      "itemId": "itm_3ed7d726-226c-4326-b4af-82d108d336bf",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_5a1624d8-b897-4c0e-8ee4-684d1a9c7cc2",
+      "type": "adjust",
+      "itemId": "itm_76554c05-be51-4f1a-ae6b-cefb10aa86e5",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_f808509b-53e5-4b88-b404-d76fbb55888c",
+      "type": "adjust",
+      "itemId": "itm_c04ec45d-5f95-4a15-be4a-8f0669b86d8d",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_56d94a4d-19ad-40fc-ba91-579286fe771a",
+      "type": "adjust",
+      "itemId": "itm_1fb0016a-df3f-4585-b1ed-918d13cac24d",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_68e7466b-d908-44c9-a1c3-dd093e1fc3ab",
+      "type": "adjust",
+      "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_c4962d3e-e894-489b-b894-10c1fe25e740",
+      "type": "adjust",
+      "itemId": "itm_57e52731-92c3-44df-85b7-f99b695d7e75",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_4291c3c2-abe9-4700-872e-9d6334b14152",
+      "type": "adjust",
+      "itemId": "itm_f93343a4-336a-4f0b-b3b8-ed12ae765510",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_b6fde333-92c7-4d12-8866-f23988ebf87a",
+      "type": "adjust",
+      "itemId": "itm_53c8f284-5225-41e3-a4dc-7d69ff36cc0c",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_e8667b78-a99b-4ca1-a179-d93ac68437cd",
+      "type": "adjust",
+      "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_583dc4d1-26f8-454c-854a-161bdd4ed6c8",
+      "type": "adjust",
+      "itemId": "itm_e75b4c41-ab42-401e-9c1e-318fced4d946",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_8dc8c3ad-1dc2-43e1-b2d4-60c6362cdfd5",
+      "type": "adjust",
+      "itemId": "itm_39c00e19-e691-4385-83a7-0f7d534c648b",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_6c0f84ea-6fbe-4c12-970e-e2d559b38557",
+      "type": "adjust",
+      "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_b48c2814-d402-4726-9d65-2f82c23cd471",
+      "type": "adjust",
+      "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_13946b59-8e99-453e-9871-dfd72041f4f0",
+      "type": "adjust",
+      "itemId": "itm_0fe3c168-006c-4161-b22c-5739e246c5ed",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_11fbe0ad-8084-4c2e-972c-2b0327c3a200",
+      "type": "adjust",
+      "itemId": "itm_f3b14c65-4f85-44ac-81db-479d7b20fce1",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_545edcbb-1da3-4f5a-96a0-a0c695970ef1",
+      "type": "adjust",
+      "itemId": "itm_92cc318e-9717-4bd2-a73a-aa612a5f9959",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_3b05685c-8a87-4382-a6ec-1e2fbb8ccaa7",
+      "type": "adjust",
+      "itemId": "itm_e907bec3-4373-4be3-bb3f-2139ed4640ae",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_0c22991d-64dd-422a-baea-bc5d1e4984d3",
+      "type": "adjust",
+      "itemId": "itm_65b6664b-6278-4e95-bdc9-4d195c08ddf8",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_ba864b12-ff86-4443-ab25-467480c85759",
+      "type": "adjust",
+      "itemId": "itm_046b7ad0-e7dd-4815-a372-007700f67855",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_012ebbea-b9cd-42ed-88d1-d37cecc91e1b",
+      "type": "adjust",
+      "itemId": "itm_d12dc32e-3ba8-4559-8cc6-19074d57c627",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_2e3724dd-0602-49bc-b799-998061fe6ba6",
+      "type": "adjust",
+      "itemId": "itm_14914e91-edd8-4764-86b8-158dd25dcf06",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_5b7672ad-8a25-4903-9901-ea82f34b9dd5",
+      "type": "adjust",
+      "itemId": "itm_3a29a0dc-6d9b-4740-b7ee-f3940eaf0cbc",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_68597b92-27c6-462a-9d0c-4dd1527f054c",
+      "type": "adjust",
+      "itemId": "itm_9e6663db-4ec0-4481-8158-52e6fe48ec4e",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_b451d64a-fd7f-400c-a804-13d36e3a834c",
+      "type": "adjust",
+      "itemId": "itm_42c51570-7070-4fb6-84de-33dad7076c80",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.480Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_29b27a9f-1656-4a72-b8d0-34154c5c1736",
+      "type": "adjust",
+      "itemId": "itm_49b5d383-ece8-4abc-8e21-85272e96c668",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_70cc79d5-71e6-4a89-b4ad-5317e37c4e13",
+      "type": "adjust",
+      "itemId": "itm_d046c528-330a-42f3-9723-d25759ddbcdc",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_b9351dce-24bb-419e-bd58-874a8c1b3de0",
+      "type": "adjust",
+      "itemId": "itm_651d3d5e-cc7e-401e-ae67-22fe599a337e",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_446f5584-4432-44d2-b69e-71363e0c73f8",
+      "type": "adjust",
+      "itemId": "itm_e5cefadb-9838-4672-a7b3-8c71e6442944",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_035270d3-0196-45f8-ab01-aaea9da15cfd",
+      "type": "adjust",
+      "itemId": "itm_0f5f0c31-107c-4db5-a789-60f58b6096e8",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_a772f444-4b1d-4395-b4d5-e337672cc4a8",
+      "type": "adjust",
+      "itemId": "itm_3886ba98-d629-43b0-8c96-da7da8bd4656",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_24ee77c5-b7cf-4e64-82fa-022c9a748ab1",
+      "type": "adjust",
+      "itemId": "itm_f509fb5e-4254-42b4-a85b-bf45612c9940",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_91bd4703-81d8-424f-ade8-fb94bd5a3794",
+      "type": "adjust",
+      "itemId": "itm_a11ca27e-8adc-4531-b0de-2ff1827acfed",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_d3f478e6-f8f7-4dd1-915d-39331867e315",
+      "type": "adjust",
+      "itemId": "itm_336a302f-386f-40f2-a002-9ad1599c9ede",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_5385e339-fd9e-461e-99f4-e0d52b81e7b3",
+      "type": "adjust",
+      "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_2bcff21c-249b-4d10-a2e1-9e2d4aa02411",
+      "type": "adjust",
+      "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_d4b5352e-f210-4978-900e-9df8efd79cf1",
+      "type": "adjust",
+      "itemId": "itm_8e4b237f-5b65-4d53-a5f5-c27cca08b486",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_31b0dec9-7a96-447e-8083-1af9bcbeb9da",
+      "type": "adjust",
+      "itemId": "itm_369db651-8068-49ab-81d1-9c65616a33d2",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_f56e528d-999b-4008-8475-8e86823e5760",
+      "type": "adjust",
+      "itemId": "itm_76697b2c-546c-4207-82b8-9c2bdb39b6c3",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_b982a2f5-9ca3-434f-a26b-3e71a44c03af",
+      "type": "adjust",
+      "itemId": "itm_731cac33-da2b-4773-ad6e-9f24f9cd426c",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_36d32ad6-fefd-4b78-ac57-67ab6275ff80",
+      "type": "adjust",
+      "itemId": "itm_bb84c43e-830a-416d-85e7-bf76c5075e8f",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_05a54d8c-0351-4cd8-a9a2-2037f12bdae5",
+      "type": "adjust",
+      "itemId": "itm_a7eeff24-f91a-4aaf-bcc1-49eb47d20679",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_b54b63b5-5b02-41fb-8bdd-65583aeed61a",
+      "type": "adjust",
+      "itemId": "itm_9e4c83eb-6303-40df-a0e8-a7e36770d218",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_9c6dbc37-b153-4722-8aeb-c750b4e5feb5",
+      "type": "adjust",
+      "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_7a5ebeab-60f3-4634-8db0-c4c4d82d591f",
+      "type": "adjust",
+      "itemId": "itm_f2194f5f-39e5-4645-b9e8-0140ad1b7061",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_5584b378-3558-49cc-94db-100628396e48",
+      "type": "adjust",
+      "itemId": "itm_e982b492-7cf5-41a1-afa7-20cb99a69192",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_c976b306-d658-4f29-abb2-a7f1f0ec0a57",
+      "type": "adjust",
+      "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_a1f7b5a2-a513-48f6-9823-1647c55923ae",
+      "type": "adjust",
+      "itemId": "itm_385c2723-d8da-4937-8ee1-a9b5ea4850b4",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T22:13:38.481Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0,
+      "hiddenFromHistory": true
+    },
+    {
+      "id": "mv_821c309a-11ba-4570-914a-15a4b05d5b15",
+      "type": "adjust",
+      "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.235Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_8bdcebfa-6086-4990-bee6-3e65caf0bf46",
+      "type": "adjust",
+      "itemId": "itm_1e9f51ed-7c3c-496c-9f8a-052182d3ef8e",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.235Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_48f43b30-b9ec-4c45-8363-cc29ec5cef76",
+      "type": "adjust",
+      "itemId": "itm_f72d7153-0cbd-4197-ab34-e60caf2da39f",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.235Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_42f23fb3-d39d-4764-99cf-5eda1e8dd3e9",
+      "type": "adjust",
+      "itemId": "itm_62ce6156-dad2-4110-bce4-24503a6dea6f",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.235Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_50ef150f-dc55-420a-afec-87403563506b",
+      "type": "adjust",
+      "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_50fe53e1-8cd6-4c8e-b64b-49aae3ee8b35",
+      "type": "adjust",
+      "itemId": "itm_d6e5ee7e-759c-4063-a079-fc4b15e553f4",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_f52b0917-6268-4b81-ae6f-2c9f4094ecdb",
+      "type": "adjust",
+      "itemId": "itm_3f4b0e20-ddeb-4183-8c31-e659cef007fd",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_f5e5a41b-2bf3-4491-89ed-fd817174c8d9",
+      "type": "adjust",
+      "itemId": "itm_3ed7d726-226c-4326-b4af-82d108d336bf",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_3b457737-edde-4fa5-a273-835b545fd6f8",
+      "type": "adjust",
+      "itemId": "itm_76554c05-be51-4f1a-ae6b-cefb10aa86e5",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_f950ef44-96af-47b8-bb19-ec6d362abd0b",
+      "type": "adjust",
+      "itemId": "itm_c04ec45d-5f95-4a15-be4a-8f0669b86d8d",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_49cdc886-4208-4c96-beab-73eca5d33243",
+      "type": "adjust",
+      "itemId": "itm_1fb0016a-df3f-4585-b1ed-918d13cac24d",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_25c3a0b0-41dd-4554-bec0-d503c868a755",
+      "type": "adjust",
+      "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_6ff327eb-278d-4922-9afa-b73254f8d51c",
+      "type": "adjust",
+      "itemId": "itm_57e52731-92c3-44df-85b7-f99b695d7e75",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_2b719c2d-4670-4f15-af3c-04422693d21e",
+      "type": "adjust",
+      "itemId": "itm_f93343a4-336a-4f0b-b3b8-ed12ae765510",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_70fffa25-4125-4d6e-8202-26fab35a98e2",
+      "type": "adjust",
+      "itemId": "itm_53c8f284-5225-41e3-a4dc-7d69ff36cc0c",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_2634f494-65a6-4216-8812-60dafb7a7fde",
+      "type": "adjust",
+      "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_bf00f84f-a426-4d57-9b1a-1ec8ab5cfa89",
+      "type": "adjust",
+      "itemId": "itm_e75b4c41-ab42-401e-9c1e-318fced4d946",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_f9bb70af-e119-4dd8-a5d1-b43cf126ac16",
+      "type": "adjust",
+      "itemId": "itm_39c00e19-e691-4385-83a7-0f7d534c648b",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_bbe4bb04-6055-4486-9bc0-0a6d7626ebba",
+      "type": "adjust",
+      "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_b9ddc2dc-99aa-4947-b51c-5fcfef8d928d",
+      "type": "adjust",
+      "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_dd227ba3-4cbf-4001-896a-bf273b23423f",
+      "type": "adjust",
+      "itemId": "itm_0fe3c168-006c-4161-b22c-5739e246c5ed",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_923d8402-6a9f-419f-8237-590edb793b7e",
+      "type": "adjust",
+      "itemId": "itm_f3b14c65-4f85-44ac-81db-479d7b20fce1",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_9ee83338-575e-4933-8b34-43ec717071ee",
+      "type": "adjust",
+      "itemId": "itm_92cc318e-9717-4bd2-a73a-aa612a5f9959",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_d88da8d9-39b9-407a-b32d-034768d3f9f9",
+      "type": "adjust",
+      "itemId": "itm_e907bec3-4373-4be3-bb3f-2139ed4640ae",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_a7ba0459-78c8-4525-bfad-f942c1992364",
+      "type": "adjust",
+      "itemId": "itm_65b6664b-6278-4e95-bdc9-4d195c08ddf8",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_8d88f865-e032-44ad-92db-154a9cfe757c",
+      "type": "adjust",
+      "itemId": "itm_046b7ad0-e7dd-4815-a372-007700f67855",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_fa19cc89-ff70-476a-8512-269ef918cf26",
+      "type": "adjust",
+      "itemId": "itm_d12dc32e-3ba8-4559-8cc6-19074d57c627",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_1a3a0972-ccc1-4623-81a8-b54a98d88c6b",
+      "type": "adjust",
+      "itemId": "itm_14914e91-edd8-4764-86b8-158dd25dcf06",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_f5c17c4e-fcea-4d31-82dc-49205c6c34c5",
+      "type": "adjust",
+      "itemId": "itm_3a29a0dc-6d9b-4740-b7ee-f3940eaf0cbc",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_a57a3e92-ab42-4b0b-ab29-101e4df78971",
+      "type": "adjust",
+      "itemId": "itm_9e6663db-4ec0-4481-8158-52e6fe48ec4e",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_78646c66-7b08-4dd6-a82a-b3445a4e18cc",
+      "type": "adjust",
+      "itemId": "itm_42c51570-7070-4fb6-84de-33dad7076c80",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.236Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_ba284354-0ce8-43a9-918c-f916725600ca",
+      "type": "adjust",
+      "itemId": "itm_49b5d383-ece8-4abc-8e21-85272e96c668",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.237Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_6a25bf50-4d94-490b-b82a-9b06510b6fd9",
+      "type": "adjust",
+      "itemId": "itm_d046c528-330a-42f3-9723-d25759ddbcdc",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.237Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_c2f865b8-b08c-48eb-8733-dbbdc7d741cf",
+      "type": "adjust",
+      "itemId": "itm_651d3d5e-cc7e-401e-ae67-22fe599a337e",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.237Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_4a5c0448-13e8-44b7-966f-d4625be0eae1",
+      "type": "adjust",
+      "itemId": "itm_e5cefadb-9838-4672-a7b3-8c71e6442944",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.237Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_1feb949c-fe97-4ad3-b67a-659d210c0561",
+      "type": "adjust",
+      "itemId": "itm_0f5f0c31-107c-4db5-a789-60f58b6096e8",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.237Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_8cf25ee8-0707-4bcd-b0df-f456c7e9f192",
+      "type": "adjust",
+      "itemId": "itm_3886ba98-d629-43b0-8c96-da7da8bd4656",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.237Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_e4708e0f-7101-4ff6-b457-0ae6dafa859e",
+      "type": "adjust",
+      "itemId": "itm_f509fb5e-4254-42b4-a85b-bf45612c9940",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.237Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_bdbfbd96-2fa9-496b-9254-1bf5f6b0d6f7",
+      "type": "adjust",
+      "itemId": "itm_a11ca27e-8adc-4531-b0de-2ff1827acfed",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.237Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_8d559285-f176-4b60-9ab7-2776fb13f4f6",
+      "type": "adjust",
+      "itemId": "itm_336a302f-386f-40f2-a002-9ad1599c9ede",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.237Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_13a4ed2c-4918-4670-9bc8-6d10ae49ac5b",
+      "type": "adjust",
+      "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.237Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_80ec4493-1d99-4c6a-8538-bef1f1c7fdea",
+      "type": "adjust",
+      "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.237Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_9680a9dd-b7ba-4d41-b616-9ac4e3fba844",
+      "type": "adjust",
+      "itemId": "itm_8e4b237f-5b65-4d53-a5f5-c27cca08b486",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.237Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_6f786609-1660-448c-a573-6bd8759b8744",
+      "type": "adjust",
+      "itemId": "itm_369db651-8068-49ab-81d1-9c65616a33d2",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.237Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_9eb68dd4-da64-4376-bf83-0cad87992422",
+      "type": "adjust",
+      "itemId": "itm_76697b2c-546c-4207-82b8-9c2bdb39b6c3",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.237Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_6ff8cef2-7811-4846-8ee2-a882c809eab8",
+      "type": "adjust",
+      "itemId": "itm_731cac33-da2b-4773-ad6e-9f24f9cd426c",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.237Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_af88d5e2-f81d-403e-954f-d6eea30f0e28",
+      "type": "adjust",
+      "itemId": "itm_bb84c43e-830a-416d-85e7-bf76c5075e8f",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.237Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_b900a67c-7555-4111-9a2b-25abb8539648",
+      "type": "adjust",
+      "itemId": "itm_a7eeff24-f91a-4aaf-bcc1-49eb47d20679",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-18T23:42:18.237Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_fe2f8597-e6aa-4b71-b646-a1f7ef017f87",
+      "type": "adjust",
+      "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.770Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_96010dad-a9f0-4ad1-9264-0723f30aba4b",
+      "type": "adjust",
+      "itemId": "itm_1e9f51ed-7c3c-496c-9f8a-052182d3ef8e",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.770Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_d0f40df8-d197-4b89-8aed-0488c240d125",
+      "type": "adjust",
+      "itemId": "itm_f72d7153-0cbd-4197-ab34-e60caf2da39f",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.770Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_371bb249-36a3-4ef4-bed8-66dedadaa6f5",
+      "type": "adjust",
+      "itemId": "itm_62ce6156-dad2-4110-bce4-24503a6dea6f",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_9d6f4956-384e-4745-8d08-1d66a1ae1a9e",
+      "type": "adjust",
+      "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_f8cefe27-74ca-40d9-981b-597e0170f33e",
+      "type": "adjust",
+      "itemId": "itm_d6e5ee7e-759c-4063-a079-fc4b15e553f4",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_f6c5f165-66bc-4eb9-bfb7-735253e6e341",
+      "type": "adjust",
+      "itemId": "itm_3f4b0e20-ddeb-4183-8c31-e659cef007fd",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_9e1c25c8-ff33-4c9c-84cc-190469af0221",
+      "type": "adjust",
+      "itemId": "itm_3ed7d726-226c-4326-b4af-82d108d336bf",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_2046bc2c-21db-421b-a450-13098e7a4531",
+      "type": "adjust",
+      "itemId": "itm_76554c05-be51-4f1a-ae6b-cefb10aa86e5",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_5c45205e-7d94-482b-80b4-94a837726be7",
+      "type": "adjust",
+      "itemId": "itm_c04ec45d-5f95-4a15-be4a-8f0669b86d8d",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_1411e566-05be-4dd8-864d-e869037168d6",
+      "type": "adjust",
+      "itemId": "itm_1fb0016a-df3f-4585-b1ed-918d13cac24d",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_0eac8fcc-138f-484e-8f8e-4f3519c78d4c",
+      "type": "adjust",
+      "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_c1767cc4-3edf-4028-9b0c-6b961a3ec964",
+      "type": "adjust",
+      "itemId": "itm_57e52731-92c3-44df-85b7-f99b695d7e75",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_1ba9da80-0b0f-40c4-b687-67f2cb9d90bf",
+      "type": "adjust",
+      "itemId": "itm_f93343a4-336a-4f0b-b3b8-ed12ae765510",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_7f471f63-fd71-49c0-b6ef-295e51588398",
+      "type": "adjust",
+      "itemId": "itm_53c8f284-5225-41e3-a4dc-7d69ff36cc0c",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_6fbb70e7-a244-4e81-8bb2-e89ec67492a5",
+      "type": "adjust",
+      "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_787d5182-4c6e-417c-9c8f-2d173ade27be",
+      "type": "adjust",
+      "itemId": "itm_e75b4c41-ab42-401e-9c1e-318fced4d946",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_2229431d-3a5d-4dfd-983b-0ab16ee08242",
+      "type": "adjust",
+      "itemId": "itm_39c00e19-e691-4385-83a7-0f7d534c648b",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_d331b385-0670-44d7-9c8c-c0964f650452",
+      "type": "adjust",
+      "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_3b54232f-e2c5-40a4-8903-2666df442aad",
+      "type": "adjust",
+      "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_6090911f-a094-46bd-9106-cc0e59af69dc",
+      "type": "adjust",
+      "itemId": "itm_0fe3c168-006c-4161-b22c-5739e246c5ed",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_36baddca-886f-47e8-a43d-c9a360a5e3c1",
+      "type": "adjust",
+      "itemId": "itm_f3b14c65-4f85-44ac-81db-479d7b20fce1",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_b8a4601e-6f43-4c90-bc54-fc9e7e6bd289",
+      "type": "adjust",
+      "itemId": "itm_92cc318e-9717-4bd2-a73a-aa612a5f9959",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_4197f70a-b772-430c-a56d-5e1ad24f99a6",
+      "type": "adjust",
+      "itemId": "itm_e907bec3-4373-4be3-bb3f-2139ed4640ae",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_204c58d0-937d-4642-b7b1-a6e1a0dffdf6",
+      "type": "adjust",
+      "itemId": "itm_65b6664b-6278-4e95-bdc9-4d195c08ddf8",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_d8af1dae-d3cb-4a2a-addc-6ae11076d5c8",
+      "type": "adjust",
+      "itemId": "itm_046b7ad0-e7dd-4815-a372-007700f67855",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_3c3d189b-d238-4459-ae21-52564a79c3c7",
+      "type": "adjust",
+      "itemId": "itm_d12dc32e-3ba8-4559-8cc6-19074d57c627",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_88acf1cf-48bb-47fe-bdcd-8b8d1fdebaad",
+      "type": "adjust",
+      "itemId": "itm_14914e91-edd8-4764-86b8-158dd25dcf06",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.771Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_51183069-ad6b-4497-9caa-56c8f1c73fa8",
+      "type": "adjust",
+      "itemId": "itm_3a29a0dc-6d9b-4740-b7ee-f3940eaf0cbc",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_8b086aa3-3607-4307-ab47-c6cea176943a",
+      "type": "adjust",
+      "itemId": "itm_9e6663db-4ec0-4481-8158-52e6fe48ec4e",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_0ad7e58d-3cb4-47b2-941c-e41c426e5534",
+      "type": "adjust",
+      "itemId": "itm_42c51570-7070-4fb6-84de-33dad7076c80",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_ad35f86c-82cf-4fed-98b1-92f62bd0e31a",
+      "type": "adjust",
+      "itemId": "itm_49b5d383-ece8-4abc-8e21-85272e96c668",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_35b161fa-87d3-4524-b553-b8abc6083b5f",
+      "type": "adjust",
+      "itemId": "itm_d046c528-330a-42f3-9723-d25759ddbcdc",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_fd315aec-8d8c-4881-be3a-3f01cab2e74b",
+      "type": "adjust",
+      "itemId": "itm_651d3d5e-cc7e-401e-ae67-22fe599a337e",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_65431f57-7296-4667-ad2f-0aabe5bb7de6",
+      "type": "adjust",
+      "itemId": "itm_e5cefadb-9838-4672-a7b3-8c71e6442944",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_372a62fe-daee-42b6-b6a5-09bb4799d43c",
+      "type": "adjust",
+      "itemId": "itm_0f5f0c31-107c-4db5-a789-60f58b6096e8",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_82e60c99-806a-4ec9-af21-7640763a037e",
+      "type": "adjust",
+      "itemId": "itm_3886ba98-d629-43b0-8c96-da7da8bd4656",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_22b4d0bf-d4d8-44ee-bd7f-e5f266adfeff",
+      "type": "adjust",
+      "itemId": "itm_f509fb5e-4254-42b4-a85b-bf45612c9940",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_2dabebd8-50d9-4779-a754-91b7b7050c1f",
+      "type": "adjust",
+      "itemId": "itm_a11ca27e-8adc-4531-b0de-2ff1827acfed",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_f0230af7-8d66-4ec5-b09a-f079f84ddff5",
+      "type": "adjust",
+      "itemId": "itm_336a302f-386f-40f2-a002-9ad1599c9ede",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_b3acdcc9-e657-4dc6-8527-cb233f235b8a",
+      "type": "adjust",
+      "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_ba490ae7-b8de-40e9-bc59-7f7199020033",
+      "type": "adjust",
+      "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_037caf11-a014-448d-96ed-622e88521fc4",
+      "type": "adjust",
+      "itemId": "itm_8e4b237f-5b65-4d53-a5f5-c27cca08b486",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_d090ff07-4f8b-4059-9fe6-e29f4f52c333",
+      "type": "adjust",
+      "itemId": "itm_369db651-8068-49ab-81d1-9c65616a33d2",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_2e59af90-f72b-4973-b8c7-7f34d075c735",
+      "type": "adjust",
+      "itemId": "itm_76697b2c-546c-4207-82b8-9c2bdb39b6c3",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_186e55e4-0901-4b88-90de-391aad89ee9b",
+      "type": "adjust",
+      "itemId": "itm_731cac33-da2b-4773-ad6e-9f24f9cd426c",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_d3e946be-9628-4a13-b635-af196a2fa820",
+      "type": "adjust",
+      "itemId": "itm_bb84c43e-830a-416d-85e7-bf76c5075e8f",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_e0fba6e7-6a61-4821-b703-2e1c4476015c",
+      "type": "adjust",
+      "itemId": "itm_a7eeff24-f91a-4aaf-bcc1-49eb47d20679",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:18:35.772Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_ec3a6bf6-0600-4346-8d34-3c70294a9727",
+      "type": "adjust",
+      "itemId": "itm_c51ce925-e89b-4710-8c26-a0d99f9296f3",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.545Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_bcd6793b-071b-495d-8c1a-76bfed1baf09",
+      "type": "adjust",
+      "itemId": "itm_1e9f51ed-7c3c-496c-9f8a-052182d3ef8e",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.545Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_2644c12f-ce3c-4701-9db6-9b085e6c97a0",
+      "type": "adjust",
+      "itemId": "itm_f72d7153-0cbd-4197-ab34-e60caf2da39f",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.545Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_adf23fd2-ea66-4df2-bbb5-fb11bea07b20",
+      "type": "adjust",
+      "itemId": "itm_62ce6156-dad2-4110-bce4-24503a6dea6f",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.545Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_1700b43c-c3ae-47a3-9d8c-13e552d9c94e",
+      "type": "adjust",
+      "itemId": "itm_b4f17002-5c39-43e2-b098-e727efa8655a",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_841802e3-00e3-4aa8-a7bb-f24239ee3c5c",
+      "type": "adjust",
+      "itemId": "itm_d6e5ee7e-759c-4063-a079-fc4b15e553f4",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_6f3d1488-4def-4603-a44c-475c2c6cc4db",
+      "type": "adjust",
+      "itemId": "itm_3f4b0e20-ddeb-4183-8c31-e659cef007fd",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_d8c596a9-67fe-4eca-9715-e23fa6a03b13",
+      "type": "adjust",
+      "itemId": "itm_3ed7d726-226c-4326-b4af-82d108d336bf",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_c29b0d22-94fe-4d53-91a9-20f36afb46ba",
+      "type": "adjust",
+      "itemId": "itm_76554c05-be51-4f1a-ae6b-cefb10aa86e5",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_bfb5b80d-b229-410b-b45e-54c33fe19d29",
+      "type": "adjust",
+      "itemId": "itm_c04ec45d-5f95-4a15-be4a-8f0669b86d8d",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_588c3d63-7b21-4484-8e76-1a2b0814d433",
+      "type": "adjust",
+      "itemId": "itm_1fb0016a-df3f-4585-b1ed-918d13cac24d",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_da93367f-90ef-4d7a-9119-ed4502517b30",
+      "type": "adjust",
+      "itemId": "itm_6f66aa14-8c32-4d5d-994c-7decdb274cac",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_b7d7e53e-1315-424c-ba2e-927b1b3c39cc",
+      "type": "adjust",
+      "itemId": "itm_57e52731-92c3-44df-85b7-f99b695d7e75",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_04f45a62-8d92-4a2a-951f-d6ecf4cd9e94",
+      "type": "adjust",
+      "itemId": "itm_f93343a4-336a-4f0b-b3b8-ed12ae765510",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_1549968e-2ce6-41cd-a898-806e6995f3cd",
+      "type": "adjust",
+      "itemId": "itm_53c8f284-5225-41e3-a4dc-7d69ff36cc0c",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_679f68f5-dbf4-46ea-a65d-70b25b3a933f",
+      "type": "adjust",
+      "itemId": "itm_39a75ea4-cbaf-4143-a318-8e2dad359639",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_a38be99f-8bba-4496-b9e2-9120aa979384",
+      "type": "adjust",
+      "itemId": "itm_e75b4c41-ab42-401e-9c1e-318fced4d946",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_408c2ded-0834-4909-8a56-74e34764fd99",
+      "type": "adjust",
+      "itemId": "itm_39c00e19-e691-4385-83a7-0f7d534c648b",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_33eb3b48-a812-4735-aca5-09458c59ad7a",
+      "type": "adjust",
+      "itemId": "itm_96a42c0f-266f-4bf1-8630-ab74c7cb21a0",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_66be7d48-133a-488b-95af-a39b3f145527",
+      "type": "adjust",
+      "itemId": "itm_5a430fd2-daaf-4e02-95ac-b484f4629b8b",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_30b00f7a-1bb2-485d-9b53-b66597b46474",
+      "type": "adjust",
+      "itemId": "itm_0fe3c168-006c-4161-b22c-5739e246c5ed",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_f0dba380-6976-47b1-addf-92aa79311ea9",
+      "type": "adjust",
+      "itemId": "itm_f3b14c65-4f85-44ac-81db-479d7b20fce1",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_82a7f923-24e6-467c-9dc4-04c199336c09",
+      "type": "adjust",
+      "itemId": "itm_92cc318e-9717-4bd2-a73a-aa612a5f9959",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_0a1ea536-55ba-4107-bca1-2995364b214a",
+      "type": "adjust",
+      "itemId": "itm_e907bec3-4373-4be3-bb3f-2139ed4640ae",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_7a54c25b-567a-4b1c-a4f5-45b11f204f2f",
+      "type": "adjust",
+      "itemId": "itm_65b6664b-6278-4e95-bdc9-4d195c08ddf8",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_207a7cf0-ad69-44d1-aa8f-c9f4a83d4215",
+      "type": "adjust",
+      "itemId": "itm_046b7ad0-e7dd-4815-a372-007700f67855",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_f6dd9a4d-7e0e-486d-b226-dae7dcb5cedf",
+      "type": "adjust",
+      "itemId": "itm_d12dc32e-3ba8-4559-8cc6-19074d57c627",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_fecfe7db-fe6b-489d-afd0-0851ad1ef6c6",
+      "type": "adjust",
+      "itemId": "itm_14914e91-edd8-4764-86b8-158dd25dcf06",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_1e54485b-5209-4755-88b9-f62799e80967",
+      "type": "adjust",
+      "itemId": "itm_3a29a0dc-6d9b-4740-b7ee-f3940eaf0cbc",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_aea6b527-1190-489e-8804-5f17913e70e0",
+      "type": "adjust",
+      "itemId": "itm_9e6663db-4ec0-4481-8158-52e6fe48ec4e",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_db924cf4-09cc-4a9e-9b1e-9aa3ca978ac1",
+      "type": "adjust",
+      "itemId": "itm_42c51570-7070-4fb6-84de-33dad7076c80",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_034e7709-f72c-4c08-a4c3-92a60cadfb9f",
+      "type": "adjust",
+      "itemId": "itm_49b5d383-ece8-4abc-8e21-85272e96c668",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_7201a5c3-fbac-4e9e-8465-44dad28ed23e",
+      "type": "adjust",
+      "itemId": "itm_d046c528-330a-42f3-9723-d25759ddbcdc",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_d0d34a61-3498-4db2-aa5b-49c42e7a4d13",
+      "type": "adjust",
+      "itemId": "itm_651d3d5e-cc7e-401e-ae67-22fe599a337e",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_0cd54c1b-d75f-471d-92f3-90af299f811b",
+      "type": "adjust",
+      "itemId": "itm_e5cefadb-9838-4672-a7b3-8c71e6442944",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_331a977d-03bf-4d73-ae01-c75dc00b7c1b",
+      "type": "adjust",
+      "itemId": "itm_0f5f0c31-107c-4db5-a789-60f58b6096e8",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_4e73143a-9e3c-4b28-8363-f0351f51a976",
+      "type": "adjust",
+      "itemId": "itm_3886ba98-d629-43b0-8c96-da7da8bd4656",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.546Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_c2ca0f52-5f9e-4d41-87a7-615aca298117",
+      "type": "adjust",
+      "itemId": "itm_f509fb5e-4254-42b4-a85b-bf45612c9940",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_dbd0de4d-5e29-4fc5-87fb-257e243228cc",
+      "type": "adjust",
+      "itemId": "itm_a11ca27e-8adc-4531-b0de-2ff1827acfed",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_69b04654-22e6-44ba-94de-22449fc395bd",
+      "type": "adjust",
+      "itemId": "itm_336a302f-386f-40f2-a002-9ad1599c9ede",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_194af728-8505-4c56-a5e4-4f3c63af34b9",
+      "type": "adjust",
+      "itemId": "itm_d9e58062-c38f-47b3-a8bb-44ab75fb6104",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_bf44e73d-3638-4d90-bac4-86403f5f5ef4",
+      "type": "adjust",
+      "itemId": "itm_f149c9e4-58d8-423e-9479-a4427cef0681",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_1ff89be1-8a7b-4c2a-959d-720dc0a3250e",
+      "type": "adjust",
+      "itemId": "itm_8e4b237f-5b65-4d53-a5f5-c27cca08b486",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_68f5384b-dab1-417e-a371-8659df23d164",
+      "type": "adjust",
+      "itemId": "itm_369db651-8068-49ab-81d1-9c65616a33d2",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_9470dd4b-19a2-4b84-9e20-7c54fe3a4bbb",
+      "type": "adjust",
+      "itemId": "itm_76697b2c-546c-4207-82b8-9c2bdb39b6c3",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_2d0047c3-77bc-45a8-a873-8350c041c756",
+      "type": "adjust",
+      "itemId": "itm_731cac33-da2b-4773-ad6e-9f24f9cd426c",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_fa3f3f20-3278-4d26-80dd-b2c53b3eb9da",
+      "type": "adjust",
+      "itemId": "itm_bb84c43e-830a-416d-85e7-bf76c5075e8f",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_7fa5ce56-b875-48c4-8fc2-f9cbcdcc19e2",
+      "type": "adjust",
+      "itemId": "itm_a7eeff24-f91a-4aaf-bcc1-49eb47d20679",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_5db8bf33-f626-4428-a058-88cd509bd780",
+      "type": "adjust",
+      "itemId": "itm_9e4c83eb-6303-40df-a0e8-a7e36770d218",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_eda8fd4e-204d-423d-b1c1-0b352c48a9ee",
+      "type": "adjust",
+      "itemId": "itm_3010d32c-70ee-46aa-8a7f-7d8c70d6ab60",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_6daf91ad-9582-4f71-81c0-2fc88476dce6",
+      "type": "adjust",
+      "itemId": "itm_f9e56c95-6f9b-422c-bd6b-beffbefd0bc7",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_8ea97b36-ebeb-493d-8074-79aaf4ca3548",
+      "type": "adjust",
+      "itemId": "itm_f2194f5f-39e5-4645-b9e8-0140ad1b7061",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_0bd1d9ba-9052-4dcb-adb4-b3ffb9e9c160",
+      "type": "adjust",
+      "itemId": "itm_e982b492-7cf5-41a1-afa7-20cb99a69192",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_1e266fbd-5ccd-48cc-bf74-9b55a44a5450",
+      "type": "adjust",
+      "itemId": "itm_f1fab8f8-773c-4736-9b3e-cda10952453f",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_bac5f3ae-0349-4085-bbee-26fd0fd8836e",
+      "type": "adjust",
+      "itemId": "itm_385c2723-d8da-4937-8ee1-a9b5ea4850b4",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_3ecfa24f-fad5-4b27-be02-29fa923dd429",
+      "type": "adjust",
+      "itemId": "itm_8284df3c-47c6-4c83-8c1e-f3f5b63714eb",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    },
+    {
+      "id": "mv_eed012f0-526d-4b78-a6b7-44758efc7b41",
+      "type": "adjust",
+      "itemId": "itm_2cc60261-20cf-4cca-b837-95e2687e252b",
+      "qty": 0,
+      "reason": "Import XLSX",
+      "at": "2026-01-19T00:21:20.547Z",
+      "by": {
+        "id": "Felipe",
+        "name": "Felipe"
+      },
+      "beforeQty": 0,
+      "afterQty": 0,
+      "delta": 0
+    }
+  ]
+}
